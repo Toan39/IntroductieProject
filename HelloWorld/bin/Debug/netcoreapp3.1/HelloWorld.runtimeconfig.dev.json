@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\sring\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sring\\.nuget\\packages"
+    ]
+  }
+}
