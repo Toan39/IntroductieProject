@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sring\\source\\repos\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {}
+    "C:\\Users\\sring\\OneDrive\\Documenten\\GitHub\\IntroductieProject\\HelloWorld\\HelloWorld.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sring\\source\\repos\\HelloWorld\\HelloWorld\\HelloWorld.csproj": {
+    "C:\\Users\\sring\\OneDrive\\Documenten\\GitHub\\IntroductieProject\\HelloWorld\\HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sring\\source\\repos\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "projectUniqueName": "C:\\Users\\sring\\OneDrive\\Documenten\\GitHub\\IntroductieProject\\HelloWorld\\HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "C:\\Users\\sring\\source\\repos\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+        "projectPath": "C:\\Users\\sring\\OneDrive\\Documenten\\GitHub\\IntroductieProject\\HelloWorld\\HelloWorld.csproj",
         "packagesPath": "C:\\Users\\sring\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sring\\source\\repos\\HelloWorld\\HelloWorld\\obj\\",
+        "outputPath": "C:\\Users\\sring\\OneDrive\\Documenten\\GitHub\\IntroductieProject\\HelloWorld\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sring\\AppData\\Roaming\\NuGet\\NuGet.Config",
