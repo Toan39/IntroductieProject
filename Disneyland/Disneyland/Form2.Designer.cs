@@ -82,9 +82,9 @@
             this.label2.ForeColor = System.Drawing.Color.Snow;
             this.label2.Location = new System.Drawing.Point(280, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(264, 41);
+            this.label2.Size = new System.Drawing.Size(246, 39);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Disney land paris\r\n";
+            this.label2.Text = "Disneyland paris\r\n";
             // 
             // pictureBox1
             // 
