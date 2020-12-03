@@ -14,7 +14,7 @@ namespace Disneyland
     {
         public Form4()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -23,5 +23,6 @@ namespace Disneyland
             home.Show();
             this.Hide();
         }
+        //private void datePicker()
     }
 }

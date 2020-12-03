@@ -23,5 +23,11 @@ namespace Disneyland
             date.Show();
             this.Hide();
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+           label6.Text = trackBar1.Value.ToString();
+
+        }
     }
 }

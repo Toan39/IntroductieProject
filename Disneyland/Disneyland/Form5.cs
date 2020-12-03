@@ -44,5 +44,6 @@ namespace Disneyland
             lijst.Show();
             this.Hide();
         }
+        //tijdfunctie
     }
 }
