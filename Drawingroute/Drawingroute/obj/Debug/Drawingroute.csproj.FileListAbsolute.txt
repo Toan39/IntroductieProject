@@ -1,0 +1,9 @@
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csprojAssemblyReference.cache
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.Properties.Resources.resources
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csproj.GenerateResource.cache
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csproj.CoreCompileInputs.cache
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\bin\Debug\Drawingroute.exe.config
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\bin\Debug\Drawingroute.exe
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\bin\Debug\Drawingroute.pdb
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.exe
+C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.pdb
