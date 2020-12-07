@@ -24,16 +24,12 @@ namespace Disneyland
             this.Hide();
         }
 
-        private void btnGetItem_Click(object sender, EventArgs e)
+        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxItem.Items.Clear();
             foreach (string s in checkedListBox.CheckedItems)
                 listBoxItem.Items.Add(s);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            listBoxItem.Invalidate();
         }
     }
 }

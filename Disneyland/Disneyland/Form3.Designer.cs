@@ -34,7 +34,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkedListBox = new System.Windows.Forms.CheckedListBox();
             this.listBoxItem = new System.Windows.Forms.ListBox();
-            this.btnGetItem = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -42,22 +41,24 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             label1.Location = new System.Drawing.Point(72, 34);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(127, 17);
+            label1.Size = new System.Drawing.Size(153, 24);
             label1.TabIndex = 5;
             label1.Text = "Choose your rides:";
-            label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(116, 325);
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(114, 347);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(559, 91);
             this.button1.TabIndex = 1;
             this.button1.Text = "GO!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
@@ -72,7 +73,8 @@
             // 
             // checkedListBox
             // 
-            this.checkedListBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.checkedListBox.BackColor = System.Drawing.Color.White;
+            this.checkedListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox.FormattingEnabled = true;
             this.checkedListBox.Items.AddRange(new object[] {
             "\'it\'s a small world\'",
@@ -114,28 +116,20 @@
             "Thunder Mesa Riverboat Landing"});
             this.checkedListBox.Location = new System.Drawing.Point(12, 61);
             this.checkedListBox.Name = "checkedListBox";
-            this.checkedListBox.Size = new System.Drawing.Size(295, 259);
+            this.checkedListBox.Size = new System.Drawing.Size(295, 256);
             this.checkedListBox.TabIndex = 3;
+            this.checkedListBox.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_SelectedIndexChanged);
             // 
             // listBoxItem
             // 
-            this.listBoxItem.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.listBoxItem.BackColor = System.Drawing.Color.White;
+            this.listBoxItem.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxItem.FormattingEnabled = true;
-            this.listBoxItem.ItemHeight = 16;
+            this.listBoxItem.ItemHeight = 15;
             this.listBoxItem.Location = new System.Drawing.Point(544, 61);
             this.listBoxItem.Name = "listBoxItem";
-            this.listBoxItem.Size = new System.Drawing.Size(244, 260);
+            this.listBoxItem.Size = new System.Drawing.Size(244, 259);
             this.listBoxItem.TabIndex = 4;
-            // 
-            // btnGetItem
-            // 
-            this.btnGetItem.Location = new System.Drawing.Point(576, 27);
-            this.btnGetItem.Name = "btnGetItem";
-            this.btnGetItem.Size = new System.Drawing.Size(158, 24);
-            this.btnGetItem.TabIndex = 6;
-            this.btnGetItem.Text = "click to see your rides";
-            this.btnGetItem.UseVisualStyleBackColor = true;
-            this.btnGetItem.Click += new System.EventHandler(this.btnGetItem_Click);
             // 
             // Form3
             // 
@@ -143,7 +137,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnGetItem);
             this.Controls.Add(label1);
             this.Controls.Add(this.listBoxItem);
             this.Controls.Add(this.checkedListBox);
@@ -163,6 +156,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox;
         private System.Windows.Forms.ListBox listBoxItem;
-        private System.Windows.Forms.Button btnGetItem;
     }
 }
