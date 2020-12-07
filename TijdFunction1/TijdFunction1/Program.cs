@@ -8,6 +8,15 @@ using System.Linq;
 
 namespace TimeFunction1
 {
+
+public class walktime 
+    {
+        public string StartPoint { get; set; }
+        public string EndPoint { get; set; }
+        public int Distance { get; set; }
+        public float WalkTime { get; set; }
+    }
+
     class TimeMethod : Form
     {
         //varabiales declarations//
@@ -17,8 +26,7 @@ namespace TimeFunction1
         int walkdistance; // distance between 2 attractions
         int attractions = 10; //total number of attractions
         //public List<Elem> elements = new List<Elem> { };
-
-        public TimeMethod()
+            public TimeMethod()
         {  
             ////declarations of panel////
 
@@ -35,40 +43,13 @@ namespace TimeFunction1
         public void route1_Click(object sender, EventArgs ea)
         {
             string connectionString;
-            SqlConnection connect;
+            connectionString = @"Data Source=localhost; Initial Catalog = Tim123; Integrated Security=True;"; /* User ID = sam; Password = dat123;*/
 
-            connectionString = @"Data Source=DESKTOP-Q28TMM2;Initial Catalog=Tim123;User ID=sam;Password=dat123";
-
-
-
-            connect = new SqlConnection(connectionString);
-
-            String  sql, output = "";
-            sql = "SELECT AttractionName, WaitTime FROM AverageQueueTime ";
-            SqlCommand command = new SqlCommand(sql, connect);
-
-            connect.Open();
-            SqlDataReader reader;
-            reader = command.ExecuteReader();
-            while (reader.Read())
+            using (var connection = new SqlConnection(connectionString))
             {
-                output = output + reader.GetValue(0) + "," + reader.GetValue(1)+ ",";
-                //attractionName = attractionName + reader.GetValue(0) + ",";
-                //waitTime = waitTime + reader.GetValue(1) + ",";
-
+                var results = connection.Query<walktime>(Select * from TheDataWalkTime).ToList(); //Package pakt hem niet?
+                return results;
             }
-
-            List<string> elem = output.Split(',').ToList();
-            //List<string> queuetime = waitTime.Split(',').ToList();
-            //List<string> names = attractionName.Split(',').ToList();
-
-            /*sql.ToList();*/ // converts datatable to list
-            elem.ForEach(Console.WriteLine);    //shows the list in console
-
-
-            reader.Close();
-            command.Dispose();
-            connect.Close();
 
         }
 
@@ -81,6 +62,8 @@ namespace TimeFunction1
         //draw event for time
 
     }
+
+
     class Timefunction1
     {
         static void Main()
