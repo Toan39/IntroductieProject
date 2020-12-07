@@ -24,11 +24,11 @@ namespace Disneyland
 
         private void gMapControl1_Load(object sender, EventArgs e)
         {
-            gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
+            gMapControl1.MapProvider = GMapProviders.GoogleMap;
             gMapControl1.Position = new GMap.NET.PointLatLng(48.867374, 2.784018);
             gMapControl1.MinZoom = 5;
             gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 12;
+            gMapControl1.Zoom = 13;
             gMapControl1.DragButton = MouseButtons.Left;
         }
 
