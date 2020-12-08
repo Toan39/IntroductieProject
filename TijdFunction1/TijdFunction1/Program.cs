@@ -5,11 +5,19 @@ using System.Drawing;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Dapper;
 
 namespace TimeFunction1
 {
+    public class quetime
+    {
+        public string Number { get; set; }
+        public string Name { get; set; }
+        public string AverageQueTime { get; set; }
+        public string RideTime { get; set; }
+    }
 
-public class walktime 
+    public class walktime 
     {
         public string StartPoint { get; set; }
         public string EndPoint { get; set; }
@@ -25,7 +33,7 @@ public class walktime
         int restTime = 500; //unit in minutes
         int walkdistance; // distance between 2 attractions
         int attractions = 10; //total number of attractions
-        //public List<Elem> elements = new List<Elem> { };
+
             public TimeMethod()
         {  
             ////declarations of panel////
@@ -43,11 +51,12 @@ public class walktime
         public void route1_Click(object sender, EventArgs ea)
         {
             string connectionString;
-            connectionString = @"Data Source=localhost; Initial Catalog = Tim123; Integrated Security=True;"; /* User ID = sam; Password = dat123;*/
 
-            using (var connection = new SqlConnection(connectionString))
+            connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True;";
+
+            using (var connect = new SqlConnection(connectionString))
             {
-                var results = connection.Query<walktime>(Select * from TheDataWalkTime).ToList(); //Package pakt hem niet?
+                var results = connect.Query<quetime>(Select * from TheDataQueTime).ToList();
                 return results;
             }
 
@@ -60,9 +69,7 @@ public class walktime
         }
  
         //draw event for time
-
     }
-
 
     class Timefunction1
     {
