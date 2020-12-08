@@ -29,5 +29,10 @@ namespace Disneyland
            label6.Text = trackBar1.Value.ToString();
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
