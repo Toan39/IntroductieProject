@@ -10,3 +10,7 @@ C:\Users\Toan Nguyen\source\repos\IntroductieProject\TijdFunction1\TijdFunction1
 C:\Users\Toan Nguyen\source\repos\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csproj.CopyComplete
 C:\Users\Toan Nguyen\source\repos\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.exe
 C:\Users\Toan Nguyen\source\repos\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.pdb
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csprojAssemblyReference.cache
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csproj.CoreCompileInputs.cache
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.exe
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.pdb

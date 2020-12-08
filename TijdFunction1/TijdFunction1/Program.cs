@@ -48,20 +48,27 @@ namespace TimeFunction1
         }
 
         ////void methods////
+        
+        public List<quetime> ReadAll()
+            {
+                string connectionString;
+                string sql;
+
+                connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True;";
+                sql = "SELECT * FROM TheDataQueTime";
+
+                using (var connect = new SqlConnection(connectionString))
+                {
+                    //DataTable dataquetime = connectionString.GetSchema("TheDataQueTime"); 
+                    var result = connect.Query<quetime>(sql).ToList();
+                    return result;
+                }
+            }
         public void route1_Click(object sender, EventArgs ea)
         {
-            string connectionString;
-
-            connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True;";
-
-            using (var connect = new SqlConnection(connectionString))
-            {
-                //DataTable dataquetime = connectionString.GetSchema("TheDataQueTime"); 
-                var results = connect.Query<quetime>(Select * from TheDataQueTime).ToList();
-                return results;
-            }
-
+            // button that prints the result
         }
+
 
         public void Time(int waitTime, int walkdistance)
         {            
