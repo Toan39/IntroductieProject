@@ -13,8 +13,8 @@ namespace TimeFunction1
     {
         public string Number { get; set; }
         public string Name { get; set; }
-        public string AverageQueTime { get; set; }
-        public string RideTime { get; set; }
+        public float AverageQueTime { get; set; }
+        public float RideTime { get; set; }
     }
 
     class TimeMethod : Form
