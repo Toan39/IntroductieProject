@@ -8,3 +8,13 @@ C:\Users\Martijn\source\repos\Datepickertest\Datepickertest\obj\Debug\Datepicker
 C:\Users\Martijn\source\repos\Datepickertest\Datepickertest\obj\Debug\Datepickertest.exe
 C:\Users\Martijn\source\repos\Datepickertest\Datepickertest\obj\Debug\Datepickertest.pdb
 C:\Users\Martijn\source\repos\Datepickertest\Datepickertest\obj\Debug\Datepickertest.Form1.resources
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\bin\Debug\Datepickertest.exe.config
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\bin\Debug\Datepickertest.exe
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\bin\Debug\Datepickertest.pdb
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.csprojAssemblyReference.cache
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.DatePicker.resources
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.Properties.Resources.resources
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.csproj.GenerateResource.cache
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.csproj.CoreCompileInputs.cache
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.exe
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Datepickertest\Datepickertest\obj\Debug\Datepickertest.pdb

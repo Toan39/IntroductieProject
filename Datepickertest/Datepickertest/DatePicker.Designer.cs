@@ -1,6 +1,6 @@
 ﻿namespace Datepickertest
 {
-    partial class Form1
+    partial class DatePicker
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,13 @@
             this.label1.Size = new System.Drawing.Size(350, 727);
             this.label1.TabIndex = 0;
             // 
-            // Form1
+            // DatePicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 767);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "DatePicker";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
