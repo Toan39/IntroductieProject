@@ -49,7 +49,6 @@ C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.Form3.resources
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.Form4.resources
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.Form5.resources
-C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.Form6.resources
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.Properties.Resources.resources
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland gui.csproj.GenerateResource.cache
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland gui.csproj.CoreCompileInputs.cache

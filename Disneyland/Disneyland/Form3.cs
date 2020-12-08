@@ -31,6 +31,5 @@ namespace Disneyland
                 listBoxItem.Items.Add(s);
             listBoxItem.Invalidate();
         }
-
     }
 }

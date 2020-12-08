@@ -40,8 +40,6 @@ namespace Disneyland
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form6 lijst = new Form6();
-            lijst.Show();
             this.Hide();
         }
         //tijdfunctie
