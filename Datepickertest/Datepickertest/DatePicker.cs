@@ -15,23 +15,24 @@ namespace Datepickertest
 {
 	public partial class DatePicker : Form
 	{
-		List<datum> datumlist = new List<datum>();
-		int selectedmonth = 3; //waarden door gebruiker gekozen
-		int selectedyear = 2021; //waarden door gebruiker gekozen
+		int selectedweek = 3; //waarde door gebruiker gekozen
+
+		List<datum> datalist = new List<datum>(); //de sql data geconverteerd naar een c# lijst
+		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
 		SqlConnection con;
 		public DatePicker()
 		{
 			InitializeComponent();
-			ReadData();
-			Console.WriteLine(ReturnBestDate());
+			ReadSqlData();
+			label2.Text = ReturnBestDate();
 		}
 
 		private void maakconnectie()
 		{
-			string path = "Data Source=localhost;Initial Catalog=RainData;Integrated Security=True"; //database path
+			string path = "Data Source=MARTIJNSPC\\VISITORS;Initial Catalog=RainData;Integrated Security=True"; //vul hier je eigen database path in
 			con = new SqlConnection(path);
 		}
-		public void ReadData()
+		public void ReadSqlData()
 		{
 			maakconnectie();
 			using (con)
@@ -47,37 +48,49 @@ namespace Datepickertest
 				int t = 0;
 				while (reader.Read())
 				{
-					datumlist.Add(new datum());
-					datumlist[t].week = int.Parse(reader.GetValue(0).ToString());
-					datumlist[t].date = reader.GetValue(1).ToString();
-					datumlist[t].neerslag = float.Parse(reader.GetValue(2).ToString());
+					datalist.Add(new datum());
+					datalist[t].week = int.Parse(reader.GetValue(0).ToString());
+					DateTime timedate = DateTime.Parse(reader.GetValue(1).ToString()).Date;
+					string shortdate = timedate.ToShortDateString();
+					datalist[t].date = shortdate;
+					datalist[t].neerslag = reader.GetValue(2).ToString();
 					t++;
 				}
 				con.Close();
 			}
 		}
-		public string ReturnBestDate()
+		public void MaakSelectedWeeklist()
 		{
-			//de list wordt gesorteerd op neerslag
-			datumlist = datumlist.OrderBy(x => x.neerslag).ToList();
-
-			//print de hele list, gesorteerd.
+			datalist = datalist.OrderBy(x => x.neerslag).ToList();  //Sorteren op neerslag.
+			//gaat alle data af, als de week gelijk is aan de week die de gebruiker gekozen heeft, wordt die kolom met data in de selectedweeklist gekopieerd.
+			//deze lijst is ook gesorteerd op neerslag. 
 			int i = 0;
-			foreach (datum date in datumlist)
+			int j = 0;
+			foreach (datum date in datalist)
 			{
-				label1.Text = label1.Text + "week " + datumlist[i].week + "        " + datumlist[i].date + "         Neerslag: " + datumlist[i].neerslag + "\n";
+				if (selectedweek == datalist[i].week)
+				{
+					label1.Text = label1.Text + "week" + datalist[i].week + " " + datalist[i].date + " Neerslag: " + datalist[i].neerslag + "\n";     //deze lijn zou weg kunnen in main programma
+					selectedweeklist.Add(new datum());
+					selectedweeklist[j] = datalist[i];
+					j++;
+				}
 				i++;
 			}
-
-			//print beste dag
-			return ("beste dag: " + "\n" + datumlist[0].date + "         Neerslag: " + datumlist[0].neerslag);
 		}
 
+		public string ReturnBestDate()
+		{
+			MaakSelectedWeeklist();
+			return (selectedweeklist[0].date); //Beste dag.
+		}
+
+		//De elementen van de lijsten.
 		internal class datum
 		{
 			public int week;
 			public string date;
-			public float neerslag;
+			public string neerslag;
 		}
 	}
 }
