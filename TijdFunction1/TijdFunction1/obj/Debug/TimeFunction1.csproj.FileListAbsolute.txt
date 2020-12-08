@@ -78,3 +78,14 @@ C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunct
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\ru\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\GMap.NET.Core.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.xml

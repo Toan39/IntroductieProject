@@ -8,7 +8,6 @@ using System.Linq;
 using Dapper;
 using System.Collections;
 
-
 namespace TimeFunction1
 {
     public partial class TimeMethod : Form
