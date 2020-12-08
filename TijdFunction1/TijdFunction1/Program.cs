@@ -56,6 +56,7 @@ namespace TimeFunction1
 
             using (var connect = new SqlConnection(connectionString))
             {
+                //DataTable dataquetime = connectionString.GetSchema("TheDataQueTime"); 
                 var results = connect.Query<quetime>(Select * from TheDataQueTime).ToList();
                 return results;
             }
