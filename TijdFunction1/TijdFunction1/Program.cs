@@ -17,14 +17,6 @@ namespace TimeFunction1
         public string RideTime { get; set; }
     }
 
-    public class walktime 
-    {
-        public string StartPoint { get; set; }
-        public string EndPoint { get; set; }
-        public int Distance { get; set; }
-        public float WalkTime { get; set; }
-    }
-
     class TimeMethod : Form
     {
         //varabiales declarations//
