@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label1.Location = new System.Drawing.Point(72, 34);
+            label1.Location = new System.Drawing.Point(70, 38);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(153, 24);
             label1.TabIndex = 5;
@@ -57,10 +58,11 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(114, 347);
+            this.button1.Location = new System.Drawing.Point(402, 345);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(559, 91);
+            this.button1.Size = new System.Drawing.Size(308, 93);
             this.button1.TabIndex = 1;
             this.button1.Text = "GO!";
             this.button1.UseVisualStyleBackColor = false;
@@ -120,9 +122,9 @@
             "Star Tours: The Adventure Continue",
             "Star Wars Hyperspace Mountain",
             "Thunder Mesa Riverboat Landing"});
-            this.checkedListBox.Location = new System.Drawing.Point(12, 61);
+            this.checkedListBox.Location = new System.Drawing.Point(12, 90);
             this.checkedListBox.Name = "checkedListBox";
-            this.checkedListBox.Size = new System.Drawing.Size(295, 252);
+            this.checkedListBox.Size = new System.Drawing.Size(291, 234);
             this.checkedListBox.TabIndex = 3;
             this.checkedListBox.SelectedIndexChanged += new System.EventHandler(this.checkedListBox_SelectedIndexChanged);
             // 
@@ -133,9 +135,9 @@
             this.listBoxItem.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxItem.FormattingEnabled = true;
             this.listBoxItem.ItemHeight = 15;
-            this.listBoxItem.Location = new System.Drawing.Point(496, 193);
+            this.listBoxItem.Location = new System.Drawing.Point(510, 204);
             this.listBoxItem.Name = "listBoxItem";
-            this.listBoxItem.Size = new System.Drawing.Size(292, 120);
+            this.listBoxItem.Size = new System.Drawing.Size(278, 120);
             this.listBoxItem.TabIndex = 4;
             // 
             // label3
@@ -212,10 +214,22 @@
             "10",
             "11",
             "12"});
-            this.comboBox2.Location = new System.Drawing.Point(595, 113);
+            this.comboBox2.Location = new System.Drawing.Point(595, 124);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(78, 24);
             this.comboBox2.TabIndex = 13;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(74, 345);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(322, 93);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Click to get information about the rides";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form3
             // 
@@ -223,6 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -252,5 +267,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button button2;
     }
 }
