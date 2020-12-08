@@ -60,8 +60,8 @@ namespace TimeFunction1
 
         public void Time(int waitTime, int walkdistance)
         {            
-            double walkTime = walkdistance/1.4; //walkdistance also acquired from database
-            double estimatedTime = waitTime + walkTime;
+            //double walkTime;
+            //double estimatedTime = queTime + ridetime+ walkTime;
         }
  
         //draw event for time
