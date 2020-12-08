@@ -29,10 +29,6 @@ namespace TimeFunction1
     {
         //varabiales declarations//
         Button route;
-        public int WaitTime { get; set; }
-        int restTime = 500; //unit in minutes
-        int walkdistance; // distance between 2 attractions
-        int attractions = 10; //total number of attractions
 
             public TimeMethod()
         {  
