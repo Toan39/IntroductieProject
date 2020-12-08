@@ -24,6 +24,7 @@ namespace TimeFunction1
         //varabiales declarations//
         Button route;
         ComboBox combo;
+        DataGridView dat;
 
         public TimeMethod()
         {  
@@ -44,7 +45,13 @@ namespace TimeFunction1
             combo.Size = new Size(50, 20);
             combo.Location = new Point(900, 120);
             this.Controls.Add(combo);
-            
+
+            // Viewer//
+            dat= new DataGridView();
+            dat.Size = new Size(500, 500);
+            dat.Location = new Point(1300, 120);
+            this.Controls.Add(dat);
+
             //Draw-eventHandler//
             //this.Paint += this.Draw;
 
@@ -72,8 +79,10 @@ namespace TimeFunction1
 
         public void Button1(object o, EventArgs ea)
         {
-            combo.DataSource = DataService.Times();
-            combo.ValueMember= "AverageQueTime";
+            //combo.DataSource = DataService.Times();
+            //combo.ValueMember= "AverageQueTime";
+
+            dat.DataSource = DataService.Times();
         }
 
         //public void WriteToConsole(IEnumerable Times)
