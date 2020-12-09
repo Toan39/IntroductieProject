@@ -43,7 +43,6 @@ namespace TimeFunction1
             dat_2.Size = new Size(500, 500);
             dat_2.Location = new Point(800, 120);
             this.Controls.Add(dat_2);
-
         }
 
         ////void methods////
@@ -55,11 +54,11 @@ namespace TimeFunction1
             int i = 0;
             foreach (quetime Number in DataService.QTimes())
             {
-               if (DataService.QTimes().Count < 45)
+               if (DataService.QTimes().Count < 45)     //if statement onnodig
                 {
                     totaltime.Add(new float());
                     totaltime[i] = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime; ;
-                    //Console.WriteLine(totaltime[i]);
+                    Console.WriteLine(totaltime[i]);
                     i++;
                     
                 }
