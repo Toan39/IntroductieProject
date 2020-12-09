@@ -18,7 +18,7 @@ namespace TimeFunction1
         Button route;
         DataGridView dat_1;
         DataGridView dat_2;
-      //  List<decimal> totaltime = new List<decimal>();
+        List<float> totaltime = new List<float>();
         public TimeMethod()
         {  
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -53,14 +53,16 @@ namespace TimeFunction1
             dat_1.DataSource = DataService.QTimes();
             dat_2.DataSource = DataService.WTimes();
             int i = 0;
-            int j = 0;
+           
             foreach (quetime Number in DataService.QTimes())
             {
-                
-                float x = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime;     //deze lijn zou weg kunnen in main programma
-                Console.WriteLine(x);
-                j++;
-                
+               // if (DataService.QTimes().Count < 44)
+                //{
+                    float x = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime;
+                    totaltime[i] = DataService.QTimes()[i].AverageQueTime;
+                    Console.WriteLine(x);
+                    
+               // }
                 i++;
             }
             //var totaltime = DataService.AvgQTimes().Zip(DataService.RTime(), (first, second) => first + second);
