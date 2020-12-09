@@ -1,4 +1,4 @@
-﻿using GMap.NET.MapProviders;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,16 +22,6 @@ namespace Disneyland
            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
 
-        private void gMapControl1_Load(object sender, EventArgs e)
-        {
-            gMapControl1.MapProvider = GMapProviders.GoogleMap;
-            gMapControl1.Position = new GMap.NET.PointLatLng(48.867374, 2.784018);
-            gMapControl1.MinZoom = 5;
-            gMapControl1.MaxZoom = 100;
-            gMapControl1.Zoom = 13;
-            gMapControl1.DragButton = MouseButtons.Left;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             PrintDialog print = new PrintDialog();
@@ -43,6 +33,14 @@ namespace Disneyland
             Form3 rides = new Form3();
             rides.Show();
             this.Hide();
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        //    this.webBrowser1.Navigate("https://www.google.nl/maps/dir/It's+a+Small+World,+Disneyland/Adventure+Isle,+/Pirates+of+the+Caribbean,+Disneyland/");                                                               ");
+            webBrowser1.ScriptErrorsSuppressed = true;
+            
         }
         //tijdfunctie
     }

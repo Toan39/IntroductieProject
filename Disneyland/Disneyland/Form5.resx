@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="webBrowser1.Url" xml:space="preserve">
+    <value>https://www.google.nl/maps/dir/Adventure+Isle,+Adventureland,+Chessy,+Frankrijk/Parc+Walt+Disney+Studios/@48.8657775,2.784829,14.8z/data=!4m13!4m12!1m5!1m1!1s0x47e61ce23d36f61d:0x9b203b1bb69658d5!2m2!1d2.7736325!2d48.8725565!1m5!1m1!1s0x47e61d18cbe8514f:0xa483783469fa426!2m2!1d2.7802951!2d48.8680419</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

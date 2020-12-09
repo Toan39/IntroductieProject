@@ -84,3 +84,7 @@ C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Disneyland\Disneyla
 C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland gui.csproj.CopyComplete
 C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.exe
 C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Disneyland\Disneyland\obj\Debug\Disneyland.pdb
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\bin\Debug\GoogleApi.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Disneyland\Disneyland\bin\Debug\GoogleApi.xml
