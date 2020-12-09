@@ -158,3 +158,14 @@ C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunct
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.xml
 >>>>>>> e3013365bc940136b137920b52b66c87fce182ce
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\GMap.NET.Core.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.xml
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.xml
