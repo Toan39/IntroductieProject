@@ -7,6 +7,8 @@ using System;
 using System.Linq;
 using Dapper;
 using System.Collections;
+using System.Globalization;
+
 
 namespace TimeFunction1
 {
@@ -16,9 +18,10 @@ namespace TimeFunction1
         Button route;
         DataGridView dat_1;
         DataGridView dat_2;
-
+      //  List<decimal> totaltime = new List<decimal>();
         public TimeMethod()
         {  
+            CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             ////declarations of panel////
 
             //Route-button//
@@ -46,10 +49,29 @@ namespace TimeFunction1
         ////void methods////
         private void Button1(object o, EventArgs ea)
         {
+            
             dat_1.DataSource = DataService.QTimes();
             dat_2.DataSource = DataService.WTimes();
+            int i = 0;
+            int j = 0;
+            foreach (quetime Number in DataService.QTimes())
+            {
+                
+                float x = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime;     //deze lijn zou weg kunnen in main programma
+                Console.WriteLine(x);
+                j++;
+                
+                i++;
+            }
+            //var totaltime = DataService.AvgQTimes().Zip(DataService.RTime(), (first, second) => first + second);
 
+            //foreach (var item in totaltime)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //var totaltime = zip(DataService.AvgQTimes , DataService.RTime)];
         }
+       
 
         public void Time(int waitTime, int walkdistance)
         {            
