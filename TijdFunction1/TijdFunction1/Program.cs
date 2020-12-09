@@ -25,20 +25,20 @@ namespace TimeFunction1
             route = new Button();
             route.Text = "route";
             route.Size = new Size(50, 20);
-            route.Location = new Point(600, 120);
+            route.Location = new Point(600, 100);
             this.Controls.Add(route);
             route.Click += new EventHandler(Button1);
       
             // Viewer 1//
             dat_1= new DataGridView();
             dat_1.Size = new Size(500, 500);
-            dat_1.Location = new Point(1300, 120);
+            dat_1.Location = new Point(200, 120);
             this.Controls.Add(dat_1);
 
             // Viewer 2//
             dat_2 = new DataGridView();
             dat_2.Size = new Size(500, 500);
-            dat_2.Location = new Point(500, 520);
+            dat_2.Location = new Point(800, 120);
             this.Controls.Add(dat_2);
 
         }

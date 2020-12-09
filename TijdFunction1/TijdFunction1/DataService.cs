@@ -17,7 +17,7 @@ namespace TimeFunction1
             string connectionString;
             string sql;
 
-            connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True ";
+            connectionString = @"Data Source=LAPTOP-40E47QF1\GABRIEL;Initial Catalog=Quetime;Integrated Security=True";
             sql = "select * from TheDataQueTime";
 
             using (var connect = new SqlConnection(connectionString))
@@ -32,7 +32,7 @@ namespace TimeFunction1
             string connectionString;
             string sql;
 
-            connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True ";
+            connectionString = @"Data Source=LAPTOP-40E47QF1\GABRIEL;Initial Catalog=DataWalkTime;Integrated Security=True";
             sql = "select * from TheDataWalkTime";
 
             using (var connect = new SqlConnection(connectionString))
