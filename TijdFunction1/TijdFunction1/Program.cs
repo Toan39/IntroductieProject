@@ -53,19 +53,17 @@ namespace TimeFunction1
             dat_1.DataSource = DataService.QTimes();
             dat_2.DataSource = DataService.WTimes();
             int i = 0;
-            int j = 0;
             foreach (quetime Number in DataService.QTimes())
             {
                if (DataService.QTimes().Count < 45)
                 {
-                    float x = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime;
-                    totaltime[j] = x;
-                    Console.WriteLine(x);
-                    Console.WriteLine(i);
+                    totaltime.Add(new float());
+                    totaltime[i] = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime; ;
+                    //Console.WriteLine(totaltime[i]);
+                    i++;
                     
-                    j++;
                 }
-                i++;
+
             }
             //var totaltime = DataService.AvgQTimes().Zip(DataService.RTime(), (first, second) => first + second);
 
