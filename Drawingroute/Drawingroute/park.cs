@@ -20,6 +20,8 @@ namespace Drawingroute
             om de paths van iedere attractie in een list te vullen*/
             attractions.Add(new attraction(new Point(100, 100), "kaas", 4, 4));
             attractions.Add(new attraction(new Point(100, 300), "koos", 4, 4));
+
+
             foreach (attraction attraction in attractions)
             {
                 if(attraction.Name == "kaas")
@@ -33,6 +35,7 @@ namespace Drawingroute
                     }
                 }
 
+                /*
                 if(attraction.Name == "koos")
                 {
                     foreach (attraction attractie in attractions)
@@ -43,6 +46,7 @@ namespace Drawingroute
                         }
                     }
                 }
+                */
             }
         }
 

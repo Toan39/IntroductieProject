@@ -7,3 +7,12 @@ C:\Users\vince\source\repos\Drawingroute\Drawingroute\bin\Debug\Drawingroute.exe
 C:\Users\vince\source\repos\Drawingroute\Drawingroute\bin\Debug\Drawingroute.pdb
 C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.exe
 C:\Users\vince\source\repos\Drawingroute\Drawingroute\obj\Debug\Drawingroute.pdb
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\bin\Debug\Drawingroute.exe.config
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\bin\Debug\Drawingroute.exe
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\bin\Debug\Drawingroute.pdb
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csprojAssemblyReference.cache
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.Properties.Resources.resources
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csproj.GenerateResource.cache
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.csproj.CoreCompileInputs.cache
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.exe
+C:\Users\sring\OneDrive\Documenten\GitHub\IntroductieProject\Drawingroute\Drawingroute\obj\Debug\Drawingroute.pdb
