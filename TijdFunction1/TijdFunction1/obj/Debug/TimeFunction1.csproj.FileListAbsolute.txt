@@ -78,6 +78,7 @@ C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunct
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\ru\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hant\System.Spatial.resources.dll
+<<<<<<< HEAD
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\TijdFunction1.exe.config
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\TijdFunction1.exe
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\TijdFunction1.pdb
@@ -144,3 +145,16 @@ C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFun
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csproj.CopyComplete
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.exe
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TijdFunction1.pdb
+=======
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\GMap.NET.Core.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\System.Data.SQLite.xml
+>>>>>>> e3013365bc940136b137920b52b66c87fce182ce

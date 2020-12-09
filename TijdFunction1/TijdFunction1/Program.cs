@@ -8,23 +8,14 @@ using System.Linq;
 using Dapper;
 using System.Collections;
 
-
 namespace TimeFunction1
 {
-    public class quetime
-    {
-        public string Number { get; set; }
-        public string Name { get; set; }
-        public float AverageQueTime { get; set; }
-        public float RideTime { get; set; }
-    }
-
-    class TimeMethod : Form
+    public partial class TimeMethod : Form
     {
         //varabiales declarations//
         Button route;
-        ComboBox combo;
-        DataGridView dat;
+        DataGridView dat_1;
+        DataGridView dat_2;
 
         public TimeMethod()
         {  
@@ -38,88 +29,34 @@ namespace TimeFunction1
             this.Controls.Add(route);
             route.Click += new EventHandler(Button1);
       
+            // Viewer 1//
+            dat_1= new DataGridView();
+            dat_1.Size = new Size(500, 500);
+            dat_1.Location = new Point(1300, 120);
+            this.Controls.Add(dat_1);
 
-            //Combo-box//
-            combo = new ComboBox();
-            combo.Text = "combo";
-            combo.Size = new Size(50, 20);
-            combo.Location = new Point(900, 120);
-            this.Controls.Add(combo);
-
-            // Viewer//
-            dat= new DataGridView();
-            dat.Size = new Size(500, 500);
-            dat.Location = new Point(1300, 120);
-            this.Controls.Add(dat);
-
-            //Draw-eventHandler//
-            //this.Paint += this.Draw;
+            // Viewer 2//
+            dat_2 = new DataGridView();
+            dat_2.Size = new Size(500, 500);
+            dat_2.Location = new Point(500, 520);
+            this.Controls.Add(dat_2);
 
         }
 
         ////void methods////
-        public class DataService
+        private void Button1(object o, EventArgs ea)
         {
-            public static List<quetime> Times()
-            {
-                string connectionString;
-                string sql;
+            dat_1.DataSource = DataService.QTimes();
+            dat_2.DataSource = DataService.WTimes();
 
-                connectionString = @"Data Source=localhost; Initial Catalog=Tim123; Integrated Security=True ";   //ID=sam; Password=dat123
-                sql = "select * from TheDataQueTime";
-
-                using (var connect = new SqlConnection(connectionString))
-                {
-                    //DataTable dataquetime = connectionString.GetSchema("TheDataQueTime"); 
-                    var result = connect.Query<quetime>(sql).ToList();
-                    return result;
-                }
-            }
         }
-
-        public void Button1(object o, EventArgs ea)
-        {
-            //combo.DataSource = DataService.Times();
-            //combo.ValueMember= "AverageQueTime";
-
-            dat.DataSource = DataService.Times();
-        }
-
-        //public void WriteToConsole(IEnumerable Times)
-        //{
-        //    foreach (var result in Times)
-        //    {
-        //        Console.WriteLine(result);
-        //    }
-        //}
-
-        //public void Button1(object o, EventArgs ea)
-        //{
-        //    Invalidate();
-        //}
-
-        //public void Draw(object sender, PaintEventArgs pea)
-        //{
-        //    foreach (var result in Times)
-        //            {
-        //                DrawString(result, "Arial", Brushes.Black, 200, 200);
-        //            }
-        //}
-
-        //public void Print1(List<quetime> ReadAll)
-        //{
-        //    ReadAll.ForEach(Console.WriteLine);
-        //}
-
-
 
         public void Time(int waitTime, int walkdistance)
         {            
             //double walkTime;
             //double estimatedTime = queTime + ridetime+ walkTime;
         }
- 
-        //draw event for time
+
     }
 
     class Timefunction1
