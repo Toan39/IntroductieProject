@@ -70,7 +70,7 @@ namespace Datepickertest
 			{
 				if (selectedweek == datalist[i].week)
 				{
-					label1.Text = label1.Text + "week" + datalist[i].week + " " + datalist[i].date + " Neerslag: " + datalist[i].neerslag + "\n";     //deze lijn zou weg kunnen in main programma
+					label1.Text = label1.Text + "week" + datalist[i].week + " "  + "\n";     //deze lijn zou weg kunnen in main programma
 					selectedweeklist.Add(new datum());
 					selectedweeklist[j] = datalist[i];
 					j++;
