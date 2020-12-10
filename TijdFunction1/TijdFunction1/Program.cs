@@ -91,9 +91,9 @@ namespace TimeFunction1
         }
 
         //
-        public static List<float> Function(List<float> finaltime, int max)
+        public static List<float> Function(List<float> inputList, int max)
         {
-            var inputfloats = finaltime;
+            var inputfloats = inputList;
 
             var maxAuthorizedValue = inputfloats
                 .OrderBy(z => z)
@@ -104,6 +104,12 @@ namespace TimeFunction1
                 .Select(z => z <= maxAuthorizedValue ? z : 0)
                 .ToList();
         }
+
+        public void test(List<float> finaltime)
+        {
+            var LowestValues = Function(finaltime, 3);
+        }
+
 
 
     }
