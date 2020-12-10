@@ -16,11 +16,9 @@ namespace TimeFunction1
     {
         //varabiales declarations//
         Button route;
-        Button test;
         DataGridView dat_1;
         DataGridView dat_2;
-        List<float> attractiontime = new List<float>();
-        List<float> finaltime = new List<float>();
+        List<Rij> datalist = new List<Rij>();
         int InsertedTime = 540;
         public TimeMethod()
         {
@@ -55,77 +53,46 @@ namespace TimeFunction1
             
             dat_1.DataSource = DataService.QTimes();
             dat_2.DataSource = DataService.WTimes();
+
             int i = 0;
-
-            foreach (quetime Number in DataService.QTimes())
+            foreach (walktime startpoint in DataService.WTimes())
             {
-                if (DataService.QTimes().Count < 45)     //if statement onnodig
-                {
-                    attractiontime.Add(new float());
-                    attractiontime[i] = DataService.QTimes()[i].AverageQueTime + DataService.QTimes()[i].RideTime;
-                    //Console.WriteLine(totaltime[i]);
-                    i++;
-
-                }
+                datalist.Add(new Rij());
+                datalist[i].StartPoint = DataService.WTimes()[i].StartPoint;
+                datalist[i].EndPoint = DataService.WTimes()[i].EndPoint;
+                datalist[i].Distance = DataService.WTimes()[i].Distance;
+                datalist[i].WalkTime = DataService.WTimes()[i].WalkTime;
+                datalist[i].TotalTime = DataService.WTimes()[i].TotalTime;
+                i++;
             }
-
-            for (int p = 0; p < 1893; p++)
-            {
-                for (int j = 0; j < 44; j++)
-                {
-                    for (int k = 0; k < 45; k++)
-                    {
-                        finaltime.Add(new float());
-                        attractiontime.Add(new float());
-                        finaltime[j] = attractiontime[k] + DataService.WTimes()[p].WalkTime;
-                        //Console.WriteLine(finaltime[j]);
-                    }
-                }
-
-                //if( sumfinaltimes<InsertedTime)
-                //    {
-
-                //    }
-            }
-
-            Console.WriteLine(returnlowest());
+            Console.WriteLine(returnlowest(7));
         }
-
-        //
-        //public static List<float> Function(List<float> inputList, int max)
-        //{
-        //    var inputfloats = inputList;
-
-        //    var maxAuthorizedValue = inputfloats
-        //        .OrderBy(z => z)
-        //        .Take(max)
-        //        .Last();
-
-        //    return inputfloats
-        //        .Select(z => z <= maxAuthorizedValue ? z : 0)
-        //        .ToList();
-        //}
-
-        //public void testtest(object sender, EventArgs ea)
-        //{
-        //    var LowestValues = Function(finaltime, 3);
-        //    Console.WriteLine(LowestValues);
-        //}
-
 
         void sorteer()
         {
-            finaltime = finaltime.OrderBy(x => x).ToList();
+            datalist = datalist.OrderBy(x => x.TotalTime).ToList();
         }
 
-        public float returnlowest()
+        public string returnlowest(int j)
         {
             sorteer();
-            finaltime.Add(new float());
-            return (finaltime[0]);
+            string lowest = "";
+            for(int i = 0; i<j ; i++)
+            {
+                lowest = lowest + datalist[i].TotalTime.ToString() + "\n";
+            }
+            return(lowest);
         }
     }
 
+    internal class Rij
+    {
+        public string StartPoint;
+        public string EndPoint;
+        public float Distance;
+        public float WalkTime;
+        public float TotalTime;
+    }
 
     class Timefunction1
     {
