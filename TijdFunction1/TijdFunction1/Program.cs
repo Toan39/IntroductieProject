@@ -19,6 +19,7 @@ namespace TimeFunction1
         DataGridView dat_1;
         DataGridView dat_2;
         List<Rij> datalist = new List<Rij>();
+        //List<Rij> naamlist = new List<Rij>(); 
         int InsertedTime = 540;
         public TimeMethod()
         {
@@ -65,21 +66,24 @@ namespace TimeFunction1
                 datalist[i].TotalTime = DataService.WTimes()[i].TotalTime;
                 i++;
             }
-            Console.WriteLine(returnlowest(7));
+            sorteer();
+            Console.WriteLine(returnlowest(InsertedTime));
         }
 
         void sorteer()
         {
             datalist = datalist.OrderBy(x => x.TotalTime).ToList();
         }
-
+       
         public string returnlowest(int j)
         {
-            sorteer();
             string lowest = "";
-            for(int i = 0; i<j ; i++)
+            float verbruiktetijd = 0;
+            for(int i = 0; verbruiktetijd<j ; i++)
             {
-                lowest = lowest + datalist[i].TotalTime.ToString() + "\n";
+                lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
+                verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
+                Console.WriteLine(verbruiktetijd);
             }
             return(lowest);
         }
@@ -92,6 +96,7 @@ namespace TimeFunction1
         public float Distance;
         public float WalkTime;
         public float TotalTime;
+        //public string Name;
     }
 
     class Timefunction1

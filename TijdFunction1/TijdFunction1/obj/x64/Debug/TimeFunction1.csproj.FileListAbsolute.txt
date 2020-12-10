@@ -76,3 +76,4 @@ C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\x64\Debug\TimeFunction1.csproj.CopyComplete
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\x64\Debug\TijdFunction1.exe
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\x64\Debug\TijdFunction1.pdb
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\x64\Debug\TimeFunction1.csprojAssemblyReference.cache
