@@ -20,6 +20,7 @@ namespace TimeFunction1
         DataGridView dat_2;
         List<float> totaltime = new List<float>();
         List<float> finaltime = new List<float>();
+        int InsertedTime = 540;
         public TimeMethod()
         {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -79,32 +80,33 @@ namespace TimeFunction1
                         //Console.WriteLine(finaltime[j]);
                     }
                 }
+
+            if( sumfinaltimes<InsertedTime)
+                {
+
+                }
             }
-
-
-    
-
 
 
         }
 
 
-        //var totaltime = DataService.AvgQTimes().Zip(DataService.RTime(), (first, second) => first + second);
+        public static List<float> Function(List<float> finaltime, int max)
+        {
+            var inputfloats = finaltime;
 
-        //foreach (var item in totaltime)
-        //{
-        //    Console.WriteLine(item);
-        //}
-        //var totaltime = zip(DataService.AvgQTimes , DataService.RTime)];
+            var maxAuthorizedValue = inputfloats
+                .OrderBy(z => z)
+                .Take(max)
+                .Last();
+
+            return inputfloats
+                .Select(z => z <= maxAuthorizedValue ? z.Tostring() : "n")
+                .ToList();
+        }
+
+
     }
-
-
-    //public void Time(int waitTime, int walkdistance)
-    //{            
-    //double walkTime;
-    //double estimatedTime = queTime + ridetime+ walkTime;
-    // }
-
 
 
     class Timefunction1
