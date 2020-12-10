@@ -233,3 +233,5 @@ C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunct
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hans\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\bin\Debug\zh-Hant\System.Spatial.resources.dll
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csproj.CopyComplete
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.TimeMethod.resources
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\TijdFunction1\TijdFunction1\obj\Debug\TimeFunction1.csproj.GenerateResource.cache
