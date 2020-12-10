@@ -38,20 +38,20 @@ namespace WindowsFormsApp5
             gmap.Zoom = 16;
             gmap.DragButton = MouseButtons.Left;
             GMapOverlay markers = new GMapOverlay("markers");
-            ResourceManager resourcemanager= new ResourceManager("WindowsFormsApp5.Properties.Resources", Assembly.GetExecutingAssembly());
+            //ResourceManager resourcemanager= new ResourceManager("WindowsFormsApp5.Properties.Resources", Assembly.GetExecutingAssembly());
 
-            PointLatLng adventure = new PointLatLng(48.872562, 2.773616);
-            PointLatLng pirates = new PointLatLng(48.873491, 2.773383);
-            PointLatLng world = new PointLatLng(48.874590, 2.776050);
+            //PointLatLng adventure = new PointLatLng(48.872562, 2.773616);
+            //PointLatLng pirates = new PointLatLng(48.873491, 2.773383);
+            //PointLatLng world = new PointLatLng(48.874590, 2.776050);
             GMapMarker[] mark;
             mark = new GMapMarker[1000];
            
                 //string mark = "marker" + t;
-                bool c;
                 
                 for(int t = 0; t<attractions.Count; t++)
                 {
-                GMapMarker result = new GMarkerGoogle(attraction.Location, GMarkerGoogleType.blue_pushpin);
+                PointLatLng p = new PointLatLng(DataService.attraction().Location[t]);
+                GMapMarker result = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
                 markers.Markers.Add(result);
                 gmap.Overlays.Add(markers);
                 result.ToolTipText = t.ToString();
