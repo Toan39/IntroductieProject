@@ -12,7 +12,7 @@ namespace WindowsFormsApp5
 {
     public static class DataService
     {
-        public static List<attraction> attraction()
+        public static List<attraction> att()
         {
             string connectionString;
             string sql;

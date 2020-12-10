@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Resources;
 using System.Reflection;
+using System.Data.SqlClient;
+using Dapper;
+using System.Collections;
 
 
 
@@ -20,8 +23,6 @@ namespace WindowsFormsApp5
 {
     public partial class Form1 : Form
     {
-        List<Point> locations;
-        List<string> attractions;
         public Form1()
         {
             InitializeComponent();
@@ -38,25 +39,23 @@ namespace WindowsFormsApp5
             gmap.Zoom = 16;
             gmap.DragButton = MouseButtons.Left;
             GMapOverlay markers = new GMapOverlay("markers");
-            //ResourceManager resourcemanager= new ResourceManager("WindowsFormsApp5.Properties.Resources", Assembly.GetExecutingAssembly());
-
-            //PointLatLng adventure = new PointLatLng(48.872562, 2.773616);
-            //PointLatLng pirates = new PointLatLng(48.873491, 2.773383);
-            //PointLatLng world = new PointLatLng(48.874590, 2.776050);
             GMapMarker[] mark;
             mark = new GMapMarker[1000];
-           
-                //string mark = "marker" + t;
-                
-                for(int t = 0; t<attractions.Count; t++)
-                {
-                PointLatLng p = new PointLatLng(DataService.attraction().Location[t]);
-                GMapMarker result = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
-                markers.Markers.Add(result);
+
+
+
+            for (int t = 0; t < DataService.att().Count; t++)
+            {
+                PointLatLng p = new PointLatLng(DataService.att()[t].Lat, DataService.att()[t].Lon);
+                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
+                markers.Markers.Add(marker);
                 gmap.Overlays.Add(markers);
-                result.ToolTipText = t.ToString();
-                mark[t] = result;
-                }
+                marker.ToolTipText = (t + 1).ToString();
+                marker.ToolTipMode = MarkerTooltipMode.Always;
+                mark[t] = marker;
+            }
+
+
 
             //GMapMarker marker1 = new GMarkerGoogle(adventure, GMarkerGoogleType.blue_pushpin);
             /*
@@ -66,7 +65,6 @@ namespace WindowsFormsApp5
             GMapMarker marker3 = new GMarkerGoogle(world, GMarkerGoogleType.blue_pushpin);
             markers.Markers.Add(marker3);
             gmap.Overlays.Add(markers);
-            marker1.ToolTipMode = MarkerTooltipMode.Always;
             marker2.ToolTipMode = MarkerTooltipMode.Always;
             marker3.ToolTipMode = MarkerTooltipMode.Always;
             marker1.ToolTipText = "1";
@@ -74,10 +72,21 @@ namespace WindowsFormsApp5
             marker3.ToolTipText = "3";*/
         }
 
-            // disable the red cross
-            private void Form1_Load(object sender, EventArgs e)
+        // disable the red cross
+        private void Form1_Load(object sender, EventArgs e)
         {
-            gmap.ShowCenter = false; 
+            gmap.ShowCenter = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            for (int t = 0; t < DataService.att().Count; t++)
+            {
+                int x = t + 1;
+                string result = "";
+                result = x.ToString() + ". " + result + DataService.att()[t].Name + "\n";
+                this.label1.Text = this.label1.Text + result;
+            }
         }
     }
 }

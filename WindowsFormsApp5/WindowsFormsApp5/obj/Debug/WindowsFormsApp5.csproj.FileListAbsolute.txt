@@ -76,3 +76,5 @@ C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\WindowsFormsApp5\Window
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CopyComplete
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Users\Toan Nguyen\Documents\GitHub\IntroductieProject\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+C:\Users\vince\Documents\GitHub\IntroductieProject\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Dapper.dll
+C:\Users\vince\Documents\GitHub\IntroductieProject\WindowsFormsApp5\WindowsFormsApp5\bin\Debug\Dapper.xml

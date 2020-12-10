@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gmap
@@ -38,6 +39,7 @@
             this.gmap.EmptyTileColor = System.Drawing.Color.Navy;
             this.gmap.GrayScaleMode = false;
             this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gmap.LevelsKeepInMemmory = 5;
             this.gmap.Location = new System.Drawing.Point(12, 12);
             this.gmap.MarkersEnabled = true;
             this.gmap.MaxZoom = 18;
@@ -52,27 +54,40 @@
             this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(776, 426);
+            this.gmap.Size = new System.Drawing.Size(461, 426);
             this.gmap.TabIndex = 0;
             this.gmap.Zoom = 13D;
             this.gmap.Load += new System.EventHandler(this.gMapControl1_Load);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(479, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "";
+            this.Load += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gmap);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private GMap.NET.WindowsForms.GMapControl gmap;
+        private System.Windows.Forms.Label label1;
     }
 }
 

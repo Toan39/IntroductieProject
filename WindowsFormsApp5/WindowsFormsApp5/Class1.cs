@@ -17,7 +17,8 @@ namespace WindowsFormsApp5
     public class attraction
     {
         public string Name { get; set; }
-        public  double Location { get; set; }
+        public double Lat { get; set; }
+        public double Lon { get; set; }
 
 
         /*attraction(string name, Point location)
