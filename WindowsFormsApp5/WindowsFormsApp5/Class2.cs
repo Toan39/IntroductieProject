@@ -1,12 +1,30 @@
-﻿using System;
+﻿using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using System.Drawing;
 using System.Collections.Generic;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper;
+using System.Collections;
 
 namespace WindowsFormsApp5
 {
-    class Class2
+    public static class DataService
     {
+        public static List<attraction> attraction()
+        {
+            string connectionString;
+            string sql;
+
+            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
+            sql = "select * from kees";
+
+            using (var connect = new SqlConnection(connectionString))
+            {
+                var result = connect.Query<attraction>(sql).ToList();
+                return result;
+            }
+        }
     }
 }

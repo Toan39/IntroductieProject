@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp5
 {
-    class attraction
+    public class attraction
     {
         public string Name { get; set; }
-        static public PointLatLng Location { get; set; }
+        public PointLatLng Location { get; set; }
 
 
         /*attraction(string name, Point location)
