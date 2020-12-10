@@ -90,7 +90,7 @@ namespace TimeFunction1
 
         }
 
-
+        //
         public static List<float> Function(List<float> finaltime, int max)
         {
             var inputfloats = finaltime;
@@ -101,7 +101,7 @@ namespace TimeFunction1
                 .Last();
 
             return inputfloats
-                .Select(z => z <= maxAuthorizedValue ? z.Tostring() : "n")
+                .Select(z => z <= maxAuthorizedValue ? z : 0)
                 .ToList();
         }
 
