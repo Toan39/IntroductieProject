@@ -75,11 +75,11 @@ namespace TimeFunction1
             datalist = datalist.OrderBy(x => x.TotalTime).ToList();
         }
        
-        public string returnlowest(int j)
+        public string returnlowest(int Inserted)
         {
             string lowest = "";
             float verbruiktetijd = 0;
-            for(int i = 0; verbruiktetijd<j ; i++)
+            for(int i = 0; verbruiktetijd<Inserted; i++)
             {
                 lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
                 verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
