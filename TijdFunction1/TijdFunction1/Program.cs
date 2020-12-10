@@ -81,10 +81,10 @@ namespace TimeFunction1
                     }
                 }
 
-            if( sumfinaltimes<InsertedTime)
-                {
+            //if( sumfinaltimes<InsertedTime)
+            //    {
 
-                }
+            //    }
             }
 
 
