@@ -19,6 +19,7 @@ namespace TimeFunction1
         DataGridView dat_1;
         DataGridView dat_2;
         List<Rij> datalist = new List<Rij>();
+        //List<string> usedpoints = new List<string>();
         //List<Rij> naamlist = new List<Rij>(); 
         int InsertedTime = 540;
         public TimeMethod()
@@ -81,12 +82,28 @@ namespace TimeFunction1
             float verbruiktetijd = 0;
             for(int i = 0; verbruiktetijd<Inserted; i++)
             {
-                lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
-                verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
-                Console.WriteLine(verbruiktetijd);
+                //if(possible(datalist[i].EndPoint.ToString()))
+                //{
+                    lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
+                    //usedpoints.Add(datalist[i].EndPoint.ToString());
+                    verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
+                    Console.WriteLine(verbruiktetijd);
+                //}
             }
             return(lowest);
         }
+
+        /*public bool possible(string x)
+        {
+            foreach (string endpoint in usedpoints)
+            {
+                if (x == endpoint)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }*/
     }
 
     internal class Rij
