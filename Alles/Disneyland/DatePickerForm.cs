@@ -15,7 +15,6 @@ namespace Disneyland
     public partial class DatePickerForm : Form
     {
 		int selectedweek; //waarde door gebruiker gekozen
-		
 		List<datum> datalist = new List<datum>(); //de sql data geconverteerd naar een c# lijst
 		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
 		SqlConnection con;
