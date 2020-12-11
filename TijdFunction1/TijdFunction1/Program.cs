@@ -19,6 +19,7 @@ namespace TimeFunction1
         DataGridView dat_1;
         DataGridView dat_2;
         List<Rij> datalist = new List<Rij>();
+        List<attraction> att = new List<attraction>();
         List<string> usedpoints = new List<string>();
         //List<Rij> naamlist = new List<Rij>(); 
         int InsertedTime = 540;
@@ -68,17 +69,10 @@ namespace TimeFunction1
                 i++;
             }
 
-            int p = 0;
-            foreach (quetime times in DataService.QTimes())
-            {
-                datalist.Add(new Rij());
-                datalist[p].StartPoint = DataService.QTimes()[p].Name;
-                datalist[p].EndPoint = DataService.QTimes()[p].Lat;
-                datalist[p].TotalTime = DataService.QTimes()[p].Lon;
-                i++;
-            }
+         
             sorteer();
             Console.WriteLine(returnlowest(InsertedTime));
+            makelist();
         }
 
         void sorteer()
@@ -120,10 +114,21 @@ namespace TimeFunction1
             return (lowest);
         }
 
-        public List<attraction> atts()
+        public void makelist()
         {
+            int p = 0;
+            foreach (quetime times in DataService.QTimes())
+            {
+                if (att[p].Name == usedpoints[p])
+                {
+                    att.Add(new attraction());
+                    att[p].Name = DataService.QTimes()[p].Name;
+                    att[p].Lat = DataService.QTimes()[p].Lat;
+                    att[p].Lon = DataService.QTimes()[p].Lon;
 
-
+                }
+                p++;
+            }
         }
 
         public bool possible(string x)
