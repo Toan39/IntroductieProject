@@ -94,14 +94,17 @@ namespace TimeFunction1
             float verbruiktetijd = 0;
             for (int i = 0; verbruiktetijd < Inserted; i++)
             {
-                if (datalist[0].EndPoint == datalist[i].StartPoint)
+                for (int j = 0; j< datalist.Count; j++)
                 {
-                    lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
-                    verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
-                    Console.WriteLine(verbruiktetijd);
-                    verwijderdupes();
-                    i = 0;
+                    if (datalist[0].EndPoint == datalist[j].StartPoint)
+                    {
+                        lowest = lowest + datalist[0].EndPoint.ToString() + "\n";
+                        verbruiktetijd = verbruiktetijd + datalist[0].TotalTime;
+                        Console.WriteLine(verbruiktetijd);
+                        verwijderdupes();
+                    }
                 }
+
 
             }
             return (lowest);
