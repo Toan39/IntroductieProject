@@ -21,7 +21,6 @@ namespace TimeFunction1
         List<Rij> datalist = new List<Rij>();
         List<attraction> att = new List<attraction>();
         List<string> usedpoints = new List<string>();
-        //List<Rij> naamlist = new List<Rij>(); 
         int InsertedTime = 540;
         public TimeMethod()
         {
@@ -52,8 +51,7 @@ namespace TimeFunction1
 
         ////void methods////
         private void Button1(object o, EventArgs ea)
-        {
-            
+        {         
             dat_1.DataSource = DataService.QTimes();
             dat_2.DataSource = DataService.WTimes(); //grid
 
@@ -68,8 +66,7 @@ namespace TimeFunction1
                 datalist[i].TotalTime = DataService.WTimes()[i].TotalTime;
                 i++;
             }
-
-         
+      
             sorteer();
             Console.WriteLine(returnlowest(InsertedTime));
             makelist();
@@ -89,7 +86,6 @@ namespace TimeFunction1
                     datalist.RemoveAt(i);
                 }
             }
-            //datalist.RemoveAt(0);
         }
 
         public string returnlowest(int Inserted)
@@ -107,8 +103,7 @@ namespace TimeFunction1
                         verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
                         previous = datalist[i].EndPoint.ToString();
                         Console.WriteLine(verbruiktetijd);
-                        i = 0;
-                        //verwijderdupes();
+                        i = 0;                   
                     }
             }
             return (lowest);
@@ -167,7 +162,6 @@ namespace TimeFunction1
             }
         }
 
-
     }
 
     public class attraction
@@ -184,7 +178,6 @@ namespace TimeFunction1
         public float Distance;
         public float WalkTime;
         public float TotalTime;
-        //public string Name;
     }
 
     class Timefunction1
