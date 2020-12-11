@@ -20,7 +20,6 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
-        public List<attraction> attractionlist;
         public Form5()
         {
             InitializeComponent();
@@ -31,11 +30,11 @@ namespace Disneyland
 
         private void label1_Click(object sender, EventArgs e)
         {
-            for (int t = 0; t < attractionlist.Count; t++)
+            for (int t = 0; t < Form3.DataService.att.Count; t++)
             {
                 int x = t + 1;
                 string result = "";
-                result = x.ToString() + ". " + result + attractionlist[t].Name + "\n";
+                result = x.ToString() + ". " + result + Form3.DataService.att[t].Name + "\n";
                 this.label1.Text = this.label1.Text + result;
             }
         }
@@ -53,9 +52,6 @@ namespace Disneyland
             rides.Show();
             this.Hide();
         }
-        //tijdfunctie
-
-        
 
         private void gmap_Load(object sender, EventArgs e)
         {
@@ -73,9 +69,9 @@ namespace Disneyland
 
 
 
-            for (int t = 0; t < attractionlist.Count; t++)
+            for (int t = 0; t < Form3.DataService.att.Count; t++)
             {
-                PointLatLng p = new PointLatLng(attractionlist[t].Lat, attractionlist[t].Lon);
+                PointLatLng p = new PointLatLng(Form3.DataService.att[t].Lat, Form3.DataService.att[t].Lon);
                 GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
                 markers.Markers.Add(marker);
                 gmap.Overlays.Add(markers);

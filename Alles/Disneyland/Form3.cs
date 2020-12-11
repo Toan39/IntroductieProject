@@ -17,13 +17,12 @@ namespace Disneyland
         //varabiales declarations//
         
             List<Rij> datalist = new List<Rij>();
-            public List<attraction> att = new List<attraction>();
             List<string> usedpoints = new List<string>();
-            
-            
-        //CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
+        
+        
         public Form3()
          {
+            CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
          }
 
@@ -66,13 +65,12 @@ namespace Disneyland
                         if (DataService.QTimes()[k].Number == usedpoints[p])
                         {
 
-                            att.Add(new attraction());
-                            att[p].Name = DataService.QTimes()[k].Name;
-                            att[p].Lat = DataService.QTimes()[k].Lat;
-                            att[p].Lon = DataService.QTimes()[k].Lon;
+                            DataService.att.Add(new attraction());
+                            DataService.att[p].Name = DataService.QTimes()[k].Name;
+                            DataService.att[p].Lat = DataService.QTimes()[k].Lat;
+                            DataService.att[p].Lon = DataService.QTimes()[k].Lon;
                         }
                         k++;
-                    Console.WriteLine(att[p].Name);
                     }
                    
                 }
@@ -167,14 +165,17 @@ namespace Disneyland
                     var result = connect.Query<walktime>(sql).ToList();
                     return result;
                 }
+
+            
             }
+            public static List<attraction> att = new List<attraction>();
         }
        
 
         public void button1_Click(object sender, EventArgs e)
         {
             Form5 map = new Form5();
-            map.attractionlist = att;
+            //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
             int InsertedTime = int.Parse(comboBox1.Text.ToString()) * 60;
