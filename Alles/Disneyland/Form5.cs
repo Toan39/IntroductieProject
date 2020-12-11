@@ -25,7 +25,7 @@ namespace Disneyland
         public Form5(string tijd)
         {
             InitializeComponent();
-            int InsertedTime =30 /*int.Parse(tijd)*/;
+            int InsertedTime = (int.Parse(tijd) * 60);
             int i = 0;
             foreach (walktime startpoint in DataService.WTimes())
             {
@@ -42,7 +42,7 @@ namespace Disneyland
             makelist();
 
 
-            for (int t = 0; t < Lijst.att.Count; t++)
+           for (int t = 0; t < Lijst.att.Count; t++)
             {
                 int x = t + 1;
                 string result = "";
@@ -162,7 +162,9 @@ namespace Disneyland
             }
         }
 
-        private void gmap_Load(object sender, EventArgs e)
+
+
+        private void gmap_Load_1(object sender, EventArgs e)
         {
             gmap.MapProvider = GMapProviders.GoogleMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
@@ -187,6 +189,7 @@ namespace Disneyland
                 marker.ToolTipText = (t + 1).ToString();
                 marker.ToolTipMode = MarkerTooltipMode.Always;
                 mark[t] = marker;
+
             }
         }
     }
