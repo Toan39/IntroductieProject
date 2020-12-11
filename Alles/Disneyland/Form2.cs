@@ -19,7 +19,7 @@ namespace Disneyland
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 disney = new Form1();
+            DatePickerInputForm disney = new DatePickerInputForm();
             disney.Show();
             this.Hide();
         }

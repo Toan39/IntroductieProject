@@ -10,29 +10,23 @@ using System.Windows.Forms;
 
 namespace Disneyland
 {
-    public partial class Form1 : Form
+    public partial class DatePickerForm : Form
     {
-        public Form1()
+        public DatePickerForm()
         {
-            InitializeComponent();
+            InitializeComponent();  
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form4 date = new Form4();
-            date.Show();
+            Form2 home = new Form2();
+            home.Show();
             this.Hide();
         }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
+       /* private void datePicker()
         {
-           label6.Text = trackBar1.Value.ToString();
+            label2.Text = 
+        }*/
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
