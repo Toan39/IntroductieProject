@@ -19,9 +19,9 @@ namespace TimeFunction1
         DataGridView dat_1;
         DataGridView dat_2;
         List<Rij> datalist = new List<Rij>();
-        //List<string> usedpoints = new List<string>();
+        List<string> usedpoints = new List<string>();
         //List<Rij> naamlist = new List<Rij>(); 
-        int InsertedTime = 540;
+        int InsertedTime = 120;
         public TimeMethod()
         {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -92,25 +92,28 @@ namespace TimeFunction1
         {
             string lowest = "";
             float verbruiktetijd = 0;
+            string previous = "";
             for (int i = 0; verbruiktetijd < Inserted; i++)
             {
-                for (int j = 0; j< datalist.Count; j++)
-                {
-                    if (datalist[0].EndPoint == datalist[j].StartPoint)
+                
+                    if (possible(datalist[i].EndPoint.ToString()) && begincheck(datalist[i].StartPoint.ToString(), previous))
                     {
-                        lowest = lowest + datalist[0].EndPoint.ToString() + "\n";
-                        verbruiktetijd = verbruiktetijd + datalist[0].TotalTime;
+                        lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
+                        usedpoints.Add(datalist[i].EndPoint.ToString());
+                        verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
+                        previous = datalist[i].EndPoint.ToString();
                         Console.WriteLine(verbruiktetijd);
-                        verwijderdupes();
+                        i = 0;
+                        //verwijderdupes();
                     }
-                }
+
 
 
             }
             return (lowest);
         }
 
-        /*public bool possible(string x)
+        public bool possible(string x)
         {
             foreach (string endpoint in usedpoints)
             {
@@ -120,7 +123,28 @@ namespace TimeFunction1
                 }
             }
             return true;
-        }*/
+        }
+
+        public bool begincheck(string y, string z)
+        {
+            if(z != "")
+            {
+                if(y == z)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
     }
 
     internal class Rij
