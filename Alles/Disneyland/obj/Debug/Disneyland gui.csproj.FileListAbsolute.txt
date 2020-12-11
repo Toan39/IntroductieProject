@@ -152,3 +152,5 @@ C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Di
 C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland gui.csproj.CopyComplete
 C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.exe
 C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.pdb
+C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.dll
+C:\Users\vince\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.xml

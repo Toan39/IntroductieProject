@@ -71,7 +71,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(12, 55);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(776, 383);
+            this.webBrowser1.Size = new System.Drawing.Size(438, 383);
             this.webBrowser1.TabIndex = 4;
             this.webBrowser1.Url = new System.Uri(resources.GetString("webBrowser1.Url"), System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);

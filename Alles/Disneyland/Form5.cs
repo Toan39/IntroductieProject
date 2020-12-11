@@ -14,8 +14,8 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
-
-        public Form5()
+        
+        public Form5(List<attraction> list)
         {
             InitializeComponent();
             
@@ -43,5 +43,12 @@ namespace Disneyland
             
         }
         //tijdfunctie
+
+        public class attraction
+        {
+            public string Name;
+            public double Lat;
+            public double Lon;
+        }
     }
 }
