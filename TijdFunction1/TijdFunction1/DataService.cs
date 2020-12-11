@@ -41,5 +41,7 @@ namespace TimeFunction1
                 return result;
             }
         }
+
+        public static List<attraction> att = new List<attraction>();
     }
 }

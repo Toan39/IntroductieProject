@@ -19,7 +19,6 @@ namespace TimeFunction1
         DataGridView dat_1;
         DataGridView dat_2;
         List<Rij> datalist = new List<Rij>();
-        List<attraction> att = new List<attraction>();
         List<string> usedpoints = new List<string>();
         int InsertedTime = 540;
         public TimeMethod()
@@ -120,14 +119,14 @@ namespace TimeFunction1
                     if (DataService.QTimes()[k].Number == usedpoints[p])
                     {
 
-                        att.Add(new attraction());
-                        att[p].Name = DataService.QTimes()[k].Name;
-                        att[p].Lat = DataService.QTimes()[k].Lat;
-                        att[p].Lon = DataService.QTimes()[k].Lon;
+                        DataService.att.Add(new attraction());
+                        DataService.att[p].Name = DataService.QTimes()[k].Name;
+                        DataService.att[p].Lat = DataService.QTimes()[k].Lat;
+                        DataService.att[p].Lon = DataService.QTimes()[k].Lon;
                     }
                     k++;
                 }
-                Console.WriteLine(att[p].Name);
+                Console.WriteLine(DataService.att[p].Name);
             }      
         }
 
