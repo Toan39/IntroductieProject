@@ -55,7 +55,7 @@ namespace TimeFunction1
         {
             
             dat_1.DataSource = DataService.QTimes();
-            dat_2.DataSource = DataService.WTimes();
+            dat_2.DataSource = DataService.WTimes(); //grid
 
             int i = 0;
             foreach (walktime startpoint in DataService.WTimes())
@@ -116,19 +116,24 @@ namespace TimeFunction1
 
         public void makelist()
         {
-            int p = 0;
-            foreach (quetime times in DataService.QTimes())
-            {
-                if (att[p].Name == usedpoints[p])
-                {
-                    att.Add(new attraction());
-                    att[p].Name = DataService.QTimes()[p].Name;
-                    att[p].Lat = DataService.QTimes()[p].Lat;
-                    att[p].Lon = DataService.QTimes()[p].Lon;
 
+            for (int p = 0; p<(usedpoints.Count); p++)
+            {
+                int k = 0;
+                foreach (quetime Name in DataService.QTimes())
+                {
+                    if (DataService.QTimes()[k].Number == usedpoints[p])
+                    {
+
+                        att.Add(new attraction());
+                        att[p].Name = DataService.QTimes()[k].Name;
+                        att[p].Lat = DataService.QTimes()[k].Lat;
+                        att[p].Lon = DataService.QTimes()[k].Lon;
+                    }
+                    k++;
                 }
-                p++;
-            }
+                Console.WriteLine(att[p].Name);
+            }      
         }
 
         public bool possible(string x)
