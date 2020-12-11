@@ -178,7 +178,7 @@ namespace Disneyland
             //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
-            int InsertedTime = int.Parse(comboBox1.Text.ToString()) * 60;
+            int InsertedTime = 100;  /*int.Parse(comboBox1.Text.ToString()) * 60;*/
             int x = 0;
             int q = 0;
 

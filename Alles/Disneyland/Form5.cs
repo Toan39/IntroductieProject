@@ -23,22 +23,18 @@ namespace Disneyland
         public Form5()
         {
             InitializeComponent();
-       
-            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
-        }
 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
             for (int t = 0; t < Form3.DataService.att.Count; t++)
             {
                 int x = t + 1;
                 string result = "";
                 result = x.ToString() + ". " + result + Form3.DataService.att[t].Name + "\n";
-                this.label1.Text = this.label1.Text + result;
+                label2.Text = label2.Text + result;
             }
+
+            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
-        
+   
 
         private void button1_Click(object sender, EventArgs e)
         {
