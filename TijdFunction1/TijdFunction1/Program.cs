@@ -21,7 +21,7 @@ namespace TimeFunction1
         List<Rij> datalist = new List<Rij>();
         List<string> usedpoints = new List<string>();
         //List<Rij> naamlist = new List<Rij>(); 
-        int InsertedTime = 120;
+        int InsertedTime = 540;
         public TimeMethod()
         {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -93,7 +93,7 @@ namespace TimeFunction1
             string lowest = "";
             float verbruiktetijd = 0;
             string previous = "";
-            for (int i = 0; verbruiktetijd < Inserted; i++)
+            for (int i = 0; (verbruiktetijd + datalist[i].TotalTime) < Inserted; i++)
             {
                 
                     if (possible(datalist[i].EndPoint.ToString()) && begincheck(datalist[i].StartPoint.ToString(), previous))
