@@ -76,18 +76,17 @@ namespace TimeFunction1
             datalist = datalist.OrderBy(x => x.TotalTime).ToList();
         }
 
-        //void verwijderdupes()
-        //{
-        //    int j = 0;
-        //    foreach (Rij Startpoint in datalist)
-        //    {
-        //        if (datalist[j].EndPoint == datalist[0].EndPoint)
-        //        {
-        //            datalist.RemoveAt(j);
-        //        }
-        //        j++;
-        //    }
-        //}
+        void verwijderdupes()
+        {
+            for (int i = datalist.Count - 1; i >= 0; i--)
+            {
+                if (datalist[i].EndPoint == datalist[0].EndPoint)
+                {
+                    datalist.RemoveAt(i);
+                }
+            }
+            //datalist.RemoveAt(0);
+        }
 
         public string returnlowest(int Inserted)
         {
@@ -100,7 +99,8 @@ namespace TimeFunction1
                     lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
                     verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
                     Console.WriteLine(verbruiktetijd);
-
+                    verwijderdupes();
+                    i = 0;
                 }
 
             }
