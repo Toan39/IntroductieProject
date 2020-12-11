@@ -16,5 +16,7 @@ namespace TimeFunction1
         public float Distance { get; set; }
         public float WalkTime { get; set; }
         public float TotalTime { get; set; }
+
+     
     }
 }

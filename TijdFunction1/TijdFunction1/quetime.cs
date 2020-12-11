@@ -16,5 +16,8 @@ namespace TimeFunction1
             public string Name { get; set; }
             public float AverageQueTime { get; set; }
             public float RideTime { get; set; }
-        }
+            
+            public double Lat { get; set; }
+            public double Lon { get; set; }
+    }
 }

@@ -67,6 +67,16 @@ namespace TimeFunction1
                 datalist[i].TotalTime = DataService.WTimes()[i].TotalTime;
                 i++;
             }
+
+            int p = 0;
+            foreach (quetime times in DataService.QTimes())
+            {
+                datalist.Add(new Rij());
+                datalist[p].StartPoint = DataService.QTimes()[p].Name;
+                datalist[p].EndPoint = DataService.QTimes()[p].Lat;
+                datalist[p].TotalTime = DataService.QTimes()[p].Lon;
+                i++;
+            }
             sorteer();
             Console.WriteLine(returnlowest(InsertedTime));
         }
@@ -106,11 +116,14 @@ namespace TimeFunction1
                         i = 0;
                         //verwijderdupes();
                     }
-
-
-
             }
             return (lowest);
+        }
+
+        public List<attraction> atts()
+        {
+
+
         }
 
         public bool possible(string x)
@@ -145,6 +158,13 @@ namespace TimeFunction1
         }
 
 
+    }
+
+    public class attraction
+    {
+        public string Name;
+        public double Lat;
+        public double Lon;
     }
 
     internal class Rij
