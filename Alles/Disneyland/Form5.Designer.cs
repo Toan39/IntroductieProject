@@ -32,7 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.SuspendLayout();
             // 
             // button1
@@ -66,15 +66,31 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Estimated time";
             // 
-            // webBrowser1
+            // gmap
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 55);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(438, 383);
-            this.webBrowser1.TabIndex = 4;
-            this.webBrowser1.Url = new System.Uri(resources.GetString("webBrowser1.Url"), System.UriKind.Absolute);
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.gmap.Bearing = 0F;
+            this.gmap.CanDragMap = true;
+            this.gmap.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gmap.GrayScaleMode = false;
+            this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gmap.LevelsKeepInMemory = 5;
+            this.gmap.Location = new System.Drawing.Point(12, 46);
+            this.gmap.MarkersEnabled = true;
+            this.gmap.MaxZoom = 2;
+            this.gmap.MinZoom = 2;
+            this.gmap.MouseWheelZoomEnabled = true;
+            this.gmap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gmap.Name = "gmap";
+            this.gmap.NegativeMode = false;
+            this.gmap.PolygonsEnabled = true;
+            this.gmap.RetryLoadTile = 0;
+            this.gmap.RoutesEnabled = true;
+            this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gmap.ShowTileGridLines = false;
+            this.gmap.Size = new System.Drawing.Size(476, 392);
+            this.gmap.TabIndex = 4;
+            this.gmap.Zoom = 0D;
             // 
             // Form5
             // 
@@ -82,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.gmap);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -98,6 +114,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private GMap.NET.WindowsForms.GMapControl gmap;
     }
 }

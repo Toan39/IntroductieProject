@@ -17,7 +17,7 @@ namespace Disneyland
         //varabiales declarations//
         
             List<Rij> datalist = new List<Rij>();
-            List<attraction> att = new List<attraction>();
+            public List<attraction> att = new List<attraction>();
             List<string> usedpoints = new List<string>();
             
             
@@ -72,6 +72,7 @@ namespace Disneyland
                             att[p].Lon = DataService.QTimes()[k].Lon;
                         }
                         k++;
+                    Console.WriteLine(att[p].Name);
                     }
                    
                 }
@@ -107,17 +108,6 @@ namespace Disneyland
                     return true;
                 }
             }
-
-
-
-        
-
-        public class attraction
-        {
-            public string Name;
-            public double Lat;
-            public double Lon;
-        }
 
         internal class Rij
         {
@@ -181,9 +171,10 @@ namespace Disneyland
         }
        
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            Form5 map = new Form5(att);
+            Form5 map = new Form5();
+            map.attractionlist = att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
             int InsertedTime = int.Parse(comboBox1.Text.ToString()) * 60;

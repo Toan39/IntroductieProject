@@ -1,4 +1,7 @@
-﻿
+﻿using GMap.NET;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using GMap.NET.MapProviders;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,19 +11,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using Dapper;
+using System.Collections;
 
 
 namespace Disneyland
 {
     public partial class Form5 : Form
     {
-        
-        public Form5(List<attraction> list)
+        public List<attraction> attractionlist;
+        public Form5()
         {
             InitializeComponent();
-            
-           // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
+       
+            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            for (int t = 0; t < attractionlist.Count; t++)
+            {
+                int x = t + 1;
+                string result = "";
+                result = x.ToString() + ". " + result + attractionlist[t].Name + "\n";
+                this.label1.Text = this.label1.Text + result;
+            }
+        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,21 +53,42 @@ namespace Disneyland
             rides.Show();
             this.Hide();
         }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        //    this.webBrowser1.Navigate("https://www.google.nl/maps/dir/It's+a+Small+World,+Disneyland/Adventure+Isle,+/Pirates+of+the+Caribbean,+Disneyland/");                                                               ");
-            webBrowser1.ScriptErrorsSuppressed = true;
-            
-        }
         //tijdfunctie
 
-        public class attraction
+        
+
+        private void gmap_Load(object sender, EventArgs e)
         {
-            public string Name;
-            public double Lat;
-            public double Lon;
+            gmap.MapProvider = GMapProviders.GoogleMap;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
+            gmap.MinZoom = 5;
+            gmap.MaxZoom = 100;
+            gmap.Zoom = 16;
+            gmap.ShowCenter = false;
+            gmap.DragButton = MouseButtons.Left;
+            GMapOverlay markers = new GMapOverlay("markers");
+            GMapMarker[] mark;
+            mark = new GMapMarker[1000];
+
+
+
+            for (int t = 0; t < attractionlist.Count; t++)
+            {
+                PointLatLng p = new PointLatLng(attractionlist[t].Lat, attractionlist[t].Lon);
+                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
+                markers.Markers.Add(marker);
+                gmap.Overlays.Add(markers);
+                marker.ToolTipText = (t + 1).ToString();
+                marker.ToolTipMode = MarkerTooltipMode.Always;
+                mark[t] = marker;
+            }
         }
+    }
+    public class attraction
+    {
+        public string Name;
+        public double Lat;
+        public double Lon;
     }
 }
