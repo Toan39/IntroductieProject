@@ -222,3 +222,5 @@ C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland gui.csproj.CopyComplete
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.exe
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.pdb
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.dll
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.xml

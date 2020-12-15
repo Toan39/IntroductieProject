@@ -20,23 +20,14 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
-        List<Rij> datalist = new List<Rij>();
         List<string> usedpoints = new List<string>();
+        List<walktime> WTimes = new List<walktime>();
         public Form5(string tijd)
         {
             InitializeComponent();
+            maakwalktimelist();
             int InsertedTime = (int.Parse(tijd) * 60);
             int i = 0;
-            foreach (walktime startpoint in DataService.WTimes())
-            {
-                datalist.Add(new Rij());
-                datalist[i].StartPoint = DataService.WTimes()[i].StartPoint;
-                datalist[i].EndPoint = DataService.WTimes()[i].EndPoint;
-                datalist[i].Distance = DataService.WTimes()[i].Distance;
-                datalist[i].WalkTime = DataService.WTimes()[i].WalkTime;
-                datalist[i].TotalTime = DataService.WTimes()[i].TotalTime;
-                i++;
-            }
             sorteer();
             returnlowest(InsertedTime);
             makelist();
@@ -74,7 +65,7 @@ namespace Disneyland
 
         void sorteer()
         {
-            datalist = datalist.OrderBy(x => x.TotalTime).ToList();
+            WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
         }
 
         public string returnlowest(int Inserted)
@@ -82,15 +73,15 @@ namespace Disneyland
             string lowest = "";
             float verbruiktetijd = 0;
             string previous = "";
-            for (int i = 0; (verbruiktetijd + datalist[i].TotalTime) < Inserted; i++)
+            for (int i = 0; (verbruiktetijd + WTimes[i].TotalTime) < Inserted; i++)
             {
 
-                if (possible(datalist[i].EndPoint.ToString()) && begincheck(datalist[i].StartPoint.ToString(), previous))
+                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
                 {
-                    lowest = lowest + datalist[i].EndPoint.ToString() + "\n";
-                    usedpoints.Add(datalist[i].EndPoint.ToString());
-                    verbruiktetijd = verbruiktetijd + datalist[i].TotalTime;
-                    previous = datalist[i].EndPoint.ToString();
+                    lowest = lowest + WTimes[i].EndPoint.ToString() + "\n";
+                    usedpoints.Add(WTimes[i].EndPoint.ToString());
+                    verbruiktetijd = verbruiktetijd + WTimes[i].TotalTime;
+                    previous = WTimes[i].EndPoint.ToString();
                     i = 0;
                 }
             }
@@ -130,14 +121,7 @@ namespace Disneyland
             }
         }
 
-        internal class Rij
-        {
-            public string StartPoint;
-            public string EndPoint;
-            public float Distance;
-            public float WalkTime;
-            public float TotalTime;
-        }
+        
         
 
         public void makelist()
@@ -192,6 +176,39 @@ namespace Disneyland
 
             }
         }
+        public void maakwalktimelist()
+        {
+            string connectionString;
+            string sql;
+            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
+            SqlConnection con = new SqlConnection(connectionString);
+            sql = "select StartPoint,EndPoint,Distance,WalkTime,TotalTime from TheDataWalkTime";
+
+            using (con)
+            {
+                SqlCommand command = new SqlCommand
+                    (
+                    sql, con
+                    );
+                con.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                int t = 0;
+                while (reader.Read())
+                {
+                    WTimes.Add(new walktime());
+                    WTimes[t].StartPoint = reader.GetValue(0).ToString();
+                    WTimes[t].EndPoint = reader.GetValue(1).ToString();
+                    WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
+                    WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
+                    WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
+                    t++;
+                }
+
+            }
+
+
+        }
+
     }
 
     public static class DataService
@@ -210,24 +227,8 @@ namespace Disneyland
                 return result;
             }
         }
-
-        public static List<walktime> WTimes()
-        {
-            string connectionString;
-            string sql;
-
-            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
-            sql = "select * from TheDataWalkTime";
-
-            using (var connect = new SqlConnection(connectionString))
-            {
-                var result = connect.Query<walktime>(sql).ToList();
-                return result;
-            }
-
-
-        }
     }
+   
 
 
     public class quetime
