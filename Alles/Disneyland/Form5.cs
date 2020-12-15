@@ -203,12 +203,8 @@ namespace Disneyland
                     WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
                     t++;
                 }
-
             }
-
-
         }
-
     }
 
     public static class DataService

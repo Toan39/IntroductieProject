@@ -47,8 +47,8 @@ namespace Disneyland
             catch(Exception)
             {}
 
-            if (x + q > 10)
-            {MessageBox.Show("Dit is meer dan 10 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
+            if (x + q > 12)
+            {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
             if(comboBox1.SelectedItem == null)
             {MessageBox.Show("Er is geen tijd doorgegeven.");}
             if (comboBox2.SelectedItem == null)
