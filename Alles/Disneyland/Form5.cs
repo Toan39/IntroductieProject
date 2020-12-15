@@ -182,7 +182,7 @@ namespace Disneyland
             string sql;
             connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
             SqlConnection con = new SqlConnection(connectionString);
-            sql = "select StartPoint,EndPoint,Distance,WalkTime,TotalTime from TheDataWalkTime";
+            sql = "select * from TheDataWalkTime";
 
             using (con)
             {
