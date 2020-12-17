@@ -56,7 +56,7 @@ namespace Disneyland
             if (checkedListBox.SelectedItem == null)
             { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
            
-            if(x+q<10&&checkedListBox.SelectedItem!=null&&comboBox1.SelectedItem!=null&&comboBox2.SelectedItem!=null)
+            else
             { map.Show();
               this.Hide();
             }
@@ -66,11 +66,11 @@ namespace Disneyland
 
         private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBoxItem.Items.Clear();
+            SelectedRidesListBox.Items.Clear();
             foreach (string s in checkedListBox.CheckedItems)
         {
-            listBoxItem.Items.Add(s);
-            listBoxItem.Invalidate();
+            SelectedRidesListBox.Items.Add(s);
+            SelectedRidesListBox.Invalidate();
         }
             
         }

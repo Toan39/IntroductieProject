@@ -79,7 +79,14 @@ namespace Disneyland
 		public string ReturnBestDate()
 		{
 			MaakSelectedWeeklist();
+			label4.Text = selectedweeklist[0].neerslag + "mm rain";
 			return ((selectedweeklist[0].date).ToString()); //Beste dag.
+		}
+
+		public int ReturnCost()
+		{
+
+			return 5;
 		}
 
 		//De elementen van de lijsten.
@@ -96,10 +103,6 @@ namespace Disneyland
             home.Show();
             this.Hide();
         }
-       /* private void datePicker()
-        {
-            label2.Text = 
-        }*/
 
     }
 }

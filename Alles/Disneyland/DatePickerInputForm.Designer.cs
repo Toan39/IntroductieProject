@@ -29,118 +29,73 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatePickerInputForm));
-            this.button1 = new System.Windows.Forms.Button();
+            this.FindDateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.DaysComboBox = new System.Windows.Forms.ComboBox();
+            this.ChildrenComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.WeekTextbox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.AdultComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // FindDateButton
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(157, 391);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(499, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Find my date!";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.FindDateButton.BackColor = System.Drawing.Color.White;
+            this.FindDateButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindDateButton.Location = new System.Drawing.Point(118, 318);
+            this.FindDateButton.Margin = new System.Windows.Forms.Padding(2);
+            this.FindDateButton.Name = "FindDateButton";
+            this.FindDateButton.Size = new System.Drawing.Size(374, 41);
+            this.FindDateButton.TabIndex = 1;
+            this.FindDateButton.Text = "Find my date!";
+            this.FindDateButton.UseVisualStyleBackColor = false;
+            this.FindDateButton.Click += new System.EventHandler(this.FindDateButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(221, 50);
+            this.label1.Location = new System.Drawing.Point(140, 40);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(343, 39);
+            this.label1.Size = new System.Drawing.Size(352, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "When do you want to go?";
+            this.label1.Text = "Which week do you want to go?\r\n";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(128, 134);
+            this.label2.Location = new System.Drawing.Point(96, 108);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(527, 39);
+            this.label2.Size = new System.Drawing.Size(441, 33);
             this.label2.TabIndex = 3;
             this.label2.Text = "For how many days do you want to go?";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(201, 286);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(432, 39);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "How much do you want to pay?";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(228, 330);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.trackBar1.Maximum = 800;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(261, 56);
-            this.trackBar1.SmallChange = 20;
-            this.trackBar1.TabIndex = 20;
-            this.trackBar1.Value = 50;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(197, -7);
+            this.label5.Location = new System.Drawing.Point(149, -6);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(407, 58);
+            this.label5.Size = new System.Drawing.Size(323, 46);
             this.label5.TabIndex = 9;
             this.label5.Text = "pick your ideal date";
             // 
-            // label6
+            // DaysComboBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(512, 340);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 24);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "50";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(548, 340);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 24);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "euro";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.DaysComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DaysComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DaysComboBox.FormattingEnabled = true;
+            this.DaysComboBox.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -150,18 +105,18 @@
             "7",
             "8",
             "9"});
-            this.comboBox1.Location = new System.Drawing.Point(364, 176);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(71, 24);
-            this.comboBox1.TabIndex = 21;
+            this.DaysComboBox.Location = new System.Drawing.Point(273, 143);
+            this.DaysComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DaysComboBox.Name = "DaysComboBox";
+            this.DaysComboBox.Size = new System.Drawing.Size(54, 21);
+            this.DaysComboBox.TabIndex = 21;
             // 
-            // comboBox2
+            // ChildrenComboBox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.ChildrenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ChildrenComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChildrenComboBox.FormattingEnabled = true;
+            this.ChildrenComboBox.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -182,73 +137,86 @@
             "18",
             "19",
             "20"});
-            this.comboBox2.Location = new System.Drawing.Point(364, 258);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(71, 24);
-            this.comboBox2.TabIndex = 22;
+            this.ChildrenComboBox.Location = new System.Drawing.Point(273, 210);
+            this.ChildrenComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ChildrenComboBox.Name = "ChildrenComboBox";
+            this.ChildrenComboBox.Size = new System.Drawing.Size(54, 21);
+            this.ChildrenComboBox.TabIndex = 22;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(221, 214);
+            this.label3.Location = new System.Drawing.Point(166, 174);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(337, 39);
+            this.label3.Size = new System.Drawing.Size(328, 33);
             this.label3.TabIndex = 23;
-            this.label3.Text = "What is your groupsize?";
+            this.label3.Text = "How many children age 3-9?";
             // 
             // WeekTextbox
             // 
-            this.WeekTextbox.Location = new System.Drawing.Point(364, 95);
-            this.WeekTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WeekTextbox.Location = new System.Drawing.Point(273, 76);
             this.WeekTextbox.Name = "WeekTextbox";
-            this.WeekTextbox.Size = new System.Drawing.Size(71, 22);
+            this.WeekTextbox.Size = new System.Drawing.Size(54, 20);
             this.WeekTextbox.TabIndex = 24;
-            this.WeekTextbox.TextChanged += new System.EventHandler(this.WeekTextbox_TextChanged);
+            // 
+            // AdultComboBox
+            // 
+            this.AdultComboBox.FormattingEnabled = true;
+            this.AdultComboBox.Location = new System.Drawing.Point(273, 273);
+            this.AdultComboBox.Name = "AdultComboBox";
+            this.AdultComboBox.Size = new System.Drawing.Size(54, 21);
+            this.AdultComboBox.TabIndex = 25;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(166, 237);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(320, 33);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "How many people age 10+?";
             // 
             // DatePickerInputForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.AdultComboBox);
             this.Controls.Add(this.WeekTextbox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ChildrenComboBox);
+            this.Controls.Add(this.DaysComboBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.FindDateButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DatePickerInputForm";
             this.Text = "Disneyland";
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FindDateButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox DaysComboBox;
+        private System.Windows.Forms.ComboBox ChildrenComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox WeekTextbox;
+        private System.Windows.Forms.ComboBox AdultComboBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 
