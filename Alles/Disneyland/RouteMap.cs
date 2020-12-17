@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Dapper;
 using System.Collections;
-
+using System.Drawing.Printing;
 
 namespace Disneyland
 {
@@ -26,8 +26,9 @@ namespace Disneyland
         {
             InitializeComponent();
             maakwalktimelist();
+           
             int InsertedTime = (int.Parse(tijd) * 60);
-            int i = 0;
+            
             sorteer();
             returnlowest(InsertedTime);
             makelist();
@@ -53,7 +54,15 @@ namespace Disneyland
         private void button1_Click(object sender, EventArgs e)
         {
             PrintDialog print = new PrintDialog();
-            print.ShowDialog();
+            PrintDocument document = new PrintDocument();
+            document.DocumentName = "DisneyRoute";
+            print.Document = document;
+            print.AllowSelection = true;
+            print.AllowSomePages = true;
+            if(print.ShowDialog()==DialogResult.OK)
+            {
+                document.Print();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

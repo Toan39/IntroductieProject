@@ -49,10 +49,7 @@ namespace Disneyland
 
             if (x + q > 12)
             {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
-            if(comboBox1.SelectedItem == null)
-            {MessageBox.Show("Er is geen tijd doorgegeven.");}
-            if (comboBox2.SelectedItem == null)
-            { MessageBox.Show("Er is geen tijd doorgegeven."); }
+            
             if (SelectRidesListBox.SelectedItem == null)
             { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
            
@@ -79,6 +76,8 @@ namespace Disneyland
         {
             System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
         }
+
+       
     }
 }
 

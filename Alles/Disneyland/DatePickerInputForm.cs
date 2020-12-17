@@ -20,13 +20,27 @@ namespace Disneyland
             InitializeComponent();
         }
 
+        private void WeekTextbox_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
         private void FindDateButton_Click(object sender, EventArgs e)
         {
-            DatePickerForm date = new DatePickerForm(int.Parse(this.WeekTextbox.Text));
-			date.label2.Text = date.ReturnBestDate();
-            date.Show();
-            this.Hide();
+            if (int.Parse(WeekTextbox.Text) > 52)
+            {
+                MessageBox.Show("Een jaar heeft niet meer dan 52 weken. Voer een weeknummer onder de 52 in.");
+            }
+            else
+            {
+                DatePickerForm date = new DatePickerForm(int.Parse(this.WeekTextbox.Text));
+                date.label2.Text = date.ReturnBestDate();
+                date.Show();
+                this.Hide();
+            }
         }
-
     }
 }
