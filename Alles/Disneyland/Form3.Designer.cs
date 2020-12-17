@@ -39,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.Information_Button = new System.Windows.Forms.Button();
+            this.InformationButton = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -229,18 +229,18 @@
             this.comboBox2.Size = new System.Drawing.Size(60, 21);
             this.comboBox2.TabIndex = 13;
             // 
-            // Information_Button
+            // InformationButton
             // 
-            this.Information_Button.BackColor = System.Drawing.Color.White;
-            this.Information_Button.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Information_Button.Location = new System.Drawing.Point(56, 280);
-            this.Information_Button.Margin = new System.Windows.Forms.Padding(2);
-            this.Information_Button.Name = "Information_Button";
-            this.Information_Button.Size = new System.Drawing.Size(242, 76);
-            this.Information_Button.TabIndex = 14;
-            this.Information_Button.Text = "Click to get information about the rides";
-            this.Information_Button.UseVisualStyleBackColor = false;
-            this.Information_Button.Click += new System.EventHandler(this.button2_Click);
+            this.InformationButton.BackColor = System.Drawing.Color.White;
+            this.InformationButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InformationButton.Location = new System.Drawing.Point(56, 280);
+            this.InformationButton.Margin = new System.Windows.Forms.Padding(2);
+            this.InformationButton.Name = "InformationButton";
+            this.InformationButton.Size = new System.Drawing.Size(242, 76);
+            this.InformationButton.TabIndex = 14;
+            this.InformationButton.Text = "Click to get information about the rides";
+            this.InformationButton.UseVisualStyleBackColor = false;
+            this.InformationButton.Click += new System.EventHandler(this.InformationButton_Click);
             // 
             // Form3
             // 
@@ -248,7 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.Information_Button);
+            this.Controls.Add(this.InformationButton);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -279,6 +279,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button Information_Button;
+        private System.Windows.Forms.Button InformationButton;
     }
 }

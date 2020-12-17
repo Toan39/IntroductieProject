@@ -75,7 +75,7 @@ namespace Disneyland
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void InformationButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
         }

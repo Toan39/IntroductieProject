@@ -42,7 +42,6 @@ namespace Disneyland
 				con.Open();
 				SqlDataReader reader = command.ExecuteReader();
 
-
 				int t = 0;
 				while (reader.Read())
 				{
@@ -57,7 +56,7 @@ namespace Disneyland
 				con.Close();
 			}
 		}
-		public void MakeSelectedWeeklist()
+		public void MakeSelectedWeekList()
 		{
 			datalist = datalist.OrderBy(x => x.neerslag).ToList();  //Sorteren op neerslag.
 																	//gaat alle data af, als de week gelijk is aan de week die de gebruiker gekozen heeft, wordt die kolom met data in de selectedweeklist gekopieerd.
@@ -75,20 +74,18 @@ namespace Disneyland
 				i++;
 			}
 		}
-
 		public string ReturnBestDate()
 		{
-			MakeSelectedWeeklist();
+			MakeSelectedWeekList();
 			label4.Text = selectedweeklist[0].neerslag + "mm rain";
 			return ((selectedweeklist[0].date).ToString()); //Beste dag.
 		}
-
-		public int ReturnCost()
+		public void CalendarButton_Click(object sender, EventArgs e)
 		{
-
-			return 5;
+			MainMenu home = new MainMenu();
+			home.Show();
+			this.Hide();
 		}
-
 		//De elementen van de lijsten.
 		internal class datum
 		{
@@ -96,13 +93,5 @@ namespace Disneyland
 			public string date;
 			public string neerslag;
 		}
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            MainMenu home = new MainMenu();
-            home.Show();
-            this.Hide();
-        }
-
     }
 }
