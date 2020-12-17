@@ -110,10 +110,8 @@ C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\System.Data.SQLite.xml
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland gui.csprojAssemblyReference.cache
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.DatePickerInputForm.resources
-C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.Form2.resources
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.Form3.resources
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.DatePickerForm.resources
-C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.Form5.resources
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.Properties.Resources.resources
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland gui.csproj.GenerateResource.cache
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland gui.csproj.CoreCompileInputs.cache
@@ -224,3 +222,5 @@ C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\
 C:\Users\Renata Shamon\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.pdb
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.dll
 C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\bin\Debug\Dapper.xml
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.MainMenu.resources
+C:\Users\Martijn\Documents\GitHub\IntroductieProject\Alles\Disneyland\obj\Debug\Disneyland.RouteMap.resources

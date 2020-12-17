@@ -28,9 +28,9 @@ namespace Disneyland
 
        
 
-        public void button1_Click(object sender, EventArgs e)
+        public void GoButton_Click(object sender, EventArgs e)
         {
-            Form5 map = new Form5(comboBox1.Text);
+            RouteMap map = new RouteMap(comboBox1.Text);
             //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
@@ -53,7 +53,7 @@ namespace Disneyland
             {MessageBox.Show("Er is geen tijd doorgegeven.");}
             if (comboBox2.SelectedItem == null)
             { MessageBox.Show("Er is geen tijd doorgegeven."); }
-            if (checkedListBox.SelectedItem == null)
+            if (SelectRidesListBox.SelectedItem == null)
             { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
            
             else
@@ -64,15 +64,15 @@ namespace Disneyland
            
         }
 
-        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectRidesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedRidesListBox.Items.Clear();
-            foreach (string s in checkedListBox.CheckedItems)
+            foreach (string s in SelectRidesListBox.CheckedItems)
         {
             SelectedRidesListBox.Items.Add(s);
             SelectedRidesListBox.Invalidate();
-        }
-            
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

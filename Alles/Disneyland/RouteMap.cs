@@ -18,11 +18,11 @@ using System.Collections;
 
 namespace Disneyland
 {
-    public partial class Form5 : Form
+    public partial class RouteMap : Form
     {
         List<string> usedpoints = new List<string>();
         List<walktime> WTimes = new List<walktime>();
-        public Form5(string tijd)
+        public RouteMap(string tijd)
         {
             InitializeComponent();
             maakwalktimelist();

@@ -25,14 +25,14 @@ namespace Disneyland
 			this.selectedweek = week;
 			
 		}
-		public void maakconnectie()
+		public void MakeConnection()
 		{
 			string path = "Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True"; //vul hier je eigen database path in
 			con = new SqlConnection(path);
 		}
 		public void ReadSqlData()
 		{
-			maakconnectie();
+			MakeConnection();
 			using (con)
 			{
 				SqlCommand command = new SqlCommand
@@ -57,7 +57,7 @@ namespace Disneyland
 				con.Close();
 			}
 		}
-		public void MaakSelectedWeeklist()
+		public void MakeSelectedWeeklist()
 		{
 			datalist = datalist.OrderBy(x => x.neerslag).ToList();  //Sorteren op neerslag.
 																	//gaat alle data af, als de week gelijk is aan de week die de gebruiker gekozen heeft, wordt die kolom met data in de selectedweeklist gekopieerd.
@@ -78,7 +78,7 @@ namespace Disneyland
 
 		public string ReturnBestDate()
 		{
-			MaakSelectedWeeklist();
+			MakeSelectedWeeklist();
 			label4.Text = selectedweeklist[0].neerslag + "mm rain";
 			return ((selectedweeklist[0].date).ToString()); //Beste dag.
 		}
@@ -99,7 +99,7 @@ namespace Disneyland
 
         public void button1_Click(object sender, EventArgs e)
         {
-            Form2 home = new Form2();
+            MainMenu home = new MainMenu();
             home.Show();
             this.Hide();
         }
