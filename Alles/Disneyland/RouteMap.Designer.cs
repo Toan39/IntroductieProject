@@ -29,45 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMap));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PrintButton = new System.Windows.Forms.Button();
+            this.SwitchButton = new System.Windows.Forms.Button();
+            this.MainTextLabel = new System.Windows.Forms.Label();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // PrintButton
             // 
-            this.button1.Location = new System.Drawing.Point(24, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.PrintButton.Location = new System.Drawing.Point(18, 2);
+            this.PrintButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(56, 31);
+            this.PrintButton.TabIndex = 1;
+            this.PrintButton.Text = "Print";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
-            // button2
+            // SwitchButton
             // 
-            this.button2.Location = new System.Drawing.Point(105, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 38);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Switch";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.SwitchButton.Location = new System.Drawing.Point(79, 2);
+            this.SwitchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SwitchButton.Name = "SwitchButton";
+            this.SwitchButton.Size = new System.Drawing.Size(56, 31);
+            this.SwitchButton.TabIndex = 2;
+            this.SwitchButton.Text = "Switch";
+            this.SwitchButton.UseVisualStyleBackColor = true;
+            this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
-            // label1
+            // MainTextLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(284, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 39);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Estimated time";
+            this.MainTextLabel.AutoSize = true;
+            this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainTextLabel.ForeColor = System.Drawing.Color.White;
+            this.MainTextLabel.Location = new System.Drawing.Point(213, 2);
+            this.MainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.MainTextLabel.Name = "MainTextLabel";
+            this.MainTextLabel.Size = new System.Drawing.Size(169, 33);
+            this.MainTextLabel.TabIndex = 3;
+            this.MainTextLabel.Text = "Estimated time";
             // 
             // gmap
             // 
@@ -77,8 +78,8 @@
             this.gmap.GrayScaleMode = false;
             this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gmap.LevelsKeepInMemory = 5;
-            this.gmap.Location = new System.Drawing.Point(13, 43);
-            this.gmap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gmap.Location = new System.Drawing.Point(10, 35);
+            this.gmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gmap.MarkersEnabled = true;
             this.gmap.MaxZoom = 2;
             this.gmap.MinZoom = 2;
@@ -92,7 +93,7 @@
             this.gmap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gmap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gmap.ShowTileGridLines = false;
-            this.gmap.Size = new System.Drawing.Size(667, 615);
+            this.gmap.Size = new System.Drawing.Size(500, 500);
             this.gmap.TabIndex = 4;
             this.gmap.Zoom = 0D;
             this.gmap.Load += new System.EventHandler(this.gmap_Load_1);
@@ -102,25 +103,24 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(715, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(536, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 5;
             // 
             // RouteMap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1045, 671);
+            this.ClientSize = new System.Drawing.Size(784, 545);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gmap);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.MainTextLabel);
+            this.Controls.Add(this.SwitchButton);
+            this.Controls.Add(this.PrintButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RouteMap";
             this.Text = "Disneyland";
             this.ResumeLayout(false);
@@ -129,9 +129,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.Button SwitchButton;
+        private System.Windows.Forms.Label MainTextLabel;
         private GMap.NET.WindowsForms.GMapControl gmap;
         private System.Windows.Forms.Label label2;
     }

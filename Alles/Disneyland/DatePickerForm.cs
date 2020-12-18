@@ -77,7 +77,7 @@ namespace Disneyland
 		public string ReturnBestDate()
 		{
 			MakeSelectedWeekList();
-			label4.Text = selectedweeklist[0].neerslag + " mm rain";
+			mmRainLabel.Text = selectedweeklist[0].neerslag + " mm rain";
 			return ((selectedweeklist[0].date).ToString()); //Beste dag.
 		}
 		public void CalendarButton_Click(object sender, EventArgs e)

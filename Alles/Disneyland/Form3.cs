@@ -30,10 +30,10 @@ namespace Disneyland
 
         public void GoButton_Click(object sender, EventArgs e)
         {
-            RouteMap map = new RouteMap(comboBox1.Text);
+            RouteMap map = new RouteMap(HoursSpendComboBox.Text);
             //map.attractionlist = DataService.att;
-            String s = comboBox1.Text;
-            string a = comboBox2.Text;
+            String s = HoursSpendComboBox.Text;
+            string a = FreeTimeComboBox.Text;
             
             int x = 0;
             int q = 0;

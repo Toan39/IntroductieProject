@@ -37,7 +37,7 @@ namespace Disneyland
             else
             {
                 DatePickerForm date = new DatePickerForm(int.Parse(this.WeekTextbox.Text));
-                date.label2.Text = date.ReturnBestDate();
+                date.ResultLabel.Text = date.ReturnBestDate();
                 date.Show();
                 this.Hide();
             }

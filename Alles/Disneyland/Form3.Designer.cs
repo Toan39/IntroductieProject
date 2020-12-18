@@ -28,57 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label RidesLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            this.Go_button = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.GoButton = new System.Windows.Forms.Button();
+            this.DisneyLandPictureBox = new System.Windows.Forms.PictureBox();
             this.SelectRidesListBox = new System.Windows.Forms.CheckedListBox();
             this.SelectedRidesListBox = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.FreeTimeLabel = new System.Windows.Forms.Label();
+            this.HoursSpendComboBox = new System.Windows.Forms.ComboBox();
+            this.HoursSpendLabel = new System.Windows.Forms.Label();
+            this.SelectedRidesLabel = new System.Windows.Forms.Label();
+            this.FreeTimeComboBox = new System.Windows.Forms.ComboBox();
             this.InformationButton = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            RidesLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // RidesLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label1.Location = new System.Drawing.Point(69, 38);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(153, 24);
-            label1.TabIndex = 5;
-            label1.Text = "Choose your rides:";
+            RidesLabel.AutoSize = true;
+            RidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            RidesLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            RidesLabel.Location = new System.Drawing.Point(52, 31);
+            RidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            RidesLabel.Name = "RidesLabel";
+            RidesLabel.Size = new System.Drawing.Size(123, 19);
+            RidesLabel.TabIndex = 5;
+            RidesLabel.Text = "Choose your rides:";
             // 
-            // Go_button
+            // GoButton
             // 
-            this.Go_button.BackColor = System.Drawing.Color.White;
-            this.Go_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Go_button.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Go_button.Location = new System.Drawing.Point(403, 345);
-            this.Go_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Go_button.Name = "Go_button";
-            this.Go_button.Size = new System.Drawing.Size(308, 94);
-            this.Go_button.TabIndex = 1;
-            this.Go_button.Text = "GO!";
-            this.Go_button.UseVisualStyleBackColor = false;
-            this.Go_button.Click += new System.EventHandler(this.GoButton_Click);
+            this.GoButton.BackColor = System.Drawing.Color.White;
+            this.GoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.GoButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoButton.Location = new System.Drawing.Point(302, 280);
+            this.GoButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GoButton.Name = "GoButton";
+            this.GoButton.Size = new System.Drawing.Size(231, 76);
+            this.GoButton.TabIndex = 1;
+            this.GoButton.Text = "GO!";
+            this.GoButton.UseVisualStyleBackColor = false;
+            this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
-            // pictureBox1
+            // DisneyLandPictureBox
             // 
-            this.pictureBox1.Image = global::Disneyland.Properties.Resources.Daco_4620584;
-            this.pictureBox1.Location = new System.Drawing.Point(313, 62);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 257);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.DisneyLandPictureBox.Image = global::Disneyland.Properties.Resources.Daco_4620584;
+            this.DisneyLandPictureBox.Location = new System.Drawing.Point(235, 50);
+            this.DisneyLandPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DisneyLandPictureBox.Name = "DisneyLandPictureBox";
+            this.DisneyLandPictureBox.Size = new System.Drawing.Size(143, 209);
+            this.DisneyLandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.DisneyLandPictureBox.TabIndex = 2;
+            this.DisneyLandPictureBox.TabStop = false;
             // 
             // SelectRidesListBox
             // 
@@ -124,10 +125,10 @@
             "Star Tours: The Adventure Continue",
             "Star Wars Hyperspace Mountain",
             "Thunder Mesa Riverboat Landing"});
-            this.SelectRidesListBox.Location = new System.Drawing.Point(12, 90);
-            this.SelectRidesListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SelectRidesListBox.Location = new System.Drawing.Point(9, 73);
+            this.SelectRidesListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SelectRidesListBox.Name = "SelectRidesListBox";
-            this.SelectRidesListBox.Size = new System.Drawing.Size(291, 216);
+            this.SelectRidesListBox.Size = new System.Drawing.Size(218, 165);
             this.SelectRidesListBox.TabIndex = 3;
             this.SelectRidesListBox.SelectedIndexChanged += new System.EventHandler(this.SelectRidesListBox_SelectedIndexChanged);
             // 
@@ -137,31 +138,31 @@
             this.SelectedRidesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SelectedRidesListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedRidesListBox.FormattingEnabled = true;
-            this.SelectedRidesListBox.ItemHeight = 15;
-            this.SelectedRidesListBox.Location = new System.Drawing.Point(509, 204);
-            this.SelectedRidesListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SelectedRidesListBox.Location = new System.Drawing.Point(382, 166);
+            this.SelectedRidesListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SelectedRidesListBox.Name = "SelectedRidesListBox";
-            this.SelectedRidesListBox.Size = new System.Drawing.Size(277, 105);
+            this.SelectedRidesListBox.Size = new System.Drawing.Size(208, 78);
             this.SelectedRidesListBox.TabIndex = 4;
             // 
-            // label3
+            // FreeTimeLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Script MT Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(463, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(286, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "How many hours of free time do you need";
+            this.FreeTimeLabel.AutoSize = true;
+            this.FreeTimeLabel.Font = new System.Drawing.Font("Script MT Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FreeTimeLabel.ForeColor = System.Drawing.Color.White;
+            this.FreeTimeLabel.Location = new System.Drawing.Point(347, 73);
+            this.FreeTimeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.FreeTimeLabel.Name = "FreeTimeLabel";
+            this.FreeTimeLabel.Size = new System.Drawing.Size(241, 17);
+            this.FreeTimeLabel.TabIndex = 7;
+            this.FreeTimeLabel.Text = "How many hours of free time do you need";
             // 
-            // comboBox1
+            // HoursSpendComboBox
             // 
-            this.comboBox1.DisplayMember = "1";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.HoursSpendComboBox.DisplayMember = "1";
+            this.HoursSpendComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HoursSpendComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HoursSpendComboBox.FormattingEnabled = true;
+            this.HoursSpendComboBox.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -174,41 +175,42 @@
             "10",
             "11",
             "12"});
-            this.comboBox1.Location = new System.Drawing.Point(595, 41);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 24);
-            this.comboBox1.TabIndex = 8;
-            this.comboBox1.SelectedIndex = 0;
+            this.HoursSpendComboBox.Location = new System.Drawing.Point(446, 33);
+            this.HoursSpendComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HoursSpendComboBox.Name = "HoursSpendComboBox";
+            this.HoursSpendComboBox.Size = new System.Drawing.Size(60, 21);
+            this.HoursSpendComboBox.TabIndex = 8;
             // 
-            // label2
+            // HoursSpendLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Script MT Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(463, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(305, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "How many hours will you spend in the park";
+            this.HoursSpendLabel.AutoSize = true;
+            this.HoursSpendLabel.Font = new System.Drawing.Font("Script MT Bold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoursSpendLabel.ForeColor = System.Drawing.Color.White;
+            this.HoursSpendLabel.Location = new System.Drawing.Point(347, 15);
+            this.HoursSpendLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.HoursSpendLabel.Name = "HoursSpendLabel";
+            this.HoursSpendLabel.Size = new System.Drawing.Size(257, 17);
+            this.HoursSpendLabel.TabIndex = 10;
+            this.HoursSpendLabel.Text = "How many hours will you spend in the park";
             // 
-            // label4
+            // SelectedRidesLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(591, 166);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 24);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Selected rides:";
+            this.SelectedRidesLabel.AutoSize = true;
+            this.SelectedRidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedRidesLabel.ForeColor = System.Drawing.Color.White;
+            this.SelectedRidesLabel.Location = new System.Drawing.Point(443, 135);
+            this.SelectedRidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SelectedRidesLabel.Name = "SelectedRidesLabel";
+            this.SelectedRidesLabel.Size = new System.Drawing.Size(97, 19);
+            this.SelectedRidesLabel.TabIndex = 12;
+            this.SelectedRidesLabel.Text = "Selected rides:";
             // 
-            // comboBox2
+            // FreeTimeComboBox
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.FreeTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FreeTimeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FreeTimeComboBox.FormattingEnabled = true;
+            this.FreeTimeComboBox.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -222,22 +224,20 @@
             "10",
             "11",
             "12"});
-            this.comboBox2.Location = new System.Drawing.Point(595, 124);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(79, 24);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.SelectedIndex = 0;
-
+            this.FreeTimeComboBox.Location = new System.Drawing.Point(446, 101);
+            this.FreeTimeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FreeTimeComboBox.Name = "FreeTimeComboBox";
+            this.FreeTimeComboBox.Size = new System.Drawing.Size(60, 21);
+            this.FreeTimeComboBox.TabIndex = 13;
             // 
             // InformationButton
             // 
             this.InformationButton.BackColor = System.Drawing.Color.White;
             this.InformationButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InformationButton.Location = new System.Drawing.Point(75, 345);
-            this.InformationButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InformationButton.Location = new System.Drawing.Point(56, 280);
+            this.InformationButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.InformationButton.Name = "InformationButton";
-            this.InformationButton.Size = new System.Drawing.Size(323, 94);
+            this.InformationButton.Size = new System.Drawing.Size(242, 76);
             this.InformationButton.TabIndex = 14;
             this.InformationButton.Text = "Click to get information about the rides";
             this.InformationButton.UseVisualStyleBackColor = false;
@@ -245,41 +245,41 @@
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.InformationButton);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(label1);
+            this.Controls.Add(this.FreeTimeComboBox);
+            this.Controls.Add(this.SelectedRidesLabel);
+            this.Controls.Add(this.HoursSpendLabel);
+            this.Controls.Add(this.HoursSpendComboBox);
+            this.Controls.Add(this.FreeTimeLabel);
+            this.Controls.Add(RidesLabel);
             this.Controls.Add(this.SelectedRidesListBox);
             this.Controls.Add(this.SelectRidesListBox);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Go_button);
+            this.Controls.Add(this.DisneyLandPictureBox);
+            this.Controls.Add(this.GoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form3";
             this.Text = "Disneyland";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button Go_button;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button GoButton;
+        private System.Windows.Forms.PictureBox DisneyLandPictureBox;
         private System.Windows.Forms.CheckedListBox SelectRidesListBox;
         private System.Windows.Forms.ListBox SelectedRidesListBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label FreeTimeLabel;
+        private System.Windows.Forms.ComboBox HoursSpendComboBox;
+        private System.Windows.Forms.Label HoursSpendLabel;
+        private System.Windows.Forms.Label SelectedRidesLabel;
+        private System.Windows.Forms.ComboBox FreeTimeComboBox;
         private System.Windows.Forms.Button InformationButton;
     }
 }

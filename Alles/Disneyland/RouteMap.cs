@@ -51,7 +51,7 @@ namespace Disneyland
             public static List<attraction> att = new List<attraction>();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PrintButton_Click(object sender, EventArgs e)
         {
             PrintDialog print = new PrintDialog();
             PrintDocument document = new PrintDocument();
@@ -65,7 +65,7 @@ namespace Disneyland
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void SwitchButton_Click(object sender, EventArgs e)
         {
             Form3 rides = new Form3();
             rides.Show();
