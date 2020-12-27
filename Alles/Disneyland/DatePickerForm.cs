@@ -27,7 +27,7 @@ namespace Disneyland
 		}
 		public void maakconnectie()
 		{
-			string path = "Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True"; //vul hier je eigen database path in
+			string path = "SERVER=localhost;DATABASE=tim123;UID=root;PASSWORD=hoi123;"; //vul hier je eigen database path in
 			con = new SqlConnection(path);
 		}
 		public void ReadSqlData()
@@ -37,7 +37,7 @@ namespace Disneyland
 			{
 				SqlCommand command = new SqlCommand
 				(
-				"SELECT * FROM dbo.TheDataAmountRain", con
+				"SELECT * FROM theddataamountrain", con
 				);
 				con.Open();
 				SqlDataReader reader = command.ExecuteReader();

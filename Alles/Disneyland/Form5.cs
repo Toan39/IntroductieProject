@@ -179,10 +179,10 @@ namespace Disneyland
         public void maakwalktimelist()
         {
             string connectionString;
-            string sql;
-            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
+            string sql; 
+            connectionString = "SERVER = localhost; DATABASE = tim123; UID = root; PASSWORD = hoi123;";
             SqlConnection con = new SqlConnection(connectionString);
-            sql = "select * from TheDataWalkTime";
+            sql = "select * from thedatawalktime";
 
             using (con)
             {
@@ -214,8 +214,8 @@ namespace Disneyland
             string connectionString;
             string sql;
 
-            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
-            sql = "select * from TheDataQueTime";
+            connectionString = "SERVER=localhost;DATABASE=tim123;UID=root;PASSWORD=hoi123;";
+            sql = "select * from thedataquetime";
 
             using (var connect = new SqlConnection(connectionString))
             {
