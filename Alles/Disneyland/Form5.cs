@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using Dapper;
 using System.Collections;
 
@@ -181,17 +181,17 @@ namespace Disneyland
             string connectionString;
             string sql; 
             connectionString = "SERVER = localhost; DATABASE = tim123; UID = root; PASSWORD = hoi123;";
-            SqlConnection con = new SqlConnection(connectionString);
+            MySqlConnection con = new MySqlConnection(connectionString);
             sql = "select * from thedatawalktime";
 
             using (con)
             {
-                SqlCommand command = new SqlCommand
+                MySqlCommand command = new MySqlCommand
                     (
                     sql, con
                     );
                 con.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                MySqlDataReader reader = command.ExecuteReader();
                 int t = 0;
                 while (reader.Read())
                 {
@@ -217,7 +217,7 @@ namespace Disneyland
             connectionString = "SERVER=localhost;DATABASE=tim123;UID=root;PASSWORD=hoi123;";
             sql = "select * from thedataquetime";
 
-            using (var connect = new SqlConnection(connectionString))
+            using (var connect = new MySqlConnection(connectionString))
             {
                 var result = connect.Query<quetime>(sql).ToList();
                 return result;

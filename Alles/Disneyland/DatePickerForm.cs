@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Disneyland
 {
@@ -17,7 +17,7 @@ namespace Disneyland
 		int selectedweek; //waarde door gebruiker gekozen
 		List<datum> datalist = new List<datum>(); //de sql data geconverteerd naar een c# lijst
 		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
-		SqlConnection con;
+		MySqlConnection con;
 		public DatePickerForm(int week)
 		{
 			InitializeComponent();
@@ -28,19 +28,19 @@ namespace Disneyland
 		public void maakconnectie()
 		{
 			string path = "SERVER=localhost;DATABASE=tim123;UID=root;PASSWORD=hoi123;"; //vul hier je eigen database path in
-			con = new SqlConnection(path);
+			con = new MySqlConnection(path);
 		}
 		public void ReadSqlData()
 		{
 			maakconnectie();
 			using (con)
 			{
-				SqlCommand command = new SqlCommand
+				MySqlCommand command = new MySqlCommand
 				(
-				"SELECT * FROM theddataamountrain", con
+				"SELECT * FROM thedataamountrain", con
 				);
 				con.Open();
-				SqlDataReader reader = command.ExecuteReader();
+				MySqlDataReader reader = command.ExecuteReader();
 
 
 				int t = 0;
