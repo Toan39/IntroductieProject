@@ -35,6 +35,10 @@ namespace Disneyland
         {
             int kind = 0;
             int week = int.Parse(WeekTextbox.Text);
+            int ouder = int.Parse(AdultComboBox.Text);
+            int dag = int.Parse(DaysComboBox.Text) - 1;
+            int prijs = 0;
+
             try
             {
                 kind = int.Parse(ChildrenComboBox.Text);
@@ -44,11 +48,7 @@ namespace Disneyland
             {
                 kind = 0;
             }
-           
-            int ouder = int.Parse(AdultComboBox.Text);
-            int dag = int.Parse(DaysComboBox.Text);
-            int prijs = 0;
-            
+
             if (week > 52)
             {
                 MessageBox.Show("Een jaar heeft niet meer dan 52 weken. Voer een weeknummer onder de 52 in.");
@@ -85,18 +85,11 @@ namespace Disneyland
                 {
                     prijs = 89 * ouder + 82 * kind;
                 }
-                if(dag!=0)
-                {
-                    if(dag == 1)
-                    {
-                        dag = 0;
-                    }
-                    int personen = ouder + kind;
-                    int kamer = 200 * dag;
-                    int hotel = kamer * (personen/2 + personen%2*2);
-                    prijs = prijs + hotel;
-                }
                 
+                int personen = ouder + kind;
+                int kamer = 200 * dag;
+                int hotel = kamer * (personen/2 + personen%2*2);
+                prijs = prijs + hotel;
                 DatePickerForm date = new DatePickerForm(week, prijs);
                 date.ResultLabel.Text = date.ReturnBestDate();
                 date.Show();
