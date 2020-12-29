@@ -180,7 +180,7 @@ namespace Disneyland
         {
             string connectionString;
             string sql; 
-            connectionString = "SERVER = DESKTOP-Q28TMM2; DATABASE = tim123; UID = user; PASSWORD = hoi123;";
+            connectionString = "SERVER = localhost; DATABASE = tim123; UID = user; PASSWORD = hoi123;";
             MySqlConnection con = new MySqlConnection(connectionString);
             sql = "select * from thedatawalktime";
 

@@ -27,7 +27,7 @@ namespace Disneyland
 		}
 		public void maakconnectie()
 		{
-			string path = "SERVER=DESKTOP-Q28TMM2;DATABASE=tim123;UID=user;PASSWORD=hoi123;"; //vul hier je eigen database path in
+			string path = "SERVER=localhost;DATABASE=tim123;UID=user;PASSWORD=hoi123;"; //vul hier je eigen database path in
 			con = new MySqlConnection(path);
 		}
 		public void ReadSqlData()
