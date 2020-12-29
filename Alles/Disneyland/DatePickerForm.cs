@@ -19,13 +19,15 @@ namespace Disneyland
 		List<datum> datalist = new List<datum>(); //de sql data geconverteerd naar een c# lijst
 		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
 		SqlConnection con;
-		public DatePickerForm(int week, int prijs)
+		int crowd;
+		public DatePickerForm(int week, int prijs, int drukte)
 		{
 			InitializeComponent();
 			ReadSqlData();
 			this.selectedweek = week;
-			
+			crowd = drukte;
 			CostLabel.Text = prijs.ToString()+" Euro";
+			
 			
 		}
 		public void MakeConnection()
@@ -96,5 +98,11 @@ namespace Disneyland
 			public string date;
 			public string neerslag;
 		}
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+			e.Graphics.DrawRectangle(Pens.White, 0, 0, 250, 25);
+			e.Graphics.FillRectangle(Brushes.Green, 1, 1, crowd, 23);
+        }
     }
 }
