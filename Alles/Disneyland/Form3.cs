@@ -21,6 +21,8 @@ namespace Disneyland
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
+            HoursSpendComboBox.Text = "1";
+            FreeTimeComboBox.Text = "0";
          }
 
         ////void methods////
@@ -49,9 +51,9 @@ namespace Disneyland
 
             if (x + q > 12)
             {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
-            
-            if (SelectRidesListBox.SelectedItem == null)
-            { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
+
+           // if (SelectRidesListBox.SelectedItem == null)
+          //  { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
            
             else
             { map.Show();

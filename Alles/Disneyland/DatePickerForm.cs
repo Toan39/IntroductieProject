@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.IO;
+using System.Threading;
 
 namespace Disneyland
 {
@@ -20,7 +22,8 @@ namespace Disneyland
 		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
 		SqlConnection con;
 		int crowd;
-		public DatePickerForm(int week, int prijs, int drukte)
+
+	public DatePickerForm(int week, int prijs, int drukte)
 		{
 			InitializeComponent();
 			ReadSqlData();
@@ -85,12 +88,16 @@ namespace Disneyland
 			mmRainLabel.Text = selectedweeklist[0].neerslag + " mm rain";
 			return ((selectedweeklist[0].date).ToString()); //Beste dag.
 		}
+
 		public void CalendarButton_Click(object sender, EventArgs e)
 		{
+
+			System.Diagnostics.Process.Start("https://calendar.google.com/calendar");
 			MainMenu home = new MainMenu();
-			home.Show();
-			this.Hide();
-		}
+				home.Show();
+				this.Hide();
+			}
+		
 		//De elementen van de lijsten.
 		internal class datum
 		{
