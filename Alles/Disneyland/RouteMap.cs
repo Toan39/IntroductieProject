@@ -22,6 +22,7 @@ namespace Disneyland
     {
         List<string> usedpoints = new List<string>();
         List<walktime> WTimes = new List<walktime>();
+        List<walktime> PriorityRides = new List<walktime>();
         public RouteMap(string tijd)
         {
             InitializeComponent();
@@ -214,8 +215,13 @@ namespace Disneyland
                 }
             }
         }
+        public List<walktime> PriorityList
+        {
+            get { return PriorityList; }
+        }
     }
 
+   
     public static class DataService
     {
         public static List<quetime> QTimes()
@@ -262,4 +268,5 @@ namespace Disneyland
         public double Lat;
         public double Lon;
     }
+    
 }

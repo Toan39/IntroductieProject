@@ -39,7 +39,7 @@
             // PrintButton
             // 
             this.PrintButton.Location = new System.Drawing.Point(18, 2);
-            this.PrintButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PrintButton.Margin = new System.Windows.Forms.Padding(2);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(56, 31);
             this.PrintButton.TabIndex = 1;
@@ -50,7 +50,7 @@
             // SwitchButton
             // 
             this.SwitchButton.Location = new System.Drawing.Point(79, 2);
-            this.SwitchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SwitchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SwitchButton.Name = "SwitchButton";
             this.SwitchButton.Size = new System.Drawing.Size(56, 31);
             this.SwitchButton.TabIndex = 2;
@@ -79,7 +79,7 @@
             this.gmap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gmap.LevelsKeepInMemory = 5;
             this.gmap.Location = new System.Drawing.Point(10, 35);
-            this.gmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gmap.Margin = new System.Windows.Forms.Padding(2);
             this.gmap.MarkersEnabled = true;
             this.gmap.MaxZoom = 2;
             this.gmap.MinZoom = 2;
@@ -120,7 +120,7 @@
             this.Controls.Add(this.SwitchButton);
             this.Controls.Add(this.PrintButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RouteMap";
             this.Text = "Disneyland";
             this.ResumeLayout(false);

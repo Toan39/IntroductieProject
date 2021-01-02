@@ -33,10 +33,10 @@ namespace Disneyland
         public void GoButton_Click(object sender, EventArgs e)
         {
             RouteMap map = new RouteMap(HoursSpendComboBox.Text);
+            
             //map.attractionlist = DataService.att;
             String s = HoursSpendComboBox.Text;
             string a = FreeTimeComboBox.Text;
-            
             int x = 0;
             int q = 0;
 
@@ -52,24 +52,19 @@ namespace Disneyland
             if (x + q > 12)
             {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
 
-           // if (SelectRidesListBox.SelectedItem == null)
-          //  { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
-           
+            // if (SelectRidesListBox.SelectedItem == null)
+            //  { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
+
             else
             { map.Show();
               this.Hide();
             }
-
-           
-        }
-
-        private void SelectRidesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SelectedRidesListBox.Items.Clear();
-            foreach (string s in SelectRidesListBox.CheckedItems)
-        {
-            SelectedRidesListBox.Items.Add(s);
-            SelectedRidesListBox.Invalidate();
+            int t = 0;
+            //converts strings in selectedrideslistbox to prioritylist and includes change of type from string to disneyland.walktime
+            foreach (string str in PriorityRidesCheckedListBox.CheckedItems)
+            {
+                map.PriorityList.Add((Disneyland.walktime)Convert.ChangeType(str, typeof(Disneyland.walktime)));
+                t++;
             }
 
         }
@@ -79,7 +74,15 @@ namespace Disneyland
             System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
         }
 
-       
+        private void PriorityRidesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PriorityRidesListBox.Items.Clear();
+            foreach (string s in PriorityRidesCheckedListBox.CheckedItems)
+            {
+                PriorityRidesListBox.Items.Add(s);
+                PriorityRidesListBox.Invalidate();
+            }
+        }
     }
 }
 
