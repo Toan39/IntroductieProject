@@ -85,43 +85,32 @@
             this.checkedListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBox.FormattingEnabled = true;
             this.checkedListBox.Items.AddRange(new object[] {
-            "\'it\'s a small world\'",
-            "Adventure Isle",
-            "Alice\'s Curious Labyrinth ",
+            "It\'s a Small World",
             "Autopia",
             "Big Thunder Mountain",
-            "Blanche-Neige et les Sept Nains",
+            "Snow White and the Seven Dwarfs",
             "Buzz Lightyear Laser Blast",
-            "Casey Jr. - le Petit Train du Cirque ",
-            "Discovery Arcade",
+            "Casey Jr. - The Little Circus Train",
             "Disneyland Railroad",
             "Dumbo the Flying Elephant",
-            "Frontierland Playground",
-            "Horse-Drawn Streetcars ",
             "Indiana Jones and the Temple of Peril",
-            "La Cabane des Robinson",
-            "La Carrousel de Lancelot",
-            "Le Passage Enchanté",
+            "The Lancelot Carousel",
             "Le Pays des Contes de Fées",
             "Les Mystères du Nautilus",
-            "Les Voyages de Pinocchio",
-            "Liberty Arcade ",
+            "Pinocchio’s Daring Journey",
             "Mad Hatter’s Tea Cups ",
             "Main Street Vehicles",
-            "Meet Mickey Mouse",
+            "Rencontre avec Mickey",
             "Mickey’s PhilharMagic",
-            "Orbitron",
             "Peter Pan’s Flight ",
             "Phantom Manor ",
-            "Pirate Galleon",
             "Pirates of the Caribbean",
-            "Pirates’ Beach",
-            "Princess Pavilion",
-            "Rustler Roundup Shootin’ Gallery",
-            "Sleeping Beauty Castle",
-            "Star Tours: The Adventure Continue",
-            "Star Wars Hyperspace Mountain",
-            "Thunder Mesa Riverboat Landing"});
+            "Pavillon des Princesses",
+            "Star Tours: The Adventures Continue",
+            "Space Mountain: Mission 2",
+            "Thunder Mesa Riverboat Landing",
+            "Tomorrowland-caroussels",
+            "Starport"});
             this.checkedListBox.Location = new System.Drawing.Point(12, 90);
             this.checkedListBox.Name = "checkedListBox";
             this.checkedListBox.Size = new System.Drawing.Size(291, 234);
@@ -260,8 +249,8 @@
         #endregion
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckedListBox checkedListBox;
-        private System.Windows.Forms.ListBox listBoxItem;
+        public System.Windows.Forms.CheckedListBox checkedListBox;
+        public System.Windows.Forms.ListBox listBoxItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
