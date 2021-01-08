@@ -20,7 +20,8 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
-        List<string> usedpoints = new List<string>();
+        //List<string> usedpoints = new List<string>();
+        List<string> listForGenAl = new List<string>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
 
@@ -31,9 +32,10 @@ namespace Disneyland
             int InsertedTime = (int.Parse(tijd) * 60);
             int i = 0;
             makeselectedlist( selecteditems);
-            sorteer();
-            returnlowest(InsertedTime);
-            makelist();
+            //sorteer();
+            //returnlowest(InsertedTime);
+            makelist1();
+            makelist2();
 
 
             for (int t = 0; t < Lijst.att.Count; t++)
@@ -74,36 +76,59 @@ namespace Disneyland
                 Console.WriteLine(x);
             }
         }
-    void sorteer()
-        {
-            WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
-        }
 
-        public string returnlowest(int Inserted)
-        {
-            string lowest = "";
-            float verbruiktetijd = 0;
-            string previous = "";
-            for (int i = 0; (verbruiktetijd + WTimes[i].TotalTime) < Inserted; i++)
-            {
+        //void sorteer()
+        //    {
+        //        WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
+        //    }
 
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
-                {
-                    lowest = lowest + WTimes[i].EndPoint.ToString() + "\n";
-                    usedpoints.Add(WTimes[i].EndPoint.ToString());
-                    verbruiktetijd = verbruiktetijd + WTimes[i].TotalTime;
-                    previous = WTimes[i].EndPoint.ToString();
-                    i = 0;
-                }
-            }
-            return (lowest);
-        }
+        //public string returnlowest(int Inserted)
+        //{
+        //    string lowest = "";
+        //    float verbruiktetijd = 0;
+        //    string previous = "";
+        //    for (int i = 0; (verbruiktetijd + WTimes[i].TotalTime) < Inserted; i++)
+        //    {
 
+        //        if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
+        //        {
+        //            usedpoints.Add(WTimes[i].EndPoint.ToString());
+        //            verbruiktetijd = verbruiktetijd + WTimes[i].TotalTime;
+        //            previous = WTimes[i].EndPoint.ToString();
+        //            i = 0;
+        //        }
+        //    }
+        //}
+
+
+
+
+        //public void makelist()
+        //{
+
+        //    for (int p = 0; p < (usedpoints.Count); p++)
+        //    {
+        //        int k = 0;
+        //        foreach (quetime Name in DataService.QTimes())
+        //        {
+        //            if (DataService.QTimes()[k].Number == usedpoints[p])
+        //            {
+
+        //                Lijst.att.Add(new attraction());
+        //                Lijst.att[p].Name = DataService.QTimes()[k].Name;
+        //                Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
+        //                Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
+        //            }
+        //            k++;
+        //        }
+
+        //    }
+        //}
 
 
         public bool possible(string x)
         {
-            foreach (string endpoint in usedpoints)
+            foreach (string endpoint in listForGenAl)
             {
                 if (x == endpoint)
                 {
@@ -131,33 +156,24 @@ namespace Disneyland
                 return true;
             }
         }
+        public void makelist2()
+        {
+            string previous = "";
+            int i=0;
+            while (i<20)
+            {
+                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
+                {
 
-        
-        
+                    listForGenAl.Add(WTimes[i].EndPoint.ToString());
+                    //listForGenAl.Add(WTimes[i].TotalTime.ToString());
+                    previous = WTimes[i].EndPoint.ToString();
+                    i++;
+                }
+            }
 
-        //public void makelist()
-        //{
-
-        //    for (int p = 0; p < (usedpoints.Count); p++)
-        //    {
-        //        int k = 0;
-        //        foreach (quetime Name in DataService.QTimes())
-        //        {
-        //            if (DataService.QTimes()[k].Number == usedpoints[p])
-        //            {
-
-        //                Lijst.att.Add(new attraction());
-        //                Lijst.att[p].Name = DataService.QTimes()[k].Name;
-        //                Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
-        //                Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
-        //            }
-        //            k++;
-        //        }
-
-        //    }
-        //}
-
-        public void makelist()
+        }
+        public void makelist1()
         {
             int p; 
             for (p=0; p < selectedPoints.Count; p++)
@@ -167,22 +183,24 @@ namespace Disneyland
                 {
                     if (DataService.QTimes()[k].Name == selectedPoints[p])
                     {
-
                         Lijst.att.Add(new attraction());
-                        Lijst.att[p].Name = DataService.QTimes()[k].Name;
-                        Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
-                        Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
+                        Lijst.att[p].Number = DataService.QTimes()[k].Number;
+                        //Lijst.att[p].Name = DataService.QTimes()[k].Name;
+                        //Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
+                        //Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
                     }
                     k++;
                 }
             }
 
-            Lijst.att.Add(new attraction());
-            p = selectedPoints.Count;
-            Lijst.att[p].Name = DataService.QTimes()[26].Name;
-            Lijst.att[p].Lat = DataService.QTimes()[26].Lat;
-            Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
+            //Lijst.att.Add(new attraction());
+            //p = selectedPoints.Count;
+            //Lijst.att[p].Name = DataService.QTimes()[26].Name;
+            //Lijst.att[p].Lat = DataService.QTimes()[26].Lat;
+            //Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
         }
+
+
 
 
 
@@ -287,6 +305,7 @@ namespace Disneyland
 
     public class attraction
     {
+        public string Number;
         public string Name;
         public double Lat;
         public double Lon;
