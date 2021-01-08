@@ -21,7 +21,7 @@ namespace Disneyland
     public partial class Form5 : Form
     {
         //List<string> usedpoints = new List<string>();
-        List<string> listForGenAl = new List<string>();
+        List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
 
@@ -38,11 +38,11 @@ namespace Disneyland
             makelist2();
 
 
-            for (int t = 0; t < Lijst.att.Count; t++)
+            for (int t = 0; t < listForGenAl.Count; t++)
             {
                 int x = t + 1;
                 string result = "";
-                result = x.ToString() + ". " + result + Lijst.att[t].Name + "\n";
+                result = x.ToString() + ". " + result + listForGenAl[t].Endpoint + " " + listForGenAl[t].TotalTime.ToString() + "\n";
                 label2.Text = label2.Text + result;
             }
 
@@ -128,9 +128,9 @@ namespace Disneyland
 
         public bool possible(string x)
         {
-            foreach (string endpoint in listForGenAl)
+            foreach (genal genal in listForGenAl)
             {
-                if (x == endpoint)
+                if (x == genal.Endpoint)
                 {
                     return false;
                 }
@@ -156,21 +156,57 @@ namespace Disneyland
                 return true;
             }
         }
-        public void makelist2()
-        {
-            string previous = "";
-            int i=0;
-            while (i<20)
-            {
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
-                {
 
-                    listForGenAl.Add(WTimes[i].EndPoint.ToString());
-                    //listForGenAl.Add(WTimes[i].TotalTime.ToString());
-                    previous = WTimes[i].EndPoint.ToString();
-                    i++;
+        public bool selected(string selected, int a)
+        {
+            if(selected == Lijst.att[a].Number)
+                {
+                    return true;
+                }
+            return false;
+        }
+
+        public float routecheck(string start, string end)
+        {
+            float totaltime;
+            for(int t = 0 ; t < WTimes.Count ; t++)
+            {
+                if (start == WTimes[t].StartPoint.ToString() && end == WTimes[t].EndPoint.ToString())
+                {
+                    totaltime = WTimes[t].TotalTime;
+                    return totaltime;
                 }
             }
+            return 15;
+        }
+        private void makelist2()
+        {
+            string previous = "P1RA11";
+            int a = 0;
+            int i = 0;
+            bool done = true;
+            while (i<WTimes.Count && done == true)
+            {
+                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && selected(WTimes[i].EndPoint.ToString(), a))
+                {
+                    listForGenAl.Add(new genal());
+                    listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
+                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
+                    previous = WTimes[i].EndPoint.ToString();
+                    a++;
+                    if (a == selectedPoints.Count)
+                    {
+                        done = false;
+                        listForGenAl.Add(new genal());
+                        listForGenAl[a].Endpoint = "P1RA11";
+                        listForGenAl[a].TotalTime = routecheck(previous, "P1RA11");
+                    }
+                    i = 0;
+                }
+                i++;
+            }
+            
+
 
         }
         public void makelist1()
@@ -282,7 +318,11 @@ namespace Disneyland
     }
    
 
-
+    public class genal
+    {
+        public string Endpoint;
+        public float TotalTime;
+    }
     public class quetime
     {
         public string Number { get; set; }
