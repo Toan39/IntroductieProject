@@ -35,7 +35,9 @@ namespace Disneyland
             //sorteer();
             //returnlowest(InsertedTime);
             makelist1();
+            shufflefunction();
             makelist2();
+            
 
 
             for (int t = 0; t < listForGenAl.Count; t++)
@@ -73,7 +75,7 @@ namespace Disneyland
             {
                 string x= item.ToString();
                 selectedPoints.Add(x);
-                Console.WriteLine(x);
+                
             }
         }
 
@@ -125,6 +127,27 @@ namespace Disneyland
         //    }
         //}
 
+        public void shufflefunction()
+        {
+            for(int z = 0 ; z < 10 ; z++)
+            {
+                
+            }
+        }
+
+        private static Random rng = new Random(); // taken from the internet
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
 
         public bool possible(string x)
         {
@@ -159,7 +182,7 @@ namespace Disneyland
 
         public bool selected(string selected, int a)
         {
-            if(selected == Lijst.att[a].Number)
+            if(selected == Lijst.att[a - 1].Number)
                 {
                     return true;
                 }
@@ -177,14 +200,17 @@ namespace Disneyland
                     return totaltime;
                 }
             }
-            return 15;
+            return 0;
         }
         private void makelist2()
         {
             string previous = "P1RA11";
-            int a = 0;
+            int a = 1;
             int i = 0;
             bool done = true;
+            listForGenAl.Add(new genal());
+            listForGenAl[0].Endpoint = "P1RA11";
+            listForGenAl[0].TotalTime = 0;
             while (i<WTimes.Count && done == true)
             {
                 if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && selected(WTimes[i].EndPoint.ToString(), a))
@@ -194,7 +220,9 @@ namespace Disneyland
                     listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
                     previous = WTimes[i].EndPoint.ToString();
                     a++;
-                    if (a == selectedPoints.Count)
+                    Console.WriteLine(WTimes[i].EndPoint.ToString());
+                    Console.WriteLine(routecheck(previous, WTimes[i].EndPoint.ToString()));
+                    if (a == selectedPoints.Count + 1)
                     {
                         done = false;
                         listForGenAl.Add(new genal());
@@ -206,7 +234,7 @@ namespace Disneyland
                 i++;
             }
             
-
+            
 
         }
         public void makelist1()
