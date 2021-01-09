@@ -35,7 +35,7 @@ namespace Disneyland
             //sorteer();
             //returnlowest(InsertedTime);
             makelist1();
-            shufflefunction();
+            shufflelist();
             makelist2();
             
 
@@ -127,27 +127,15 @@ namespace Disneyland
         //    }
         //}
 
-        public void shufflefunction()
+        public void shufflelist()
         {
-            for(int z = 0 ; z < 10 ; z++)
-            {
-                
-            }
+            //for(int z = 0 ; z < 10 ; z++)
+            //{
+                shuffler.Shuffle<attraction>(Lijst.att);
+            //}
         }
 
-        private static Random rng = new Random(); // taken from the internet
-        public static void Shuffle<T>(this IList<T> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = rng.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-        }
+       
 
         public bool possible(string x)
         {
@@ -327,6 +315,22 @@ namespace Disneyland
         }
     }
 
+    public static class shuffler
+    {
+        public static Random rng = new Random(); // taken from the internet
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+    }
     public static class DataService
     {
         public static List<quetime> QTimes()
@@ -345,6 +349,7 @@ namespace Disneyland
         }
     }
    
+
 
     public class genal
     {
