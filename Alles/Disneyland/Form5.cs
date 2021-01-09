@@ -24,6 +24,8 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
+        int m = 0;
+        float[] fitness = new float[100];
 
         public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
@@ -36,7 +38,7 @@ namespace Disneyland
             //returnlowest(InsertedTime);
             makelist1();
             shufflelist();
-            makelist2();
+            //makelist2();
             
 
 
@@ -129,10 +131,18 @@ namespace Disneyland
 
         public void shufflelist()
         {
-            //for(int z = 0 ; z < 10 ; z++)
-            //{
+            for(int z = 0 ; z < 3 ; z++)
+            {
                 shuffler.Shuffle<attraction>(Lijst.att);
-            //}
+                Console.WriteLine("\n");
+                makelist2(m);
+                m = fitness.Length;
+
+            }
+            for (int t = 0; t < fitness.Length; t++)
+            {
+                Console.WriteLine(fitness[t]);
+            }
         }
 
        
@@ -190,11 +200,13 @@ namespace Disneyland
             }
             return 0;
         }
-        private void makelist2()
+        private void makelist2(int m)
         {
+            
             string previous = "P1RA11";
             int a = 1;
             int i = 0;
+            
             bool done = true;
             listForGenAl.Add(new genal());
             listForGenAl[0].Endpoint = "P1RA11";
@@ -206,6 +218,8 @@ namespace Disneyland
                     listForGenAl.Add(new genal());
                     listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
                     listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
+                    fitness[m] = listForGenAl[a].TotalTime;
+                    m++;
                     previous = WTimes[i].EndPoint.ToString();
                     a++;
                     Console.WriteLine(WTimes[i].EndPoint.ToString());
@@ -222,7 +236,7 @@ namespace Disneyland
                 i++;
             }
             
-            
+
 
         }
         public void makelist1()
