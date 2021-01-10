@@ -95,7 +95,7 @@
             this.gmap.Size = new System.Drawing.Size(476, 391);
             this.gmap.TabIndex = 4;
             this.gmap.Zoom = 0D;
-            this.gmap.Load += new System.EventHandler(this.gmap_Load_1);
+            //this.gmap.Load += new System.EventHandler(this.gmap_Load_1);   //need to be turned on when G.map is used
             // 
             // label2
             // 

@@ -23,7 +23,6 @@ namespace Disneyland
         //List<string> usedpoints = new List<string>();
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
-        List<string> selectedPoints = new List<string>();
 
         float[] fitness;
         string[][] population;
@@ -39,9 +38,8 @@ namespace Disneyland
 
             InitializeComponent();
             maakwalktimelist();
-            makeselectedlist(selecteditems);
-            DownScaleList();
-            CreatePopulation(popsize);
+            DownScaleList(selecteditems);
+            CreatePopulation(popsize, selecteditems);
             //int InsertedTime = (int.Parse(tijd) * 60);
 
            
@@ -89,8 +87,8 @@ namespace Disneyland
                     WTimes.Add(new walktime());
                     WTimes[t].StartPoint = reader.GetValue(0).ToString();
                     WTimes[t].EndPoint = reader.GetValue(1).ToString();
-                    WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
-                    WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
+                    //WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
+                    //WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
                     WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
                     t++;
                 }
@@ -98,23 +96,16 @@ namespace Disneyland
         }
 
 
-        public void makeselectedlist(List<string> selecteditems)
-        {
-            foreach (object item in selecteditems)
-            {
-                string x = item.ToString();
-                selectedPoints.Add(x);
-            }
-        }
-        public void DownScaleList()
+        
+        public void DownScaleList(List<string> selecteditems)
         {
           
-            for (int p = 0; p < selectedPoints.Count; p++)
+            for (int p = 0; p < selecteditems.Count; p++)
             {
                 int k = 0;
                 foreach (quetime Name in DataService.QTimes())
                 {
-                    if (DataService.QTimes()[k].Name == selectedPoints[p])
+                    if (DataService.QTimes()[k].Name == selecteditems[p])
                     {
                         Lijst.att.Add(new attraction());
                         Lijst.att[p].Number = DataService.QTimes()[k].Number;
@@ -135,12 +126,12 @@ namespace Disneyland
 
        
 
-        public void CreatePopulation(int k)
+        public void CreatePopulation(int k, List<string> selecteditems)
         {
             for (int z = 0; z < k;)
             {
                 shuffler.Shuffle(Lijst.att);
-                SelectItems();
+                SelectItems(selecteditems);
                 FunctionSumTime();
 
                 if (sumTime < UpperBoundTime)
@@ -169,7 +160,7 @@ namespace Disneyland
 
         
 
-        public void SelectItems()
+        public void SelectItems(List<string> selecteditems)
         {
             string previous = "P1RA11";
             int a = 1;
@@ -188,7 +179,7 @@ namespace Disneyland
                     listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
                     previous = WTimes[i].EndPoint.ToString();
                     a++;
-                    if (a == selectedPoints.Count+1)
+                    if (a == selecteditems.Count+1)
                     {
                         done = false;
                         listForGenAl.Add(new genal());
@@ -240,8 +231,6 @@ namespace Disneyland
             }
             return false;
         }
-
-
 
         public float routecheck(string start, string end)
         {
@@ -326,34 +315,34 @@ namespace Disneyland
         //    }
         //}
 
-        private void gmap_Load_1(object sender, EventArgs e)
-        {
-            gmap.MapProvider = GMapProviders.GoogleMap;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
-            gmap.MinZoom = 5;
-            gmap.MaxZoom = 100;
-            gmap.Zoom = 16;
-            gmap.ShowCenter = false;
-            gmap.DragButton = MouseButtons.Left;
-            GMapOverlay markers = new GMapOverlay("markers");
-            GMapMarker[] mark;
-            mark = new GMapMarker[1000];
+        //private void gmap_Load_1(object sender, EventArgs e)
+        //{
+        //    gmap.MapProvider = GMapProviders.GoogleMap;
+        //    GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+        //    gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
+        //    gmap.MinZoom = 5;
+        //    gmap.MaxZoom = 100;
+        //    gmap.Zoom = 16;
+        //    gmap.ShowCenter = false;
+        //    gmap.DragButton = MouseButtons.Left;
+        //    GMapOverlay markers = new GMapOverlay("markers");
+        //    GMapMarker[] mark;
+        //    mark = new GMapMarker[1000];
 
 
 
-            for (int t = 0; t < Lijst.att.Count; t++)
-            {
-                PointLatLng p = new PointLatLng(Lijst.att[t].Lat, Lijst.att[t].Lon);
-                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
-                markers.Markers.Add(marker);
-                gmap.Overlays.Add(markers);
-                marker.ToolTipText = (t + 1).ToString();
-                marker.ToolTipMode = MarkerTooltipMode.Always;
-                mark[t] = marker;
+        //    for (int t = 0; t < Lijst.att.Count; t++)
+        //    {
+        //        PointLatLng p = new PointLatLng(Lijst.att[t].Lat, Lijst.att[t].Lon);
+        //        GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
+        //        markers.Markers.Add(marker);
+        //        gmap.Overlays.Add(markers);
+        //        marker.ToolTipText = (t + 1).ToString();
+        //        marker.ToolTipMode = MarkerTooltipMode.Always;
+        //        mark[t] = marker;
 
-            }
-        }
+        //    }
+        //}
         public void PrintLabel()
         {
             for (int t = 0; t < listForGenAl.Count; t++)
@@ -425,16 +414,16 @@ namespace Disneyland
     {
         public string StartPoint { get; set; }
         public string EndPoint { get; set; }
-        public float Distance { get; set; }
-        public float WalkTime { get; set; }
+        //public float Distance { get; set; }
+        //public float WalkTime { get; set; }
         public float TotalTime { get; set; }
     }
 
     public class attraction
     {
         public string Number;
-        public string Name;
-        public double Lat;
-        public double Lon;
+        //public string Name;
+        //public double Lat;
+        //public double Lon;
     }
 }
