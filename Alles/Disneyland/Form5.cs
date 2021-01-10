@@ -24,25 +24,44 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
-        //List <Array> myAL = new List <Array>();
-        //ArrayList myAL = new ArrayList();
 
-        float[] fitness = new float[3];
-        string[][] myAL = new string[3][];
+        float[] fitness;
+        string[][] population;
         float sumTime = 0;
         int s = 0;
+        int UpperBoundTime = 540;
         public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
+            int k = FactorialNumber(selecteditems.Count); // select 3 attractions, to have low processing time
+            fitness = new float[k];
+            population = new string[k][];
+
             InitializeComponent();
             maakwalktimelist();
-            int InsertedTime = (int.Parse(tijd) * 60);
-            int i = 0;
+            //int InsertedTime = (int.Parse(tijd) * 60);
+            
             makeselectedlist( selecteditems);
             //sorteer();
             //returnlowest(InsertedTime);
-            makelist1();
-            shufflelist();
+            DownScaleList();
+            CreatePopulation(k);
+            PrintLabel();
       
+            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
+        }
+
+        public int FactorialNumber(int number)
+        {
+            int fact = number;
+            for (int i = number - 1; i >= 1; i--)
+            {
+                fact = fact * i;
+            }
+            return fact;
+        }
+
+        public void PrintLabel()
+        {
             for (int t = 0; t < listForGenAl.Count; t++)
             {
                 int x = t + 1;
@@ -50,13 +69,6 @@ namespace Disneyland
                 result = x.ToString() + ". " + result + listForGenAl[t].Endpoint + " " + listForGenAl[t].TotalTime.ToString() + "\n";
                 label2.Text = label2.Text + result;
             }
-
-            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
-        }
-
-        public static class Lijst
-        {
-            public static List<attraction> att = new List<attraction>();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -106,8 +118,6 @@ namespace Disneyland
         //}
 
 
-
-
         //public void makelist()
         //{
 
@@ -130,45 +140,35 @@ namespace Disneyland
         //    }
         //}
 
-        public void shufflelist()
+        public void CreatePopulation(int k)
         {
-            for(int z = 0 ; z < 3 ; z++)  //pakt de eerste shuffle en voert de makelist2 alleen uit met de eerste shuffle vervolgens pas shuffled hij hem 2x. 
+            for (int z = 0 ; z < k ;)   
             {
                 shuffler.Shuffle(Lijst.att);  
-
-                //for (int i=0; i< Lijst.att.Count; i++)
-                //{
-                //    Console.WriteLine(Lijst.att[i].Number);
-                //}
-
-                Console.WriteLine("\n");
-
-                makelist2();
+                SelectItems();
                 FunctionSumTime();
-                fitness[z] = sumTime  /*listForGenAl[1].TotalTime*/;
-                CreatePointArray(listForGenAl.Count);
+
+                if (sumTime < UpperBoundTime)
+                {
+                    fitness[z] = sumTime;
+                    CreatePointArray(listForGenAl.Count);
+                    z++;
+                }
                 sumTime = 0;
                 listForGenAl.Clear();
-
             }
 
-
-            //print the arrays i nthe jagged array with the index number
-            for (int i = 0; i < myAL.Length; i++)
+            //print the arrays in the jagged array with the index number in console
+            for (int i = 0; i < population.Length; i++)
             {
                 Console.Write("Element({0}): ", i);
 
-                for (int j = 0; j < myAL[i].Length; j++)
+                for (int j = 0; j < population[i].Length; j++)
                 {
-                    Console.Write("{0}{1}", myAL[i][j], j == (myAL[i].Length - 1) ? "" : " ");
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
                 }
                 Console.WriteLine();
             }
-
-            //for (int t = 0; t < fitness.Length; t++)
-            //{
-            //    Console.WriteLine(fitness[t]);
-            //}
         }
 
 
@@ -226,9 +226,8 @@ namespace Disneyland
             }
             return 0;
         }
-        public void makelist2()
-        {
-            
+        public void SelectItems()
+        {        
             string previous = "P1RA11";
             int a = 1;
             int i = 0;
@@ -245,11 +244,7 @@ namespace Disneyland
                     listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
                     listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
                     previous = WTimes[i].EndPoint.ToString();
-                    //float sumTime = listForGenAl[1].TotalTime;
-                    //Console.WriteLine(sumTime);
                     a++;
-                    //Console.WriteLine(WTimes[i].EndPoint.ToString());
-                    //Console.WriteLine(routecheck(previous, WTimes[i].EndPoint.ToString()));
                     if (a == selectedPoints.Count + 1)
                     {
                         done = false;
@@ -261,7 +256,6 @@ namespace Disneyland
                 }
                 i++;
             }
-            Console.WriteLine("\n");
         }
 
         public void CreatePointArray(int z)
@@ -270,11 +264,8 @@ namespace Disneyland
             for (int t=0; t<z; t++)
             {
                 index[t] = listForGenAl[t].Endpoint;
-                Console.WriteLine(index[t]);
-                Console.WriteLine("\n");
-
             }
-            myAL[s] = index; //Amount of times the loop is performed
+            population[s] = index; 
             s++;
         }
 
@@ -288,7 +279,7 @@ namespace Disneyland
         }
 
 
-        public void makelist1()
+        public void DownScaleList()
         {
             int p; 
             for (p=0; p < selectedPoints.Count; p++)
@@ -411,8 +402,11 @@ namespace Disneyland
             }
         }
     }
-   
 
+    public static class Lijst
+    {
+        public static List<attraction> att = new List<attraction>();
+    }
 
     public class genal
     {
