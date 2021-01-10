@@ -29,12 +29,13 @@ namespace Disneyland
         string[][] population;
         float sumTime = 0;
         int s = 0;
-        int UpperBoundTime = 540;
+        int UpperBoundTime = 480;
         public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
-            int k = FactorialNumber(selecteditems.Count); // select 3 attractions, to have low processing time
-            fitness = new float[k];
-            population = new string[k][];
+            int m = selecteditems.Count;
+            int popsize =m*1000; // select 3 attractions, to have low processing time
+            fitness = new float[popsize];
+            population = new string[popsize][];
 
             InitializeComponent();
             maakwalktimelist();
@@ -44,21 +45,12 @@ namespace Disneyland
             //sorteer();
             //returnlowest(InsertedTime);
             DownScaleList();
-            CreatePopulation(k);
+            CreatePopulation(popsize);
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
 
-        public int FactorialNumber(int number)
-        {
-            int fact = number;
-            for (int i = number - 1; i >= 1; i--)
-            {
-                fact = fact * i;
-            }
-            return fact;
-        }
 
         public void PrintLabel()
         {
@@ -260,7 +252,7 @@ namespace Disneyland
 
         public void CreatePointArray(int z)
         {
-            string[] index = new string[5];
+            string[] index = new string[z];
             for (int t=0; t<z; t++)
             {
                 index[t] = listForGenAl[t].Endpoint;
