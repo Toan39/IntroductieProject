@@ -29,8 +29,8 @@ namespace Disneyland
         string[][] population;
         float sumTime = 0;
         int s = 0;
-        int UpperBoundTime = 480;
-        public Form5(string tijd, ListBox.ObjectCollection selecteditems)
+        int UpperBoundTime = 1000;
+        public Form5(string tijd, CheckedListBox.CheckedItemCollection selecteditems)
         {
             int m = selecteditems.Count;
             int popsize =m*1000; // select 3 attractions, to have low processing time
@@ -76,7 +76,7 @@ namespace Disneyland
             this.Hide();
         }
 
-        public void makeselectedlist(ListBox.ObjectCollection selecteditems)
+        public void makeselectedlist(CheckedListBox.CheckedItemCollection selecteditems)
         {
             foreach (object item in selecteditems)
             {

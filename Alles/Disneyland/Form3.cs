@@ -28,7 +28,7 @@ namespace Disneyland
 
         public void button1_Click(object sender, EventArgs e)
         {
-            Form5 map = new Form5(comboBox1.Text, listBoxItem.Items);
+            Form5 map = new Form5(comboBox1.Text, checkedListBox.CheckedItems);
             //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
@@ -53,8 +53,8 @@ namespace Disneyland
             { MessageBox.Show("Er is geen tijd doorgegeven."); }
             if (checkedListBox.SelectedItem == null)
             { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
-            if (listBoxItem.Items.Count >19)
-            { MessageBox.Show("Mag niet meer dan 19 attracties selecteren"); }
+            if (listBoxItem.Items.Count >18)
+            { MessageBox.Show("Mag niet meer dan 18 attracties selecteren"); }
 
             if (x+q<10 && checkedListBox.SelectedItem!=null && comboBox1.SelectedItem!=null && comboBox2.SelectedItem!=null && listBoxItem.Items.Count < 19)
             { 
