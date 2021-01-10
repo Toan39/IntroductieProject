@@ -24,11 +24,13 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
-        ArrayList myAL = new ArrayList();
+        //List <Array> myAL = new List <Array>();
+        //ArrayList myAL = new ArrayList();
 
         float[] fitness = new float[3];
-        string[] index = new string[5];
+        string[][] myAL = new string[3][];
         float sumTime = 0;
+        int s = 0;
         public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
             InitializeComponent();
@@ -40,10 +42,7 @@ namespace Disneyland
             //returnlowest(InsertedTime);
             makelist1();
             shufflelist();
-           // CreatePointArray();
-
-
-
+      
             for (int t = 0; t < listForGenAl.Count; t++)
             {
                 int x = t + 1;
@@ -149,13 +148,21 @@ namespace Disneyland
                 fitness[z] = sumTime  /*listForGenAl[1].TotalTime*/;
                 CreatePointArray(listForGenAl.Count);
                 sumTime = 0;
-                myAL.Add(index);
-                foreach (var index in myAL)
-                {
-                    Console.WriteLine(index);
-                }
-
                 listForGenAl.Clear();
+
+            }
+
+
+            //print the arrays i nthe jagged array with the index number
+            for (int i = 0; i < myAL.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < myAL[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", myAL[i][j], j == (myAL[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine();
             }
 
             //for (int t = 0; t < fitness.Length; t++)
@@ -164,7 +171,7 @@ namespace Disneyland
             //}
         }
 
-       
+
 
         public bool possible(string x)
         {
@@ -259,14 +266,18 @@ namespace Disneyland
 
         public void CreatePointArray(int z)
         {
+            string[] index = new string[5];
             for (int t=0; t<z; t++)
             {
                 index[t] = listForGenAl[t].Endpoint;
-                //Console.WriteLine(index[t]);
-                //Console.WriteLine("\n");
-            }
+                Console.WriteLine(index[t]);
+                Console.WriteLine("\n");
 
+            }
+            myAL[s] = index; //Amount of times the loop is performed
+            s++;
         }
+
 
         public void FunctionSumTime()
         {
