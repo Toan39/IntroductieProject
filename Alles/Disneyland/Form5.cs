@@ -32,15 +32,14 @@ namespace Disneyland
         int UpperBoundTime = 480;
         public Form5(string tijd, List <string> selecteditems)
         {
-            int m = selecteditems.Count;
-            int popsize =m; // select 3 attractions, to have low processing time
-            fitness = new float[popsize];
-            population = new string[popsize][];
+            int m = selecteditems.Count;  // select 3 attractions, to have low processing time
+            fitness = new float[popsize(m)];
+            population = new string[popsize(m)][];
 
             InitializeComponent();
             maakwalktimelist();
             DownScaleList(selecteditems);
-            CreatePopulation(popsize, selecteditems);
+            CreatePopulation(popsize(m), selecteditems);
             //int InsertedTime = (int.Parse(tijd) * 60);
 
            
@@ -64,6 +63,23 @@ namespace Disneyland
             Form3 rides = new Form3();
             rides.Show();
             this.Hide();
+        }
+
+        public int popsize(int number)
+        {
+            int popsize = number;
+            if (number <= 7)
+            {  
+                for (int i = number - 1; i >= 1; i--)
+                {
+                    popsize = popsize * i+6;
+                }
+            }
+            else
+            {
+                popsize = number * 700;
+            }
+            return popsize;
         }
 
         public void maakwalktimelist()
