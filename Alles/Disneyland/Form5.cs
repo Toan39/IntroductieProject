@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Dapper;
+using System.Threading;
 using System.Collections;
 
 
@@ -32,7 +33,7 @@ namespace Disneyland
         public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;
-            int popsize =m*700; // select 3 attractions, to have low processing time
+            int popsize =m; // select 3 attractions, to have low processing time
             fitness = new float[popsize];
             population = new string[popsize][];
 
@@ -355,6 +356,16 @@ namespace Disneyland
         }
     }
 
+    public static class ThreadSafeRandom
+    {
+        [ThreadStatic] private static Random Local;
+
+        public static Random ThisThreadsRandom
+        {
+            get { return Local ?? (Local = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId))); }
+        }
+    }
+
     public static class shuffler
     {
         public static Random rng = new Random(); // taken from the internet
@@ -364,7 +375,7 @@ namespace Disneyland
             while (n > 1)
             {
                 n--;
-                int k = rng.Next(n + 1);
+                int k = ThreadSafeRandom.ThisThreadsRandom.Next(n + 1);
                 T value = list[k];
                 list[k] = list[n];
                 list[n] = value;
