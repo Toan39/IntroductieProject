@@ -30,7 +30,7 @@ namespace Disneyland
         float sumTime = 0;
         int s = 0;
         int UpperBoundTime = 480;
-        public Form5(string tijd, ListBox.ObjectCollection selecteditems)
+        public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;
             int popsize =m*1000; // select 3 attractions, to have low processing time
@@ -98,7 +98,7 @@ namespace Disneyland
         }
 
 
-        public void makeselectedlist(ListBox.ObjectCollection selecteditems)
+        public void makeselectedlist(List<string> selecteditems)
         {
             foreach (object item in selecteditems)
             {

@@ -28,7 +28,9 @@ namespace Disneyland
 
         public void button1_Click(object sender, EventArgs e)
         {
-            Form5 map = new Form5(comboBox1.Text, listBoxItem.Items);
+            var selecteditems = listBoxItem.Items.Cast<String>().ToList();
+
+            Form5 map = new Form5(comboBox1.Text, selecteditems);
             //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;
