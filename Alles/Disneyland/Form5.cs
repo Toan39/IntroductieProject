@@ -38,30 +38,23 @@ namespace Disneyland
             population = new string[popsize][];
 
             InitializeComponent();
+           
             maakwalktimelist();
+            DownScaleList();
             //int InsertedTime = (int.Parse(tijd) * 60);
-            
+
             makeselectedlist( selecteditems);
             //sorteer();
             //returnlowest(InsertedTime);
-            DownScaleList();
+            
             CreatePopulation(popsize);
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
 
+    
 
-        public void PrintLabel()
-        {
-            for (int t = 0; t < listForGenAl.Count; t++)
-            {
-                int x = t + 1;
-                string result = "";
-                result = x.ToString() + ". " + result + listForGenAl[t].Endpoint + " " + listForGenAl[t].TotalTime.ToString() + "\n";
-                label2.Text = label2.Text + result;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -76,15 +69,211 @@ namespace Disneyland
             this.Hide();
         }
 
+        public void maakwalktimelist()
+        {
+            string connectionString;
+            string sql;
+            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
+            SqlConnection con = new SqlConnection(connectionString);
+            sql = "select * from TheDataWalkTime";
+
+            using (con)
+            {
+                SqlCommand command = new SqlCommand
+                    (
+                    sql, con
+                    );
+                con.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                int t = 0;
+                while (reader.Read())
+                {
+                    WTimes.Add(new walktime());
+                    WTimes[t].StartPoint = reader.GetValue(0).ToString();
+                    WTimes[t].EndPoint = reader.GetValue(1).ToString();
+                    WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
+                    WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
+                    WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
+                    t++;
+                }
+            }
+        }
+
+        public void DownScaleList()
+        {
+            int p;
+            for (p = 0; p < selectedPoints.Count; p++)
+            {
+                int k = 0;
+                foreach (quetime Name in DataService.QTimes())
+                {
+                    if (DataService.QTimes()[k].Name == selectedPoints[p])
+                    {
+                        Lijst.att.Add(new attraction());
+                        Lijst.att[p].Number = DataService.QTimes()[k].Number;
+                        //Lijst.att[p].Name = DataService.QTimes()[k].Name;
+                        //Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
+                        //Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
+                    }
+                    k++;
+                }
+            }
+
+            //Lijst.att.Add(new attraction());
+            //p = selectedPoints.Count;
+            //Lijst.att[p].Name = DataService.QTimes()[26].Name;
+            //Lijst.att[p].Lat = DataService.QTimes()[26].Lat;
+            //Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
+        }
+
         public void makeselectedlist(CheckedListBox.CheckedItemCollection selecteditems)
         {
             foreach (object item in selecteditems)
             {
-                string x= item.ToString();
+                string x = item.ToString();
                 selectedPoints.Add(x);
-                
             }
         }
+
+        public void CreatePopulation(int k)
+        {
+            for (int z = 0; z < k;)
+            {
+                shuffler.Shuffle(Lijst.att);
+                SelectItems();
+                FunctionSumTime();
+
+                if (sumTime < UpperBoundTime)
+                {
+                    fitness[z] = sumTime;
+                    CreatePointArray(listForGenAl.Count);
+                    z++;
+                }
+                sumTime = 0;
+                listForGenAl.Clear();
+            }
+
+            //print the arrays in the jagged array with the index number in console
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public void SelectItems()
+        {
+            string previous = "P1RA11";
+            int a = 1;
+            int i = 0;
+
+            bool done = true;
+            listForGenAl.Add(new genal());
+            listForGenAl[0].Endpoint = "P1RA11";
+            listForGenAl[0].TotalTime = 0;
+            while (i < WTimes.Count && done == true)
+            {
+                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && selected(WTimes[i].EndPoint.ToString(), a))
+                {
+                    listForGenAl.Add(new genal());
+                    listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
+                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
+                    previous = WTimes[i].EndPoint.ToString();
+                    a++;
+                    if (a == selectedPoints.Count+1)
+                    {
+                        done = false;
+                        listForGenAl.Add(new genal());
+                        listForGenAl[a].Endpoint = "P1RA11";
+                        listForGenAl[a].TotalTime = routecheck(previous, "P1RA11");
+                    }
+                    i = 0;
+                }
+                i++;
+            }
+        }
+
+
+        public bool possible(string x)
+        {
+            foreach (genal genal in listForGenAl)
+            {
+                if (x == genal.Endpoint)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool begincheck(string y, string z)
+        {
+            if (z != "")
+            {
+                if (y == z)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        public float routecheck(string start, string end)
+        {
+            float totaltime;
+            for (int t = 0; t < WTimes.Count; t++)
+            {
+                if (start == WTimes[t].StartPoint.ToString() && end == WTimes[t].EndPoint.ToString())
+                {
+                    totaltime = WTimes[t].TotalTime;
+                    return totaltime;
+                }
+            }
+            return 0;
+        }
+
+        public bool selected(string selected, int a)
+        {
+            if (selected == Lijst.att[a].Number)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void FunctionSumTime()
+        {
+            foreach (genal attraction in listForGenAl)
+            {
+                sumTime = sumTime + attraction.TotalTime;  // 1. : sum=0 , 2: sum=0 , 3: sum=120, 4: sum= 120+140
+            }
+        }
+
+        public void CreatePointArray(int z)
+        {
+            string[] index = new string[z];
+            for (int t = 0; t < z; t++)
+            {
+                index[t] = listForGenAl[t].Endpoint;
+            }
+            population[s] = index;
+            s++;
+        }
+
+
 
         //void sorteer()
         //    {
@@ -132,173 +321,6 @@ namespace Disneyland
         //    }
         //}
 
-        public void CreatePopulation(int k)
-        {
-            for (int z = 0 ; z < k ;)   
-            {
-                shuffler.Shuffle(Lijst.att);  
-                SelectItems();
-                FunctionSumTime();
-
-                if (sumTime < UpperBoundTime)
-                {
-                    fitness[z] = sumTime;
-                    CreatePointArray(listForGenAl.Count);
-                    z++;
-                }
-                sumTime = 0;
-                listForGenAl.Clear();
-            }
-
-            //print the arrays in the jagged array with the index number in console
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
-
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-
-
-        public bool possible(string x)
-        {
-            foreach (genal genal in listForGenAl)
-            {
-                if (x == genal.Endpoint)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public bool begincheck(string y, string z)
-        {
-            if (z != "")
-            {
-                if (y == z)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public bool selected(string selected, int a)
-        {
-            if(selected == Lijst.att[a - 1].Number)
-                {
-                    return true;
-                }
-            return false;
-        }
-
-        public float routecheck(string start, string end)
-        {
-            float totaltime;
-            for(int t = 0 ; t < WTimes.Count ; t++)
-            {
-                if (start == WTimes[t].StartPoint.ToString() && end == WTimes[t].EndPoint.ToString())
-                {
-                    totaltime = WTimes[t].TotalTime;
-                    return totaltime;
-                }
-            }
-            return 0;
-        }
-        public void SelectItems()
-        {        
-            string previous = "P1RA11";
-            int a = 1;
-            int i = 0;
-            
-            bool done = true;
-            listForGenAl.Add(new genal());
-            listForGenAl[0].Endpoint = "P1RA11";
-            listForGenAl[0].TotalTime = 0;    
-            while (i<WTimes.Count && done == true)
-            {
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && selected(WTimes[i].EndPoint.ToString(), a))
-                {
-                    listForGenAl.Add(new genal());
-                    listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
-                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
-                    previous = WTimes[i].EndPoint.ToString();
-                    a++;
-                    if (a == selectedPoints.Count + 1)
-                    {
-                        done = false;
-                        listForGenAl.Add(new genal());
-                        listForGenAl[a].Endpoint = "P1RA11";
-                        listForGenAl[a].TotalTime = routecheck(previous, "P1RA11");
-                    }
-                    i = 0;
-                }
-                i++;
-            }
-        }
-
-        public void CreatePointArray(int z)
-        {
-            string[] index = new string[z];
-            for (int t=0; t<z; t++)
-            {
-                index[t] = listForGenAl[t].Endpoint;
-            }
-            population[s] = index; 
-            s++;
-        }
-
-
-        public void FunctionSumTime()
-        {
-          foreach (genal attraction in listForGenAl)
-            {
-                sumTime= sumTime+ attraction.TotalTime;  // 1. : sum=0 , 2: sum=0 , 3: sum=120, 4: sum= 120+140
-            }
-        }
-
-
-        public void DownScaleList()
-        {
-            int p; 
-            for (p=0; p < selectedPoints.Count; p++)
-            {
-                int k = 0;
-                foreach (quetime Name in DataService.QTimes())
-                {
-                    if (DataService.QTimes()[k].Name == selectedPoints[p])
-                    {
-                        Lijst.att.Add(new attraction());
-                        Lijst.att[p].Number = DataService.QTimes()[k].Number;
-                        //Lijst.att[p].Name = DataService.QTimes()[k].Name;
-                        //Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
-                        //Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
-                    }
-                    k++;
-                }
-            }
-
-            //Lijst.att.Add(new attraction());
-            //p = selectedPoints.Count;
-            //Lijst.att[p].Name = DataService.QTimes()[26].Name;
-            //Lijst.att[p].Lat = DataService.QTimes()[26].Lat;
-            //Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
-        }
-
-
 
 
 
@@ -330,33 +352,14 @@ namespace Disneyland
 
             }
         }
-        public void maakwalktimelist()
+        public void PrintLabel()
         {
-            string connectionString;
-            string sql;
-            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connectionString);
-            sql = "select * from TheDataWalkTime";
-
-            using (con)
+            for (int t = 0; t < listForGenAl.Count; t++)
             {
-                SqlCommand command = new SqlCommand
-                    (
-                    sql, con
-                    );
-                con.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                int t = 0;
-                while (reader.Read())
-                {
-                    WTimes.Add(new walktime());
-                    WTimes[t].StartPoint = reader.GetValue(0).ToString();
-                    WTimes[t].EndPoint = reader.GetValue(1).ToString();
-                    WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
-                    WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
-                    WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
-                    t++;
-                }
+                int x = t + 1;
+                string result = "";
+                result = x.ToString() + ". " + result + listForGenAl[t].Endpoint + " " + listForGenAl[t].TotalTime.ToString() + "\n";
+                label2.Text = label2.Text + result;
             }
         }
     }
