@@ -24,8 +24,11 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> selectedPoints = new List<string>();
-        float[] fitness = new float[3];
+        ArrayList myAL = new ArrayList();
 
+        float[] fitness = new float[3];
+        string[] index = new string[5];
+        float sumTime = 0;
         public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
             InitializeComponent();
@@ -37,8 +40,8 @@ namespace Disneyland
             //returnlowest(InsertedTime);
             makelist1();
             shufflelist();
-            //makelist2();
-            
+           // CreatePointArray();
+
 
 
             for (int t = 0; t < listForGenAl.Count; t++)
@@ -134,22 +137,31 @@ namespace Disneyland
             {
                 shuffler.Shuffle(Lijst.att);  
 
-                for (int i=0; i< Lijst.att.Count; i++)
-                {
-                    Console.WriteLine(Lijst.att[i].Number);
-                }
+                //for (int i=0; i< Lijst.att.Count; i++)
+                //{
+                //    Console.WriteLine(Lijst.att[i].Number);
+                //}
 
                 Console.WriteLine("\n");
 
                 makelist2();
-                fitness[z] = listForGenAl[1].TotalTime;
+                FunctionSumTime();
+                fitness[z] = sumTime  /*listForGenAl[1].TotalTime*/;
+                CreatePointArray(listForGenAl.Count);
+                sumTime = 0;
+                myAL.Add(index);
+                foreach (var index in myAL)
+                {
+                    Console.WriteLine(index);
+                }
+
                 listForGenAl.Clear();
             }
 
-            for (int t = 0; t < fitness.Length; t++)
-            {
-                Console.WriteLine(fitness[t]);
-            }
+            //for (int t = 0; t < fitness.Length; t++)
+            //{
+            //    Console.WriteLine(fitness[t]);
+            //}
         }
 
        
@@ -243,6 +255,25 @@ namespace Disneyland
                 i++;
             }
             Console.WriteLine("\n");
+        }
+
+        public void CreatePointArray(int z)
+        {
+            for (int t=0; t<z; t++)
+            {
+                index[t] = listForGenAl[t].Endpoint;
+                //Console.WriteLine(index[t]);
+                //Console.WriteLine("\n");
+            }
+
+        }
+
+        public void FunctionSumTime()
+        {
+          foreach (genal attraction in listForGenAl)
+            {
+                sumTime= sumTime+ attraction.TotalTime;  // 1. : sum=0 , 2: sum=0 , 3: sum=120, 4: sum= 120+140
+            }
         }
 
 
