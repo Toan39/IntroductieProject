@@ -28,7 +28,7 @@ namespace Disneyland
 
         public void button1_Click(object sender, EventArgs e)
         {
-            Form5 map = new Form5(comboBox1.Text, checkedListBox.CheckedItems);
+            Form5 map = new Form5(comboBox1.Text, listBoxItem.Items);
             //map.attractionlist = DataService.att;
             String s = comboBox1.Text;
             string a = comboBox2.Text;

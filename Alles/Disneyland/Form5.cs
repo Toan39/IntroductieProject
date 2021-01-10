@@ -29,8 +29,8 @@ namespace Disneyland
         string[][] population;
         float sumTime = 0;
         int s = 0;
-        int UpperBoundTime = 1000;
-        public Form5(string tijd, CheckedListBox.CheckedItemCollection selecteditems)
+        int UpperBoundTime = 480;
+        public Form5(string tijd, ListBox.ObjectCollection selecteditems)
         {
             int m = selecteditems.Count;
             int popsize =m*1000; // select 3 attractions, to have low processing time
@@ -38,23 +38,21 @@ namespace Disneyland
             population = new string[popsize][];
 
             InitializeComponent();
-           
             maakwalktimelist();
+            makeselectedlist(selecteditems);
             DownScaleList();
+            CreatePopulation(popsize);
             //int InsertedTime = (int.Parse(tijd) * 60);
 
-            makeselectedlist( selecteditems);
+           
+            
             //sorteer();
             //returnlowest(InsertedTime);
-            
-            CreatePopulation(popsize);
+
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
-
-    
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -99,10 +97,19 @@ namespace Disneyland
             }
         }
 
+
+        public void makeselectedlist(ListBox.ObjectCollection selecteditems)
+        {
+            foreach (object item in selecteditems)
+            {
+                string x = item.ToString();
+                selectedPoints.Add(x);
+            }
+        }
         public void DownScaleList()
         {
-            int p;
-            for (p = 0; p < selectedPoints.Count; p++)
+          
+            for (int p = 0; p < selectedPoints.Count; p++)
             {
                 int k = 0;
                 foreach (quetime Name in DataService.QTimes())
@@ -126,14 +133,7 @@ namespace Disneyland
             //Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
         }
 
-        public void makeselectedlist(CheckedListBox.CheckedItemCollection selecteditems)
-        {
-            foreach (object item in selecteditems)
-            {
-                string x = item.ToString();
-                selectedPoints.Add(x);
-            }
-        }
+       
 
         public void CreatePopulation(int k)
         {
@@ -165,6 +165,9 @@ namespace Disneyland
                 Console.WriteLine();
             }
         }
+       
+
+        
 
         public void SelectItems()
         {
@@ -198,7 +201,6 @@ namespace Disneyland
             }
         }
 
-
         public bool possible(string x)
         {
             foreach (genal genal in listForGenAl)
@@ -230,6 +232,16 @@ namespace Disneyland
             }
         }
 
+        public bool selected(string selected, int a)
+        {
+            if (selected == Lijst.att[a - 1].Number)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
 
         public float routecheck(string start, string end)
         {
@@ -245,14 +257,7 @@ namespace Disneyland
             return 0;
         }
 
-        public bool selected(string selected, int a)
-        {
-            if (selected == Lijst.att[a].Number)
-            {
-                return true;
-            }
-            return false;
-        }
+
 
         public void FunctionSumTime()
         {
@@ -320,9 +325,6 @@ namespace Disneyland
 
         //    }
         //}
-
-
-
 
         private void gmap_Load_1(object sender, EventArgs e)
         {
