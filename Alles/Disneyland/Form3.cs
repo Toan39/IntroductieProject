@@ -58,7 +58,7 @@ namespace Disneyland
             if (listBoxItem.Items.Count >18)
             { MessageBox.Show("Mag niet meer dan 18 attracties selecteren"); }
 
-            if (x+q<10 && checkedListBox.SelectedItem!=null && comboBox1.SelectedItem!=null && comboBox2.SelectedItem!=null && listBoxItem.Items.Count < 19)
+            if (x+q<10 && checkedListBox.SelectedItem!=null && comboBox1.SelectedItem!=null && comboBox2.SelectedItem!=null && listBoxItem.Items.Count < 18)
             { 
               map.Show();
               this.Hide();

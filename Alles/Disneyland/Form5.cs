@@ -32,7 +32,7 @@ namespace Disneyland
         public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;
-            int popsize =m*1000; // select 3 attractions, to have low processing time
+            int popsize =m*700; // select 3 attractions, to have low processing time
             fitness = new float[popsize];
             population = new string[popsize][];
 
