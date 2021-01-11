@@ -48,7 +48,6 @@ namespace Disneyland
 
             //sorteer();
             //returnlowest(InsertedTime);
-
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
@@ -154,28 +153,30 @@ namespace Disneyland
                 SelectItems(selecteditems);
                 FunctionSumTime();
 
-             if(duplicate(selected)==false)  
-                if (sumTime < UpperBoundTime)
+                if (duplicate(selected) == false)
                 {
-                    fitnesstime[z] = sumTime;
-                    CreatePointArray(listForGenAl.Count);
-                    z++;
+                    if (sumTime < UpperBoundTime)
+                    {
+                        fitnesstime[z] = sumTime;
+                        CreatePointArray(listForGenAl.Count);
+                        z++;
+                    }
                 }
                 sumTime = 0;
                 listForGenAl.Clear();
             }
 
             //print the arrays in the jagged array with the index number in console
-            //for (int i = 0; i < population.Length; i++)
-            //{
-            //    Console.Write("Element({0}): ", i);
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
 
-            //    for (int j = 0; j < population[i].Length; j++)
-            //    {
-            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-            //    }
-            //    Console.WriteLine();
-            //}
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine();
+            }
         }
        
        
