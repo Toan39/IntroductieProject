@@ -41,7 +41,7 @@ namespace Disneyland
             InitializeComponent();
             maakwalktimelist();
             DownScaleList(selecteditems);
-            CreatePopulation(popsize(m), selecteditems);
+            CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
             //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
@@ -146,7 +146,7 @@ namespace Disneyland
 
        
 
-        public void CreatePopulation(int k, List<string> selecteditems)
+        public void CreatePopulation(int k, List<string> selecteditems, int selected)
         {
             for (int z = 0; z < k;)
             {
@@ -154,7 +154,7 @@ namespace Disneyland
                 SelectItems(selecteditems);
                 FunctionSumTime();
 
-             if(duplicate()==false)  
+             if(duplicate(selected)==false)  
                 if (sumTime < UpperBoundTime)
                 {
                     fitnesstime[z] = sumTime;
@@ -277,8 +277,12 @@ namespace Disneyland
             }
         }
 
-        public bool duplicate()
+        public bool duplicate(int selected)
         {
+            if (selected>=5 || selected <= 7) //Reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
+            {
+                return false;      
+            }
             for (int t=0; t<fitnesstime.Length; t++)
             {
                 if(sumTime == fitnesstime[t])
@@ -307,7 +311,7 @@ namespace Disneyland
 
             for(int t=0; t< fitness.Length; t++)
             {
-                fitness[t] = fitness[t] / UpperBoundTime* 100;
+                fitness[t] = 100-( fitness[t] / UpperBoundTime* 100); //How lower the time of a wholeroute the closer the fitness is to 100
                 Console.WriteLine(fitness[t]); //prints fitness array
             }
             Console.WriteLine("\n");
@@ -316,14 +320,15 @@ namespace Disneyland
 
 
         ///////////// Notmalize function for last step
-        //public void NormalizeFitness()
-        //{
-        //    for (int t = 0; t < fitness.Length; t++)
-        //    {
-        //        fitness[t] = fitness[t]/100 * UpperBoundTime;
-        //        Console.WriteLine(fitness[t]); //prints fitness array
-        //    }
-        //}
+        /*public void NormalizeFitness()
+        {
+            for (int t = 0; t < fitness.Length; t++)
+            {
+                float p = 100 - fitness[t];
+                fitness[t] =p/ 100 * UpperBoundTime;
+                Console.WriteLine(fitness[t]); //prints fitness array
+            }
+        }*/
 
 
 
