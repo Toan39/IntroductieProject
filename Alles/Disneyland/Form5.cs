@@ -25,6 +25,7 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
 
+        float[] fitnesstime;
         float[] fitness;
         string[][] population;
         float sumTime = 0;
@@ -33,6 +34,7 @@ namespace Disneyland
         public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;  // select 3 attractions, to have low processing time
+            fitnesstime = new float[popsize(m)];
             fitness = new float[popsize(m)];
             population = new string[popsize(m)][];
 
@@ -40,6 +42,8 @@ namespace Disneyland
             maakwalktimelist();
             DownScaleList(selecteditems);
             CreatePopulation(popsize(m), selecteditems);
+            FitnessFunction();
+            //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
 
             //sorteer();
@@ -72,7 +76,7 @@ namespace Disneyland
             {  
                 for (int i = number - 1; i >= 1; i--)
                 {
-                    popsize = popsize * i+6;
+                    popsize = popsize * i/*+6*/;
                 }
             }
             else
@@ -150,9 +154,10 @@ namespace Disneyland
                 SelectItems(selecteditems);
                 FunctionSumTime();
 
+             if(duplicate()==false)  
                 if (sumTime < UpperBoundTime)
                 {
-                    fitness[z] = sumTime;
+                    fitnesstime[z] = sumTime;
                     CreatePointArray(listForGenAl.Count);
                     z++;
                 }
@@ -161,19 +166,19 @@ namespace Disneyland
             }
 
             //print the arrays in the jagged array with the index number in console
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
+            //for (int i = 0; i < population.Length; i++)
+            //{
+            //    Console.Write("Element({0}): ", i);
 
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine();
-            }
+            //    for (int j = 0; j < population[i].Length; j++)
+            //    {
+            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+            //    }
+            //    Console.WriteLine();
+            //}
         }
        
-
+       
         
 
         public void SelectItems(List<string> selecteditems)
@@ -272,6 +277,18 @@ namespace Disneyland
             }
         }
 
+        public bool duplicate()
+        {
+            for (int t=0; t<fitnesstime.Length; t++)
+            {
+                if(sumTime == fitnesstime[t])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void CreatePointArray(int z)
         {
             string[] index = new string[z];
@@ -282,6 +299,31 @@ namespace Disneyland
             population[s] = index;
             s++;
         }
+
+     
+        public void FitnessFunction()
+        {
+            fitnesstime.CopyTo(fitness, 0);
+
+            for(int t=0; t< fitness.Length; t++)
+            {
+                fitness[t] = fitness[t] / UpperBoundTime* 100;
+                Console.WriteLine(fitness[t]); //prints fitness array
+            }
+            Console.WriteLine("\n");
+
+        }
+
+
+        ///////////// Notmalize function for last step
+        //public void NormalizeFitness()
+        //{
+        //    for (int t = 0; t < fitness.Length; t++)
+        //    {
+        //        fitness[t] = fitness[t]/100 * UpperBoundTime;
+        //        Console.WriteLine(fitness[t]); //prints fitness array
+        //    }
+        //}
 
 
 
