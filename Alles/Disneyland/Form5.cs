@@ -37,12 +37,14 @@ namespace Disneyland
             fitnesstime = new float[popsize(m)];
             fitness = new float[popsize(m)];
             population = new string[popsize(m)][];
+         
 
             InitializeComponent();
             maakwalktimelist();
             DownScaleList(selecteditems);
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
+            Selection();
             //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
 
@@ -80,7 +82,7 @@ namespace Disneyland
             }
             else
             {
-                popsize = number * 700;
+                popsize = number * 500;
             }
             return popsize;
         }
@@ -167,16 +169,16 @@ namespace Disneyland
             }
 
             //print the arrays in the jagged array with the index number in console
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
+            //for (int i = 0; i < population.Length; i++)
+            //{
+            //    Console.Write("Element({0}): ", i);
 
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine();
-            }
+            //    for (int j = 0; j < population[i].Length; j++)
+            //    {
+            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+            //    }
+            //    Console.WriteLine();
+            //}
         }
        
        
@@ -280,7 +282,7 @@ namespace Disneyland
 
         public bool duplicate(int selected)
         {
-            if (selected>=5 || selected <= 7) //Reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
+            if (selected>=5 && selected <= 7) //Reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
             {
                 return false;      
             }
@@ -313,9 +315,25 @@ namespace Disneyland
             for(int t=0; t< fitness.Length; t++)
             {
                 fitness[t] = 100-( fitness[t] / UpperBoundTime* 100); //How lower the time of a wholeroute the closer the fitness is to 100
-                Console.WriteLine(fitness[t]); //prints fitness array
+                /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
-            Console.WriteLine("\n");
+            //Console.WriteLine("\n");
+
+        }
+
+        //Selects top 10 percentile of the population 
+        public void Selection()
+        {
+            float higherbound = fitness.Max();
+            float lowerbound = higherbound - (higherbound / 10); 
+            fitness.OrderBy(x => x); //sort it from low to high
+            float[] parents = Array.FindAll(fitness, x =>
+                                      x >= lowerbound && x <= higherbound);
+
+            for (int t = 0; t < parents.Length; t++)
+            {
+                Console.WriteLine(parents[t]);
+            }
 
         }
 
