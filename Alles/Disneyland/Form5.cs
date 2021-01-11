@@ -42,8 +42,6 @@ namespace Disneyland
             CreatePopulation(popsize(m), selecteditems);
             //int InsertedTime = (int.Parse(tijd) * 60);
 
-           
-            
             //sorteer();
             //returnlowest(InsertedTime);
 
@@ -64,6 +62,8 @@ namespace Disneyland
             rides.Show();
             this.Hide();
         }
+
+
 
         public int popsize(int number)
         {
@@ -113,7 +113,6 @@ namespace Disneyland
         }
 
 
-        
         public void DownScaleList(List<string> selecteditems)
         {
           
