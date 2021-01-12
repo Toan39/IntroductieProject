@@ -24,13 +24,17 @@ namespace Disneyland
         //List<string> usedpoints = new List<string>();
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
+        List<string> BestChromosome = new List<string>();
 
+        string[] CurrentChromosome;
         float[] fitnesstime;
         float[] fitness;
         string[][] population;
         float sumTime = 0;
         int s = 0;
         int UpperBoundTime = 480;
+        float bestFitness = 0;
+        float higherbound = 0;
         public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;  // select 3 attractions, to have low processing time
@@ -40,7 +44,7 @@ namespace Disneyland
          
 
             InitializeComponent();
-            maakwalktimelist();
+            makewalktimelist();
             DownScaleList(selecteditems);
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
@@ -87,7 +91,7 @@ namespace Disneyland
             return popsize;
         }
 
-        public void maakwalktimelist()
+        public void makewalktimelist()
         {
             string connectionString;
             string sql;
@@ -282,7 +286,7 @@ namespace Disneyland
 
         public bool duplicate(int selected)
         {
-            if (selected>=5 && selected <= 7) //Reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
+            if (selected>=5 && selected <= 7) //reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
             {
                 return false;      
             }
@@ -314,26 +318,43 @@ namespace Disneyland
 
             for(int t=0; t< fitness.Length; t++)
             {
-                fitness[t] = 100-( fitness[t] / UpperBoundTime* 100); //How lower the time of a wholeroute the closer the fitness is to 100
+                fitness[t] = 100-( fitness[t] / UpperBoundTime* 100); //How lower the time of a whole route the closer the fitness is to 100
                 /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
-            //Console.WriteLine("\n");
+
+            float higherbound = fitness.Max();
+            if (higherbound>bestFitness)
+            {
+                bestFitness = higherbound;
+                int CurrentBest= Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
+                
+                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
+                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
+                foreach(string s in BestChromosome)
+                {
+                    Console.WriteLine(s);
+                }
+            }
+            //else
+            //{
+
+            //}
+            
 
         }
 
         //Selects top 10 percentile of the population 
         public void Selection()
         {
-            float higherbound = fitness.Max();
-            float lowerbound = higherbound - (higherbound / 10); 
+            float lowerbound = higherbound - (higherbound / 10);  //dependds on how many parents is needed 
             fitness.OrderBy(x => x); //sort it from low to high
-            float[] parents = Array.FindAll(fitness, x =>
+            float[] fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
 
-            for (int t = 0; t < parents.Length; t++)
-            {
-                Console.WriteLine(parents[t]);
-            }
+            //for (int t = 0; t < parents.Length; t++)
+            //{
+            //    Console.WriteLine(parents[t]);
+            //}
 
         }
 
