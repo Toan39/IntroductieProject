@@ -31,7 +31,7 @@ namespace Disneyland
         float[] fitness;
         string[][] population;
         float sumTime = 0;
-        int s = 0;
+        int s, stop = 0;
         int UpperBoundTime = 480;
         float bestFitness = 0;
         float higherbound = 0;
@@ -335,10 +335,10 @@ namespace Disneyland
                     Console.WriteLine(s);
                 }
             }
-            //else
-            //{
-
-            //}
+            /*else
+            {
+              stop++;     
+            }*/
             
 
         }
