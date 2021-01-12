@@ -25,6 +25,8 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
+        List<string>  AttNumber = new List<string>();
+        List<string> FinalRoute = new List<string>();
 
         string[] CurrentChromosome;
         float[] fitnesstime;
@@ -45,7 +47,7 @@ namespace Disneyland
 
             InitializeComponent();
             makewalktimelist();
-            DownScaleList(selecteditems);
+            DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
             Selection();
@@ -54,6 +56,11 @@ namespace Disneyland
 
             //sorteer();
             //returnlowest(InsertedTime);
+            DownScaleList(BestChromosome, FinalRoute, "Name");
+            foreach(string s in FinalRoute)
+            {
+                Console.WriteLine(s);
+            }
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
@@ -121,32 +128,37 @@ namespace Disneyland
             }
         }
 
-
-        public void DownScaleList(List<string> selecteditems)
+        //Compares ListA with ListB and then adds items that are the same into ListB. 
+        //And type is the object that is going to be added
+        public void DownScaleList(List<string> ListA, List<string> ListB, string type)
         {
           
-            for (int p = 0; p < selecteditems.Count; p++)
+            for (int p = 0; p < ListA.Count; p++)
             {
                 int k = 0;
                 foreach (quetime Name in DataService.QTimes())
                 {
-                    if (DataService.QTimes()[k].Name == selecteditems[p])
+                    if (type == "Number")
                     {
-                        Lijst.att.Add(new attraction());
-                        Lijst.att[p].Number = DataService.QTimes()[k].Number;
-                        //Lijst.att[p].Name = DataService.QTimes()[k].Name;
-                        //Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
-                        //Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
+                        if (DataService.QTimes()[k].Name == ListA[p])
+                        {
+                            ListB.Add(DataService.QTimes()[k].Number);
+                        }
+                    }              
+
+                    if (type=="Name")
+                    {
+                        if (DataService.QTimes()[k].Number == ListA[p])
+                        {
+                            ListB.Add(DataService.QTimes()[k].Name);
+                            Lijst.attLoc.Add(new attractionLoc());
+                            Lijst.attLoc[p].Lat = DataService.QTimes()[k].Lat;
+                            Lijst.attLoc[p].Lon = DataService.QTimes()[k].Lon;
+                        }
                     }
                     k++;
                 }
             }
-
-            //Lijst.att.Add(new attraction());
-            //p = selectedPoints.Count;
-            //Lijst.att[p].Name = DataService.QTimes()[26].Name;
-            //Lijst.att[p].Lat = DataService.QTimes()[26].Lat;
-            //Lijst.att[p].Lon = DataService.QTimes()[26].Lon;
         }
 
        
@@ -155,7 +167,7 @@ namespace Disneyland
         {
             for (int z = 0; z < k;)
             {
-                shuffler.Shuffle(Lijst.att);
+                shuffler.Shuffle(AttNumber);
                 SelectItems(selecteditems);
                 FunctionSumTime();
 
@@ -253,7 +265,7 @@ namespace Disneyland
 
         public bool selected(string selected, int a)
         {
-            if (selected == Lijst.att[a - 1].Number)
+            if (selected == AttNumber[a - 1])
             {
                 return true;
             }
@@ -334,6 +346,7 @@ namespace Disneyland
                 {
                     Console.WriteLine(s);
                 }
+                Console.WriteLine("\n");
             }
             /*else
             {
@@ -504,7 +517,7 @@ namespace Disneyland
 
     public static class Lijst
     {
-        public static List<attraction> att = new List<attraction>();
+        public static List<attractionLoc> attLoc = new List<attractionLoc>();
     }
 
     public class genal
@@ -532,11 +545,9 @@ namespace Disneyland
         public float TotalTime { get; set; }
     }
 
-    public class attraction
+    public class attractionLoc
     {
-        public string Number;
-        //public string Name;
-        //public double Lat;
-        //public double Lon;
+        public double Lat;
+        public double Lon;
     }
 }
