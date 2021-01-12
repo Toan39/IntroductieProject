@@ -31,13 +31,18 @@ namespace Disneyland
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
         string[] CurrentChromosome;
+        string[] parent1;
+        string[] parent2;
         string[][] population;
+        string[][] parents;
+        
         int s = 0; 
         int stop = 0;
         int UpperBoundTime = 480;
         float bestFitness = 0;
         float sumTime = 0;
         float higherbound = 0 ;
+        int index;
 
         public Form5(string tijd, List <string> selecteditems)
         {
@@ -345,11 +350,11 @@ namespace Disneyland
                 
                 CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
                 BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
-                foreach(string s in BestChromosome)
-                {
-                    Console.WriteLine(s);
-                }
-                Console.WriteLine("\n");
+                //foreach(string s in BestChromosome)
+                //{
+                //    Console.WriteLine(s);
+                //}
+                //Console.WriteLine("\n");
             }
             /*else
             {
@@ -376,28 +381,45 @@ namespace Disneyland
 
         public void NextGeneration()
         {
+            Random rnd = new Random();
             indexPopulation = new int[fitnessParents.Length];
-            for (int t=0; t < fitnessParents.Length; t++)
+            parents= new string[indexPopulation.Length][];
+            for (int t = 0; t < fitnessParents.Length; t++)
             {
-                //for (int p = 0; p < fitness.Length; p++)
-                //{
-                    //if (fitnessParents[t] == fitness[p])
-                    //{
-                        int index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexes of the population
-                
-                for (int p = 0; t < fitnessParents.Length; p++)
-                {
-                    indexPopulation[p] = index;
-                }
-                    //}
-                //}
+                index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexes of the population     
+                indexPopulation[t] = index;
             }
 
-            for (int t = 0; t <= indexPopulation.Length; t++)
+            for (int t = 0; t < indexPopulation.Length; t++)
             {
-                Console.WriteLine(indexPopulation[t]);
+                parents[t]= (string[])population.GetValue(indexPopulation[t]);
             }
 
+                int r = rnd.Next(indexPopulation.Length);
+                parent1=parents[r];
+                r = rnd.Next(indexPopulation.Length);
+                parent2 = parents[r];
+
+            int lowerbound = 1; 
+            int upperbound = parent1.Length - 1;
+            int crossoverlength = rnd.Next(2,upperbound-lowerbound);
+            int crossoverpoint = rnd.Next(lowerbound, upperbound);
+            
+            
+
+
+
+
+
+            for (int t = 0; t < parent2.Length; t++)
+            {
+                Console.WriteLine(parent1[t]);
+            }
+            Console.WriteLine("\n");
+            for (int t = 0; t < parent2.Length; t++)
+            {
+                Console.WriteLine(parent2[t]);
+            }
 
         }
 
