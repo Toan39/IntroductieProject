@@ -94,7 +94,7 @@ namespace Disneyland
         public int popsize(int number)
         {
             int popsize = number;
-            if (number <= 7)
+            if (number <= 5)
             {  
                 for (int i = number - 1; i >= 1; i--)
                 {
@@ -103,7 +103,7 @@ namespace Disneyland
             }
             else
             {
-                popsize = number * 500;
+                popsize = number * 300;
             }
             return popsize;
         }
@@ -308,7 +308,7 @@ namespace Disneyland
 
         public bool duplicate(int selected)
         {
-            if (selected>=5 && selected <= 7) //reshuffling with mid amount of selected attractions --> extreme amount of reshuffles.
+            if (selected==5) //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
             {
                 return false;      
             }
