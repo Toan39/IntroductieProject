@@ -28,15 +28,17 @@ namespace Disneyland
         List<string>  AttNumber = new List<string>();
         List<string> FinalRoute = new List<string>();
 
+        int[] indexPopulation;
+        float[] fitnesstime, fitness, fitnessParents;
         string[] CurrentChromosome;
-        float[] fitnesstime;
-        float[] fitness;
         string[][] population;
-        float sumTime = 0;
-        int s, stop = 0;
+        int s = 0; 
+        int stop = 0;
         int UpperBoundTime = 480;
         float bestFitness = 0;
-        float higherbound = 0;
+        float sumTime = 0;
+        float higherbound = 0 ;
+
         public Form5(string tijd, List <string> selecteditems)
         {
             int m = selecteditems.Count;  // select 3 attractions, to have low processing time
@@ -51,12 +53,13 @@ namespace Disneyland
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
             Selection();
+            NextGeneration();
             //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
 
             //sorteer();
             //returnlowest(InsertedTime);
-            DownScaleList(BestChromosome, FinalRoute, "Name");
+            //DownScaleList(BestChromosome, FinalRoute, "Name");
             foreach(string s in FinalRoute)
             {
                 Console.WriteLine(s);
@@ -334,7 +337,7 @@ namespace Disneyland
                 /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
 
-            float higherbound = fitness.Max();
+            higherbound = fitness.Max();
             if (higherbound>bestFitness)
             {
                 bestFitness = higherbound;
@@ -361,13 +364,35 @@ namespace Disneyland
         {
             float lowerbound = higherbound - (higherbound / 10);  //dependds on how many parents is needed 
             fitness.OrderBy(x => x); //sort it from low to high
-            float[] fitnessParents = Array.FindAll(fitness, x =>
+            fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
 
             //for (int t = 0; t < parents.Length; t++)
             //{
             //    Console.WriteLine(parents[t]);
             //}
+
+        }
+
+        public void NextGeneration()
+        {
+            for (int t=0; t < fitnessParents.Length; t++)
+            {
+                for (int p = 0; p < fitness.Length; p++)
+                {
+                    if (fitnessParents[t] == fitness[p])
+                    {
+                        int index = Array.IndexOf(fitness, fitnessParents);  //Indexes of the population
+                        indexPopulation[t] = index;
+                    }
+                }
+            }
+
+            for (int t = 0; t <= indexPopulation.Length; t++)
+            {
+                Console.WriteLine(indexPopulation[t]);
+            }
+
 
         }
 
