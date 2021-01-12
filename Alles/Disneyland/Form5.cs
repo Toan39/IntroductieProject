@@ -60,7 +60,8 @@ namespace Disneyland
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
             Selection();
-            NextGeneration(m);
+            CreateChild(m);
+            //NextGeneration();
             //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
 
@@ -171,8 +172,6 @@ namespace Disneyland
             }
         }
 
-       
-
         public void CreatePopulation(int k, List<string> selecteditems, int selected)
         {
             for (int z = 0; z < k;)
@@ -208,7 +207,6 @@ namespace Disneyland
         }
        
        
-        
 
         public void SelectItems(List<string> selecteditems)
         {
@@ -381,7 +379,7 @@ namespace Disneyland
 
         }
 
-        public void NextGeneration(int selected)
+        public void CreateChild(int selected)
         {
             Random rnd = new Random();
             indexPopulation = new int[fitnessParents.Length];
