@@ -409,27 +409,17 @@ namespace Disneyland
             int upperbound = parent1.Length - 1;
             child = new string[selected];
            
-            int crossoverlength = rnd.Next(2,upperbound);
+            int crossoverlength = rnd.Next(2,upperbound - 2); //upperbound niet vergeten.
             int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
 
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
 
-            int p = 0;
-        
-                for (int t = 1; t < child.Length; t++)
-                {
-                    parent2.CopyTo(parent2);
-                    if (parent2[t] != child[p])
-                    {
-                        child[crossoverlength+p] = parent2[t];
-                         p++;
-                    }
-               
-                   }
             
-         
-            
+            crossover(crossoverlength, crossoverpoint);
+           
+
+
 
             for (int t = 0; t < parent2.Length; t++)
             {
@@ -447,6 +437,30 @@ namespace Disneyland
             }
         }
 
+        public void crossover(int crossoverlength, int crossoverpoint)
+        {
+            bool check = true;
+            int p = 0;
+            for (int z = 1; z < parent2.Length - 1; z++)
+            {
+                for (int x = 0; x < child.Length; x++)
+                {
+                    if (parent2[z] == child[x])
+                    {
+                        check = false;
+                    }
+                }
+
+                if(check)
+                {
+                    child[crossoverlength + p] = parent2[z];
+                    p++;
+                }
+
+                check = true;
+            }
+
+        }
 
         ///////////// Notmalize function for last step
         /*public void NormalizeFitness()
