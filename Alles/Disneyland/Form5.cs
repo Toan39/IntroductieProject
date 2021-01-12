@@ -408,8 +408,10 @@ namespace Disneyland
             int lowerbound = 1; 
             int upperbound = parent1.Length - 1;
             child = new string[selected];
-            int crossoverpoint = rnd.Next(lowerbound, upperbound-2);
-            int crossoverlength = rnd.Next(2,upperbound-crossoverpoint);
+           
+            int crossoverlength = rnd.Next(2,upperbound);
+            int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
+
 
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
 
@@ -417,7 +419,7 @@ namespace Disneyland
         
                 for (int t = 1; t < child.Length; t++)
                 {
-                    parent2.Copyto(parent2);
+                    parent2.CopyTo(parent2);
                     if (parent2[t] != child[p])
                     {
                         child[crossoverlength+p] = parent2[t];
