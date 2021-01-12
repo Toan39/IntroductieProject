@@ -21,12 +21,12 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
-        //List<string> usedpoints = new List<string>();
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
         List<string>  AttNumber = new List<string>();
         List<string> FinalRoute = new List<string>();
+        //List<string> LowChromosome = new List<string>();
 
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
@@ -55,7 +55,10 @@ namespace Disneyland
          
 
             InitializeComponent();
-            makewalktimelist();
+            //makewalktimelist();
+            //Order();
+            //MakeChromosome(UpperBoundTime);
+
             DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
@@ -63,10 +66,7 @@ namespace Disneyland
             CreateChild(m);
             //NextGeneration();
             //NormalizeFitness();
-            //int InsertedTime = (int.Parse(tijd) * 60);
-
-            //sorteer();
-            //returnlowest(InsertedTime);
+            
             //DownScaleList(BestChromosome, FinalRoute, "Name");
             foreach(string s in FinalRoute)
             {
@@ -76,6 +76,9 @@ namespace Disneyland
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -138,6 +141,36 @@ namespace Disneyland
                 }
             }
         }
+
+        //public void Order()
+        //{
+        //    WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
+        //}
+
+        //public string MakeChromosome( int UpperBoundTime)
+        //{
+        //    string lowest = "";
+        //    float usedTime = 0;
+        //    string previous = "";
+        //    for (int i = 0; (usedTime + WTimes[i].TotalTime) < UpperBoundTime; i++)
+        //    {
+
+        //        if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
+        //        {
+        //            LowChromosome.Add(WTimes[i].EndPoint.ToString());
+        //            usedTime = usedTime + WTimes[i].TotalTime;
+        //            previous = WTimes[i].EndPoint.ToString();
+        //            i = 0;
+        //        }
+        //    }
+        //    foreach (string s in LowChromosome)
+        //    {
+        //        Console.WriteLine(s);
+        //    }
+        //    Console.WriteLine("\n");
+        //    return lowest;
+        //}
+
 
         //Compares ListA with ListB and then adds items that are the same into ListB. 
         //And type is the object that is going to be added
@@ -470,32 +503,6 @@ namespace Disneyland
                 Console.WriteLine(fitness[t]); //prints fitness array
             }
         }*/
-
-
-
-        //void sorteer()
-        //    {
-        //        WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
-        //    }
-
-        //public string returnlowest(int Inserted)
-        //{
-        //    string lowest = "";
-        //    float verbruiktetijd = 0;
-        //    string previous = "";
-        //    for (int i = 0; (verbruiktetijd + WTimes[i].TotalTime) < Inserted; i++)
-        //    {
-
-        //        if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
-        //        {
-        //            usedpoints.Add(WTimes[i].EndPoint.ToString());
-        //            verbruiktetijd = verbruiktetijd + WTimes[i].TotalTime;
-        //            previous = WTimes[i].EndPoint.ToString();
-        //            i = 0;
-        //        }
-        //    }
-        //}
-
 
         //public void makelist()
         //{
