@@ -376,16 +376,21 @@ namespace Disneyland
 
         public void NextGeneration()
         {
+            indexPopulation = new int[fitnessParents.Length];
             for (int t=0; t < fitnessParents.Length; t++)
             {
-                for (int p = 0; p < fitness.Length; p++)
+                //for (int p = 0; p < fitness.Length; p++)
+                //{
+                    //if (fitnessParents[t] == fitness[p])
+                    //{
+                        int index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexes of the population
+                
+                for (int p = 0; t < fitnessParents.Length; p++)
                 {
-                    if (fitnessParents[t] == fitness[p])
-                    {
-                        int index = Array.IndexOf(fitness, fitnessParents);  //Indexes of the population
-                        indexPopulation[t] = index;
-                    }
+                    indexPopulation[p] = index;
                 }
+                    //}
+                //}
             }
 
             for (int t = 0; t <= indexPopulation.Length; t++)
