@@ -414,18 +414,18 @@ namespace Disneyland
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
 
             int p = 0;
-            for (int z = 1; z < crossoverlength; z++)
-            {
-                for (int t = 1; t < crossoverlength; t++)
+        
+                for (int t = 1; t < child.Length; t++)
                 {
-                    if (parent2[z] != child[p])
+                    parent2.Copyto(parent2);
+                    if (parent2[t] != child[p])
                     {
-                        child[p + crossoverlength] = parent2[z];
-                        p++;
+                        child[crossoverlength+p] = parent2[t];
+                         p++;
                     }
-                    
-                }
-            }
+               
+                   }
+            
          
             
 
