@@ -26,7 +26,6 @@ namespace Disneyland
         List<string> BestChromosome = new List<string>();
         List<string>  AttNumber = new List<string>();
         List<string> FinalRoute = new List<string>();
-        //List<string> LowChromosome = new List<string>();
 
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
@@ -53,12 +52,8 @@ namespace Disneyland
             fitness = new float[popsize(m)];
             population = new string[popsize(m)][];
          
-
             InitializeComponent();
-            //makewalktimelist();
-            //Order();
-            //MakeChromosome(UpperBoundTime);
-
+            MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
@@ -68,10 +63,11 @@ namespace Disneyland
             //NormalizeFitness();
             
             //DownScaleList(BestChromosome, FinalRoute, "Name");
-            foreach(string s in FinalRoute)
-            {
-                Console.WriteLine(s);
-            }
+            //foreach(string s in FinalRoute)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
             PrintLabel();
       
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
@@ -112,7 +108,7 @@ namespace Disneyland
             return popsize;
         }
 
-        public void makewalktimelist()
+        public void MakeWalktimelist()
         {
             string connectionString;
             string sql;
@@ -134,43 +130,11 @@ namespace Disneyland
                     WTimes.Add(new walktime());
                     WTimes[t].StartPoint = reader.GetValue(0).ToString();
                     WTimes[t].EndPoint = reader.GetValue(1).ToString();
-                    //WTimes[t].Distance = int.Parse(reader.GetValue(2).ToString());
-                    //WTimes[t].WalkTime = float.Parse(reader.GetValue(3).ToString());
                     WTimes[t].TotalTime = float.Parse(reader.GetValue(4).ToString());
                     t++;
                 }
             }
         }
-
-        //public void Order()
-        //{
-        //    WTimes = WTimes.OrderBy(x => x.TotalTime).ToList();
-        //}
-
-        //public string MakeChromosome( int UpperBoundTime)
-        //{
-        //    string lowest = "";
-        //    float usedTime = 0;
-        //    string previous = "";
-        //    for (int i = 0; (usedTime + WTimes[i].TotalTime) < UpperBoundTime; i++)
-        //    {
-
-        //        if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous))
-        //        {
-        //            LowChromosome.Add(WTimes[i].EndPoint.ToString());
-        //            usedTime = usedTime + WTimes[i].TotalTime;
-        //            previous = WTimes[i].EndPoint.ToString();
-        //            i = 0;
-        //        }
-        //    }
-        //    foreach (string s in LowChromosome)
-        //    {
-        //        Console.WriteLine(s);
-        //    }
-        //    Console.WriteLine("\n");
-        //    return lowest;
-        //}
-
 
         //Compares ListA with ListB and then adds items that are the same into ListB. 
         //And type is the object that is going to be added
@@ -635,8 +599,6 @@ namespace Disneyland
     {
         public string StartPoint { get; set; }
         public string EndPoint { get; set; }
-        //public float Distance { get; set; }
-        //public float WalkTime { get; set; }
         public float TotalTime { get; set; }
     }
 
