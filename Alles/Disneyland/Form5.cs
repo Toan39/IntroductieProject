@@ -33,8 +33,10 @@ namespace Disneyland
         string[] CurrentChromosome;
         string[] parent1;
         string[] parent2;
+        string[] child;
         string[][] population;
         string[][] parents;
+        
         
         int s = 0; 
         int stop = 0;
@@ -58,7 +60,7 @@ namespace Disneyland
             CreatePopulation(popsize(m), selecteditems, m);
             FitnessFunction();
             Selection();
-            NextGeneration();
+            NextGeneration(m);
             //NormalizeFitness();
             //int InsertedTime = (int.Parse(tijd) * 60);
 
@@ -379,14 +381,17 @@ namespace Disneyland
 
         }
 
-        public void NextGeneration()
+        public void NextGeneration(int selected)
         {
             Random rnd = new Random();
             indexPopulation = new int[fitnessParents.Length];
             parents= new string[indexPopulation.Length][];
+            parent2 = new string[selected];
+            parent1 = new string[selected];
+           
             for (int t = 0; t < fitnessParents.Length; t++)
             {
-                index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexes of the population     
+                index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexs of the population     
                 indexPopulation[t] = index;
             }
 
@@ -402,14 +407,27 @@ namespace Disneyland
 
             int lowerbound = 1; 
             int upperbound = parent1.Length - 1;
-            int crossoverlength = rnd.Next(2,upperbound-lowerbound);
-            int crossoverpoint = rnd.Next(lowerbound, upperbound);
+            child = new string[selected];
+            int crossoverpoint = rnd.Next(lowerbound, upperbound-2);
+            int crossoverlength = rnd.Next(2,upperbound-crossoverpoint);
+
+            Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
+
+            int p = 0;
+            for (int z = 1; z < crossoverlength; z++)
+            {
+                for (int t = 1; t < crossoverlength; t++)
+                {
+                    if (parent2[z] != child[p])
+                    {
+                        child[p + crossoverlength] = parent2[z];
+                        p++;
+                    }
+                    
+                }
+            }
+         
             
-            
-
-
-
-
 
             for (int t = 0; t < parent2.Length; t++)
             {
@@ -420,7 +438,11 @@ namespace Disneyland
             {
                 Console.WriteLine(parent2[t]);
             }
-
+            Console.WriteLine("\n");
+            for (int t = 0; t < child.Length; t++)
+            {
+                Console.WriteLine(child[t]);
+            }
         }
 
 
