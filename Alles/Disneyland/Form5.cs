@@ -58,6 +58,18 @@ namespace Disneyland
             MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), m, "Initial", AttNumber);
+            //print intial population
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine("\n");
+            }
+            Console.WriteLine("\n"+"\n"+"\n" + "\n" + "\n");
 
             FitnessFunction();
             Selection();
@@ -209,6 +221,7 @@ namespace Disneyland
                 listForGenAl.Clear();
             }
 
+
             //print the arrays in the jagged array with the index number in console
             //for (int i = 0; i < population.Length; i++)
             //{
@@ -355,30 +368,41 @@ namespace Disneyland
 
             for(int t=0; t< fitness.Length; t++)
             {
-                fitness[t] = 100-( fitnesstime[t] / UpperBoundTime* 100); //How lower the time of a whole route the closer the fitness is to 100
+                float p = fitnesstime[t] / UpperBoundTime;
+                fitness[t] = 100-(p*100); //How lower the time of a whole route the closer the fitness is to 100
                 /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
 
+
             higherbound = fitness.Max();
-        
-                while (higherbound > bestFitness)
+            //Console.WriteLine(higherbound);
+            //Console.WriteLine("\n");
+
+            while (higherbound > bestFitness)
                 {
-                    bestFitness = higherbound;
+             
+                bestFitness = higherbound;
                     int CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
 
-                    CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
+                    CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  //Goes back to first loop and uses that population
                     BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
 
-                    ////prints out BestChromosome 
-                    foreach (string s in BestChromosome)
-                    {
-                        Console.WriteLine(s);
-                    }
-                    Console.WriteLine("\n");
+                //Print indexnumber
+                Console.WriteLine(CurrentBest);
+                Console.WriteLine("\n");
 
-                    //Console.WriteLine(CurrentBest);
-                    //Console.WriteLine("\n");
+                //prints out BestChromosome 
+                foreach (string s in BestChromosome)
+                {
+                    Console.WriteLine(s);
                 }
+                Console.WriteLine("\n");
+               
+
+
+                //Console.WriteLine(CurrentBest);
+                //Console.WriteLine("\n");
+            }
             if (higherbound <= bestFitness)
             {
                 stop++;
@@ -407,7 +431,8 @@ namespace Disneyland
 
         public void Termination(int PopulationSize, int selected)
         {
-            if (stop < 2)
+            int j = 7;
+            while(stop<j)
             {
                    NextGeneration(PopulationSize, selected, "New");
             }
