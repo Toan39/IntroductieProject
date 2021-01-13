@@ -57,13 +57,41 @@ namespace Disneyland
             InitializeComponent();
             MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
-            CreatePopulation(popsize(m), selecteditems, m);
+            CreatePopulation(popsize(m), m, "Initial", AttNumber);
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine("\n");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n");
+
+
             FitnessFunction();
+            //Termination();
             Selection();
             CreateChild(m);
-            //NextGeneration();
+            NextGeneration(popsize(m), m, "New" );
+
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
+
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine("\n");
+            }
             //NormalizeFitness();
-            
+
             //DownScaleList(BestChromosome, FinalRoute, "Name");
             //foreach(string s in FinalRoute)
             //{
@@ -145,6 +173,7 @@ namespace Disneyland
           
             for (int p = 0; p < ListA.Count; p++)
             {
+
                 int k = 0;
                 foreach (quetime Name in DataService.QTimes())
                 {
@@ -171,15 +200,27 @@ namespace Disneyland
             }
         }
 
-        public void CreatePopulation(int k, List<string> selecteditems, int selected)
+        public void CreatePopulation(int k, int selected, string CurrentPopulation, List<string> CurrentList )
         {
             for (int z = 0; z < k;)
             {
-                shuffler.Shuffle(AttNumber);
-                SelectItems(selecteditems);
+            
+                if (CurrentPopulation == "Initial")
+                {
+                    shuffler.Shuffle(CurrentList);
+                }
+                else
+                {
+                    s = 0;
+                    CreateChild(selected);
+                    CurrentList.Clear();  //Clear the list, because of the loop 
+                    CurrentList = child.ToList();
+                }
+
+                SelectItems(selected, CurrentList);
                 FunctionSumTime();
 
-                if (duplicate(selected) == false)
+                if (duplicate(selected, CurrentPopulation) == false)
                 {
                     if (sumTime < UpperBoundTime)
                     {
@@ -193,21 +234,11 @@ namespace Disneyland
             }
 
             //print the arrays in the jagged array with the index number in console
-            //for (int i = 0; i < population.Length; i++)
-            //{
-            //    Console.Write("Element({0}): ", i);
-
-            //    for (int j = 0; j < population[i].Length; j++)
-            //    {
-            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-            //    }
-            //    Console.WriteLine();
-            //}
         }
        
        
 
-        public void SelectItems(List<string> selecteditems)
+        public void SelectItems(int selected, List<string> CurrentList)
         {
             string previous = "P1RA11";
             int a = 1;
@@ -219,14 +250,14 @@ namespace Disneyland
             listForGenAl[0].TotalTime = 0;
             while (i < WTimes.Count && done == true)
             {
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && selected(WTimes[i].EndPoint.ToString(), a))
+                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && CheckSelected(WTimes[i].EndPoint.ToString(), a, CurrentList))
                 {
                     listForGenAl.Add(new genal());
                     listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
                     listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
                     previous = WTimes[i].EndPoint.ToString();
                     a++;
-                    if (a == selecteditems.Count+1)
+                    if (a == selected + 1)
                     {
                         done = false;
                         listForGenAl.Add(new genal());
@@ -270,9 +301,9 @@ namespace Disneyland
             }
         }
 
-        public bool selected(string selected, int a)
+        public bool CheckSelected(string selected, int a, List<string> CurrentList )
         {
-            if (selected == AttNumber[a - 1])
+            if (selected == CurrentList[a - 1])
             {
                 return true;
             }
@@ -303,9 +334,10 @@ namespace Disneyland
             }
         }
 
-        public bool duplicate(int selected)
+        public bool duplicate(int selected, string CurrentPopulation)
         {
-            if (selected==5) //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
+
+            if (selected==5 || CurrentPopulation=="New") //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
             {
                 return false;      
             }
@@ -362,6 +394,13 @@ namespace Disneyland
             
 
         }
+
+        public void Termination()
+        {
+
+
+        }
+
 
         //Selects top 10 percentile of the population 
         public void Selection()
@@ -487,6 +526,17 @@ namespace Disneyland
             string Gene  = child[randomIndex1];
             child[randomIndex1] = child[randomIndex2];
             child[randomIndex2] = Gene;
+        }
+
+        public void NextGeneration(int k, int selected, string CurrentPopulation)
+        {
+            CreatePopulation(k, selected, CurrentPopulation, AttNumber); //Create a new population
+            
+            // population array witth the childs, print out
+            
+
+            
+
         }
 
         ///////////// Notmalize function for last step
