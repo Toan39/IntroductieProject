@@ -37,8 +37,9 @@ namespace Disneyland
         string[] child;
         string[][] population;
         string[][] parents;
-        
-        
+        bool betterChromo;
+
+        int CurrentBest;
         int s = 0; 
         int stop = 0;
         int UpperBoundTime = 480;
@@ -53,29 +54,33 @@ namespace Disneyland
             fitnesstime = new float[popsize(m)];
             fitness = new float[popsize(m)];
             population = new string[popsize(m)][];
-         
+            indexPopulation = new int[fitnessParents.Length];
+            parents = new string[indexPopulation.Length][];
+            parent2 = new string[m];
+            parent1 = new string[m];
+
             InitializeComponent();
             MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), m, "Initial", AttNumber);
             //print intial population
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
+            //for (int i = 0; i < population.Length; i++)
+            //{
+            //    Console.Write("Element({0}): ", i);
 
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine("\n");
-            }
-            Console.WriteLine("\n"+"\n"+"\n" + "\n" + "\n");
+            //    for (int j = 0; j < population[i].Length; j++)
+            //    {
+            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+            //    }
+            //    Console.WriteLine("\n");
+            //}
+            //Console.WriteLine("\n" + "\n" + "\n" + "\n" + "\n");
 
             FitnessFunction();
             Selection();
 
             Termination(popsize(m), m);
-
+            Console.WriteLine("end");
 
             //NextGeneration(popsize(m), m, "New" );
             //NormalizeFitness();
@@ -188,18 +193,17 @@ namespace Disneyland
             }
         }
 
-        public void CreatePopulation(int k, int selected, string CurrentPopulation, List<string> CurrentList )
+        public void CreatePopulation(int PopulationSize, int selected, string CurrentPopulation, List<string> CurrentList )
         {
-            for (int z = 0; z < k;)
+            for (int z = 0; z < PopulationSize;)
             {
             
                 if (CurrentPopulation == "Initial")
                 {
                     shuffler.Shuffle(CurrentList);
                 }
-                else
-                {
-                    s = 0;
+                if(CurrentPopulation == "New")
+                {               
                     CreateChild(selected);
                     CurrentList.Clear();  //Clear the list, because of the loop 
                     CurrentList = child.ToList();
@@ -219,8 +223,9 @@ namespace Disneyland
                 }
                 sumTime = 0;
                 listForGenAl.Clear();
-            }
 
+            }
+           
 
             //print the arrays in the jagged array with the index number in console
             //for (int i = 0; i < population.Length; i++)
@@ -352,6 +357,7 @@ namespace Disneyland
 
         public void CreatePointArray(int z)
         {
+            
             string[] index = new string[z];
             for (int t = 0; t < z; t++)
             {
@@ -364,7 +370,7 @@ namespace Disneyland
      
         public void FitnessFunction()
         {
-            fitnesstime.CopyTo(fitness, 0);
+            //fitnesstime.CopyTo(fitness, 0);
 
             for(int t=0; t< fitness.Length; t++)
             {
@@ -375,34 +381,35 @@ namespace Disneyland
 
 
             higherbound = fitness.Max();
-            //Console.WriteLine(higherbound);
-            //Console.WriteLine("\n");
+            Console.WriteLine(higherbound);
+            Console.WriteLine("\n");
 
-            while (higherbound > bestFitness)
-                {
-             
+            while( higherbound> bestFitness)
+            {
                 bestFitness = higherbound;
-                    int CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
+                CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
+                betterChromo = true;    
 
-                    CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  //Goes back to first loop and uses that population
-                    BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
+            }
+
+            if (betterChromo == true)
+            {
+                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  
+                /*BestChromosome = CurrentChromosome.ToList();*/ //Best chromosome as a list
 
                 //Print indexnumber
-                Console.WriteLine(CurrentBest);
-                Console.WriteLine("\n");
-
-                //prints out BestChromosome 
-                foreach (string s in BestChromosome)
-                {
-                    Console.WriteLine(s);
-                }
-                Console.WriteLine("\n");
-               
-
-
                 //Console.WriteLine(CurrentBest);
                 //Console.WriteLine("\n");
+
+                //prints out BestChromosome 
+                //foreach (string s in CurrentChromosome)
+                //{
+                //    Console.WriteLine(s);
+                //}
+                //Console.WriteLine("\n");
+                //betterChromo =false;
             }
+
             if (higherbound <= bestFitness)
             {
                 stop++;
@@ -431,22 +438,18 @@ namespace Disneyland
 
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 7;
+            int j = 2;
             while(stop<j)
             {
-                   NextGeneration(PopulationSize, selected, "New");
+                s = 0;
+                NextGeneration(PopulationSize, selected, "New");
             }
    
         }
 
         public void CreateChild(int selected)
         {
-            
-            indexPopulation = new int[fitnessParents.Length];
-            parents= new string[indexPopulation.Length][];
-            parent2 = new string[selected];
-            parent1 = new string[selected];
-           
+                 
             for (int t = 0; t < fitnessParents.Length; t++)
             {
                 index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexs of the population     
@@ -553,9 +556,9 @@ namespace Disneyland
         public void NextGeneration(int k, int selected, string CurrentPopulation)
         {
             CreatePopulation(k, selected, CurrentPopulation, AttNumber); //Create a new population
-            FitnessFunction();  //get fitness of new population , set the best fitness of new population
+              //get fitness of new population , set the best fitness of new population
             Selection();        // select high percentile of new population
-
+            FitnessFunction();
             // population array witth the childs, print out
         }
 
