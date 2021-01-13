@@ -58,35 +58,14 @@ namespace Disneyland
             MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
             CreatePopulation(popsize(m), m, "Initial", AttNumber);
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
-
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine("\n");
-            }
-            Console.WriteLine("\n" + "\n"+"\n" + "\n" + "\n" + "\n" + "\n");
-
 
             FitnessFunction();
-            //Termination();
             Selection();
-            CreateChild(m);
-            NextGeneration(popsize(m), m, "New" );
 
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
+            Termination(popsize(m), m);
 
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine("\n");
-            }
+
+            //NextGeneration(popsize(m), m, "New" );
             //NormalizeFitness();
 
             //DownScaleList(BestChromosome, FinalRoute, "Name");
@@ -231,6 +210,16 @@ namespace Disneyland
             }
 
             //print the arrays in the jagged array with the index number in console
+            //for (int i = 0; i < population.Length; i++)
+            //{
+            //    Console.Write("Element({0}): ", i);
+
+            //    for (int j = 0; j < population[i].Length; j++)
+            //    {
+            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+            //    }
+            //    Console.WriteLine("\n");
+            //}
         }
        
        
@@ -378,23 +367,22 @@ namespace Disneyland
                 
                 CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
                 BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
-                //foreach(string s in BestChromosome)
-                //{
-                //    Console.WriteLine(s);
-                //}
+
+                ////prints out BestChromosome 
+                foreach (string s in BestChromosome)
+                {
+                    Console.WriteLine(s);
+                }
+                Console.WriteLine("\n");
+
+                //Console.WriteLine(CurrentBest);
                 //Console.WriteLine("\n");
             }
-            /*else
+            else
             {
               stop++;     
-            }*/
+            }
             
-
-        }
-
-        public void Termination()
-        {
-
 
         }
 
@@ -412,6 +400,15 @@ namespace Disneyland
             //    Console.WriteLine(parents[t]);
             //}
 
+        }
+
+        public void Termination(int PopulationSize, int selected)
+        {
+            if (stop < 10)
+            {
+                   NextGeneration(PopulationSize, selected, "New");
+            }
+   
         }
 
         public void CreateChild(int selected)
@@ -528,12 +525,10 @@ namespace Disneyland
         public void NextGeneration(int k, int selected, string CurrentPopulation)
         {
             CreatePopulation(k, selected, CurrentPopulation, AttNumber); //Create a new population
-            
+            FitnessFunction();  //get fitness of new population , set the best fitness of new population
+            Selection();        // select high percentile of new population
+
             // population array witth the childs, print out
-            
-
-            
-
         }
 
         ///////////// Notmalize function for last step
