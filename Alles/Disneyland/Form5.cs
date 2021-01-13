@@ -61,9 +61,6 @@ namespace Disneyland
             Termination(popsize(selected), selected);
             Console.WriteLine("end");
 
-            //NextGeneration(popsize(m), m, "New" );
-            //NormalizeFitness();
-
             //DownScaleList(BestChromosome, FinalRoute, "Name");
             //foreach(string s in FinalRoute)
             //{
@@ -204,7 +201,6 @@ namespace Disneyland
                 listForGenAl.Clear();
 
             }
-
 
             //print the arrays in the jagged array with the index number in console
             //for (int i = 0; i < population.Length; i++)
@@ -405,11 +401,6 @@ namespace Disneyland
             fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
 
-            //for (int t = 0; t < parents.Length; t++)
-            //{
-            //    Console.WriteLine(parents[t]);
-            //}
-
         }
 
         public void createParents()
@@ -467,25 +458,6 @@ namespace Disneyland
             {
             mutation(selected);
             }
-
-            //////print parents and child
-
-            //for (int t = 0; t < parent2.Length; t++)
-            //{
-            //    Console.WriteLine(parent1[t]);
-            //}
-            //Console.WriteLine("\n");
-            //for (int t = 0; t < parent2.Length; t++)
-            //{
-            //    Console.WriteLine(parent2[t]);
-            //}
-
-            //Console.WriteLine("\n");
-            //for (int t = 0; t < child.Length; t++)
-            //{
-            //    Console.WriteLine(child[t]);
-            //}
-            //Console.WriteLine("\n");
         }
 
         public void crossover(int crossoverlength)
@@ -542,19 +514,6 @@ namespace Disneyland
             Selection();        // select high percentile of new population
             // population array witth the childs, print out
         }
-
-
-
-        ///////////// Notmalize function for last step
-        /*public void NormalizeFitness()
-        {
-            for (int t = 0; t < fitness.Length; t++)
-            {
-                float p = 100 - fitness[t];
-                fitness[t] =p/ 100 * UpperBoundTime;
-                Console.WriteLine(fitness[t]); //prints fitness array
-            }
-        }*/
 
         //public void makelist()
         //{
