@@ -26,60 +26,39 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
-        List<string>  AttNumber = new List<string>();
+        List<string> AttNumber = new List<string>();
         List<string> FinalRoute = new List<string>();
 
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
-        string[] CurrentChromosome;
-        string[] parent1;
-        string[] parent2;
-        string[] child;
-        string[][] population;
-        string[][] parents;
+        string[] CurrentChromosome, parent1, parent2, child;
+        string[][] population, parents;
+
         bool betterChromo;
 
-        int CurrentBest;
-        int s = 0; 
-        int stop = 0;
+        int CurrentBest, index;
+        int s, stop = 0;
         int UpperBoundTime = 480;
-        float bestFitness = 0;
-        float sumTime = 0;
-        float higherbound = 0 ;
-        int index;
+        float bestFitness, sumTime, higherbound = 0;
 
-        public Form5(string tijd, List <string> selecteditems)
+        public Form5(List<string> selecteditems)
         {
-            int m = selecteditems.Count;  // select 3 attractions, to have low processing time
-            fitnesstime = new float[popsize(m)];
-            fitness = new float[popsize(m)];
-            population = new string[popsize(m)][];
-            indexPopulation = new int[fitnessParents.Length];
-            parents = new string[indexPopulation.Length][];
-            parent2 = new string[m];
-            parent1 = new string[m];
+            int selected = selecteditems.Count;  // select 3 attractions, to have low processing time
+            fitnesstime = new float[popsize(selected)];
+            fitness = new float[popsize(selected)];
+            population = new string[popsize(selected)][];
+            parent2 = new string[selected];
+            parent1 = new string[selected];
 
             InitializeComponent();
             MakeWalktimelist();
             DownScaleList(selecteditems, AttNumber, "Number");
-            CreatePopulation(popsize(m), m, "Initial", AttNumber);
-            //print intial population
-            //for (int i = 0; i < population.Length; i++)
-            //{
-            //    Console.Write("Element({0}): ", i);
-
-            //    for (int j = 0; j < population[i].Length; j++)
-            //    {
-            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-            //    }
-            //    Console.WriteLine("\n");
-            //}
-            //Console.WriteLine("\n" + "\n" + "\n" + "\n" + "\n");
+            CreatePopulation(popsize(selected), selected, "Initial", AttNumber);
 
             FitnessFunction();
             Selection();
 
-            Termination(popsize(m), m);
+            Termination(popsize(selected), selected);
             Console.WriteLine("end");
 
             //NextGeneration(popsize(m), m, "New" );
@@ -92,7 +71,7 @@ namespace Disneyland
             //}
 
             PrintLabel();
-      
+
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
 
@@ -118,7 +97,7 @@ namespace Disneyland
         {
             int popsize = number;
             if (number <= 5)
-            {  
+            {
                 for (int i = number - 1; i >= 1; i--)
                 {
                     popsize = popsize * i/*+6*/;
@@ -126,7 +105,7 @@ namespace Disneyland
             }
             else
             {
-                popsize = number * 300;
+                popsize = number * 100;
             }
             return popsize;
         }
@@ -163,7 +142,7 @@ namespace Disneyland
         //And type is the object that is going to be added
         public void DownScaleList(List<string> ListA, List<string> ListB, string type)
         {
-          
+
             for (int p = 0; p < ListA.Count; p++)
             {
 
@@ -176,9 +155,9 @@ namespace Disneyland
                         {
                             ListB.Add(DataService.QTimes()[k].Number);
                         }
-                    }              
+                    }
 
-                    if (type=="Name")
+                    if (type == "Name")
                     {
                         if (DataService.QTimes()[k].Number == ListA[p])
                         {
@@ -193,17 +172,17 @@ namespace Disneyland
             }
         }
 
-        public void CreatePopulation(int PopulationSize, int selected, string CurrentPopulation, List<string> CurrentList )
+        public void CreatePopulation(int PopulationSize, int selected, string CurrentPopulation, List<string> CurrentList)
         {
             for (int z = 0; z < PopulationSize;)
             {
-            
+
                 if (CurrentPopulation == "Initial")
                 {
                     shuffler.Shuffle(CurrentList);
                 }
-                if(CurrentPopulation == "New")
-                {               
+                if (CurrentPopulation == "New")
+                {
                     CreateChild(selected);
                     CurrentList.Clear();  //Clear the list, because of the loop 
                     CurrentList = child.ToList();
@@ -225,7 +204,7 @@ namespace Disneyland
                 listForGenAl.Clear();
 
             }
-           
+
 
             //print the arrays in the jagged array with the index number in console
             //for (int i = 0; i < population.Length; i++)
@@ -239,8 +218,8 @@ namespace Disneyland
             //    Console.WriteLine("\n");
             //}
         }
-       
-       
+
+
 
         public void SelectItems(int selected, List<string> CurrentList)
         {
@@ -305,7 +284,7 @@ namespace Disneyland
             }
         }
 
-        public bool CheckSelected(string selected, int a, List<string> CurrentList )
+        public bool CheckSelected(string selected, int a, List<string> CurrentList)
         {
             if (selected == CurrentList[a - 1])
             {
@@ -341,13 +320,13 @@ namespace Disneyland
         public bool duplicate(int selected, string CurrentPopulation)
         {
 
-            if (selected==5 || CurrentPopulation=="New") //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
+            if (selected == 5 || CurrentPopulation == "New") //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
             {
-                return false;      
+                return false;
             }
-            for (int t=0; t<fitnesstime.Length; t++)
+            for (int t = 0; t < fitnesstime.Length; t++)
             {
-                if(sumTime == fitnesstime[t])
+                if (sumTime == fitnesstime[t])
                 {
                     return true;
                 }
@@ -357,7 +336,7 @@ namespace Disneyland
 
         public void CreatePointArray(int z)
         {
-            
+
             string[] index = new string[z];
             for (int t = 0; t < z; t++)
             {
@@ -367,15 +346,13 @@ namespace Disneyland
             s++;
         }
 
-     
+
         public void FitnessFunction()
         {
-            //fitnesstime.CopyTo(fitness, 0);
-
-            for(int t=0; t< fitness.Length; t++)
+            for (int t = 0; t < fitness.Length; t++)
             {
                 float p = fitnesstime[t] / UpperBoundTime;
-                fitness[t] = 100-(p*100); //How lower the time of a whole route the closer the fitness is to 100
+                fitness[t] = 100 - (p * 100); //How lower the time of a whole route the closer the fitness is to 100
                 /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
 
@@ -384,39 +361,38 @@ namespace Disneyland
             Console.WriteLine(higherbound);
             Console.WriteLine("\n");
 
-            while( higherbound> bestFitness)
+            while (higherbound > bestFitness)
             {
                 bestFitness = higherbound;
                 CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
-                betterChromo = true;    
+                betterChromo = true;
 
-            }
-
-            if (betterChromo == true)
-            {
-                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  
-                /*BestChromosome = CurrentChromosome.ToList();*/ //Best chromosome as a list
-
-                //Print indexnumber
-                //Console.WriteLine(CurrentBest);
-                //Console.WriteLine("\n");
-
-                //prints out BestChromosome 
-                //foreach (string s in CurrentChromosome)
-                //{
-                //    Console.WriteLine(s);
-                //}
-                //Console.WriteLine("\n");
-                //betterChromo =false;
             }
 
             if (higherbound <= bestFitness)
             {
                 stop++;
             }
-         
-            
-            
+
+            if (betterChromo == true)
+            {
+                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  
+                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
+                betterChromo = false;
+            }
+
+            //Print indexnumber
+            //Console.WriteLine(CurrentBest);
+            //Console.WriteLine("\n");
+
+            //prints out BestChromosome 
+            //foreach (string s in CurrentChromosome)
+            //{
+            //    Console.WriteLine(s);
+            //}
+            //Console.WriteLine("\n");
+            //}
+
 
         }
 
@@ -424,7 +400,7 @@ namespace Disneyland
         //Selects top 10 percentile of the population 
         public void Selection()
         {
-            float lowerbound = higherbound - (higherbound / 10);  //dependds on how many parents is needed 
+            float lowerbound = higherbound - (higherbound / 20);  //dependds on how many parents is needed 
             fitness.OrderBy(x => x); //sort it from low to high
             fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
@@ -436,12 +412,29 @@ namespace Disneyland
 
         }
 
+        public void createParents()
+        {
+                indexPopulation = new int[fitnessParents.Length];
+                parents = new string[indexPopulation.Length][];
+                for (int t = 0; t<fitnessParents.Length; t++)
+                {
+                    index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexs of the population     
+                    indexPopulation[t] = index;
+                }
+
+                for (int t = 0; t<indexPopulation.Length; t++)
+                {
+                    parents[t] = (string[]) population.GetValue(indexPopulation[t]);
+                }
+        }
+
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 2;
+            int j = 30;
             while(stop<j)
             {
                 s = 0;
+                createParents();
                 NextGeneration(PopulationSize, selected, "New");
             }
    
@@ -449,22 +442,10 @@ namespace Disneyland
 
         public void CreateChild(int selected)
         {
-                 
-            for (int t = 0; t < fitnessParents.Length; t++)
-            {
-                index = Array.IndexOf(fitness, fitnessParents[t]);  //Indexs of the population     
-                indexPopulation[t] = index;
-            }
-
-            for (int t = 0; t < indexPopulation.Length; t++)
-            {
-                parents[t]= (string[])population.GetValue(indexPopulation[t]);
-            }
-
-                int r = rnd.Next(indexPopulation.Length);
-                parent1=parents[r];
-                r = rnd.Next(indexPopulation.Length);
-                parent2 = parents[r];
+            int r = rnd.Next(indexPopulation.Length);
+            parent1=parents[r];
+            r = rnd.Next(indexPopulation.Length);
+            parent2 = parents[r];
 
 
             //Sets the cross-over points
@@ -557,10 +538,12 @@ namespace Disneyland
         {
             CreatePopulation(k, selected, CurrentPopulation, AttNumber); //Create a new population
               //get fitness of new population , set the best fitness of new population
-            Selection();        // select high percentile of new population
             FitnessFunction();
+            Selection();        // select high percentile of new population
             // population array witth the childs, print out
         }
+
+
 
         ///////////// Notmalize function for last step
         /*public void NormalizeFitness()
