@@ -21,6 +21,8 @@ namespace Disneyland
 {
     public partial class Form5 : Form
     {
+        Random rnd = new Random();
+
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
@@ -378,7 +380,7 @@ namespace Disneyland
 
         public void CreateChild(int selected)
         {
-            Random rnd = new Random();
+            
             indexPopulation = new int[fitnessParents.Length];
             parents= new string[indexPopulation.Length][];
             parent2 = new string[selected];
@@ -400,6 +402,8 @@ namespace Disneyland
                 r = rnd.Next(indexPopulation.Length);
                 parent2 = parents[r];
 
+
+            //Sets the cross-over points
             int lowerbound = 1; 
             int upperbound = parent1.Length - 1;
             child = new string[selected];
@@ -407,32 +411,39 @@ namespace Disneyland
             int crossoverlength = rnd.Next(2,upperbound - 2); //upperbound niet vergeten.
             int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
-
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
 
-            
-            crossover(crossoverlength, crossoverpoint);
-           
+            //execution of the crossover   
+            crossover(crossoverlength);
 
+            //execution of the mutation
+            int MutationChance = rnd.Next(1,100);
+            if (MutationChance<=23-selected)
+            {
+            mutation(selected);
+            }
 
+            //////print parents and child
 
-            for (int t = 0; t < parent2.Length; t++)
-            {
-                Console.WriteLine(parent1[t]);
-            }
-            Console.WriteLine("\n");
-            for (int t = 0; t < parent2.Length; t++)
-            {
-                Console.WriteLine(parent2[t]);
-            }
-            Console.WriteLine("\n");
-            for (int t = 0; t < child.Length; t++)
-            {
-                Console.WriteLine(child[t]);
-            }
+            //for (int t = 0; t < parent2.Length; t++)
+            //{
+            //    Console.WriteLine(parent1[t]);
+            //}
+            //Console.WriteLine("\n");
+            //for (int t = 0; t < parent2.Length; t++)
+            //{
+            //    Console.WriteLine(parent2[t]);
+            //}
+
+            //Console.WriteLine("\n");
+            //for (int t = 0; t < child.Length; t++)
+            //{
+            //    Console.WriteLine(child[t]);
+            //}
+            //Console.WriteLine("\n");
         }
 
-        public void crossover(int crossoverlength, int crossoverpoint)
+        public void crossover(int crossoverlength)
         {
             bool check = true;
             int p = 0;
@@ -455,6 +466,27 @@ namespace Disneyland
                 check = true;
             }
 
+        }
+
+        public void mutation(int selected)
+        {
+            int randomIndex1 = rnd.Next(0, selected - 1);
+           
+            int randomIndex2= rnd.Next(0, selected - 1);
+            if (randomIndex1 == randomIndex2)
+            {
+                if (randomIndex1 != 0)
+                {
+                    randomIndex1 = randomIndex1 - 1;
+                }
+                else
+                {
+                    randomIndex1 = randomIndex1 + 1;
+                }      
+            }
+            string Gene  = child[randomIndex1];
+            child[randomIndex1] = child[randomIndex2];
+            child[randomIndex2] = Gene;
         }
 
         ///////////// Notmalize function for last step
