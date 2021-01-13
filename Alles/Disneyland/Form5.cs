@@ -355,33 +355,36 @@ namespace Disneyland
 
             for(int t=0; t< fitness.Length; t++)
             {
-                fitness[t] = 100-( fitness[t] / UpperBoundTime* 100); //How lower the time of a whole route the closer the fitness is to 100
+                fitness[t] = 100-( fitnesstime[t] / UpperBoundTime* 100); //How lower the time of a whole route the closer the fitness is to 100
                 /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
 
             higherbound = fitness.Max();
-            if (higherbound>bestFitness)
-            {
-                bestFitness = higherbound;
-                int CurrentBest= Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
-                
-                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
-                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
-
-                ////prints out BestChromosome 
-                foreach (string s in BestChromosome)
+        
+                while (higherbound > bestFitness)
                 {
-                    Console.WriteLine(s);
-                }
-                Console.WriteLine("\n");
+                    bestFitness = higherbound;
+                    int CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
 
-                //Console.WriteLine(CurrentBest);
-                //Console.WriteLine("\n");
-            }
-            else
+                    CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population
+                    BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
+
+                    ////prints out BestChromosome 
+                    foreach (string s in BestChromosome)
+                    {
+                        Console.WriteLine(s);
+                    }
+                    Console.WriteLine("\n");
+
+                    //Console.WriteLine(CurrentBest);
+                    //Console.WriteLine("\n");
+                }
+            if (higherbound <= bestFitness)
             {
-              stop++;     
+                stop++;
             }
+         
+            
             
 
         }
@@ -404,7 +407,7 @@ namespace Disneyland
 
         public void Termination(int PopulationSize, int selected)
         {
-            if (stop < 10)
+            if (stop < 2)
             {
                    NextGeneration(PopulationSize, selected, "New");
             }
