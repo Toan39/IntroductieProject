@@ -68,18 +68,7 @@ namespace Disneyland
                 }
                 Console.WriteLine("\n");
             }
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
-            Console.WriteLine("\n");
+            Console.WriteLine("\n" + "\n"+"\n" + "\n" + "\n" + "\n" + "\n");
 
 
             FitnessFunction();
