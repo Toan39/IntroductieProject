@@ -316,7 +316,7 @@ namespace Disneyland
         public bool duplicate(int selected, string CurrentPopulation)
         {
 
-            if (selected == 5 || CurrentPopulation == "New") //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
+            if (selected == 5||  CurrentPopulation == "New") //reshuffling with 5 amount of selected attractions --> extreme amount of reshuffles.
             {
                 return false;
             }
@@ -354,8 +354,9 @@ namespace Disneyland
 
 
             higherbound = fitness.Max();
-            Console.WriteLine(higherbound);
-            Console.WriteLine("\n");
+            //prints every fitnessScore
+            //Console.WriteLine(higherbound);
+            //Console.WriteLine("\n");
 
             while (higherbound > bestFitness)
             {
@@ -422,11 +423,14 @@ namespace Disneyland
         public void Termination(int PopulationSize, int selected)
         {
             int j = 30;
-            while(stop<j)
+            if (selected > 4)
             {
-                s = 0;
-                createParents();
-                NextGeneration(PopulationSize, selected, "New");
+                while (stop < j)
+                {
+                    s = 0;
+                    createParents();
+                    NextGeneration(PopulationSize, selected, "New");
+                }
             }
    
         }
@@ -438,13 +442,13 @@ namespace Disneyland
             r = rnd.Next(indexPopulation.Length);
             parent2 = parents[r];
 
-
             //Sets the cross-over points
             int lowerbound = 1; 
             int upperbound = parent1.Length - 1;
             child = new string[selected];
-           
-            int crossoverlength = rnd.Next(2,upperbound - 2); //upperbound niet vergeten.
+
+            int crossoverlength=rnd.Next(2, upperbound - 2);   //needs try-catch exeception // crossoverlength=> upperbound-2 (cross-overlength)
+            Console.WriteLine(crossoverlength);
             int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
