@@ -60,20 +60,10 @@ namespace Disneyland
 
             Termination(popsize(selected), selected);
             Console.WriteLine("end");
-
-            //DownScaleList(BestChromosome, FinalRoute, "Name");
-            //foreach(string s in FinalRoute)
-            //{
-            //    Console.WriteLine(s);
-            //}
-
-            PrintLabel();
+       
 
             // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
-
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -348,7 +338,6 @@ namespace Disneyland
             {
                 float p = fitnesstime[t] / UpperBoundTime;
                 fitness[t] = 100 - (p * 100); //How lower the time of a whole route the closer the fitness is to 100
-                /*Console.WriteLine(fitness[t]);*/ //prints fitness array
             }
 
 
@@ -362,7 +351,6 @@ namespace Disneyland
                 bestFitness = higherbound;
                 CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
                 betterChromo = true;
-
             }
 
             if (higherbound <= bestFitness)
@@ -418,7 +406,10 @@ namespace Disneyland
                     NextGeneration(PopulationSize, selected, "New");
                 }
             }
-   
+
+            DownScaleList(BestChromosome, FinalRoute, "Name");
+            PrintLabel();
+
         }
 
         public void CreateChild(int selected)
@@ -499,69 +490,55 @@ namespace Disneyland
         public void NextGeneration(int k, int selected, string CurrentPopulation)
         {
             CreatePopulation(k, selected, CurrentPopulation, AttID); //Create a new population
-              //get fitness of new population , set the best fitness of new population
+            //get fitness of new population , set the best fitness of new population
             FitnessFunction();
             Selection(selected);        // select high percentile of new population
-            // population array witth the childs, print out
         }
 
-        //public void makelist()
-        //{
+        
+        private void gmap_Load_1(object sender, EventArgs e)
+        {
+            gmap.MapProvider = GMapProviders.GoogleMap;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
+            gmap.MinZoom = 5;
+            gmap.MaxZoom = 100;
+            gmap.Zoom = 16;
+            gmap.ShowCenter = false;
+            gmap.DragButton = MouseButtons.Left;
+            GMapOverlay markers = new GMapOverlay("markers");
+            GMapMarker[] mark;
+            mark = new GMapMarker[1000];
 
-        //    for (int p = 0; p < (usedpoints.Count); p++)
-        //    {
-        //        int k = 0;
-        //        foreach (quetime Name in DataService.QTimes())
-        //        {
-        //            if (DataService.QTimes()[k].Number == usedpoints[p])
-        //            {
+            for (int t = 0; t < Lijst.attLoc.Count; t++)
+            {
+                PointLatLng p = new PointLatLng(Lijst.attLoc[t].Lat, Lijst.attLoc[t].Lon);
+                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
+                markers.Markers.Add(marker);
+                gmap.Overlays.Add(markers);
+                if (t==Lijst.attLoc.Count-1)
+                {
+                    t ++;
+                    string endport = t.ToString();
+                    marker.ToolTipText = ("1, "+endport);
+                }
+                else
+                {
+                    marker.ToolTipText = (t + 1).ToString();
+                }
 
-        //                Lijst.att.Add(new attraction());
-        //                Lijst.att[p].Name = DataService.QTimes()[k].Name;
-        //                Lijst.att[p].Lat = DataService.QTimes()[k].Lat;
-        //                Lijst.att[p].Lon = DataService.QTimes()[k].Lon;
-        //            }
-        //            k++;
-        //        }
+                marker.ToolTipMode = MarkerTooltipMode.Always;
+                mark[t] = marker;
 
-        //    }
-        //}
-
-        //private void gmap_Load_1(object sender, EventArgs e)
-        //{
-        //    gmap.MapProvider = GMapProviders.GoogleMap;
-        //    GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-        //    gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
-        //    gmap.MinZoom = 5;
-        //    gmap.MaxZoom = 100;
-        //    gmap.Zoom = 16;
-        //    gmap.ShowCenter = false;
-        //    gmap.DragButton = MouseButtons.Left;
-        //    GMapOverlay markers = new GMapOverlay("markers");
-        //    GMapMarker[] mark;
-        //    mark = new GMapMarker[1000];
-
-
-
-        //    for (int t = 0; t < Lijst.att.Count; t++)
-        //    {
-        //        PointLatLng p = new PointLatLng(Lijst.att[t].Lat, Lijst.att[t].Lon);
-        //        GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
-        //        markers.Markers.Add(marker);
-        //        gmap.Overlays.Add(markers);
-        //        marker.ToolTipText = (t + 1).ToString();
-        //        marker.ToolTipMode = MarkerTooltipMode.Always;
-        //        mark[t] = marker;
-
-        //    }
-        //}
+            }
+        }
         public void PrintLabel()
         {
-            for (int t = 0; t < listForGenAl.Count; t++)
+            for (int t = 0; t < BestChromosome.Count; t++)
             {
                 int x = t + 1;
                 string result = "";
-                result = x.ToString() + ". " + result + listForGenAl[t].Endpoint + " " + listForGenAl[t].TotalTime.ToString() + "\n";
+                result = x.ToString() + ". " + result + BestChromosome[t] + " " + "\n";
                 label2.Text = label2.Text + result;
             }
         }
@@ -579,7 +556,7 @@ namespace Disneyland
 
     public static class shuffler
     {
-        public static Random rng = new Random(); // taken from the internet
+        public static Random rng = new Random(); 
         public static void Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;
