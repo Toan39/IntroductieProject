@@ -26,7 +26,7 @@ namespace Disneyland
         List<genal> listForGenAl = new List<genal>();
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
-        List<string> AttNumber = new List<string>();
+        List<string> AttID = new List<string>();
         List<string> FinalRoute = new List<string>();
 
         int[] indexPopulation;
@@ -37,7 +37,7 @@ namespace Disneyland
         bool betterChromo;
 
         int CurrentBest, index;
-        int s, stop = 0; 
+        int s, GenerationCount = 0; 
         int UpperBoundTime = 480;
         float bestFitness, sumTime, higherbound = 0;
 
@@ -52,8 +52,8 @@ namespace Disneyland
 
             InitializeComponent();
             MakeWalktimelist();
-            DownScaleList(selecteditems, AttNumber, "Number");
-            CreatePopulation(popsize(selected), selected, "Initial", AttNumber);
+            DownScaleList(selecteditems, AttID, "ID");
+            CreatePopulation(popsize(selected), selected, "Initial", AttID);
 
             FitnessFunction();
             Selection();
@@ -146,7 +146,7 @@ namespace Disneyland
                 int k = 0;
                 foreach (quetime Name in DataService.QTimes())
                 {
-                    if (type == "Number")
+                    if (type == "ID")
                     {
                         if (DataService.QTimes()[k].Name == ListA[p])
                         {
@@ -368,7 +368,7 @@ namespace Disneyland
 
             if (higherbound <= bestFitness)
             {
-                stop++;
+                GenerationCount++;
             }
 
             if (betterChromo == true)
@@ -378,23 +378,10 @@ namespace Disneyland
                 betterChromo = false;
             }
 
-            //Print indexnumber
-            //Console.WriteLine(CurrentBest);
-            //Console.WriteLine("\n");
-
-            //prints out BestChromosome 
-            //foreach (string s in CurrentChromosome)
-            //{
-            //    Console.WriteLine(s);
-            //}
-            //Console.WriteLine("\n");
-            //}
-
-
         }
 
 
-        //Selects top 10 percentile of the population 
+        //Selects top 5 percentile of the population 
         public void Selection()
         {
             float lowerbound = higherbound - (higherbound / 20);  //dependds on how many parents is needed 
@@ -425,7 +412,7 @@ namespace Disneyland
             int j = 30;
             if (selected > 4)
             {
-                while (stop < j)
+                while (GenerationCount < j)
                 {
                     s = 0;
                     createParents();
@@ -447,27 +434,19 @@ namespace Disneyland
             int upperbound = parent1.Length - 1;
             child = new string[selected];
 
+      
+            int crossoverlength = rnd.Next(2, upperbound - 2);  //  possibile error --> crossoverlength=> upperbound-2 (cross-overlength) 
+            //Console.WriteLine(crossoverlength);
+            int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
-            int crossoverlength;
-            try
-            {
-                crossoverlength = rnd.Next(2, upperbound - 2);  //  possibile error --> crossoverlength=> upperbound-2 (cross-overlength) 
-                //Console.WriteLine(crossoverlength);
-                int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
+            Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
 
-                Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
-
-                //execution of the crossover   
-                crossover(crossoverlength);
-            }
-            catch
-            {
-                Console.WriteLine("Error");
-            }
+            //execution of the crossover   
+            crossover(crossoverlength);
              
             //execution of the mutation
             int MutationChance = rnd.Next(1,100);
-            if (MutationChance<=23-selected)
+            if (MutationChance<=53-selected)
             {
             mutation(selected);
             }
@@ -521,7 +500,7 @@ namespace Disneyland
 
         public void NextGeneration(int k, int selected, string CurrentPopulation)
         {
-            CreatePopulation(k, selected, CurrentPopulation, AttNumber); //Create a new population
+            CreatePopulation(k, selected, CurrentPopulation, AttID); //Create a new population
               //get fitness of new population , set the best fitness of new population
             FitnessFunction();
             Selection();        // select high percentile of new population
