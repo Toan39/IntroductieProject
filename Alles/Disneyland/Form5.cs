@@ -60,9 +60,6 @@ namespace Disneyland
 
             Termination(popsize(selected), selected);
             Console.WriteLine("end");
-       
-
-            // System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/plattegronden/");
         }
 
         private void button1_Click(object sender, EventArgs e)
