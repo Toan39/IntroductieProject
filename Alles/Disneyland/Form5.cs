@@ -37,7 +37,7 @@ namespace Disneyland
         bool betterChromo;
 
         int CurrentBest, index;
-        int s, stop = 0;
+        int s, stop = 0; 
         int UpperBoundTime = 480;
         float bestFitness, sumTime, higherbound = 0;
 
@@ -47,8 +47,8 @@ namespace Disneyland
             fitnesstime = new float[popsize(selected)];
             fitness = new float[popsize(selected)];
             population = new string[popsize(selected)][];
-            parent2 = new string[selected];
-            parent1 = new string[selected];
+            parent2 = new string[selected+2]; //because whole chromosome has ports
+            parent1 = new string[selected+2];
 
             InitializeComponent();
             MakeWalktimelist();
