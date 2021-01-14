@@ -56,7 +56,7 @@ namespace Disneyland
             CreatePopulation(popsize(selected), selected, "Initial", AttID);
 
             FitnessFunction();
-            Selection();
+            Selection(selected);
 
             Termination(popsize(selected), selected);
             Console.WriteLine("end");
@@ -88,21 +88,20 @@ namespace Disneyland
             this.Hide();
         }
 
-
-
-        public int popsize(int number)
+        public int popsize(int selected)
         {
-            int popsize = number;
-            if (number <= 5)
+            int popsize = selected;
+            if (selected <= 5)
             {
-                for (int i = number - 1; i >= 1; i--)
+                for (int i = selected - 1; i >= 1; i--)
                 {
-                    popsize = popsize * i/*+6*/;
+                    popsize = popsize * i;
                 }
             }
             else
             {
-                popsize = number * 100;
+                int factor = 10 * selected/2;
+                popsize = selected * factor; 
             }
             return popsize;
         }
@@ -382,9 +381,9 @@ namespace Disneyland
 
 
         //Selects top 5 percentile of the population 
-        public void Selection()
+        public void Selection(int selected)
         {
-            float lowerbound = higherbound - (higherbound / 20);  //dependds on how many parents is needed 
+            float lowerbound = higherbound - (higherbound / selected);  //dependds on how many parents is needed 
             fitness.OrderBy(x => x); //sort it from low to high
             fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
@@ -409,7 +408,7 @@ namespace Disneyland
 
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 30;
+            int j = 30;   //low processing time
             if (selected > 4)
             {
                 while (GenerationCount < j)
@@ -435,8 +434,7 @@ namespace Disneyland
             child = new string[selected];
 
       
-            int crossoverlength = rnd.Next(2, upperbound - 2);  //  possibile error --> crossoverlength=> upperbound-2 (cross-overlength) 
-            //Console.WriteLine(crossoverlength);
+            int crossoverlength = rnd.Next(2, upperbound - 2);  
             int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
             Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
@@ -446,7 +444,7 @@ namespace Disneyland
              
             //execution of the mutation
             int MutationChance = rnd.Next(1,100);
-            if (MutationChance<=53-selected)
+            if (MutationChance<=selected*4)
             {
             mutation(selected);
             }
@@ -503,7 +501,7 @@ namespace Disneyland
             CreatePopulation(k, selected, CurrentPopulation, AttID); //Create a new population
               //get fitness of new population , set the best fitness of new population
             FitnessFunction();
-            Selection();        // select high percentile of new population
+            Selection(selected);        // select high percentile of new population
             // population array witth the childs, print out
         }
 
