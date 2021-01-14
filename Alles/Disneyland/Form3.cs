@@ -21,7 +21,9 @@ namespace Disneyland
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
-         }
+            comboBox1.SelectedIndex = 1; //REMOVE DIT LATER
+            comboBox2.SelectedIndex = 1; //REMOVE DIT LATER
+        }
 
         ////void methods////
         
@@ -67,20 +69,21 @@ namespace Disneyland
            
         }
 
-        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBoxItem.Items.Clear();
-            foreach (string s in checkedListBox.CheckedItems)
-        {
-            listBoxItem.Items.Add(s);
-            listBoxItem.Invalidate();
-        }
-            
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
+        }
+
+        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            this.BeginInvoke(new Action(() =>          //regel van stackoverflow
+            {
+                listBoxItem.Items.Clear();
+                for (int t = 0; t < checkedListBox.CheckedItems.Count; t++)
+                {
+                    listBoxItem.Items.Add(checkedListBox.CheckedItems[t]);
+                }
+            }));
         }
     }
 }
