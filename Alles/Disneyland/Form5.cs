@@ -355,8 +355,8 @@ namespace Disneyland
 
             higherbound = fitness.Max();
             //prints every fitnessScore
-            //Console.WriteLine(higherbound);
-            //Console.WriteLine("\n");
+            Console.WriteLine(higherbound);
+            Console.WriteLine("\n");
 
             while (higherbound > bestFitness)
             {
@@ -452,7 +452,7 @@ namespace Disneyland
             try
             {
                 crossoverlength = rnd.Next(2, upperbound - 2);  //  possibile error --> crossoverlength=> upperbound-2 (cross-overlength) 
-                Console.WriteLine(crossoverlength);
+                //Console.WriteLine(crossoverlength);
                 int crossoverpoint = rnd.Next(lowerbound, upperbound - crossoverlength);
 
                 Array.Copy(parent1, crossoverpoint, child, 0, crossoverlength);
@@ -464,14 +464,7 @@ namespace Disneyland
             {
                 Console.WriteLine("Error");
             }
-
-            
              
-
-
-            
- 
-
             //execution of the mutation
             int MutationChance = rnd.Next(1,100);
             if (MutationChance<=23-selected)
