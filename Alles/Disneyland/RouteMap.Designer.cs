@@ -129,7 +129,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RouteMap";
             this.Text = "Disneyland";
-            this.Load += new System.EventHandler(this.RouteMap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
