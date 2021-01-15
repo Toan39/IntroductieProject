@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Disneyland
 {
+    /// <summary>
+    ///  All these classes represent the elements of their corresponding lists that are used for the Routemap-function
+    /// </summary>
     public static class Lijst
     {
         public static List<attractionLoc> attLoc = new List<attractionLoc>();

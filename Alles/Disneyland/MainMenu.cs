@@ -12,6 +12,9 @@ namespace Disneyland
 {
     public partial class MainMenu : Form
     {
+        /// <summary>
+        /// Creation of the main menu where the user can select the datepicker-function(finds best date) or RouteMap-function (seeks best route)
+        /// </summary>
         public MainMenu()
         {
             InitializeComponent();

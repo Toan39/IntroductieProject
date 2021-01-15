@@ -13,6 +13,7 @@ using System.Threading;
 
 namespace Disneyland
 {
+    //Threading so that shuffler works faster and more stable
     public static class ThreadSafeRandom
     {
         [ThreadStatic] private static Random Local;
@@ -22,6 +23,8 @@ namespace Disneyland
             get { return Local ?? (Local = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId))); }
         }
     }
+
+    //Fisher-Yates shuffle that can be used on lists/arrays
     public static class shuffler
     {
         public static Random rng = new Random();

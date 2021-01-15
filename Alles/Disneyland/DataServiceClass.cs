@@ -13,6 +13,7 @@ using System.Collections;
 
 namespace Disneyland
 {
+    //Retrieves the data from the sql-database
     public static class DataService
     {
         public static List<quetime> QTimes()

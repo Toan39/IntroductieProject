@@ -214,7 +214,7 @@
             this.AdultLabel.Name = "AdultLabel";
             this.AdultLabel.Size = new System.Drawing.Size(320, 33);
             this.AdultLabel.TabIndex = 26;
-            this.AdultLabel.Text = "How many people age 10+?";
+            this.AdultLabel.Text = "How many people age 12+?";
             // 
             // HomeButton
             // 

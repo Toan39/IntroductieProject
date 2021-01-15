@@ -36,7 +36,7 @@
             this.CrowdLabel = new System.Windows.Forms.Label();
             this.CostLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Crowdlevelpanel = new System.Windows.Forms.Panel();
             this.HomeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -135,15 +135,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
+            // Crowdlevelpanel
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Location = new System.Drawing.Point(167, 219);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 39);
-            this.panel1.TabIndex = 7;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.Crowdlevelpanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Crowdlevelpanel.Location = new System.Drawing.Point(167, 219);
+            this.Crowdlevelpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.Crowdlevelpanel.Name = "Crowdlevelpanel";
+            this.Crowdlevelpanel.Size = new System.Drawing.Size(260, 39);
+            this.Crowdlevelpanel.TabIndex = 7;
+            this.Crowdlevelpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // HomeButton
             // 
@@ -163,7 +163,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.HomeButton);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Crowdlevelpanel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.CrowdLabel);
@@ -190,7 +190,7 @@
         private System.Windows.Forms.Label CrowdLabel;
         private System.Windows.Forms.Label CostLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Crowdlevelpanel;
         private System.Windows.Forms.Button HomeButton;
     }
 }

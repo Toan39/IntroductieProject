@@ -16,7 +16,7 @@ namespace Disneyland
 {
     public partial class DatePickerForm : Form
     {
-		
+		//declarations
 		int selectedweek; 
 		List<datepickerDate> datalist = new List<datepickerDate>(); 
 		List<datepickerDate> selectedweeklist = new List<datepickerDate>(); 
@@ -25,17 +25,21 @@ namespace Disneyland
 
 	public DatePickerForm(int week, int price, int crowd)
 		{
+			// execute the datapicker function (output:best date + necessities)
 			InitializeComponent();
 			ReadSqlData();
 			this.selectedweek = week;
 			crowdlevel= crowd;
 			CostLabel.Text = "Total estimated cost: €" + price.ToString();		
 		}
+
+		//makes sql connection
 		public void MakeConnection()
 		{
 			string path = "Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True"; 
 			con = new SqlConnection(path);
 		}
+
 		public void ReadSqlData()
 		{
 			MakeConnection();
@@ -48,6 +52,7 @@ namespace Disneyland
 				con.Open();
 				SqlDataReader reader = command.ExecuteReader();
 
+				//adds the retrieved/read data to lists
 				int t = 0;
 				while (reader.Read())
 				{
@@ -62,6 +67,8 @@ namespace Disneyland
 				con.Close();
 			}
 		}
+
+		//Makes a new list that contains the data selected from sql-database.
 		public void MakeSelectedWeekList()
 		{
 			datalist = datalist.OrderBy(x => x.rain).ToList();  //Orders the amount of rain from low to high.
@@ -80,6 +87,8 @@ namespace Disneyland
 				i++;
 			}
 		}
+
+		//Converts the best Date to a string. So that it can be printed on the form.
 		public string ReturnBestDate()
 		{
 			MakeSelectedWeekList();
@@ -87,34 +96,33 @@ namespace Disneyland
 			return ((selectedweeklist[0].date).ToString()); //Best day.
 		}
 
+		//Opens a link to google calendar where the user can add the best date.
 		public void CalendarButton_Click(object sender, EventArgs e)
 		{
-
 			System.Diagnostics.Process.Start("https://calendar.google.com/calendar");
-			MainMenu home = new MainMenu();
-				home.Show();
-				this.Hide();
-			}
-		
-		//the elements of the list.
-		internal class datepickerDate
-		{
-			public int week;
-			public string date;
-			public string rain;
 		}
-
+		
+		//Visual of the crowdlevel
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 			e.Graphics.DrawRectangle(Pens.White, 0, 0, 250, 25);
 			e.Graphics.FillRectangle(Brushes.Green, 1, 1, crowdlevel, 23);
         }
 
+		//Returns the user to the main form
         private void HomeButton_Click(object sender, EventArgs e)
         {
 			MainMenu main = new MainMenu();
 			main.Show();
 			this.Hide();
 		}
-    }
+
+		//The elements of the list.
+		internal class datepickerDate
+		{
+			public int week;
+			public string date;
+			public string rain;
+		}
+	}
 }

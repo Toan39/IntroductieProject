@@ -13,10 +13,6 @@ namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
-
-        //varabiales declarations//
-        
-        
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -27,15 +23,14 @@ namespace Disneyland
             //FreeTimeComboBox.Text = "0";
         }
 
-        ////void methods////
-
-
-
-
+        //When user clicks on Go-button the RouteMap.cs is executed
         public void GoButton_Click(object sender, EventArgs e)
         {
+            /// <summary>
+            /// error messages for when an immposible inputs are inserted 
+            /// </summary>
             if (PriorityRidesListBox.Items.Count > 18)
-            { MessageBox.Show("Select max 18 attractions "); }
+            { MessageBox.Show("Select max 18 attractions "); } 
             else if (PriorityRidesListBox.Items.Count == 0)
             {
                 { MessageBox.Show("No attractions are selected"); }
@@ -69,14 +64,17 @@ namespace Disneyland
             //{MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
         }
 
+        //links the user to the attractions information site of Disneyland
         private void InformationButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
+            System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/"); 
         }
 
+        //User can select the attractions that he wants
+        //Adds the selected item in the listbox
         private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            this.BeginInvoke(new Action(() =>          //regel van stackoverflow
+            this.BeginInvoke(new Action(() =>          
             {
                 PriorityRidesListBox.Items.Clear();
                 for (int t = 0; t < PriorityRidesCheckedListBox.CheckedItems.Count; t++)
@@ -86,6 +84,7 @@ namespace Disneyland
             }));
         }
 
+        //returns the user to the home form 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             MainMenu main = new MainMenu();
