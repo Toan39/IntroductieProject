@@ -17,25 +17,23 @@ namespace Disneyland
     public partial class DatePickerForm : Form
     {
 		
-		int selectedweek; //waarde door gebruiker gekozen
-		List<datum> datalist = new List<datum>(); //de sql data geconverteerd naar een c# lijst
-		List<datum> selectedweeklist = new List<datum>(); //de lijst met data van alleen de gekozen week
+		int selectedweek; 
+		List<datepickerDate> datalist = new List<datepickerDate>(); 
+		List<datepickerDate> selectedweeklist = new List<datepickerDate>(); 
 		SqlConnection con;
-		int crowd;
+		int crowdlevel;
 
-	public DatePickerForm(int week, int prijs, int drukte)
+	public DatePickerForm(int week, int price, int crowd)
 		{
 			InitializeComponent();
 			ReadSqlData();
 			this.selectedweek = week;
-			crowd = drukte;
-			CostLabel.Text = prijs.ToString()+" Euro";
-			
-			
+			crowdlevel= crowd;
+			CostLabel.Text = "Total estimated cost: €" + price.ToString();		
 		}
 		public void MakeConnection()
 		{
-			string path = "Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True"; //vul hier je eigen database path in
+			string path = "Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True"; 
 			con = new SqlConnection(path);
 		}
 		public void ReadSqlData()
@@ -53,12 +51,12 @@ namespace Disneyland
 				int t = 0;
 				while (reader.Read())
 				{
-					datalist.Add(new datum());
+					datalist.Add(new datepickerDate());
 					datalist[t].week = int.Parse(reader.GetValue(0).ToString());
 					DateTime timedate = DateTime.Parse(reader.GetValue(1).ToString()).Date;
 					string shortdate = timedate.ToShortDateString();
 					datalist[t].date = shortdate;
-					datalist[t].neerslag = reader.GetValue(2).ToString();
+					datalist[t].rain = reader.GetValue(2).ToString();
 					t++;
 				}
 				con.Close();
@@ -66,16 +64,16 @@ namespace Disneyland
 		}
 		public void MakeSelectedWeekList()
 		{
-			datalist = datalist.OrderBy(x => x.neerslag).ToList();  //Sorteren op neerslag.
-																	//gaat alle data af, als de week gelijk is aan de week die de gebruiker gekozen heeft, wordt die kolom met data in de selectedweeklist gekopieerd.
-																	//deze lijst is ook gesorteerd op neerslag. 
+			datalist = datalist.OrderBy(x => x.rain).ToList();  //Orders the amount of rain from low to high.
+																	
+																	
 			int i = 0;
 			int j = 0;
-			foreach (datum date in datalist)
+			foreach (datepickerDate date in datalist)
 			{
 				if (selectedweek == datalist[i].week)
 				{
-					selectedweeklist.Add(new datum());
+					selectedweeklist.Add(new datepickerDate());
 					selectedweeklist[j] = datalist[i];
 					j++;
 				}
@@ -85,8 +83,8 @@ namespace Disneyland
 		public string ReturnBestDate()
 		{
 			MakeSelectedWeekList();
-			mmRainLabel.Text = selectedweeklist[0].neerslag + " mm rain";
-			return ((selectedweeklist[0].date).ToString()); //Beste dag.
+			mmRainLabel.Text = selectedweeklist[0].rain + " mm rain";
+			return ((selectedweeklist[0].date).ToString()); //Best day.
 		}
 
 		public void CalendarButton_Click(object sender, EventArgs e)
@@ -98,18 +96,19 @@ namespace Disneyland
 				this.Hide();
 			}
 		
-		//De elementen van de lijsten.
-		internal class datum
+		//the elements of the list.
+		internal class datepickerDate
 		{
 			public int week;
 			public string date;
-			public string neerslag;
+			public string rain;
 		}
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 			e.Graphics.DrawRectangle(Pens.White, 0, 0, 250, 25);
-			e.Graphics.FillRectangle(Brushes.Green, 1, 1, crowd, 23);
+			e.Graphics.FillRectangle(Brushes.Green, 1, 1, crowdlevel, 23);
         }
+
     }
 }

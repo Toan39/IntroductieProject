@@ -33,76 +33,48 @@ namespace Disneyland
         }
         private void FindDateButton_Click(object sender, EventArgs e)
         {
-            int kind = 0;
+            int child = int.Parse(ChildrenComboBox.Text);
             int week = int.Parse(WeekTextbox.Text);
-            int ouder = int.Parse(AdultComboBox.Text);
-            int dag = int.Parse(DaysComboBox.Text) - 1;
-            int prijs = 0;
+            int adult = int.Parse(AdultComboBox.Text);
+            int day = int.Parse(DaysComboBox.Text);
+            int price = 89 * adult + 82 * child;
             int crowd = 0;
-
-            try
-            {
-                kind = int.Parse(ChildrenComboBox.Text);
+            
+            switch (week)
+                 {
+                    case int n when(n > 0 && n <= 2):
+                         crowd = 180; break;
+                    case int n when(n > 2 && n <= 12):
+                        crowd = 100;  break;
+                    case int n when(n > 12 && n <= 22):
+                        crowd = 150;  break;
+                    case  int n when(n > 22 && n <= 32):
+                        crowd = 220;  break;
+                    case  int n when(n > 32 && n <= 40):
+                        crowd = 160;  break;
+                    case int n when(n > 40 && n <= 48):
+                        crowd = 120;  break;
+                    case  int n when(n > 48 && n<=52):
+                        crowd = 220;  break;
+                    case  int n when(n > 52):
+                        MessageBox.Show("Insert a weeknumber under 52"); break;
             }
-            catch (Exception) { };
-            if (ChildrenComboBox.Text==null)
+
+            if (day > 1)
             {
-                kind = 0;
+                int groupsize = adult + child;
+                int  hotel= groupsize*73;  //staycity aparthotel - disneyland parijs
+                price = price + hotel;
             }
 
-            if (week > 52)
-            {
-                MessageBox.Show("Een jaar heeft niet meer dan 52 weken. Voer een weeknummer onder de 52 in.");
-            }
-            else
-            {
-                
-                if (week < 2)
-                {
-                    prijs = 89 * ouder + 82 * kind;
-                    crowd = 180;
-                }
-                else if (week > 2 && week < 12)
-                {
-                    prijs = 54 * ouder + 50 * kind;
-                    crowd = 100;
-
-                }
-                else if (week > 12 && week < 22)
-                {
-                    prijs = 79 * ouder + 73 * kind;
-                    crowd = 150;
-                }
-                else if (week > 22 && week < 32)
-                {
-                    prijs = 89 * ouder + 82 * kind;
-                    crowd = 220;
-                }
-                else if (week > 32 && week < 40)
-                {
-                    prijs = 79 * ouder + 73 * kind;
-                    crowd = 160;
-                }
-                else if (week > 40 && week < 48)
-                {
-                    prijs = 54 * ouder + 50 * kind;
-                    crowd = 120;
-                }
-                else if (week > 48)
-                {
-                    prijs = 89 * ouder + 82 * kind;
-                    crowd = 220;
-                }
-                
-                int personen = ouder + kind;
-                int kamer = 200 * dag;
-                int hotel = kamer * (personen/2 + personen%2*2);
-                prijs = prijs + hotel;
-                DatePickerForm date = new DatePickerForm(week, prijs, crowd);
+                if (week <= 52)
+                { 
+                DatePickerForm date = new DatePickerForm(week, price, crowd);
                 date.ResultLabel.Text = date.ReturnBestDate();
                 date.Show();
                 this.Hide();
-            }
+                }
+             
         }
     }
 }
