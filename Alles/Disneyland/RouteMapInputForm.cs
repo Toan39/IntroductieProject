@@ -91,6 +91,13 @@ namespace Disneyland
                 }
             }));
         }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            MainMenu main = new MainMenu();
+            main.Show();
+            this.Hide();
+        }
     }
 }
 

@@ -36,6 +36,7 @@
             this.PriorityRidesListBox = new System.Windows.Forms.ListBox();
             this.SelectedRidesLabel = new System.Windows.Forms.Label();
             this.InformationButton = new System.Windows.Forms.Button();
+            this.HomeButton = new System.Windows.Forms.Button();
             RidesLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -154,12 +155,23 @@
             this.InformationButton.UseVisualStyleBackColor = false;
             this.InformationButton.Click += new System.EventHandler(this.InformationButton_Click);
             // 
-            // Form3
+            // HomeButton
+            // 
+            this.HomeButton.Location = new System.Drawing.Point(10, 5);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(60, 24);
+            this.HomeButton.TabIndex = 15;
+            this.HomeButton.Text = "Home";
+            this.HomeButton.UseVisualStyleBackColor = true;
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
+            // 
+            // RouteMapInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.InformationButton);
             this.Controls.Add(this.SelectedRidesLabel);
             this.Controls.Add(RidesLabel);
@@ -169,7 +181,7 @@
             this.Controls.Add(this.GoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form3";
+            this.Name = "RouteMapInputForm";
             this.Text = "Disneyland";
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.ListBox PriorityRidesListBox;
         private System.Windows.Forms.Label SelectedRidesLabel;
         private System.Windows.Forms.Button InformationButton;
+        private System.Windows.Forms.Button HomeButton;
     }
 }

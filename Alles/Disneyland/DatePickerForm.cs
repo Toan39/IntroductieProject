@@ -110,5 +110,11 @@ namespace Disneyland
 			e.Graphics.FillRectangle(Brushes.Green, 1, 1, crowdlevel, 23);
         }
 
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+			MainMenu main = new MainMenu();
+			main.Show();
+			this.Hide();
+		}
     }
 }

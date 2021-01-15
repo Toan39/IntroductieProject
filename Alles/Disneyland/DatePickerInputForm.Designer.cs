@@ -39,6 +39,7 @@
             this.WeekTextbox = new System.Windows.Forms.TextBox();
             this.AdultComboBox = new System.Windows.Forms.ComboBox();
             this.AdultLabel = new System.Windows.Forms.Label();
+            this.HomeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FindDateButton
@@ -205,12 +206,23 @@
             this.AdultLabel.TabIndex = 26;
             this.AdultLabel.Text = "How many people age 10+?";
             // 
+            // HomeButton
+            // 
+            this.HomeButton.Location = new System.Drawing.Point(10, 5);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(66, 27);
+            this.HomeButton.TabIndex = 27;
+            this.HomeButton.Text = "Home";
+            this.HomeButton.UseVisualStyleBackColor = true;
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
+            // 
             // DatePickerInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.AdultLabel);
             this.Controls.Add(this.AdultComboBox);
             this.Controls.Add(this.WeekTextbox);
@@ -241,6 +253,7 @@
         private System.Windows.Forms.TextBox WeekTextbox;
         private System.Windows.Forms.ComboBox AdultComboBox;
         private System.Windows.Forms.Label AdultLabel;
+        private System.Windows.Forms.Button HomeButton;
     }
 }
 

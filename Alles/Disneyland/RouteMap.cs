@@ -98,8 +98,8 @@ namespace Disneyland
 
         private void SwitchButton_Click(object sender, EventArgs e)
         {
-            RouteMapInputForm rides = new RouteMapInputForm();
-            rides.Show();
+            MainMenu main = new MainMenu();
+            main.Show();
             this.Hide();
         }
 
