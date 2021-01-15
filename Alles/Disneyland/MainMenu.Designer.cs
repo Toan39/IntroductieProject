@@ -39,10 +39,11 @@
             // 
             // DatePickerButton
             // 
+            this.DatePickerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DatePickerButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DatePickerButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatePickerButton.Location = new System.Drawing.Point(329, 187);
-            this.DatePickerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DatePickerButton.Margin = new System.Windows.Forms.Padding(2);
             this.DatePickerButton.Name = "DatePickerButton";
             this.DatePickerButton.Size = new System.Drawing.Size(204, 82);
             this.DatePickerButton.TabIndex = 0;
@@ -52,13 +53,11 @@
             // 
             // RouteButton
             // 
-            this.RouteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RouteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RouteButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.RouteButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RouteButton.Location = new System.Drawing.Point(329, 274);
-            this.RouteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RouteButton.Margin = new System.Windows.Forms.Padding(2);
             this.RouteButton.Name = "RouteButton";
             this.RouteButton.Size = new System.Drawing.Size(204, 82);
             this.RouteButton.TabIndex = 1;
@@ -68,6 +67,7 @@
             // 
             // MainTextLabel1
             // 
+            this.MainTextLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainTextLabel1.AutoSize = true;
             this.MainTextLabel1.Font = new System.Drawing.Font("Script MT Bold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -80,6 +80,7 @@
             // 
             // MainTextLabel2
             // 
+            this.MainTextLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainTextLabel2.AutoSize = true;
             this.MainTextLabel2.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel2.ForeColor = System.Drawing.Color.Snow;
@@ -92,9 +93,10 @@
             // 
             // DisneyLandPictureBox
             // 
+            this.DisneyLandPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DisneyLandPictureBox.Image = global::Disneyland.Properties.Resources.Daco_4620584;
             this.DisneyLandPictureBox.Location = new System.Drawing.Point(51, 128);
-            this.DisneyLandPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DisneyLandPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.DisneyLandPictureBox.Name = "DisneyLandPictureBox";
             this.DisneyLandPictureBox.Size = new System.Drawing.Size(204, 239);
             this.DisneyLandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -113,7 +115,7 @@
             this.Controls.Add(this.RouteButton);
             this.Controls.Add(this.DatePickerButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
             this.Text = "Disneyland";
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();

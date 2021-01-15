@@ -60,18 +60,22 @@
             // 
             // MainTextLabel
             // 
+            this.MainTextLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel.ForeColor = System.Drawing.Color.White;
             this.MainTextLabel.Location = new System.Drawing.Point(213, 2);
             this.MainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel.Name = "MainTextLabel";
-            this.MainTextLabel.Size = new System.Drawing.Size(169, 33);
+            this.MainTextLabel.Size = new System.Drawing.Size(180, 33);
             this.MainTextLabel.TabIndex = 3;
-            this.MainTextLabel.Text = "Estimated time";
+            this.MainTextLabel.Text = "Estimated route";
             // 
             // gmap
             // 
+            this.gmap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gmap.Bearing = 0F;
             this.gmap.CanDragMap = true;
             this.gmap.EmptyTileColor = System.Drawing.Color.Navy;
@@ -100,13 +104,15 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(536, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 14);
+            this.label2.Size = new System.Drawing.Size(74, 14);
             this.label2.TabIndex = 5;
+            this.label2.Text = "List of rides";
             // 
             // RouteMap
             // 
@@ -123,6 +129,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RouteMap";
             this.Text = "Disneyland";
+            this.Load += new System.EventHandler(this.RouteMap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

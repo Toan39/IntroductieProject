@@ -339,6 +339,10 @@ namespace Disneyland
             s++;
         }
 
+        private void RouteMap_Load(object sender, EventArgs e)
+        {
+
+        }
 
         public void FitnessFunction()
         {
@@ -541,6 +545,7 @@ namespace Disneyland
         }
         public void PrintLabel()
         {
+            label2.Text=""; 
             for (int t = 0; t < BestChromosome.Count; t++)
             {
                 int x = t + 1;

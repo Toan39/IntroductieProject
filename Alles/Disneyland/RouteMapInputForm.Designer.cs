@@ -43,18 +43,20 @@
             // 
             // RidesLabel
             // 
+            RidesLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             RidesLabel.AutoSize = true;
             RidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             RidesLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            RidesLabel.Location = new System.Drawing.Point(52, 31);
+            RidesLabel.Location = new System.Drawing.Point(24, 32);
             RidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             RidesLabel.Name = "RidesLabel";
-            RidesLabel.Size = new System.Drawing.Size(123, 19);
+            RidesLabel.Size = new System.Drawing.Size(190, 19);
             RidesLabel.TabIndex = 5;
-            RidesLabel.Text = "Choose your rides:";
+            RidesLabel.Text = "Choose your rides (max 18):";
             // 
             // GoButton
             // 
+            this.GoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.GoButton.BackColor = System.Drawing.Color.White;
             this.GoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.GoButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,6 +71,7 @@
             // 
             // DisneyLandPictureBox
             // 
+            this.DisneyLandPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DisneyLandPictureBox.Image = global::Disneyland.Properties.Resources.Daco_4620584;
             this.DisneyLandPictureBox.Location = new System.Drawing.Point(235, 50);
             this.DisneyLandPictureBox.Margin = new System.Windows.Forms.Padding(2);
@@ -80,6 +83,7 @@
             // 
             // PriorityRidesCheckedListBox
             // 
+            this.PriorityRidesCheckedListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PriorityRidesCheckedListBox.BackColor = System.Drawing.Color.White;
             this.PriorityRidesCheckedListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PriorityRidesCheckedListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,6 +124,7 @@
             // 
             // PriorityRidesListBox
             // 
+            this.PriorityRidesListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PriorityRidesListBox.BackColor = System.Drawing.Color.White;
             this.PriorityRidesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PriorityRidesListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,6 +137,7 @@
             // 
             // SelectedRidesLabel
             // 
+            this.SelectedRidesLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SelectedRidesLabel.AutoSize = true;
             this.SelectedRidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedRidesLabel.ForeColor = System.Drawing.Color.White;
@@ -144,6 +150,7 @@
             // 
             // InformationButton
             // 
+            this.InformationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.InformationButton.BackColor = System.Drawing.Color.White;
             this.InformationButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InformationButton.Location = new System.Drawing.Point(56, 280);
@@ -157,6 +164,7 @@
             // 
             // HomeButton
             // 
+            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(60, 24);

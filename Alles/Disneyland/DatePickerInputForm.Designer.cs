@@ -44,6 +44,7 @@
             // 
             // FindDateButton
             // 
+            this.FindDateButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FindDateButton.BackColor = System.Drawing.Color.White;
             this.FindDateButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FindDateButton.Location = new System.Drawing.Point(118, 318);
@@ -57,6 +58,7 @@
             // 
             // WeekLabel
             // 
+            this.WeekLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.WeekLabel.AutoSize = true;
             this.WeekLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeekLabel.ForeColor = System.Drawing.Color.White;
@@ -69,6 +71,7 @@
             // 
             // DaysLabel
             // 
+            this.DaysLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DaysLabel.AutoSize = true;
             this.DaysLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DaysLabel.ForeColor = System.Drawing.Color.White;
@@ -81,6 +84,7 @@
             // 
             // MainTextLabel
             // 
+            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel.ForeColor = System.Drawing.Color.White;
@@ -93,6 +97,7 @@
             // 
             // DaysComboBox
             // 
+            this.DaysComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DaysComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DaysComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DaysComboBox.FormattingEnabled = true;
@@ -114,6 +119,7 @@
             // 
             // ChildrenComboBox
             // 
+            this.ChildrenComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ChildrenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ChildrenComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChildrenComboBox.FormattingEnabled = true;
@@ -147,6 +153,7 @@
             // 
             // ChildrenLabel
             // 
+            this.ChildrenLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ChildrenLabel.AutoSize = true;
             this.ChildrenLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChildrenLabel.ForeColor = System.Drawing.Color.White;
@@ -159,6 +166,7 @@
             // 
             // WeekTextbox
             // 
+            this.WeekTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.WeekTextbox.Location = new System.Drawing.Point(273, 76);
             this.WeekTextbox.Name = "WeekTextbox";
             this.WeekTextbox.Size = new System.Drawing.Size(54, 20);
@@ -167,6 +175,7 @@
             // 
             // AdultComboBox
             // 
+            this.AdultComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AdultComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AdultComboBox.FormattingEnabled = true;
             this.AdultComboBox.Items.AddRange(new object[] {
@@ -197,6 +206,7 @@
             // 
             // AdultLabel
             // 
+            this.AdultLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AdultLabel.AutoSize = true;
             this.AdultLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold);
             this.AdultLabel.ForeColor = System.Drawing.Color.White;
@@ -208,6 +218,7 @@
             // 
             // HomeButton
             // 
+            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(66, 27);

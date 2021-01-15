@@ -35,10 +35,10 @@ namespace Disneyland
         public void GoButton_Click(object sender, EventArgs e)
         {
             if (PriorityRidesListBox.Items.Count > 18)
-            { MessageBox.Show("Mag niet meer dan 18 attracties selecteren"); }
-            else if (PriorityRidesCheckedListBox.SelectedItem == null)
+            { MessageBox.Show("Select max 18 attractions "); }
+            else if (PriorityRidesListBox.Items.Count == 0)
             {
-                { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
+                { MessageBox.Show("No attractions are selected"); }
             }
             else
             { 
@@ -67,12 +67,6 @@ namespace Disneyland
 
             //if (x + q > 12)
             //{MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
-
-
-
-
-
-
         }
 
         private void InformationButton_Click(object sender, EventArgs e)

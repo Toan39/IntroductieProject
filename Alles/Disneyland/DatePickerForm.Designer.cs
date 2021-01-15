@@ -43,6 +43,7 @@
             // 
             // CalendarButton
             // 
+            this.CalendarButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CalendarButton.BackColor = System.Drawing.Color.White;
             this.CalendarButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CalendarButton.Location = new System.Drawing.Point(106, 287);
@@ -56,6 +57,7 @@
             // 
             // MainTextLabel
             // 
+            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,6 +71,7 @@
             // 
             // ResultLabel
             // 
+            this.ResultLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ResultLabel.AutoSize = true;
             this.ResultLabel.BackColor = System.Drawing.Color.Transparent;
             this.ResultLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,6 +86,7 @@
             // 
             // mmRainLabel
             // 
+            this.mmRainLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mmRainLabel.AutoSize = true;
             this.mmRainLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mmRainLabel.ForeColor = System.Drawing.Color.White;
@@ -95,6 +99,7 @@
             // 
             // CrowdLabel
             // 
+            this.CrowdLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CrowdLabel.AutoSize = true;
             this.CrowdLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CrowdLabel.ForeColor = System.Drawing.Color.White;
@@ -107,6 +112,7 @@
             // 
             // CostLabel
             // 
+            this.CostLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CostLabel.AutoSize = true;
             this.CostLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostLabel.ForeColor = System.Drawing.Color.White;
@@ -119,6 +125,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Disneyland.Properties.Resources._07_Weather;
             this.pictureBox1.Location = new System.Drawing.Point(168, 97);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -130,6 +137,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Location = new System.Drawing.Point(167, 219);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
@@ -139,6 +147,7 @@
             // 
             // HomeButton
             // 
+            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(63, 30);
