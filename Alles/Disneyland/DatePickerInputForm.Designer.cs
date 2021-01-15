@@ -177,6 +177,7 @@
             // 
             this.AdultComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AdultComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AdultComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AdultComboBox.FormattingEnabled = true;
             this.AdultComboBox.Items.AddRange(new object[] {
             "1",
