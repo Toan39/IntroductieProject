@@ -21,33 +21,42 @@ namespace Disneyland
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
-            HoursSpendComboBox.Text = "1";
-            FreeTimeComboBox.Text = "0";
-         }
+
+            ////////add combobox later
+            //HoursSpendComboBox.Text = "1";
+            //FreeTimeComboBox.Text = "0";
+        }
 
         ////void methods////
-            
 
-       
+
+
 
         public void GoButton_Click(object sender, EventArgs e)
         {
-            RouteMap map = new RouteMap(HoursSpendComboBox.Text);
-            
+            var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
+            RouteMap map = new RouteMap(selecteditems);
+
+
             //map.attractionlist = DataService.att;
-            String s = HoursSpendComboBox.Text;
-            string a = FreeTimeComboBox.Text;
+
+            ////add combobox later
+            //String s = HoursSpendComboBox.Text;
+            //string a = FreeTimeComboBox.Text;
+
             int x = 0;
             int q = 0;
 
-            try
-            {x = int.Parse(s);}
-            catch(Exception)
-            {}
-            try
-            {q = int.Parse(a);}
-            catch(Exception)
-            {}
+
+            ////add combobox later
+            //try
+            //{x = int.Parse(s);}
+            //catch(Exception)
+            //{}
+            //try
+            //{q = int.Parse(a);}
+            //catch(Exception)
+            //{}
 
             if (x + q > 12)
             {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
@@ -59,13 +68,6 @@ namespace Disneyland
             { map.Show();
               this.Hide();
             }
-            int t = 0;
-            //converts strings in selectedrideslistbox to prioritylist and includes change of type from string to disneyland.walktime
-            foreach (string str in PriorityRidesCheckedListBox.CheckedItems)
-            {
-                map.PriorityList.Add((Disneyland.walktime)Convert.ChangeType(str, typeof(Disneyland.walktime)));
-                t++;
-            }
 
         }
 
@@ -74,14 +76,16 @@ namespace Disneyland
             System.Diagnostics.Process.Start("https://www.disneylandparis.com/nl-nl/activiteiten/");
         }
 
-        private void PriorityRidesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            PriorityRidesListBox.Items.Clear();
-            foreach (string s in PriorityRidesCheckedListBox.CheckedItems)
+            this.BeginInvoke(new Action(() =>          //regel van stackoverflow
             {
-                PriorityRidesListBox.Items.Add(s);
-                PriorityRidesListBox.Invalidate();
-            }
+                PriorityRidesListBox.Items.Clear();
+                for (int t = 0; t < PriorityRidesCheckedListBox.CheckedItems.Count; t++)
+                {
+                    PriorityRidesListBox.Items.Add(PriorityRidesCheckedListBox.CheckedItems[t]);
+                }
+            }));
         }
     }
 }
