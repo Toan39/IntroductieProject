@@ -471,7 +471,6 @@ namespace Disneyland
 
                 check = true;
             }
-
         }
 
         public void mutation(int selected)
@@ -550,68 +549,6 @@ namespace Disneyland
                 label2.Text = label2.Text + result;
             }
         }
-    }
-
-    public static class ThreadSafeRandom
-    {
-        [ThreadStatic] private static Random Local;
-
-        public static Random ThisThreadsRandom
-        {
-            get { return Local ?? (Local = new Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId))); }
-        }
-    }
-
-    public static class shuffler
-    {
-        public static Random rng = new Random();
-        public static void Shuffle<T>(this IList<T> list)
-        {
-            int n = list.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = ThreadSafeRandom.ThisThreadsRandom.Next(n + 1);
-                T value = list[k];
-                list[k] = list[n];
-                list[n] = value;
-            }
-        }
-    }
-    
-
-    public static class Lijst
-    {
-        public static List<attractionLoc> attLoc = new List<attractionLoc>();
-    }
-
-    public class genal
-    {
-        public string Endpoint;
-        public float TotalTime;
-    }
-    public class quetime
-    {
-        public string Number { get; set; }
-        public string Name { get; set; }
-        public float AverageQueTime { get; set; }
-        public float RideTime { get; set; }
-
-        public double Lat { get; set; }
-        public double Lon { get; set; }
-    }
-
-    public class walktime
-    {
-        public string StartPoint { get; set; }
-        public string EndPoint { get; set; }
-        public float TotalTime { get; set; }
-    }
-
-    public class attractionLoc
-    {
-        public double Lat;
-        public double Lon;
     }
 }
 

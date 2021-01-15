@@ -38,7 +38,7 @@
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(18, 2);
+            this.PrintButton.Location = new System.Drawing.Point(71, 0);
             this.PrintButton.Margin = new System.Windows.Forms.Padding(2);
             this.PrintButton.Name = "PrintButton";
             this.PrintButton.Size = new System.Drawing.Size(56, 31);
@@ -49,12 +49,12 @@
             // 
             // SwitchButton
             // 
-            this.SwitchButton.Location = new System.Drawing.Point(79, 2);
+            this.SwitchButton.Location = new System.Drawing.Point(11, 0);
             this.SwitchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SwitchButton.Name = "SwitchButton";
             this.SwitchButton.Size = new System.Drawing.Size(56, 31);
             this.SwitchButton.TabIndex = 2;
-            this.SwitchButton.Text = "Switch";
+            this.SwitchButton.Text = "⟵";
             this.SwitchButton.UseVisualStyleBackColor = true;
             this.SwitchButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
@@ -101,11 +101,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(536, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 14);
             this.label2.TabIndex = 5;
             // 
             // RouteMap

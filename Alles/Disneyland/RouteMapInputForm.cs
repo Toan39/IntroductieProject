@@ -34,21 +34,28 @@ namespace Disneyland
 
         public void GoButton_Click(object sender, EventArgs e)
         {
-            var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
-            RouteMap map = new RouteMap(selecteditems);
-
-
-            //map.attractionlist = DataService.att;
+            if (PriorityRidesListBox.Items.Count > 18)
+            { MessageBox.Show("Mag niet meer dan 18 attracties selecteren"); }
+            else if (PriorityRidesCheckedListBox.SelectedItem == null)
+            {
+                { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
+            }
+            else
+            { 
+                var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
+                RouteMap map = new RouteMap(selecteditems);
+                map.Show();
+                this.Hide();
+            }
 
             ////add combobox later
+
             //String s = HoursSpendComboBox.Text;
             //string a = FreeTimeComboBox.Text;
 
-            int x = 0;
-            int q = 0;
+            //int x = 0;
+            //int q = 0;
 
-
-            ////add combobox later
             //try
             //{x = int.Parse(s);}
             //catch(Exception)
@@ -58,16 +65,13 @@ namespace Disneyland
             //catch(Exception)
             //{}
 
-            if (x + q > 12)
-            {MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
+            //if (x + q > 12)
+            //{MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
 
-            // if (SelectRidesListBox.SelectedItem == null)
-            //  { MessageBox.Show("Er zijn geen attracties doorgegeven"); }
 
-            else
-            { map.Show();
-              this.Hide();
-            }
+
+
+
 
         }
 

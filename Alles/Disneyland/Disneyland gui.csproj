@@ -110,6 +110,7 @@
     <Compile Include="DatePickerInputForm.Designer.cs">
       <DependentUpon>DatePickerInputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListsOfData.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,7 +137,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataService.cs" />
+    <Compile Include="DataServiceClass.cs" />
+    <Compile Include="ShufflerClass.cs" />
     <EmbeddedResource Include="DatePickerInputForm.resx">
       <DependentUpon>DatePickerInputForm.cs</DependentUpon>
     </EmbeddedResource>
