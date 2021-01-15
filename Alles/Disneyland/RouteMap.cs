@@ -98,7 +98,7 @@ namespace Disneyland
 
         private void SwitchButton_Click(object sender, EventArgs e)
         {
-            Form3 rides = new Form3();
+            RouteMapInputForm rides = new RouteMapInputForm();
             rides.Show();
             this.Hide();
         }
@@ -154,6 +154,7 @@ namespace Disneyland
                     {
                         if (DataService.QTimes()[k].Number == ListA[p])
                         {
+                            BestChromosome[p]= DataService.QTimes()[k].Name;
                             ListB.Add(DataService.QTimes()[k].Name);
                             Lijst.attLoc.Add(new attractionLoc());
                             Lijst.attLoc[p].Lat = DataService.QTimes()[k].Lat;
@@ -507,10 +508,10 @@ namespace Disneyland
         {
             gmap.MapProvider = GMapProviders.GoogleMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.Position = new GMap.NET.PointLatLng(48.872562, 2.773616);
+            gmap.Position = new GMap.NET.PointLatLng(48.872621961563205, 2.7761909189966993);
             gmap.MinZoom = 5;
             gmap.MaxZoom = 100;
-            gmap.Zoom = 16;
+            gmap.Zoom = 15;
             gmap.ShowCenter = false;
             gmap.DragButton = MouseButtons.Left;
             GMapOverlay markers = new GMapOverlay("markers");
@@ -577,23 +578,7 @@ namespace Disneyland
             }
         }
     }
-    public static class DataService
-    {
-        public static List<quetime> QTimes()
-        {
-            string connectionString;
-            string sql;
-
-            connectionString = @"Data Source=localhost;Initial Catalog=Tim123;Integrated Security=True";
-            sql = "select * from TheDataQueTime";
-
-            using (var connect = new SqlConnection(connectionString))
-            {
-                var result = connect.Query<quetime>(sql).ToList();
-                return result;
-            }
-        }
-    }
+    
 
     public static class Lijst
     {

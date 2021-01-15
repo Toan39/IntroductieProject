@@ -26,7 +26,7 @@ namespace Disneyland
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 disney2 = new Form3();
+            RouteMapInputForm disney2 = new RouteMapInputForm();
             disney2.Show();
             this.Hide();
         }

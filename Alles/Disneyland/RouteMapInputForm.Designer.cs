@@ -1,6 +1,6 @@
 ﻿namespace Disneyland
 {
-    partial class Form3
+    partial class RouteMapInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label RidesLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMapInputForm));
             this.GoButton = new System.Windows.Forms.Button();
             this.DisneyLandPictureBox = new System.Windows.Forms.PictureBox();
             this.PriorityRidesCheckedListBox = new System.Windows.Forms.CheckedListBox();

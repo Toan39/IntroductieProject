@@ -11,13 +11,13 @@ using System.Globalization;
 
 namespace Disneyland
 {
-    public partial class Form3 : Form
+    public partial class RouteMapInputForm : Form
     {
 
         //varabiales declarations//
         
         
-        public Form3()
+        public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
