@@ -101,7 +101,7 @@ namespace Disneyland
             this.MinimumSize = new Size(616, 405);
             double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
             double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
-            double scaleXY = (scaleY + scaleX) / 2;
+           
             HomeButton.Width = (int)(60 * scaleX);
             HomeButton.Height = (int)(24 * scaleY);
 
@@ -114,22 +114,22 @@ namespace Disneyland
             ChildrenComboBox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
             AdultComboBox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
 
-            WeekTextbox.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekTextbox.Size.Width), (int)(85 * scaleXY));
-            DaysComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysComboBox.Size.Width), (int)(155 * scaleXY));
-            ChildrenComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenComboBox.Size.Width), (int)(225 * scaleXY));
-            AdultComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultComboBox.Size.Width), (int)(295 * scaleXY));
+            WeekTextbox.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekTextbox.Size.Width), (int)(85 * scaleY));
+            DaysComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysComboBox.Size.Width), (int)(155 * scaleY));
+            ChildrenComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenComboBox.Size.Width), (int)(225 * scaleY));
+            AdultComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultComboBox.Size.Width), (int)(295 * scaleY));
 
-            AdultLabel.Font = new Font(AdultLabel.Font.FontFamily, (float)(19.8 * scaleXY));
-            WeekLabel.Font = new Font(WeekLabel.Font.FontFamily, (float)(19.8 * scaleXY));
-            ChildrenLabel.Font = new Font(ChildrenLabel.Font.FontFamily, (float)(19.8 * scaleXY));
-            DaysLabel.Font = new Font(DaysLabel.Font.FontFamily, (float)(19.8 * scaleX));
-            MainTextLabel.Font = new Font(MainTextLabel.Font.FontFamily, (float)(28.2 * scaleXY));
+            AdultLabel.Font = new Font(AdultLabel.Font.FontFamily, (float)(19.8 * scaleY));
+            WeekLabel.Font = new Font(WeekLabel.Font.FontFamily, (float)(19.8 * scaleY));
+            ChildrenLabel.Font = new Font(ChildrenLabel.Font.FontFamily, (float)(19.8 * scaleY));
+            DaysLabel.Font = new Font(DaysLabel.Font.FontFamily, (float)(19.8 * scaleY));
+            MainTextLabel.Font = new Font(MainTextLabel.Font.FontFamily, (float)(28.2 * scaleY));
 
-            MainTextLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel.Size.Width), (int)(1 * scaleXY));
-            WeekLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekLabel.Size.Width), (int)(50 * scaleXY));
-            DaysLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysLabel.Size.Width), (int)(120 * scaleXY));
-            ChildrenLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenLabel.Size.Width), (int)(190 * scaleXY));
-            AdultLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultLabel.Size.Width), (int)(260 * scaleXY));
+            MainTextLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel.Size.Width), (int)(1 * scaleY));
+            WeekLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekLabel.Size.Width), (int)(50 * scaleY));
+            DaysLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysLabel.Size.Width), (int)(120 * scaleY));
+            ChildrenLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenLabel.Size.Width), (int)(190 * scaleY));
+            AdultLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultLabel.Size.Width), (int)(260 * scaleY));
         }
     }
 }

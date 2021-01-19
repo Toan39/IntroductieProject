@@ -58,7 +58,7 @@
             // 
             // WeekLabel
             // 
-            this.WeekLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.WeekLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.WeekLabel.AutoSize = true;
             this.WeekLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeekLabel.ForeColor = System.Drawing.Color.White;
@@ -71,7 +71,7 @@
             // 
             // DaysLabel
             // 
-            this.DaysLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.DaysLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.DaysLabel.AutoSize = true;
             this.DaysLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DaysLabel.ForeColor = System.Drawing.Color.White;

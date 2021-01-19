@@ -71,7 +71,7 @@
             this.MainTextLabel1.AutoSize = true;
             this.MainTextLabel1.Font = new System.Drawing.Font("Script MT Bold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.MainTextLabel1.Location = new System.Drawing.Point(221, 28);
+            this.MainTextLabel1.Location = new System.Drawing.Point(217, 28);
             this.MainTextLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel1.Name = "MainTextLabel1";
             this.MainTextLabel1.Size = new System.Drawing.Size(183, 46);
@@ -84,7 +84,7 @@
             this.MainTextLabel2.AutoSize = true;
             this.MainTextLabel2.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel2.ForeColor = System.Drawing.Color.Snow;
-            this.MainTextLabel2.Location = new System.Drawing.Point(210, 93);
+            this.MainTextLabel2.Location = new System.Drawing.Point(207, 93);
             this.MainTextLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel2.Name = "MainTextLabel2";
             this.MainTextLabel2.Size = new System.Drawing.Size(203, 33);
@@ -109,8 +109,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.DisneyLandPictureBox);
             this.Controls.Add(this.MainTextLabel2);
+            this.Controls.Add(this.DisneyLandPictureBox);
             this.Controls.Add(this.MainTextLabel1);
             this.Controls.Add(this.RouteButton);
             this.Controls.Add(this.DatePickerButton);
@@ -118,6 +118,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
             this.Text = "Disneyland";
+            this.SizeChanged += new System.EventHandler(this.MainMenu_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

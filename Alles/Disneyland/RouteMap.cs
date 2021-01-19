@@ -608,6 +608,7 @@ namespace Disneyland
         }
         private void RouteMap_SizeChanged(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(800, 584);
             double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
             double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
 

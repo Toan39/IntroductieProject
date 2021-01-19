@@ -41,5 +41,29 @@ namespace Disneyland
             disney2.MinimumSize = new Size(616, 405);
             this.Hide();
         }
+
+        private void MainMenu_SizeChanged(object sender, EventArgs e)
+        {
+            this.MinimumSize = new Size(616, 405);
+            double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
+            double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
+
+            RouteButton.Width = (int)(204 * scaleX);
+            RouteButton.Height = (int)(82 * scaleY);
+            RouteButton.Location = new Point((int)(329*scaleX), (int)(274*scaleY));
+
+            DatePickerButton.Width = (int)(204 * scaleX);
+            DatePickerButton.Height = (int)(82 * scaleY);
+            DatePickerButton.Location = new Point((int)(329*scaleX), (int)(187*scaleY));
+
+            DisneyLandPictureBox.Size = new Size ((int)(204 * scaleX), (int)(239 * scaleY));
+            DisneyLandPictureBox.Location = new Point((int)(51 * scaleX), (int)(128 * scaleY));
+
+            MainTextLabel1.Font = new Font(MainTextLabel1.Font.FontFamily, (float)(28.2 * scaleY));
+            MainTextLabel2.Font = new Font(MainTextLabel2.Font.FontFamily, (float)(19.8 * scaleY));
+
+            MainTextLabel1.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel1.Size.Width), (int)(28 * scaleY));
+            MainTextLabel2.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel2.Size.Width), (int)(93 * scaleY));
+        }
     }
 }
