@@ -41,7 +41,6 @@ namespace Disneyland
             {
                 Form Wait = new Form();
                 Wait.Text = "Wait a bit";
-                Wait.Font = new Font("Script MT Bold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 Wait.Size = new Size(350, 0);
                 Wait.StartPosition = FormStartPosition.CenterScreen;
                 Wait.Show();
