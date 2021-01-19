@@ -39,7 +39,7 @@ namespace Disneyland
         //declarations of variables
         bool betterChromo;
         int CurrentBest, index;
-        int s=0; //index of the population array  
+        int s = 0; //index of the population array  
         int GenerationCount = 0; // The current generation. The int GenerationCount is not the amount of generations
         int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
         float bestFitness, sumTime, higherbound = 0;
@@ -273,7 +273,7 @@ namespace Disneyland
         /// Sub-methods that are used for the method: SelectItems
         /// Method possible till routecheck
         /// </summary>
-       
+
         //Checks if an attraction is not yet been added to the route
         public bool possible(string x)
         {
@@ -338,7 +338,7 @@ namespace Disneyland
         {
             foreach (genal attraction in listForGenAl)
             {
-                sumTime = sumTime + attraction.TotalTime;  
+                sumTime = sumTime + attraction.TotalTime;
             }
         }
 
@@ -445,10 +445,10 @@ namespace Disneyland
         /// </summary>
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 30;   //low processing time
+            int j = 120;   //low processing time
             if (selected > 4)
             {
-                while (GenerationCount < j) 
+                while (GenerationCount < j)
                 {
                     s = 0;
                     createParents();
@@ -488,10 +488,24 @@ namespace Disneyland
 
             //execution of the mutation
             int MutationChance = rnd.Next(1, 100);
-            if (MutationChance <= selected * 4)
+
+            if (GenerationCount >= 98)
             {
-                mutation(selected);
+
+                if (MutationChance <= 2)
+                {
+                    mutation(selected);
+
+                }
             }
+                if (GenerationCount < 98)
+                {
+                    if (MutationChance <= 100-GenerationCount)
+                    {
+
+                        mutation(selected);
+                    }
+                }
         }
 
         //Davis’ Order Crossover
