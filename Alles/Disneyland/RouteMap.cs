@@ -605,6 +605,7 @@ namespace Disneyland
                 result = x.ToString() + ". " + result + FinalRoute[t] + " " + "\n";
                 label2.Text = label2.Text + result;
             }
+
         }
     }
 }
