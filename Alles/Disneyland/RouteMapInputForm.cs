@@ -39,10 +39,15 @@ namespace Disneyland
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                 this.Hide();
-                RouteMap map = new RouteMap(selecteditems);
-                map.ShowDialog();
+                progressbar kaas = new progressbar();
+                kaas.ShowDialog();
+
+                
+                /*RouteMap map = new RouteMap(selecteditems);
+                map.ShowDialog();*/
                 this.Close();
 
+          
             }
 
             ////add combobox later
