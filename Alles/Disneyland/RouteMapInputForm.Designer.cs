@@ -42,7 +42,7 @@
             // 
             // GoButton
             // 
-            this.GoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.GoButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.GoButton.BackColor = System.Drawing.Color.White;
             this.GoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.GoButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,7 +136,7 @@
             // 
             // InformationButton
             // 
-            this.InformationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.InformationButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.InformationButton.BackColor = System.Drawing.Color.White;
             this.InformationButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InformationButton.Location = new System.Drawing.Point(60, 285);

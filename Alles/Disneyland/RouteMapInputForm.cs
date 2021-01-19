@@ -17,7 +17,6 @@ namespace Disneyland
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
-
             ////////add combobox later
             //HoursSpendComboBox.Text = "1";
             //FreeTimeComboBox.Text = "0";
@@ -108,6 +107,7 @@ namespace Disneyland
 
         private void RouteMapInputForm_SizeChanged(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(616, 405);
             double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
             double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
 
@@ -120,7 +120,6 @@ namespace Disneyland
             SelectedRidesLabel.Location = new Point((int)(440 * scaleX), (int)(41 * scaleY));
             RidesLabel.Location = new Point((int)(25 * scaleX), (int)(41 * scaleY));
 
-
             PriorityRidesListBox.Size = new Size((int)(210 * scaleX), (int)(104 * scaleY));
             PriorityRidesListBox.Location = new Point((int)(385 * scaleX), (int)(75 * scaleY));
 
@@ -131,7 +130,15 @@ namespace Disneyland
             InformationButton.Location = new Point((int)(60 * scaleX), (int)(285 * scaleY)); 
 
             GoButton.Size = new Size((int)(231 * scaleX), (int)(76 * scaleY));
-            GoButton.Location = new Point((int)(310 * scaleX), (int)(285 * scaleY)); 
+            GoButton.Location = new Point((int)(310 * scaleX), (int)(285 * scaleY));
+
+            PriorityRidesCheckedListBox.Font = new Font(PriorityRidesCheckedListBox.Font.FontFamily, (float)(7.8 * scaleY));
+            PriorityRidesListBox.Font = new Font(PriorityRidesListBox.Font.FontFamily, (float)(7.8 * scaleY));
+            HomeButton.Font = new Font(HomeButton.Font.FontFamily, (float)(7.8 * scaleY));
+            RidesLabel.Font = new Font(RidesLabel.Font.FontFamily, (float)(7.8 * scaleY));
+            SelectedRidesLabel.Font = new Font(SelectedRidesLabel.Font.FontFamily, (float)(7.8 * scaleY));
+            InformationButton.Font = new Font(InformationButton.Font.FontFamily, (float)(7.8 * scaleY));
+            GoButton.Font = new Font(GoButton.Font.FontFamily, (float)(7.8 * scaleY));
         }
     }
 }

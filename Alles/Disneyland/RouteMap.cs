@@ -414,7 +414,6 @@ namespace Disneyland
 
         }
 
-
         //Selects a dynamic top percentile of the population 
         public void Selection(int selected)
         {
@@ -606,6 +605,15 @@ namespace Disneyland
                 result = x.ToString() + ". " + result + FinalRoute[t] + " " + "\n";
                 label2.Text = label2.Text + result;
             }
+        }
+        private void RouteMap_SizeChanged(object sender, EventArgs e)
+        {
+            double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
+            double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
+
+            HomeButton.Width = (int)(60 * scaleX);
+            PrintButton.Location = new Point(HomeButton.Location.X + HomeButton.Width,2);
+            PrintButton.Width = (int)(60 * scaleX);
         }
     }
 }

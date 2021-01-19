@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMap));
             this.PrintButton = new System.Windows.Forms.Button();
-            this.Home = new System.Windows.Forms.Button();
+            this.HomeButton = new System.Windows.Forms.Button();
             this.MainTextLabel = new System.Windows.Forms.Label();
             this.gmap = new GMap.NET.WindowsForms.GMapControl();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,25 +38,25 @@
             // 
             // PrintButton
             // 
-            this.PrintButton.Location = new System.Drawing.Point(71, 2);
+            this.PrintButton.Location = new System.Drawing.Point(70, 2);
             this.PrintButton.Margin = new System.Windows.Forms.Padding(2);
             this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(56, 29);
+            this.PrintButton.Size = new System.Drawing.Size(60, 29);
             this.PrintButton.TabIndex = 1;
             this.PrintButton.Text = "Print";
             this.PrintButton.UseVisualStyleBackColor = true;
             this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
-            // Home
+            // HomeButton
             // 
-            this.Home.Location = new System.Drawing.Point(11, 2);
-            this.Home.Margin = new System.Windows.Forms.Padding(2);
-            this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(56, 29);
-            this.Home.TabIndex = 2;
-            this.Home.Text = "Home";
-            this.Home.UseVisualStyleBackColor = true;
-            this.Home.Click += new System.EventHandler(this.SwitchButton_Click);
+            this.HomeButton.Location = new System.Drawing.Point(10, 2);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.HomeButton.Name = "HomeButton";
+            this.HomeButton.Size = new System.Drawing.Size(60, 29);
+            this.HomeButton.TabIndex = 2;
+            this.HomeButton.Text = "Home";
+            this.HomeButton.UseVisualStyleBackColor = true;
+            this.HomeButton.Click += new System.EventHandler(this.SwitchButton_Click);
             // 
             // MainTextLabel
             // 
@@ -123,12 +123,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gmap);
             this.Controls.Add(this.MainTextLabel);
-            this.Controls.Add(this.Home);
+            this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.PrintButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RouteMap";
             this.Text = "Disneyland";
+            this.SizeChanged += new System.EventHandler(this.RouteMap_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +137,7 @@
 
         #endregion
         private System.Windows.Forms.Button PrintButton;
-        private System.Windows.Forms.Button Home;
+        private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Label MainTextLabel;
         private GMap.NET.WindowsForms.GMapControl gmap;
         private System.Windows.Forms.Label label2;

@@ -44,13 +44,13 @@
             // 
             // FindDateButton
             // 
-            this.FindDateButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FindDateButton.BackColor = System.Drawing.Color.White;
+            this.FindDateButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FindDateButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FindDateButton.Location = new System.Drawing.Point(118, 318);
+            this.FindDateButton.Location = new System.Drawing.Point(0, 326);
             this.FindDateButton.Margin = new System.Windows.Forms.Padding(2);
             this.FindDateButton.Name = "FindDateButton";
-            this.FindDateButton.Size = new System.Drawing.Size(374, 41);
+            this.FindDateButton.Size = new System.Drawing.Size(600, 40);
             this.FindDateButton.TabIndex = 1;
             this.FindDateButton.Text = "Find my date!";
             this.FindDateButton.UseVisualStyleBackColor = false;
@@ -58,11 +58,11 @@
             // 
             // WeekLabel
             // 
-            this.WeekLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.WeekLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.WeekLabel.AutoSize = true;
             this.WeekLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeekLabel.ForeColor = System.Drawing.Color.White;
-            this.WeekLabel.Location = new System.Drawing.Point(140, 40);
+            this.WeekLabel.Location = new System.Drawing.Point(140, 50);
             this.WeekLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.WeekLabel.Name = "WeekLabel";
             this.WeekLabel.Size = new System.Drawing.Size(352, 33);
@@ -71,11 +71,11 @@
             // 
             // DaysLabel
             // 
-            this.DaysLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DaysLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.DaysLabel.AutoSize = true;
             this.DaysLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DaysLabel.ForeColor = System.Drawing.Color.White;
-            this.DaysLabel.Location = new System.Drawing.Point(96, 108);
+            this.DaysLabel.Location = new System.Drawing.Point(96, 120);
             this.DaysLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DaysLabel.Name = "DaysLabel";
             this.DaysLabel.Size = new System.Drawing.Size(441, 33);
@@ -84,11 +84,11 @@
             // 
             // MainTextLabel
             // 
-            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel.ForeColor = System.Drawing.Color.White;
-            this.MainTextLabel.Location = new System.Drawing.Point(149, -6);
+            this.MainTextLabel.Location = new System.Drawing.Point(150, 1);
             this.MainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel.Name = "MainTextLabel";
             this.MainTextLabel.Size = new System.Drawing.Size(323, 46);
@@ -111,7 +111,7 @@
             "7",
             "8",
             "9"});
-            this.DaysComboBox.Location = new System.Drawing.Point(273, 143);
+            this.DaysComboBox.Location = new System.Drawing.Point(273, 155);
             this.DaysComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.DaysComboBox.Name = "DaysComboBox";
             this.DaysComboBox.Size = new System.Drawing.Size(54, 21);
@@ -145,7 +145,7 @@
             "18",
             "19",
             "20"});
-            this.ChildrenComboBox.Location = new System.Drawing.Point(273, 210);
+            this.ChildrenComboBox.Location = new System.Drawing.Point(273, 225);
             this.ChildrenComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.ChildrenComboBox.Name = "ChildrenComboBox";
             this.ChildrenComboBox.Size = new System.Drawing.Size(54, 21);
@@ -153,11 +153,11 @@
             // 
             // ChildrenLabel
             // 
-            this.ChildrenLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ChildrenLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ChildrenLabel.AutoSize = true;
             this.ChildrenLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChildrenLabel.ForeColor = System.Drawing.Color.White;
-            this.ChildrenLabel.Location = new System.Drawing.Point(166, 174);
+            this.ChildrenLabel.Location = new System.Drawing.Point(152, 190);
             this.ChildrenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ChildrenLabel.Name = "ChildrenLabel";
             this.ChildrenLabel.Size = new System.Drawing.Size(328, 33);
@@ -167,7 +167,7 @@
             // WeekTextbox
             // 
             this.WeekTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.WeekTextbox.Location = new System.Drawing.Point(273, 76);
+            this.WeekTextbox.Location = new System.Drawing.Point(273, 85);
             this.WeekTextbox.Name = "WeekTextbox";
             this.WeekTextbox.Size = new System.Drawing.Size(54, 20);
             this.WeekTextbox.TabIndex = 24;
@@ -200,18 +200,18 @@
             "18",
             "19",
             "20"});
-            this.AdultComboBox.Location = new System.Drawing.Point(273, 273);
+            this.AdultComboBox.Location = new System.Drawing.Point(273, 295);
             this.AdultComboBox.Name = "AdultComboBox";
             this.AdultComboBox.Size = new System.Drawing.Size(54, 21);
             this.AdultComboBox.TabIndex = 25;
             // 
             // AdultLabel
             // 
-            this.AdultLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AdultLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AdultLabel.AutoSize = true;
             this.AdultLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold);
             this.AdultLabel.ForeColor = System.Drawing.Color.White;
-            this.AdultLabel.Location = new System.Drawing.Point(166, 237);
+            this.AdultLabel.Location = new System.Drawing.Point(160, 260);
             this.AdultLabel.Name = "AdultLabel";
             this.AdultLabel.Size = new System.Drawing.Size(320, 33);
             this.AdultLabel.TabIndex = 26;
@@ -219,10 +219,9 @@
             // 
             // HomeButton
             // 
-            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(66, 27);
+            this.HomeButton.Size = new System.Drawing.Size(60, 24);
             this.HomeButton.TabIndex = 27;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
@@ -249,6 +248,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DatePickerInputForm";
             this.Text = "Disneyland";
+            this.SizeChanged += new System.EventHandler(this.DatePickerInputForm_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
