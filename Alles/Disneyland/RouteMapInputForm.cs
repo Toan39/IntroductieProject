@@ -96,6 +96,43 @@ namespace Disneyland
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
+
+        private void panel1_SizeChanged(object sender, EventArgs e)
+        {
+            float scaleX = this.Width / this.MinimumSize.Width;
+            float scaleY = this.Height / this.MinimumSize.Height;
+
+            HomeButton.Width = (int)(100 * scaleX);
+            HomeButton.Height = (int)(100 * scaleY);
+        }
+
+        private void RouteMapInputForm_SizeChanged(object sender, EventArgs e)
+        {
+            double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
+            double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
+
+            HomeButton.Width = (int)(60 * scaleX);
+            HomeButton.Height = (int)(24 * scaleY);
+
+            PriorityRidesCheckedListBox.Size = new Size((int)(220 * scaleX), (int)(165 * scaleY));
+            PriorityRidesCheckedListBox.Location = new Point((int)(10 * scaleX), (int)(75 * scaleY));
+
+            SelectedRidesLabel.Location = new Point((int)(440 * scaleX), (int)(41 * scaleY));
+            RidesLabel.Location = new Point((int)(25 * scaleX), (int)(41 * scaleY));
+
+
+            PriorityRidesListBox.Size = new Size((int)(210 * scaleX), (int)(104 * scaleY));
+            PriorityRidesListBox.Location = new Point((int)(385 * scaleX), (int)(75 * scaleY));
+
+            DisneyLandPictureBox.Size = new Size((int)(143 * scaleX), (int)(209 * scaleY));
+            DisneyLandPictureBox.Location = new Point((int)(237*scaleX), (int)(52*scaleY));
+
+            InformationButton.Size = new Size((int)(242 * scaleX), (int)(76 * scaleY));
+            InformationButton.Location = new Point((int)(60 * scaleX), (int)(285 * scaleY)); 
+
+            GoButton.Size = new Size((int)(231 * scaleX), (int)(76 * scaleY));
+            GoButton.Location = new Point((int)(310 * scaleX), (int)(285 * scaleY)); 
+        }
     }
 }
 

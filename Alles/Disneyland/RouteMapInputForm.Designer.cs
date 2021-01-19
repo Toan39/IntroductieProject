@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label RidesLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMapInputForm));
             this.GoButton = new System.Windows.Forms.Button();
             this.DisneyLandPictureBox = new System.Windows.Forms.PictureBox();
@@ -37,33 +36,20 @@
             this.SelectedRidesLabel = new System.Windows.Forms.Label();
             this.InformationButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            RidesLabel = new System.Windows.Forms.Label();
+            this.RidesLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // RidesLabel
-            // 
-            RidesLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            RidesLabel.AutoSize = true;
-            RidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            RidesLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            RidesLabel.Location = new System.Drawing.Point(24, 32);
-            RidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            RidesLabel.Name = "RidesLabel";
-            RidesLabel.Size = new System.Drawing.Size(190, 19);
-            RidesLabel.TabIndex = 5;
-            RidesLabel.Text = "Choose your rides (max 18):";
-            // 
             // GoButton
             // 
-            this.GoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.GoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.GoButton.BackColor = System.Drawing.Color.White;
             this.GoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.GoButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GoButton.Location = new System.Drawing.Point(302, 280);
+            this.GoButton.Location = new System.Drawing.Point(310, 285);
             this.GoButton.Margin = new System.Windows.Forms.Padding(2);
             this.GoButton.Name = "GoButton";
-            this.GoButton.Size = new System.Drawing.Size(231, 76);
+            this.GoButton.Size = new System.Drawing.Size(240, 76);
             this.GoButton.TabIndex = 1;
             this.GoButton.Text = "GO!";
             this.GoButton.UseVisualStyleBackColor = false;
@@ -73,10 +59,10 @@
             // 
             this.DisneyLandPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DisneyLandPictureBox.Image = global::Disneyland.Properties.Resources.Daco_4620584;
-            this.DisneyLandPictureBox.Location = new System.Drawing.Point(235, 50);
+            this.DisneyLandPictureBox.Location = new System.Drawing.Point(235, 52);
             this.DisneyLandPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.DisneyLandPictureBox.Name = "DisneyLandPictureBox";
-            this.DisneyLandPictureBox.Size = new System.Drawing.Size(143, 209);
+            this.DisneyLandPictureBox.Size = new System.Drawing.Size(145, 210);
             this.DisneyLandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.DisneyLandPictureBox.TabIndex = 2;
             this.DisneyLandPictureBox.TabStop = false;
@@ -115,10 +101,10 @@
             "Thunder Mesa Riverboat Landing",
             "Tomorrowland-caroussels",
             "Starport"});
-            this.PriorityRidesCheckedListBox.Location = new System.Drawing.Point(9, 73);
+            this.PriorityRidesCheckedListBox.Location = new System.Drawing.Point(10, 75);
             this.PriorityRidesCheckedListBox.Margin = new System.Windows.Forms.Padding(2);
             this.PriorityRidesCheckedListBox.Name = "PriorityRidesCheckedListBox";
-            this.PriorityRidesCheckedListBox.Size = new System.Drawing.Size(218, 165);
+            this.PriorityRidesCheckedListBox.Size = new System.Drawing.Size(220, 165);
             this.PriorityRidesCheckedListBox.TabIndex = 3;
             this.PriorityRidesCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox_ItemCheck);
             // 
@@ -129,10 +115,10 @@
             this.PriorityRidesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PriorityRidesListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PriorityRidesListBox.FormattingEnabled = true;
-            this.PriorityRidesListBox.Location = new System.Drawing.Point(382, 126);
+            this.PriorityRidesListBox.Location = new System.Drawing.Point(385, 75);
             this.PriorityRidesListBox.Margin = new System.Windows.Forms.Padding(2);
             this.PriorityRidesListBox.Name = "PriorityRidesListBox";
-            this.PriorityRidesListBox.Size = new System.Drawing.Size(208, 78);
+            this.PriorityRidesListBox.Size = new System.Drawing.Size(210, 104);
             this.PriorityRidesListBox.TabIndex = 4;
             // 
             // SelectedRidesLabel
@@ -141,7 +127,7 @@
             this.SelectedRidesLabel.AutoSize = true;
             this.SelectedRidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedRidesLabel.ForeColor = System.Drawing.Color.White;
-            this.SelectedRidesLabel.Location = new System.Drawing.Point(443, 95);
+            this.SelectedRidesLabel.Location = new System.Drawing.Point(440, 41);
             this.SelectedRidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectedRidesLabel.Name = "SelectedRidesLabel";
             this.SelectedRidesLabel.Size = new System.Drawing.Size(97, 19);
@@ -150,13 +136,13 @@
             // 
             // InformationButton
             // 
-            this.InformationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InformationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.InformationButton.BackColor = System.Drawing.Color.White;
             this.InformationButton.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InformationButton.Location = new System.Drawing.Point(56, 280);
+            this.InformationButton.Location = new System.Drawing.Point(60, 285);
             this.InformationButton.Margin = new System.Windows.Forms.Padding(2);
             this.InformationButton.Name = "InformationButton";
-            this.InformationButton.Size = new System.Drawing.Size(242, 76);
+            this.InformationButton.Size = new System.Drawing.Size(240, 76);
             this.InformationButton.TabIndex = 14;
             this.InformationButton.Text = "Click to get information about the rides";
             this.InformationButton.UseVisualStyleBackColor = false;
@@ -164,7 +150,6 @@
             // 
             // HomeButton
             // 
-            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(60, 24);
@@ -173,17 +158,27 @@
             this.HomeButton.UseVisualStyleBackColor = true;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
+            // RidesLabel
+            // 
+            this.RidesLabel.AutoSize = true;
+            this.RidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.RidesLabel.ForeColor = System.Drawing.Color.White;
+            this.RidesLabel.Location = new System.Drawing.Point(25, 41);
+            this.RidesLabel.Name = "RidesLabel";
+            this.RidesLabel.Size = new System.Drawing.Size(190, 19);
+            this.RidesLabel.TabIndex = 16;
+            this.RidesLabel.Text = "Choose your rides (max 18):";
+            // 
             // RouteMapInputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(604, 371);
+            this.Controls.Add(this.RidesLabel);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.InformationButton);
             this.Controls.Add(this.SelectedRidesLabel);
-            this.Controls.Add(RidesLabel);
             this.Controls.Add(this.PriorityRidesListBox);
             this.Controls.Add(this.PriorityRidesCheckedListBox);
             this.Controls.Add(this.DisneyLandPictureBox);
@@ -192,6 +187,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RouteMapInputForm";
             this.Text = "Disneyland";
+            this.SizeChanged += new System.EventHandler(this.RouteMapInputForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,6 +195,7 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.PictureBox DisneyLandPictureBox;
         private System.Windows.Forms.CheckedListBox PriorityRidesCheckedListBox;
@@ -206,5 +203,6 @@
         private System.Windows.Forms.Label SelectedRidesLabel;
         private System.Windows.Forms.Button InformationButton;
         private System.Windows.Forms.Button HomeButton;
+        private System.Windows.Forms.Label RidesLabel;
     }
 }
