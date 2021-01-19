@@ -40,16 +40,16 @@ namespace Disneyland
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                 this.Hide();
-                kaas = new progressbar();
+                progressbar kaas = new progressbar();
                 kaas.ShowDialog();
-                this.Close();
 
                 RouteMap map = new RouteMap(selecteditems, kaas);
-                kaas.Close();
                 map.ShowDialog();
-                
+                this.Close();
 
-          
+
+
+
             }
 
             ////add combobox later

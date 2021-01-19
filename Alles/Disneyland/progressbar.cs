@@ -19,14 +19,19 @@ namespace Disneyland
             //kees();
         }
 
-       /* public void kees()
+        private void progressbar_Load(object sender, EventArgs e)
         {
-            for(int t = 0; t < 1000; t++)
-            {
-                progressBar1.Value = progressBar1.Value + 1;
-                Thread.Sleep(1);
-            }
-        }*/
+
+        }
+
+        /* public void kees()
+         {
+             for(int t = 0; t < 1000; t++)
+             {
+                 progressBar1.Value = progressBar1.Value + 1;
+                 Thread.Sleep(1);
+             }
+         }*/
     }
 }
 
