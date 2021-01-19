@@ -44,7 +44,7 @@ namespace Disneyland
         int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
         float bestFitness, sumTime, higherbound = 0;
 
-        public RouteMap(List<string> selecteditems, progressbar kaas)
+        public RouteMap(List<string> selecteditems)
         {
             int selected = selecteditems.Count;  //Amount of selected attractions by the user // select 3 attractions, to have low processing time
 
@@ -68,8 +68,7 @@ namespace Disneyland
 
             Termination(popsize(selected), selected);
             //console.writeline("end");
-            kaas.Hide();
-            kaas.Close();
+           
         }
 
         //Calculates the populationsize
@@ -607,7 +606,8 @@ namespace Disneyland
                 result = x.ToString() + ". " + result + FinalRoute[t] + " " + "\n";
                 label2.Text = label2.Text + result;
             }
-
+            RouteMapInputForm input = new RouteMapInputForm();
+            input.Close();
         }
     }
 }

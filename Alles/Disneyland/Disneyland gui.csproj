@@ -116,12 +116,6 @@
     <Compile Include="DatePickerInputForm.Designer.cs">
       <DependentUpon>DatePickerInputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="progressbar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="progressbar.Designer.cs">
-      <DependentUpon>progressbar.cs</DependentUpon>
-    </Compile>
     <Compile Include="ListsOfData.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -156,9 +150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="progressbar.resx">
-      <DependentUpon>progressbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RouteMapInputForm.resx">
       <DependentUpon>RouteMapInputForm.cs</DependentUpon>

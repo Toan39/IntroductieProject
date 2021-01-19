@@ -8,12 +8,13 @@ using System.Linq;
 using Dapper;
 using System.Collections;
 using System.Globalization;
+using System.IO;
+
 
 namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
-        public progressbar kaas;
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -37,15 +38,22 @@ namespace Disneyland
                 { MessageBox.Show("No attractions are selected"); }
             }
             else
-            { 
+            {
+                Form Wait = new Form();
+                Wait.Text = "Wait a bit";
+                Wait.Font = new Font("Script MT Bold", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                Wait.Size = new Size(350, 0);
+                Wait.StartPosition = FormStartPosition.CenterScreen;
+                Wait.Show();
+                
+
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                 this.Hide();
-                progressbar kaas = new progressbar();
-                kaas.ShowDialog();
 
-                RouteMap map = new RouteMap(selecteditems, kaas);
+                RouteMap map = new RouteMap(selecteditems);
+                Wait.Close();
                 map.ShowDialog();
-                this.Close();
+             //   this.Close();
 
 
 
