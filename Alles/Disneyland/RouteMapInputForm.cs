@@ -40,6 +40,8 @@ namespace Disneyland
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                 RouteMap map = new RouteMap(selecteditems);
                 map.Show();
+                if (this.WindowState == FormWindowState.Maximized)
+                    map.WindowState = FormWindowState.Maximized;
                 this.Hide();
             }
 
@@ -89,6 +91,8 @@ namespace Disneyland
         {
             MainMenu main = new MainMenu();
             main.Show();
+            if (this.WindowState == FormWindowState.Maximized)
+                main.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
     }

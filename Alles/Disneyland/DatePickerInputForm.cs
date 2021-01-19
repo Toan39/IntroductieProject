@@ -78,6 +78,8 @@ namespace Disneyland
                 DatePickerForm date = new DatePickerForm(week, price, crowd);
                 date.ResultLabel.Text = date.ReturnBestDate();
                 date.Show();
+                if (this.WindowState == FormWindowState.Maximized)
+                    date.WindowState = FormWindowState.Maximized;
                 this.Hide();
                 }
              
@@ -88,6 +90,8 @@ namespace Disneyland
         {
             MainMenu main = new MainMenu();
             main.Show();
+            if (this.WindowState == FormWindowState.Maximized)
+                main.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
     }
