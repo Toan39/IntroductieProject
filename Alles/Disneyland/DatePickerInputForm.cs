@@ -106,7 +106,7 @@ namespace Disneyland
             HomeButton.Height = (int)(24 * scaleY);
 
             FindDateButton.Width = (int)(350 * scaleX);
-            FindDateButton.Height = (int)(40 * scaleY);
+            FindDateButton.Height = (int)(45 * scaleY);
             FindDateButton.Location = new Point((int)((0.5 * this.Width) - 0.5 * FindDateButton.Size.Width), (int)(this.Height - 100));
 
             WeekTextbox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));

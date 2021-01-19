@@ -47,10 +47,10 @@
             this.FindDateButton.BackColor = System.Drawing.Color.White;
             this.FindDateButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FindDateButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FindDateButton.Location = new System.Drawing.Point(0, 326);
+            this.FindDateButton.Location = new System.Drawing.Point(0, 321);
             this.FindDateButton.Margin = new System.Windows.Forms.Padding(2);
             this.FindDateButton.Name = "FindDateButton";
-            this.FindDateButton.Size = new System.Drawing.Size(600, 40);
+            this.FindDateButton.Size = new System.Drawing.Size(600, 45);
             this.FindDateButton.TabIndex = 1;
             this.FindDateButton.Text = "Find my date!";
             this.FindDateButton.UseVisualStyleBackColor = false;

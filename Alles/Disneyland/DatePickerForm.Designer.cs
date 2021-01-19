@@ -43,13 +43,13 @@
             // 
             // CalendarButton
             // 
-            this.CalendarButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CalendarButton.BackColor = System.Drawing.Color.White;
+            this.CalendarButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CalendarButton.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalendarButton.Location = new System.Drawing.Point(106, 287);
+            this.CalendarButton.Location = new System.Drawing.Point(0, 321);
             this.CalendarButton.Margin = new System.Windows.Forms.Padding(2);
             this.CalendarButton.Name = "CalendarButton";
-            this.CalendarButton.Size = new System.Drawing.Size(358, 69);
+            this.CalendarButton.Size = new System.Drawing.Size(600, 45);
             this.CalendarButton.TabIndex = 0;
             this.CalendarButton.Text = "Add to calendar!";
             this.CalendarButton.UseVisualStyleBackColor = false;
@@ -57,12 +57,12 @@
             // 
             // MainTextLabel
             // 
-            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel.ForeColor = System.Drawing.Color.White;
-            this.MainTextLabel.Location = new System.Drawing.Point(160, 7);
+            this.MainTextLabel.Location = new System.Drawing.Point(154, 1);
             this.MainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel.Name = "MainTextLabel";
             this.MainTextLabel.Size = new System.Drawing.Size(309, 46);
@@ -71,12 +71,12 @@
             // 
             // ResultLabel
             // 
-            this.ResultLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ResultLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ResultLabel.AutoSize = true;
             this.ResultLabel.BackColor = System.Drawing.Color.Transparent;
             this.ResultLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResultLabel.ForeColor = System.Drawing.Color.White;
-            this.ResultLabel.Location = new System.Drawing.Point(236, 62);
+            this.ResultLabel.Location = new System.Drawing.Point(213, 70);
             this.ResultLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ResultLabel.Name = "ResultLabel";
             this.ResultLabel.Size = new System.Drawing.Size(191, 33);
@@ -86,11 +86,11 @@
             // 
             // mmRainLabel
             // 
-            this.mmRainLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mmRainLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.mmRainLabel.AutoSize = true;
             this.mmRainLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mmRainLabel.ForeColor = System.Drawing.Color.White;
-            this.mmRainLabel.Location = new System.Drawing.Point(276, 123);
+            this.mmRainLabel.Location = new System.Drawing.Point(275, 120);
             this.mmRainLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mmRainLabel.Name = "mmRainLabel";
             this.mmRainLabel.Size = new System.Drawing.Size(67, 33);
@@ -99,11 +99,11 @@
             // 
             // CrowdLabel
             // 
-            this.CrowdLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CrowdLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CrowdLabel.AutoSize = true;
             this.CrowdLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CrowdLabel.ForeColor = System.Drawing.Color.White;
-            this.CrowdLabel.Location = new System.Drawing.Point(199, 178);
+            this.CrowdLabel.Location = new System.Drawing.Point(202, 180);
             this.CrowdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CrowdLabel.Name = "CrowdLabel";
             this.CrowdLabel.Size = new System.Drawing.Size(212, 33);
@@ -112,11 +112,11 @@
             // 
             // CostLabel
             // 
-            this.CostLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CostLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.CostLabel.AutoSize = true;
             this.CostLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostLabel.ForeColor = System.Drawing.Color.White;
-            this.CostLabel.Location = new System.Drawing.Point(161, 252);
+            this.CostLabel.Location = new System.Drawing.Point(188, 270);
             this.CostLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CostLabel.Name = "CostLabel";
             this.CostLabel.Size = new System.Drawing.Size(240, 33);
@@ -127,7 +127,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Disneyland.Properties.Resources._07_Weather;
-            this.pictureBox1.Location = new System.Drawing.Point(168, 97);
+            this.pictureBox1.Location = new System.Drawing.Point(150, 105);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(104, 80);
@@ -137,17 +137,16 @@
             // 
             // Crowdlevelpanel
             // 
-            this.Crowdlevelpanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Crowdlevelpanel.Location = new System.Drawing.Point(167, 219);
+            this.Crowdlevelpanel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.Crowdlevelpanel.Location = new System.Drawing.Point(178, 219);
             this.Crowdlevelpanel.Margin = new System.Windows.Forms.Padding(2);
             this.Crowdlevelpanel.Name = "Crowdlevelpanel";
-            this.Crowdlevelpanel.Size = new System.Drawing.Size(260, 39);
+            this.Crowdlevelpanel.Size = new System.Drawing.Size(260, 40);
             this.Crowdlevelpanel.TabIndex = 7;
             this.Crowdlevelpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // HomeButton
             // 
-            this.HomeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(63, 30);
@@ -164,17 +163,18 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.Crowdlevelpanel);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CostLabel);
             this.Controls.Add(this.CrowdLabel);
             this.Controls.Add(this.mmRainLabel);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.MainTextLabel);
             this.Controls.Add(this.CalendarButton);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DatePickerForm";
             this.Text = "Disneyland";
+            this.SizeChanged += new System.EventHandler(this.DatePickerForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
