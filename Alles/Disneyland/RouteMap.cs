@@ -111,9 +111,10 @@ namespace Disneyland
 
         private void SwitchButton_Click(object sender, EventArgs e)
         {
-            MainMenu main = new MainMenu();
-            main.Show();
             this.Hide();
+            MainMenu main = new MainMenu();
+            main.ShowDialog();
+            this.Close ();
         }
 
         //Retrievies the needed SQL data from the sql-database for the Genetic Algorithm

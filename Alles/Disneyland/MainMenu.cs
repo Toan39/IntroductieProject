@@ -22,16 +22,20 @@ namespace Disneyland
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DatePickerInputForm disney = new DatePickerInputForm();
-            disney.Show();
             this.Hide();
+            DatePickerInputForm disney = new DatePickerInputForm();
+            disney.ShowDialog();
+            this.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RouteMapInputForm disney2 = new RouteMapInputForm();
-            disney2.Show();
             this.Hide();
+            RouteMapInputForm disney2 = new RouteMapInputForm();
+            disney2.ShowDialog();
+            this.Close();
+
         }
     }
 }

@@ -38,9 +38,11 @@ namespace Disneyland
             else
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
-                RouteMap map = new RouteMap(selecteditems);
-                map.Show();
                 this.Hide();
+                RouteMap map = new RouteMap(selecteditems);
+                map.ShowDialog();
+                this.Close();
+
             }
 
             ////add combobox later
@@ -87,9 +89,11 @@ namespace Disneyland
         //returns the user to the home form 
         private void HomeButton_Click(object sender, EventArgs e)
         {
-            MainMenu main = new MainMenu();
-            main.Show();
             this.Hide();
+            MainMenu main = new MainMenu();
+            main.ShowDialog();
+            this.Close();
+
         }
     }
 }
