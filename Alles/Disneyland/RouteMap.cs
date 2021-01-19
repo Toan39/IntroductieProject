@@ -67,7 +67,7 @@ namespace Disneyland
             Selection(selected);
 
             Termination(popsize(selected), selected);
-            Console.WriteLine("end");
+            //console.writeline("end");
         }
 
         //Calculates the populationsize
@@ -385,8 +385,8 @@ namespace Disneyland
             higherbound = fitness.Max();
 
             //prints every fitnessScore
-            Console.WriteLine(higherbound);
-            Console.WriteLine("\n");
+            //console.writeline(higherbound);
+            //console.writeline("\n");
 
             ///<summary>
             ///Sets the best fitnessscore of the population and  to a list with attractionIDs 
