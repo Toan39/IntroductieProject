@@ -44,6 +44,11 @@ namespace Disneyland
         public int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
         float bestFitness, sumTime;
         public float higherbound = 0;
+        
+        //gmap declarations.
+        GMapMarker[] mark = new GMapMarker[30];
+        GMapOverlay markers = new GMapOverlay("markers");
+
         public RouteMap(List<string> selecteditems, bool checktime)
         {
             int selected = selecteditems.Count;  //Amount of selected attractions by the user // select 3 attractions, to have low processing time
@@ -115,6 +120,9 @@ namespace Disneyland
 
         private void SwitchButton_Click(object sender, EventArgs e)
         {
+            BestChromosome.Clear();
+            FinalRoute.Clear();
+            Lijst.attLoc.Clear();
             MainMenu main = new MainMenu();
             main.Show();
             this.Hide();
@@ -560,8 +568,12 @@ namespace Disneyland
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gmap_Load_1(object sender, EventArgs e)
+        public void gmap_Load_1(object sender, EventArgs e)
         {
+            
+            markers.Markers.Clear();
+            gmap.Overlays.Clear();
+            
             gmap.MapProvider = GMapProviders.GoogleMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new GMap.NET.PointLatLng(48.872621961563205, 2.7761909189966993);
@@ -570,10 +582,11 @@ namespace Disneyland
             gmap.Zoom = 15;
             gmap.ShowCenter = false;
             gmap.DragButton = MouseButtons.Left;
-            GMapOverlay markers = new GMapOverlay("markers");
-            GMapMarker[] mark;
-            mark = new GMapMarker[1000];
-
+            
+            
+            
+            
+            
             for (int t = 0; t < Lijst.attLoc.Count; t++)
             {
                 PointLatLng p = new PointLatLng(Lijst.attLoc[t].Lat, Lijst.attLoc[t].Lon);
