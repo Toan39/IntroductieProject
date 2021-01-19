@@ -41,13 +41,12 @@ namespace Disneyland
         int CurrentBest, index;
         int s=0; //index of the population array  
         int GenerationCount = 0; // The current generation. The int GenerationCount is not the amount of generations
-        int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
-        float bestFitness, sumTime, higherbound = 0;
-
-        public RouteMap(List<string> selecteditems)
+        public int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
+        float bestFitness, sumTime;
+        public float higherbound = 0;
+        public RouteMap(List<string> selecteditems, bool checktime)
         {
             int selected = selecteditems.Count;  //Amount of selected attractions by the user // select 3 attractions, to have low processing time
-
             //The length of the arrays 
             fitnesstime = new float[popsize(selected)];
             fitness = new float[popsize(selected)];
@@ -62,12 +61,17 @@ namespace Disneyland
             MakeWalktimelist();
             DownScaleList(selecteditems, AttID, "ID");
             CreatePopulation(popsize(selected), selected, "Initial", AttID);
-
+            
             FitnessFunction();
-            Selection(selected);
+            
+            if(checktime == false)
+            {
+                Selection(selected);
 
-            Termination(popsize(selected), selected);
-            Console.WriteLine("end");
+                Termination(popsize(selected), selected);
+                Console.WriteLine("end");
+            }
+           
         }
 
         //Calculates the populationsize

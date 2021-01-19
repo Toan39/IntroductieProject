@@ -13,24 +13,24 @@ namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
+        int lunch = 0;
+        int spare = 0;
+        bool checktime = true;
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
-
-            ////////add combobox later
-            //HoursSpendComboBox.Text = "1";
-            //FreeTimeComboBox.Text = "0";
         }
 
         //When user clicks on Go-button the RouteMap.cs is executed
         public void GoButton_Click(object sender, EventArgs e)
         {
             /// <summary>
-            /// error messages for when an immposible inputs are inserted 
+            /// error messages for when an impossible inputs are inserted.
+            /// if the totaltime including the lunch breaks and spare time exceeds the upperboundtime, an error message will occur.
             /// </summary>
             if (PriorityRidesListBox.Items.Count > 18)
-            { MessageBox.Show("Select max 18 attractions "); } 
+                { MessageBox.Show("Select max 18 attractions "); } 
             else if (PriorityRidesListBox.Items.Count == 0)
             {
                 { MessageBox.Show("No attractions are selected"); }
@@ -38,30 +38,34 @@ namespace Disneyland
             else
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
-                RouteMap map = new RouteMap(selecteditems);
-                map.Show();
-                this.Hide();
+                RouteMap map1 = new RouteMap(selecteditems, checktime); //only grabs the higherbound of the first generation.
+                float maxfitness = map1.higherbound;
+                float maxtime = map1.UpperBoundTime;
+                float originaltime = normalizefitnessscore(maxfitness, maxtime);
+                if(originaltime < 480)
+                {
+                    checktime = false;
+                    RouteMap map2 = new RouteMap(selecteditems, checktime);
+                    map2.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    string error = "Error: invalid route. Lower the amount of attractions or the amount of";
+                    if(lunch == 0)
+                    {
+                        { MessageBox.Show(error + " spare time"); }
+                    }
+                    else
+                    {
+                        { MessageBox.Show(error + " lunchbreaks or the amount of spare time"); }
+                    }
+                    
+                }
+                
             }
 
-            ////add combobox later
-
-            //String s = HoursSpendComboBox.Text;
-            //string a = FreeTimeComboBox.Text;
-
-            //int x = 0;
-            //int q = 0;
-
-            //try
-            //{x = int.Parse(s);}
-            //catch(Exception)
-            //{}
-            //try
-            //{q = int.Parse(a);}
-            //catch(Exception)
-            //{}
-
-            //if (x + q > 12)
-            //{MessageBox.Show("Dit is meer dan 12 uur, dan is disneyland al dicht. Selecteer andere tijden.");}
+          
         }
 
         //links the user to the attractions information site of Disneyland
@@ -90,6 +94,27 @@ namespace Disneyland
             MainMenu main = new MainMenu();
             main.Show();
             this.Hide();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            lunch = int.Parse(lunchbreak.Value.ToString());
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            spare = int.Parse(timetospare.Value.ToString());
+        }
+
+        //converts the fitnessscore to the totaltime.
+        private float normalizefitnessscore(float maxfitness, float maxtime)
+        {
+            float x = (100 - maxfitness) / 100;
+            float originaltime = x * maxtime;
+            originaltime = originaltime + 5; //adds 5 minutes to the higherbound in order to prevent an infinite route.
+            lunch = lunch * 20;
+            originaltime = originaltime + lunch + spare;
+            return originaltime;
         }
     }
 }
