@@ -13,6 +13,7 @@ namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
+        public progressbar kaas;
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -39,13 +40,14 @@ namespace Disneyland
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                 this.Hide();
-                progressbar kaas = new progressbar();
+                kaas = new progressbar();
                 kaas.ShowDialog();
-
-                
-                /*RouteMap map = new RouteMap(selecteditems);
-                map.ShowDialog();*/
                 this.Close();
+
+                RouteMap map = new RouteMap(selecteditems, kaas);
+                kaas.Close();
+                map.ShowDialog();
+                
 
           
             }
