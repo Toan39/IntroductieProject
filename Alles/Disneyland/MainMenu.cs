@@ -18,6 +18,7 @@ namespace Disneyland
         public MainMenu()
         {
             InitializeComponent();
+            this.MinimumSize = new Size(616, 405);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,6 +27,7 @@ namespace Disneyland
             disney.Show();
             if(this.WindowState == FormWindowState.Maximized)
                disney.WindowState = FormWindowState.Maximized;
+            disney.MinimumSize = new Size(616, 405);
             this.Hide();
             
         }
@@ -36,6 +38,7 @@ namespace Disneyland
             disney2.Show();
             if (this.WindowState == FormWindowState.Maximized)
                 disney2.WindowState = FormWindowState.Maximized;
+            disney2.MinimumSize = new Size(616, 405);
             this.Hide();
         }
     }

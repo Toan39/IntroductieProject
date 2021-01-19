@@ -129,7 +129,7 @@
             this.PriorityRidesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PriorityRidesListBox.Font = new System.Drawing.Font("Script MT Bold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PriorityRidesListBox.FormattingEnabled = true;
-            this.PriorityRidesListBox.Location = new System.Drawing.Point(375, 104);
+            this.PriorityRidesListBox.Location = new System.Drawing.Point(382, 126);
             this.PriorityRidesListBox.Margin = new System.Windows.Forms.Padding(2);
             this.PriorityRidesListBox.Name = "PriorityRidesListBox";
             this.PriorityRidesListBox.Size = new System.Drawing.Size(208, 78);
@@ -141,7 +141,7 @@
             this.SelectedRidesLabel.AutoSize = true;
             this.SelectedRidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectedRidesLabel.ForeColor = System.Drawing.Color.White;
-            this.SelectedRidesLabel.Location = new System.Drawing.Point(436, 73);
+            this.SelectedRidesLabel.Location = new System.Drawing.Point(443, 95);
             this.SelectedRidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectedRidesLabel.Name = "SelectedRidesLabel";
             this.SelectedRidesLabel.Size = new System.Drawing.Size(97, 19);
@@ -177,6 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.HomeButton);

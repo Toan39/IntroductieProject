@@ -80,6 +80,7 @@ namespace Disneyland
                 date.Show();
                 if (this.WindowState == FormWindowState.Maximized)
                     date.WindowState = FormWindowState.Maximized;
+                date.MinimumSize = new Size(616, 405);
                 this.Hide();
                 }
              

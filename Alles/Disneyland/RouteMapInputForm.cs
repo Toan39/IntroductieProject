@@ -42,6 +42,7 @@ namespace Disneyland
                 map.Show();
                 if (this.WindowState == FormWindowState.Maximized)
                     map.WindowState = FormWindowState.Maximized;
+                map.MinimumSize = new Size(800, 584);
                 this.Hide();
             }
 
