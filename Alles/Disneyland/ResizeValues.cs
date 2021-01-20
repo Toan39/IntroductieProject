@@ -48,7 +48,6 @@ namespace Disneyland
 
             PriorityRidesCheckedListBox.Font = new Font(PriorityRidesCheckedListBox.Font.FontFamily, (float)(7.8 * scaleY));
             PriorityRidesListBox.Font = new Font(PriorityRidesListBox.Font.FontFamily, (float)(7.8 * scaleY));
-            HomeButton.Font = new Font(HomeButton.Font.FontFamily, (float)(12 * scaleY));
             RidesLabel.Font = new Font(RidesLabel.Font.FontFamily, (float)(12 * scaleY));
             SelectedRidesLabel.Font = new Font(SelectedRidesLabel.Font.FontFamily, (float)(12 * scaleY));
             InformationButton.Font = new Font(InformationButton.Font.FontFamily, (float)(12 * scaleY));
