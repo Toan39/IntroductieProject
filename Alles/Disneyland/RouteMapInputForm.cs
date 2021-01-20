@@ -52,10 +52,10 @@ namespace Disneyland
                 float maxfitness = map1.higherbound;
                 float maxtime = map1.UpperBoundTime;
                 float originaltime = normalizefitnessscore(maxfitness, maxtime);
-                map.MinimumSize = new Size(800, 584);  
+                map1.MinimumSize = new Size(800, 584);  
                 if (this.WindowState == FormWindowState.Maximized)
                 {
-                    map.WindowState = FormWindowState.Maximized;
+                    map1.WindowState = FormWindowState.Maximized;
                 }
                 if(originaltime < 480)
                 {
@@ -79,7 +79,7 @@ namespace Disneyland
                 }    
                 this.Hide();
                 Wait.Close();
-                map.ShowDialog();
+                map1.ShowDialog();
             }
 
           

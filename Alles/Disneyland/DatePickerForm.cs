@@ -112,10 +112,10 @@ namespace Disneyland
 		//Returns the user to the main form
         private void HomeButton_Click(object sender, EventArgs e)
         {
+			MainMenu main = new MainMenu();
 			if (this.WindowState == FormWindowState.Maximized)
 				main.WindowState = FormWindowState.Maximized;
 			this.Hide();
-			MainMenu main = new MainMenu();
 			main.ShowDialog();
 			this.Close();
 		}
