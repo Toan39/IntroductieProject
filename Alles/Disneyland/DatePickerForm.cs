@@ -126,36 +126,5 @@ namespace Disneyland
 			public string date;
 			public string rain;
 		}
-
-        private void DatePickerForm_SizeChanged(object sender, EventArgs e)
-        {
-			this.MinimumSize = new Size(616, 405);
-			double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
-			double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
-
-			HomeButton.Width = (int)(60 * scaleX);
-			HomeButton.Height = (int)(24 * scaleY);
-
-			CalendarButton.Width = (int)(616 * scaleX);
-			CalendarButton.Height = (int)(45 * scaleY);
-			CalendarButton.Location = new Point((int)((0.5 * this.Width) - 0.5 * CalendarButton.Size.Width), (int)(this.Height - 100));
-
-			MainTextLabel.Font = new Font(MainTextLabel.Font.FontFamily, (float)(28.2 * scaleY));
-			ResultLabel.Font = new Font(ResultLabel.Font.FontFamily, (float)(19.8 * scaleY));
-			mmRainLabel.Font = new Font(mmRainLabel.Font.FontFamily, (float)(19.8 * scaleY));
-			CrowdLabel.Font = new Font(CrowdLabel.Font.FontFamily, (float)(19.8 * scaleY));
-			CostLabel.Font = new Font(CostLabel.Font.FontFamily, (float)(19.8 * scaleY));
-			pictureBox1.Size = new Size((int)(104 * scaleX), (int)(80 * scaleY));
-			Crowdlevelpanel.Size = new Size((int)(260 * scaleX), (int)(40 * scaleY));
-
-			MainTextLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel.Size.Width), (int)(1 * scaleY));
-			ResultLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * ResultLabel.Size.Width), (int)(70 * scaleY));
-			mmRainLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * mmRainLabel.Size.Width), (int)(120 * scaleY));
-			CrowdLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * CrowdLabel.Size.Width), (int)(180 * scaleY));
-			CostLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * CostLabel.Size.Width), (int)(270 * scaleY));
-			Crowdlevelpanel.Location = new Point((int)((0.5 * this.Width) - 0.5 * Crowdlevelpanel.Size.Width), (int)(219 * scaleY));
-			pictureBox1.Location = new Point((int)(150 * scaleX), (int)(105 * scaleY));
-			Crowdlevelpanel.Invalidate();
-		}
     }
 }

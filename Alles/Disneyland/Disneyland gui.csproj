@@ -120,6 +120,9 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResizeValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RouteMapInputForm.cs">
       <SubType>Form</SubType>
     </Compile>

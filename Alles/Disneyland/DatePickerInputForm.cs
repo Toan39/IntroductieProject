@@ -95,41 +95,5 @@ namespace Disneyland
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
         }
-
-        private void DatePickerInputForm_SizeChanged(object sender, EventArgs e)
-        {
-            this.MinimumSize = new Size(616, 405);
-            double scaleX = (double)this.Width / (double)this.MinimumSize.Width;
-            double scaleY = (double)this.Height / (double)this.MinimumSize.Height;
-           
-            HomeButton.Width = (int)(60 * scaleX);
-            HomeButton.Height = (int)(24 * scaleY);
-
-            FindDateButton.Width = (int)(350 * scaleX);
-            FindDateButton.Height = (int)(45 * scaleY);
-            FindDateButton.Location = new Point((int)((0.5 * this.Width) - 0.5 * FindDateButton.Size.Width), (int)(this.Height - 100));
-
-            WeekTextbox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
-            DaysComboBox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
-            ChildrenComboBox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
-            AdultComboBox.Size = new Size((int)(54 * scaleX), (int)(21 * scaleY));
-
-            WeekTextbox.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekTextbox.Size.Width), (int)(85 * scaleY));
-            DaysComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysComboBox.Size.Width), (int)(155 * scaleY));
-            ChildrenComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenComboBox.Size.Width), (int)(225 * scaleY));
-            AdultComboBox.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultComboBox.Size.Width), (int)(295 * scaleY));
-
-            AdultLabel.Font = new Font(AdultLabel.Font.FontFamily, (float)(19.8 * scaleY));
-            WeekLabel.Font = new Font(WeekLabel.Font.FontFamily, (float)(19.8 * scaleY));
-            ChildrenLabel.Font = new Font(ChildrenLabel.Font.FontFamily, (float)(19.8 * scaleY));
-            DaysLabel.Font = new Font(DaysLabel.Font.FontFamily, (float)(19.8 * scaleY));
-            MainTextLabel.Font = new Font(MainTextLabel.Font.FontFamily, (float)(28.2 * scaleY));
-
-            MainTextLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * MainTextLabel.Size.Width), (int)(1 * scaleY));
-            WeekLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * WeekLabel.Size.Width), (int)(50 * scaleY));
-            DaysLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * DaysLabel.Size.Width), (int)(120 * scaleY));
-            ChildrenLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * ChildrenLabel.Size.Width), (int)(190 * scaleY));
-            AdultLabel.Location = new Point((int)((0.5 * this.Width) - 0.5 * AdultLabel.Size.Width), (int)(260 * scaleY));
-        }
     }
 }
