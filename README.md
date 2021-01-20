@@ -17,5 +17,8 @@ For the most recent version of our program, download the zip-file from this WeTr
 And for the most recent MSMM server, download the developer edition from this link : https://www.microsoft.com/nl-nl/sql-server/sql-server-downloads
 
 Notice
+
+Disneyland contains pieces of source code that is Copyright (c) 2021.
+
  
 
