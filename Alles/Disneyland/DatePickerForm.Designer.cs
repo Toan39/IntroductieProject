@@ -60,12 +60,12 @@
             this.MainTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.MainTextLabel.AutoSize = true;
             this.MainTextLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 28.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainTextLabel.Font = new System.Drawing.Font("Script MT Bold", 29.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainTextLabel.ForeColor = System.Drawing.Color.White;
             this.MainTextLabel.Location = new System.Drawing.Point(154, 1);
             this.MainTextLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainTextLabel.Name = "MainTextLabel";
-            this.MainTextLabel.Size = new System.Drawing.Size(309, 46);
+            this.MainTextLabel.Size = new System.Drawing.Size(311, 47);
             this.MainTextLabel.TabIndex = 1;
             this.MainTextLabel.Text = "your ideal date is...";
             // 
@@ -76,7 +76,7 @@
             this.ResultLabel.BackColor = System.Drawing.Color.Transparent;
             this.ResultLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResultLabel.ForeColor = System.Drawing.Color.White;
-            this.ResultLabel.Location = new System.Drawing.Point(213, 70);
+            this.ResultLabel.Location = new System.Drawing.Point(250, 70);
             this.ResultLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ResultLabel.Name = "ResultLabel";
             this.ResultLabel.Size = new System.Drawing.Size(191, 33);
@@ -90,7 +90,7 @@
             this.mmRainLabel.AutoSize = true;
             this.mmRainLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mmRainLabel.ForeColor = System.Drawing.Color.White;
-            this.mmRainLabel.Location = new System.Drawing.Point(275, 120);
+            this.mmRainLabel.Location = new System.Drawing.Point(258, 119);
             this.mmRainLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.mmRainLabel.Name = "mmRainLabel";
             this.mmRainLabel.Size = new System.Drawing.Size(67, 33);
@@ -116,7 +116,7 @@
             this.CostLabel.AutoSize = true;
             this.CostLabel.Font = new System.Drawing.Font("Script MT Bold", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostLabel.ForeColor = System.Drawing.Color.White;
-            this.CostLabel.Location = new System.Drawing.Point(188, 270);
+            this.CostLabel.Location = new System.Drawing.Point(163, 269);
             this.CostLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CostLabel.Name = "CostLabel";
             this.CostLabel.Size = new System.Drawing.Size(240, 33);
