@@ -8,6 +8,8 @@ using System.Linq;
 using Dapper;
 using System.Collections;
 using System.Globalization;
+using System.IO;
+
 
 namespace Disneyland
 {
@@ -36,7 +38,14 @@ namespace Disneyland
                 { MessageBox.Show("No attractions are selected"); }
             }
             else
-            { 
+            {
+                Form Wait = new Form();
+                Wait.Text = "Wait a bit";
+                Wait.Size = new Size(350, 0);
+                Wait.StartPosition = FormStartPosition.CenterScreen;
+                Wait.Show();
+                
+
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                
                 RouteMap map1 = new RouteMap(selecteditems, checktime); //only grabs the higherbound of the first generation.
@@ -52,7 +61,7 @@ namespace Disneyland
                 {
                     checktime = false;
                     RouteMap map2 = new RouteMap(selecteditems, checktime);
-                    map2.Show();
+                    map2.ShowDialog();
                     this.Hide();
                 }
                 else
@@ -68,6 +77,9 @@ namespace Disneyland
                     }
                     
                 }    
+                this.Hide();
+                Wait.Close();
+                map.ShowDialog();
             }
 
           
@@ -97,10 +109,12 @@ namespace Disneyland
         private void HomeButton_Click(object sender, EventArgs e)
         {
             MainMenu main = new MainMenu();
-            main.Show();
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
+            main.ShowDialog();
+            this.Close();
+
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

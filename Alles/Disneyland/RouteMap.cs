@@ -124,10 +124,11 @@ namespace Disneyland
             FinalRoute.Clear();
             Lijst.attLoc.Clear();
             MainMenu main = new MainMenu();
-            main.Show();
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
+            main.ShowDialog();
+            this.Close ();
         }
 
         //Retrievies the needed SQL data from the sql-database for the Genetic Algorithm
@@ -399,8 +400,8 @@ namespace Disneyland
             higherbound = fitness.Max();
 
             //prints every fitnessScore
-            Console.WriteLine(higherbound);
-            Console.WriteLine("\n");
+            //console.writeline(higherbound);
+            //console.writeline("\n");
 
             ///<summary>
             ///Sets the best fitnessscore of the population and  to a list with attractionIDs 
@@ -622,6 +623,8 @@ namespace Disneyland
                 result = x.ToString() + ". " + result + FinalRoute[t] + " " + "\n";
                 label2.Text = label2.Text + result;
             }
+            RouteMapInputForm input = new RouteMapInputForm();
+            input.Close();
         }
     }
 }

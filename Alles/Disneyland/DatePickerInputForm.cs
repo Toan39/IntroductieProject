@@ -74,14 +74,15 @@ namespace Disneyland
             }
                 //Does not execute the datapicker if an impossible weeknumber is given
                 if (week <= 52)
-                { 
+                {
+                this.Hide();
                 DatePickerForm date = new DatePickerForm(week, price, crowd);
                 date.ResultLabel.Text = date.ReturnBestDate();
-                date.Show();
                 if (this.WindowState == FormWindowState.Maximized)
                     date.WindowState = FormWindowState.Maximized;
                 date.MinimumSize = new Size(616, 405);
-                this.Hide();
+                date.ShowDialog();
+                this.Close();
                 }
              
         }
@@ -90,10 +91,11 @@ namespace Disneyland
         private void HomeButton_Click(object sender, EventArgs e)
         {
             MainMenu main = new MainMenu();
-            main.Show();
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
+            main.ShowDialog();
+            this.Close();
         }
     }
 }

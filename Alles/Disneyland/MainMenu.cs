@@ -24,22 +24,25 @@ namespace Disneyland
         private void button1_Click(object sender, EventArgs e)
         {
             DatePickerInputForm disney = new DatePickerInputForm();
-            disney.Show();
             if(this.WindowState == FormWindowState.Maximized)
                disney.WindowState = FormWindowState.Maximized;
             disney.MinimumSize = new Size(616, 405);
-            this.Hide();
             
+            this.Hide();
+            disney.ShowDialog();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             RouteMapInputForm disney2 = new RouteMapInputForm();
-            disney2.Show();
             if (this.WindowState == FormWindowState.Maximized)
                 disney2.WindowState = FormWindowState.Maximized;
             disney2.MinimumSize = new Size(616, 405);
             this.Hide();
+            disney2.ShowDialog();
+            this.Close();
+
         }
 
 
