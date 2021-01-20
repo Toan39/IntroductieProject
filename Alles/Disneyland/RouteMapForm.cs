@@ -51,7 +51,9 @@ namespace Disneyland
 
         public RouteMapForm(List<string> selecteditems, bool checktime)
         {
-            int selected = selecteditems.Count;  //Amount of selected attractions by the user // select 3 attractions, to have low processing time
+            //Amount of selected attractions by the user
+            int selected = selecteditems.Count;  
+
             //The length of the arrays 
             fitnesstime = new float[popsize(selected)];
             fitness = new float[popsize(selected)];
