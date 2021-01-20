@@ -56,7 +56,7 @@
             this.HomeButton.TabIndex = 2;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
-            this.HomeButton.Click += new System.EventHandler(this.SwitchButton_Click);
+            this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
             // MainTextLabel
             // 

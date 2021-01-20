@@ -27,7 +27,7 @@ namespace Disneyland
             if(this.WindowState == FormWindowState.Maximized)
                disney.WindowState = FormWindowState.Maximized;
             disney.MinimumSize = new Size(616, 405);
-            
+            disney.Size = this.Size;
             this.Hide();
             disney.ShowDialog();
             this.Close();
@@ -39,6 +39,7 @@ namespace Disneyland
             if (this.WindowState == FormWindowState.Maximized)
                 disney2.WindowState = FormWindowState.Maximized;
             disney2.MinimumSize = new Size(616, 405);
+            disney2.Size = this.Size;
             this.Hide();
             disney2.ShowDialog();
             this.Close();

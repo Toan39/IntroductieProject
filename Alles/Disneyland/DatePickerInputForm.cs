@@ -81,6 +81,7 @@ namespace Disneyland
                 if (this.WindowState == FormWindowState.Maximized)
                     date.WindowState = FormWindowState.Maximized;
                 date.MinimumSize = new Size(616, 405);
+                date.Size = this.Size;
                 date.ShowDialog();
                 this.Close();
                 }
@@ -93,6 +94,7 @@ namespace Disneyland
             MainMenu main = new MainMenu();
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
+            main.Size = this.Size;
             this.Hide();
             main.ShowDialog();
             this.Close();

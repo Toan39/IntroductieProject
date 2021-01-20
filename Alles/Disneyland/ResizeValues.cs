@@ -26,6 +26,8 @@ namespace Disneyland
 
             SelectedRidesLabel.Location = new Point((int)(440 * scaleX), (int)(41 * scaleY));
             RidesLabel.Location = new Point((int)(25 * scaleX), (int)(41 * scaleY));
+            LunchBreakLabel.Location = new Point((int)(412 * scaleX), (int)(198 * scaleY)); 
+            SpareTimeLabel.Location = new Point((int)(381 * scaleX), (int)(240 * scaleY)); 
 
             PriorityRidesListBox.Size = new Size((int)(210 * scaleX), (int)(104 * scaleY));
             PriorityRidesListBox.Location = new Point((int)(385 * scaleX), (int)(75 * scaleY));
@@ -39,13 +41,21 @@ namespace Disneyland
             GoButton.Size = new Size((int)(231 * scaleX), (int)(76 * scaleY));
             GoButton.Location = new Point((int)(310 * scaleX), (int)(285 * scaleY));
 
+            LunchBreakNumeric.Size = new Size((int)(62 * scaleX), (int)(20 * scaleY));
+            LunchBreakNumeric.Location = new Point((int)(530 * scaleX), (int)(LunchBreakLabel.Location.Y));
+            SpareTimeNumeric.Size = new Size((int)(62 * scaleX), (int)(20 * scaleY));
+            SpareTimeNumeric.Location = new Point((int)(530 * scaleX), (int)(SpareTimeLabel.Location.Y));
+
             PriorityRidesCheckedListBox.Font = new Font(PriorityRidesCheckedListBox.Font.FontFamily, (float)(7.8 * scaleY));
             PriorityRidesListBox.Font = new Font(PriorityRidesListBox.Font.FontFamily, (float)(7.8 * scaleY));
-            HomeButton.Font = new Font(HomeButton.Font.FontFamily, (float)(7.8 * scaleY));
-            RidesLabel.Font = new Font(RidesLabel.Font.FontFamily, (float)(7.8 * scaleY));
-            SelectedRidesLabel.Font = new Font(SelectedRidesLabel.Font.FontFamily, (float)(7.8 * scaleY));
-            InformationButton.Font = new Font(InformationButton.Font.FontFamily, (float)(7.8 * scaleY));
-            GoButton.Font = new Font(GoButton.Font.FontFamily, (float)(7.8 * scaleY));
+            HomeButton.Font = new Font(HomeButton.Font.FontFamily, (float)(12 * scaleY));
+            RidesLabel.Font = new Font(RidesLabel.Font.FontFamily, (float)(12 * scaleY));
+            SelectedRidesLabel.Font = new Font(SelectedRidesLabel.Font.FontFamily, (float)(12 * scaleY));
+            InformationButton.Font = new Font(InformationButton.Font.FontFamily, (float)(12 * scaleY));
+            GoButton.Font = new Font(GoButton.Font.FontFamily, (float)(12 * scaleY));
+            LunchBreakLabel.Font = new Font(LunchBreakLabel.Font.FontFamily, (float)(12 * scaleY));
+            SpareTimeLabel.Font = new Font(SpareTimeLabel.Font.FontFamily, (float)(12 * scaleY));
+
         }
     }
 

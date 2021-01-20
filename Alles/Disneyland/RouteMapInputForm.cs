@@ -52,17 +52,20 @@ namespace Disneyland
                 float maxfitness = map1.higherbound;
                 float maxtime = map1.UpperBoundTime;
                 float originaltime = normalizefitnessscore(maxfitness, maxtime);
-                map1.MinimumSize = new Size(800, 584);  
+                map1.MinimumSize = new Size(800, 584);
+                map1.Size = this.Size;
                 if (this.WindowState == FormWindowState.Maximized)
-                {
                     map1.WindowState = FormWindowState.Maximized;
-                }
                 if(originaltime < 480)
                 {
                     checktime = false;
                     RouteMap map2 = new RouteMap(selecteditems, checktime);
-                    map2.ShowDialog();
+                    map2.Size = this.Size;
                     this.Hide();
+                    this.Close();
+                    Wait.Hide();
+                    Wait.Close();
+                    map2.ShowDialog();
                 }
                 else
                 {
@@ -75,11 +78,7 @@ namespace Disneyland
                     {
                         { MessageBox.Show(error + " lunchbreaks or the amount of spare time"); }
                     }
-                    
-                }    
-                this.Hide();
-                Wait.Close();
-                map1.ShowDialog();
+                }
             }
 
           
@@ -111,20 +110,21 @@ namespace Disneyland
             MainMenu main = new MainMenu();
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
+            main.Size = this.Size;
             this.Hide();
             main.ShowDialog();
             this.Close();
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void LunchBreakNumeric_ValueChanged(object sender, EventArgs e)
         {
-            lunch = int.Parse(lunchbreak.Value.ToString());
+            lunch = int.Parse(LunchBreakNumeric.Value.ToString());
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void SpareTimeNumeric_ValueChanged(object sender, EventArgs e)
         {
-            spare = int.Parse(timetospare.Value.ToString());
+            spare = int.Parse(SpareTimeNumeric.Value.ToString());
         }
 
         //converts the fitnessscore to the totaltime.

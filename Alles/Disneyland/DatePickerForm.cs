@@ -115,6 +115,7 @@ namespace Disneyland
 			MainMenu main = new MainMenu();
 			if (this.WindowState == FormWindowState.Maximized)
 				main.WindowState = FormWindowState.Maximized;
+			main.Size = this.Size;
 			this.Hide();
 			main.ShowDialog();
 			this.Close();
