@@ -26,8 +26,8 @@ namespace Disneyland
 
             SelectedRidesLabel.Location = new Point((int)(440 * scaleX), (int)(41 * scaleY));
             RidesLabel.Location = new Point((int)(25 * scaleX), (int)(41 * scaleY));
-            LunchBreakLabel.Location = new Point((int)(412 * scaleX), (int)(198 * scaleY)); 
-            SpareTimeLabel.Location = new Point((int)(381 * scaleX), (int)(240 * scaleY)); 
+            LunchBreakLabel.Location = new Point((int)(440 * scaleX), (int)(181 * scaleY)); 
+            SpareTimeLabel.Location = new Point((int)(425 * scaleX), (int)(226 * scaleY)); 
 
             PriorityRidesListBox.Size = new Size((int)(210 * scaleX), (int)(104 * scaleY));
             PriorityRidesListBox.Location = new Point((int)(385 * scaleX), (int)(75 * scaleY));
@@ -42,9 +42,9 @@ namespace Disneyland
             GoButton.Location = new Point((int)(310 * scaleX), (int)(285 * scaleY));
 
             LunchBreakNumeric.Size = new Size((int)(62 * scaleX), (int)(20 * scaleY));
-            LunchBreakNumeric.Location = new Point((int)(530 * scaleX), (int)(LunchBreakLabel.Location.Y));
+            LunchBreakNumeric.Location = new Point((int)(453 * scaleX), (int)(203 * scaleY));
             SpareTimeNumeric.Size = new Size((int)(62 * scaleX), (int)(20 * scaleY));
-            SpareTimeNumeric.Location = new Point((int)(530 * scaleX), (int)(SpareTimeLabel.Location.Y));
+            SpareTimeNumeric.Location = new Point((int)(453 * scaleX), (int)(248 * scaleY));
 
             PriorityRidesCheckedListBox.Font = new Font(PriorityRidesCheckedListBox.Font.FontFamily, (float)(7.8 * scaleY));
             PriorityRidesListBox.Font = new Font(PriorityRidesListBox.Font.FontFamily, (float)(7.8 * scaleY));
@@ -54,7 +54,6 @@ namespace Disneyland
             GoButton.Font = new Font(GoButton.Font.FontFamily, (float)(12 * scaleY));
             LunchBreakLabel.Font = new Font(LunchBreakLabel.Font.FontFamily, (float)(12 * scaleY));
             SpareTimeLabel.Font = new Font(SpareTimeLabel.Font.FontFamily, (float)(12 * scaleY));
-
         }
     }
 

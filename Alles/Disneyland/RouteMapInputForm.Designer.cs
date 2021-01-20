@@ -180,7 +180,7 @@
             this.LunchBreakLabel.AutoSize = true;
             this.LunchBreakLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold);
             this.LunchBreakLabel.ForeColor = System.Drawing.Color.White;
-            this.LunchBreakLabel.Location = new System.Drawing.Point(412, 198);
+            this.LunchBreakLabel.Location = new System.Drawing.Point(440, 181);
             this.LunchBreakLabel.Name = "LunchBreakLabel";
             this.LunchBreakLabel.Size = new System.Drawing.Size(94, 19);
             this.LunchBreakLabel.TabIndex = 17;
@@ -191,7 +191,7 @@
             this.SpareTimeLabel.AutoSize = true;
             this.SpareTimeLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold);
             this.SpareTimeLabel.ForeColor = System.Drawing.Color.White;
-            this.SpareTimeLabel.Location = new System.Drawing.Point(381, 240);
+            this.SpareTimeLabel.Location = new System.Drawing.Point(425, 226);
             this.SpareTimeLabel.Name = "SpareTimeLabel";
             this.SpareTimeLabel.Size = new System.Drawing.Size(125, 19);
             this.SpareTimeLabel.TabIndex = 18;
@@ -199,7 +199,7 @@
             // 
             // LunchBreakNumeric
             // 
-            this.LunchBreakNumeric.Location = new System.Drawing.Point(530, 197);
+            this.LunchBreakNumeric.Location = new System.Drawing.Point(453, 203);
             this.LunchBreakNumeric.Maximum = new decimal(new int[] {
             2,
             0,
@@ -218,7 +218,7 @@
             0,
             0,
             0});
-            this.SpareTimeNumeric.Location = new System.Drawing.Point(530, 239);
+            this.SpareTimeNumeric.Location = new System.Drawing.Point(453, 248);
             this.SpareTimeNumeric.Maximum = new decimal(new int[] {
             300,
             0,
