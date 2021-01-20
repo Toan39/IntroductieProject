@@ -327,8 +327,8 @@ namespace Disneyland
             higherbound = fitness.Max();
 
             //prints every fitnessScore
-            //console.writeline(higherbound);
-            //console.writeline("\n");
+            Console.WriteLine(higherbound);
+            Console.WriteLine("\n");
 
             ///<summary>
             ///Sets the best fitnessscore of the population and  to a list with attractionIDs 

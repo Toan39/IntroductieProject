@@ -27,7 +27,6 @@ namespace Disneyland
     //Fisher-Yates shuffle that can be used on lists/arrays
     public static class shuffler
     {
-        public static Random rng = new Random();
         public static void Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;
