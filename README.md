@@ -14,7 +14,7 @@ If you have problems, questions, ideas or suggestions, please contact us by send
 CVS
 
 For the most recent version of our program, download the zip-file from this WeTransfer link : <link here>
-And for the most recent MSMM server, download the developer edition from this link : https://www.microsoft.com/nl-nl/sql-server/sql-server-downloads
+And for the most recent Microsoft sql server, download the developer edition from this link : https://www.microsoft.com/nl-nl/sql-server/sql-server-downloads
 
 Notice
 
