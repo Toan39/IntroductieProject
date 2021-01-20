@@ -105,8 +105,8 @@ namespace Disneyland
 		//Visual of the crowdlevel
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-			e.Graphics.DrawRectangle(Pens.White, 0, 0, Crowdlevelpanel.Width+1, Crowdlevelpanel.Height+1);
-			e.Graphics.FillRectangle(Brushes.Green, 1, 1, ((float)crowdlevel/(float)220 * Crowdlevelpanel.Width), Crowdlevelpanel.Height);
+			e.Graphics.DrawRectangle(Pens.White, 0, 0, Crowdlevelpanel.Width-1, Crowdlevelpanel.Height-1);
+			e.Graphics.FillRectangle(Brushes.Green, 1, 1, ((float)crowdlevel/(float)220 * Crowdlevelpanel.Width-2), Crowdlevelpanel.Height-2);
         }
 
 		//Returns the user to the main form
