@@ -48,7 +48,7 @@ namespace Disneyland
 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                
-                RouteMap map1 = new RouteMap(selecteditems, checktime); //only grabs the higherbound of the first generation.
+                RouteMapForm map1 = new RouteMapForm(selecteditems, checktime); //only grabs the higherbound of the first generation.
                 float maxfitness = map1.higherbound;
                 float maxtime = map1.UpperBoundTime;
                 float originaltime = normalizefitnessscore(maxfitness, maxtime);
@@ -59,7 +59,7 @@ namespace Disneyland
                 if(originaltime < 480)
                 {
                     checktime = false;
-                    RouteMap map2 = new RouteMap(selecteditems, checktime);
+                    RouteMapForm map2 = new RouteMapForm(selecteditems, checktime);
                     map2.Size = this.Size;
                     this.Hide();
                     this.Close();
@@ -79,9 +79,7 @@ namespace Disneyland
                         { MessageBox.Show(error + " lunchbreaks or the amount of spare time"); }
                     }
                 }
-            }
-
-          
+            }      
         }
 
         //links the user to the attractions information site of Disneyland
@@ -104,7 +102,7 @@ namespace Disneyland
             }));
         }
 
-        //returns the user to the home form 
+        //Returns the user to the home form 
         private void HomeButton_Click(object sender, EventArgs e)
         {
             MainMenu main = new MainMenu();
@@ -117,6 +115,11 @@ namespace Disneyland
 
         }
 
+        /// <summary>
+        /// Input boxes for the lunchbreak and spare time.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LunchBreakNumeric_ValueChanged(object sender, EventArgs e)
         {
             lunch = int.Parse(LunchBreakNumeric.Value.ToString());

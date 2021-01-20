@@ -9,6 +9,7 @@ namespace Disneyland
 {
     /// <summary>
     /// The partial classes in this cs.file resizes forms, if user wants a different size.
+    /// Hardcoded values are used mostly.
     /// </summary>
     partial class RouteMapInputForm
     {
@@ -57,7 +58,7 @@ namespace Disneyland
         }
     }
 
-    partial class RouteMap
+    partial class RouteMapForm
     {
         private void RouteMap_SizeChanged(object sender, EventArgs e)
         {

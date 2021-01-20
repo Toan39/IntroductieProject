@@ -1,8 +1,4 @@
-﻿using GMap.NET;
-using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
-using GMap.NET.MapProviders;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,68 +13,11 @@ using System.Collections;
 using System.Threading;
 using System.Drawing.Printing;
 
+
 namespace Disneyland
 {
-    public partial class RouteMap : Form
+    public partial class RouteMapForm
     {
-        Random rnd = new Random();
-
-        //declarations of lists
-        List<genal> listForGenAl = new List<genal>();
-        List<walktime> WTimes = new List<walktime>();
-        List<string> BestChromosome = new List<string>();
-        List<string> AttID = new List<string>();
-        List<string> FinalRoute = new List<string>();
-
-        //declarations of arrays
-        int[] indexPopulation;
-        float[] fitnesstime, fitness, fitnessParents;
-        string[] CurrentChromosome, parent1, parent2, child;
-        string[][] population, parents;
-
-        //declarations of variables
-        bool betterChromo;
-        int CurrentBest, index;
-        int s=0; //index of the population array  
-        int GenerationCount = 0; // The current generation. The int GenerationCount is not the amount of generations
-        public int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
-        float bestFitness, sumTime;
-        public float higherbound = 0;
-        
-        //gmap declarations.
-        GMapMarker[] mark = new GMapMarker[30];
-        GMapOverlay markers = new GMapOverlay("markers");
-
-        public RouteMap(List<string> selecteditems, bool checktime)
-        {
-            int selected = selecteditems.Count;  //Amount of selected attractions by the user // select 3 attractions, to have low processing time
-            //The length of the arrays 
-            fitnesstime = new float[popsize(selected)];
-            fitness = new float[popsize(selected)];
-            population = new string[popsize(selected)][];
-            parent2 = new string[selected + 2]; //the +2 is because the whole chromosome has ports
-            parent1 = new string[selected + 2];
-
-            InitializeComponent();
-            ///<summary>
-            ///Genetic Algorithm (finds a approximately best route )
-            ///</summary>
-            MakeWalktimelist();
-            DownScaleList(selecteditems, AttID, "ID");
-            CreatePopulation(popsize(selected), selected, "Initial", AttID);
-            
-            FitnessFunction();
-            
-            if(checktime == false)
-            {
-                Selection(selected);
-
-                Termination(popsize(selected), selected);
-                Console.WriteLine("end");
-            }
-           
-        }
-
         //Calculates the populationsize
         public int popsize(int selected)
         {
@@ -129,10 +68,10 @@ namespace Disneyland
             main.Size = this.Size;
             this.Hide();
             main.ShowDialog();
-            this.Close ();
+            this.Close();
         }
 
-        //Retrievies the needed SQL data from the sql-database for the Genetic Algorithm
+        //Retrieves the needed SQL data from the sql-database for the Genetic Algorithm
         public void MakeWalktimelist()
         {
             string connectionString;
@@ -231,19 +170,6 @@ namespace Disneyland
                 sumTime = 0;
                 listForGenAl.Clear();
             }
-
-            //print the arrays in the jagged array with the index number in console
-
-            //for (int i = 0; i < population.Length; i++)
-            //{
-            //    Console.Write("Element({0}): ", i);
-
-            //    for (int j = 0; j < population[i].Length; j++)
-            //    {
-            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-            //    }
-            //    Console.WriteLine("\n");
-            //}
         }
 
 
@@ -287,9 +213,9 @@ namespace Disneyland
 
         /// <summary>
         /// Sub-methods that are used for the method: SelectItems
-        /// Method possible till routecheck
+        /// This summary is apliable to method "possible" till "routecheck"
         /// </summary>
-       
+
         //Checks if an attraction is not yet been added to the route
         public bool possible(string x)
         {
@@ -354,7 +280,7 @@ namespace Disneyland
         {
             foreach (genal attraction in listForGenAl)
             {
-                sumTime = sumTime + attraction.TotalTime;  
+                sumTime = sumTime + attraction.TotalTime;
             }
         }
 
@@ -375,7 +301,7 @@ namespace Disneyland
             return false;
         }
 
-        //Create a population
+        //Creates a population
         public void CreatePointArray(int z)
         {
 
@@ -463,7 +389,7 @@ namespace Disneyland
             int j = 30;   //low processing time
             if (selected > 4)
             {
-                while (GenerationCount < j) 
+                while (GenerationCount < j)
                 {
                     s = 0;
                     createParents();
@@ -560,75 +486,10 @@ namespace Disneyland
         //Creation of a new generation
         public void NextGeneration(int k, int selected, string CurrentPopulation)
         {
-            CreatePopulation(k, selected, CurrentPopulation, AttID); 
+            CreatePopulation(k, selected, CurrentPopulation, AttID);
             FitnessFunction();
-            Selection(selected);      
+            Selection(selected);
         }
 
-
-        /// <summary>
-        /// G-map package that makes it possible to show the route in a google maps display
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void gmap_Load_1(object sender, EventArgs e)
-        {
-            
-            markers.Markers.Clear();
-            gmap.Overlays.Clear();
-            
-            gmap.MapProvider = GMapProviders.GoogleMap;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gmap.Position = new GMap.NET.PointLatLng(48.872621961563205, 2.7761909189966993);
-            gmap.MinZoom = 5;
-            gmap.MaxZoom = 100;
-            gmap.Zoom = 15;
-            gmap.ShowCenter = false;
-            gmap.DragButton = MouseButtons.Left;
-            
-            
-            
-            
-            
-            for (int t = 0; t < Lijst.attLoc.Count; t++)
-            {
-                PointLatLng p = new PointLatLng(Lijst.attLoc[t].Lat, Lijst.attLoc[t].Lon);
-                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.blue_pushpin);
-                markers.Markers.Add(marker);
-                gmap.Overlays.Add(markers);
-                if (t == Lijst.attLoc.Count - 1)
-                {
-                    t++;
-                    string endport = t.ToString();
-                    marker.ToolTipText = ("1, " + endport);
-                }
-                else
-                {
-                    marker.ToolTipText = (t + 1).ToString();
-                }
-
-                marker.ToolTipMode = MarkerTooltipMode.Always;
-                mark[t] = marker;
-
-            }
-        }
-
-        //Prints out order of attraction names of the best route on the form.
-        public void PrintLabel()
-        {
-            label2.Text=""; 
-            for (int t = 0; t < FinalRoute.Count; t++)
-            {
-                int x = t + 1;
-                string result = "";
-                result = x.ToString() + ". " + result + FinalRoute[t] + " " + "\n";
-                label2.Text = label2.Text + result;
-            }
-            RouteMapInputForm input = new RouteMapInputForm();
-            input.Close();
-        }
     }
 }
-
-
-        

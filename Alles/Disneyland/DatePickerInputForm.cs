@@ -66,6 +66,7 @@ namespace Disneyland
                         MessageBox.Show("Insert a weeknumber under 52"); break; //error message
             }
 
+            //Calculates hotel cost
             if (day > 1)
             {
                 int groupsize = adult + child;

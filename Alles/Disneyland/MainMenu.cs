@@ -45,7 +45,5 @@ namespace Disneyland
             this.Close();
 
         }
-
-
     }
 }
