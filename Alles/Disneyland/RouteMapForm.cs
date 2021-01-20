@@ -60,21 +60,20 @@ namespace Disneyland
             parent1 = new string[selected + 2];
 
             InitializeComponent();
+
             ///<summary>
-            ///Genetic Algorithm (finds a approximately best route )
+            ///Genetic Algorithm (finds a approximately best route) (the code is in GeneticAlgorithm.cs)
             ///</summary>
             MakeWalktimelist();
             DownScaleList(selecteditems, AttID, "ID");
             CreatePopulation(popsize(selected), selected, "Initial", AttID);
-            
             FitnessFunction();
-            
             if(checktime == false)
             {
                 Selection(selected);
-
                 Termination(popsize(selected), selected);
                 Console.WriteLine("end");
+                Console.WriteLine("\n");
             }
         }
 
