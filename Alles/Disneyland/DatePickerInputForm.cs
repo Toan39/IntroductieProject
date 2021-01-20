@@ -69,7 +69,7 @@ namespace Disneyland
             if (day > 1)
             {
                 int groupsize = adult + child;
-                int  hotel= groupsize*73;  //staycity aparthotel - disneyland parijs (cheapest hotel)
+                int  hotel= groupsize * 73 * day;  //staycity aparthotel - disneyland parijs (cheapest hotel)
                 price = price + hotel;
             }
                 //Does not execute the datapicker if an impossible weeknumber is given

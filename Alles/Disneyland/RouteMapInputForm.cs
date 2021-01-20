@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Drawing;
@@ -13,6 +13,9 @@ namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
+        int lunch = 0;
+        int spare = 0;
+        bool checktime = true;
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
@@ -23,10 +26,11 @@ namespace Disneyland
         public void GoButton_Click(object sender, EventArgs e)
         {
             /// <summary>
-            /// error messages for when an immposible inputs are inserted 
+            /// error messages for when an impossible inputs are inserted.
+            /// if the totaltime including the lunch breaks and spare time exceeds the upperboundtime, an error message will occur.
             /// </summary>
             if (PriorityRidesListBox.Items.Count > 18)
-            { MessageBox.Show("Select max 18 attractions "); } 
+                { MessageBox.Show("Select max 18 attractions "); } 
             else if (PriorityRidesListBox.Items.Count == 0)
             {
                 { MessageBox.Show("No attractions are selected"); }
@@ -34,14 +38,39 @@ namespace Disneyland
             else
             { 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
-                RouteMap map = new RouteMap(selecteditems);
-                map.Show();
+               
+                RouteMap map1 = new RouteMap(selecteditems, checktime); //only grabs the higherbound of the first generation.
+                float maxfitness = map1.higherbound;
+                float maxtime = map1.UpperBoundTime;
+                float originaltime = normalizefitnessscore(maxfitness, maxtime);
+                map.MinimumSize = new Size(800, 584);  
                 if (this.WindowState == FormWindowState.Maximized)
+                {
                     map.WindowState = FormWindowState.Maximized;
-                map.MinimumSize = new Size(800, 584);
-                this.Hide();
+                }
+                if(originaltime < 480)
+                {
+                    checktime = false;
+                    RouteMap map2 = new RouteMap(selecteditems, checktime);
+                    map2.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    string error = "Error: invalid route. Lower the amount of attractions or the amount of";
+                    if(lunch == 0)
+                    {
+                        { MessageBox.Show(error + " spare time"); }
+                    }
+                    else
+                    {
+                        { MessageBox.Show(error + " lunchbreaks or the amount of spare time"); }
+                    }
+                    
+                }    
             }
 
+          
         }
 
         //links the user to the attractions information site of Disneyland
@@ -72,6 +101,27 @@ namespace Disneyland
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             this.Hide();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            lunch = int.Parse(lunchbreak.Value.ToString());
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            spare = int.Parse(timetospare.Value.ToString());
+        }
+
+        //converts the fitnessscore to the totaltime.
+        private float normalizefitnessscore(float maxfitness, float maxtime)
+        {
+            float x = (100 - maxfitness) / 100;
+            float originaltime = x * maxtime;
+            originaltime = originaltime + 5; //adds 5 minutes to the higherbound in order to prevent an infinite route.
+            lunch = lunch * 20;
+            originaltime = originaltime + lunch + spare;
+            return originaltime;
         }
     }
 }

@@ -37,8 +37,27 @@
             this.InformationButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.RidesLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lunchbreak = new System.Windows.Forms.NumericUpDown();
+            this.timetospare = new System.Windows.Forms.NumericUpDown();
+            RidesLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lunchbreak)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timetospare)).BeginInit();
             this.SuspendLayout();
+            // 
+            // RidesLabel
+            // 
+            RidesLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            RidesLabel.AutoSize = true;
+            RidesLabel.Font = new System.Drawing.Font("Script MT Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            RidesLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            RidesLabel.Location = new System.Drawing.Point(32, 39);
+            RidesLabel.Name = "RidesLabel";
+            RidesLabel.Size = new System.Drawing.Size(236, 24);
+            RidesLabel.TabIndex = 5;
+            RidesLabel.Text = "Choose your rides (max 18):";
             // 
             // GoButton
             // 
@@ -130,7 +149,7 @@
             this.SelectedRidesLabel.Location = new System.Drawing.Point(440, 41);
             this.SelectedRidesLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectedRidesLabel.Name = "SelectedRidesLabel";
-            this.SelectedRidesLabel.Size = new System.Drawing.Size(97, 19);
+            this.SelectedRidesLabel.Size = new System.Drawing.Size(119, 24);
             this.SelectedRidesLabel.TabIndex = 12;
             this.SelectedRidesLabel.Text = "Selected rides:";
             // 
@@ -152,7 +171,7 @@
             // 
             this.HomeButton.Location = new System.Drawing.Point(10, 5);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(60, 24);
+            this.HomeButton.Size = new System.Drawing.Size(80, 30);
             this.HomeButton.TabIndex = 15;
             this.HomeButton.Text = "Home";
             this.HomeButton.UseVisualStyleBackColor = true;
@@ -168,14 +187,68 @@
             this.RidesLabel.Size = new System.Drawing.Size(190, 19);
             this.RidesLabel.TabIndex = 16;
             this.RidesLabel.Text = "Choose your rides (max 18):";
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(535, 243);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Lunchbreak:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(535, 289);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 17);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Spare time:";
+            // 
+            // lunchbreak
+            // 
+            this.lunchbreak.Location = new System.Drawing.Point(657, 243);
+            this.lunchbreak.Maximum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.lunchbreak.Name = "lunchbreak";
+            this.lunchbreak.ReadOnly = true;
+            this.lunchbreak.Size = new System.Drawing.Size(120, 22);
+            this.lunchbreak.TabIndex = 20;
+            this.lunchbreak.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // timetospare
+            // 
+            this.timetospare.Increment = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.timetospare.Location = new System.Drawing.Point(657, 289);
+            this.timetospare.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.timetospare.Name = "timetospare";
+            this.timetospare.ReadOnly = true;
+            this.timetospare.Size = new System.Drawing.Size(120, 22);
+            this.timetospare.TabIndex = 21;
+            this.timetospare.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // RouteMapInputForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(604, 371);
             this.Controls.Add(this.RidesLabel);
+            this.Controls.Add(this.timetospare);
+            this.Controls.Add(this.lunchbreak);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.InformationButton);
             this.Controls.Add(this.SelectedRidesLabel);
@@ -184,11 +257,13 @@
             this.Controls.Add(this.DisneyLandPictureBox);
             this.Controls.Add(this.GoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RouteMapInputForm";
             this.Text = "Disneyland";
             this.SizeChanged += new System.EventHandler(this.RouteMapInputForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.DisneyLandPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lunchbreak)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timetospare)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +279,9 @@
         private System.Windows.Forms.Button InformationButton;
         private System.Windows.Forms.Button HomeButton;
         private System.Windows.Forms.Label RidesLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown lunchbreak;
+        private System.Windows.Forms.NumericUpDown timetospare;
     }
 }
