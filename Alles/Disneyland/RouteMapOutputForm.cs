@@ -67,7 +67,7 @@ namespace Disneyland
             ///Genetic Algorithm (finds a approximately best route) (the code is in GeneticAlgorithm.cs)
             ///</summary>
             MakeWalktimelist();
-            DownScaleList(selecteditems, selected);
+            DownScaleList(selecteditems);
             CreatePopulation(popsize(selected), selected);
             FitnessFunction();
             if(checktime == false)
