@@ -151,12 +151,12 @@ namespace Disneyland
             cache[0].TotalTime = 0;
             while (i < WTimes.Count && done == true)
             {
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && CheckSelected(WTimes[i].EndPoint.ToString(), a))
+                if (possible(WTimes[i].EndPoint) && begincheck(WTimes[i].StartPoint, previous) && CheckSelected(WTimes[i].EndPoint, a))
                 {
                     cache.Add(new sqldata());
-                    cache[a].Endpoint = WTimes[i].EndPoint.ToString();
-                    cache[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
-                    previous = WTimes[i].EndPoint.ToString();
+                    cache[a].Endpoint = WTimes[i].EndPoint;
+                    cache[a].TotalTime = routecheck(previous, WTimes[i].EndPoint);
+                    previous = WTimes[i].EndPoint;
                     a++;
                     if (a == selected + 1)
                     {
