@@ -165,7 +165,7 @@ namespace Disneyland
                         cache[a].Endpoint = p;
                         cache[a].TotalTime = routecheck(previous, p);
                     }
-                    i = 0;
+                    i = -1;
                 }
                 i++;
             }
