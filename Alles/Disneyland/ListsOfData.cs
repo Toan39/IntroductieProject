@@ -9,12 +9,12 @@ namespace Disneyland
     /// <summary>
     ///  All these classes represent the elements of their corresponding lists that are used for the Routemap-function
     /// </summary>
-    public static class Lijst
+    public static class list
     {
         public static List<attractionLoc> attLoc = new List<attractionLoc>();
     }
 
-    public class genal
+    public class GenAl
     {
         public string Endpoint;
         public float TotalTime;

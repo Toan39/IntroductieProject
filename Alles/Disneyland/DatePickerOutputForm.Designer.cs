@@ -1,6 +1,6 @@
 ﻿namespace Disneyland
 {
-    partial class DatePickerForm
+    partial class DatePickerOutputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatePickerForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatePickerOutputForm));
             this.CalendarButton = new System.Windows.Forms.Button();
             this.MainTextLabel = new System.Windows.Forms.Label();
             this.ResultLabel = new System.Windows.Forms.Label();

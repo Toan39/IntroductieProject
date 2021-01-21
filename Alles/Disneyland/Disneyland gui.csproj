@@ -135,17 +135,17 @@
     <Compile Include="RouteMapInputForm.Designer.cs">
       <DependentUpon>RouteMapInputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatePickerForm.cs">
+    <Compile Include="DatePickerOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DatePickerForm.Designer.cs">
-      <DependentUpon>DatePickerForm.cs</DependentUpon>
+    <Compile Include="DatePickerOutputForm.Designer.cs">
+      <DependentUpon>DatePickerOutputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RouteMapForm.cs">
+    <Compile Include="RouteMapOutputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RouteMapForm.Designer.cs">
-      <DependentUpon>RouteMapForm.cs</DependentUpon>
+    <Compile Include="RouteMapOutputForm.Designer.cs">
+      <DependentUpon>RouteMapOutputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,11 +160,11 @@
     <EmbeddedResource Include="RouteMapInputForm.resx">
       <DependentUpon>RouteMapInputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DatePickerForm.resx">
-      <DependentUpon>DatePickerForm.cs</DependentUpon>
+    <EmbeddedResource Include="DatePickerOutputForm.resx">
+      <DependentUpon>DatePickerOutputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RouteMapForm.resx">
-      <DependentUpon>RouteMapForm.cs</DependentUpon>
+    <EmbeddedResource Include="RouteMapOutputForm.resx">
+      <DependentUpon>RouteMapOutputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

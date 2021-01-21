@@ -1,6 +1,6 @@
 ﻿namespace Disneyland
 {
-    partial class RouteMapForm
+    partial class RouteMapOutputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMapForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RouteMapOutputForm));
             this.PrintButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
             this.MainTextLabel = new System.Windows.Forms.Label();

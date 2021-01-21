@@ -77,7 +77,7 @@ namespace Disneyland
                 if (week <= 52)
                 {
                 this.Hide();
-                DatePickerForm date = new DatePickerForm(week, price, crowd);
+                DatePickerOutputForm date = new DatePickerOutputForm(week, price, crowd);
                 date.ResultLabel.Text = date.ReturnBestDate();
                 if (this.WindowState == FormWindowState.Maximized)
                     date.WindowState = FormWindowState.Maximized;

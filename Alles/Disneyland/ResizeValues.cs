@@ -58,7 +58,7 @@ namespace Disneyland
         }
     }
 
-    partial class RouteMapForm
+    partial class RouteMapOutputForm
     {
         private void RouteMap_SizeChanged(object sender, EventArgs e)
         {
@@ -138,7 +138,7 @@ namespace Disneyland
         }
     }
 
-    partial class DatePickerForm
+    partial class DatePickerOutputForm
     {
         private void DatePickerForm_SizeChanged(object sender, EventArgs e)
         {

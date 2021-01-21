@@ -14,7 +14,7 @@ using System.Threading;
 
 namespace Disneyland
 {
-    public partial class DatePickerForm : Form
+    public partial class DatePickerOutputForm : Form
     {
 		//declarations
 		int selectedweek; 
@@ -23,7 +23,7 @@ namespace Disneyland
 		SqlConnection con;
 		int crowdlevel;
 
-	public DatePickerForm(int week, int price, int crowd)
+	public DatePickerOutputForm(int week, int price, int crowd)
 		{
 			// execute the datapicker function (output:best date + necessities)
 			InitializeComponent();

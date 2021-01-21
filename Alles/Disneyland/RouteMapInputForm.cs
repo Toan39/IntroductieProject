@@ -48,7 +48,7 @@ namespace Disneyland
 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
                
-                RouteMapForm map1 = new RouteMapForm(selecteditems, checktime); //only grabs the higherbound of the first generation.
+                RouteMapOutputForm map1 = new RouteMapOutputForm(selecteditems, checktime); //only grabs the higherbound of the first generation.
                 float maxfitness = map1.higherbound;
                 float maxtime = map1.UpperBoundTime;
                 float originaltime = normalizefitnessscore(maxfitness, maxtime);
@@ -59,7 +59,7 @@ namespace Disneyland
                 if(originaltime < 480)
                 {
                     checktime = false;
-                    RouteMapForm map2 = new RouteMapForm(selecteditems, checktime);
+                    RouteMapOutputForm map2 = new RouteMapOutputForm(selecteditems, checktime);
                     map2.Size = this.Size;
                     this.Hide();
                     this.Close();
@@ -69,6 +69,8 @@ namespace Disneyland
                 }
                 else
                 {
+                    Wait.Hide();
+                    Wait.Close();
                     string error = "Error: invalid route. Lower the amount of attractions or the amount of";
                     if(lunch == 0)
                     {
