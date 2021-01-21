@@ -134,8 +134,8 @@ namespace Disneyland
 
 
         /// <summary>
-        /// Converts the selected items (attraction names) into a list (attractionIDs)
-        /// And adds the ports as starting point and ending of the route
+        /// Converts the selected items (attraction names) into a temporary list (attractionIDs, total time of an attraction)
+        /// And adds the ports as starting point and ending point of the route
         /// </summary>
         /// <param name="selected"></param>
         public void SelectItems(int selected)
