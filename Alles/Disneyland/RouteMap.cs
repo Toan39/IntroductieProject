@@ -55,18 +55,25 @@ namespace Disneyland
             parent2 = new string[selected + 2]; //the +2 is because the whole chromosome has ports
             parent1 = new string[selected + 2];
 
+            foreach(string s in selecteditems)
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("\n");
+
             InitializeComponent();
             ///<summary>
             ///Genetic Algorithm (finds a approximately best route )
             ///</summary>
             MakeWalktimelist();
+
             DownScaleList(selecteditems, AttID, "ID");
             CreatePopulation(popsize(selected), selected, "Initial", AttID);
 
-            FitnessFunction();
-            Selection(selected);
+            //FitnessFunction();
+            //Selection(selected);
 
-            Termination(popsize(selected), selected);
+            //Termination(popsize(selected), selected);
             Console.WriteLine("end");
         }
 
@@ -186,6 +193,7 @@ namespace Disneyland
         {
             for (int z = 0; z < PopulationSize;)
             {
+                Console.WriteLine("\n");
                 if (CurrentPopulation == "Initial")
                 {
                     shuffler.Shuffle(CurrentList); //executes the shuffler
@@ -218,16 +226,16 @@ namespace Disneyland
 
             //print the arrays in the jagged array with the index number in console
 
-            //for (int i = 0; i < population.Length; i++)
-            //{
-            //    Console.Write("Element({0}): ", i);
+            for (int i = 0; i < population.Length; i++)
+            {
+                Console.Write("Element({0}): ", i);
 
-            //    for (int j = 0; j < population[i].Length; j++)
-            //    {
-            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-            //    }
-            //    Console.WriteLine("\n");
-            //}
+                for (int j = 0; j < population[i].Length; j++)
+                {
+                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+                }
+                Console.WriteLine("\n");
+            }
         }
 
 
@@ -249,12 +257,12 @@ namespace Disneyland
             listForGenAl[0].TotalTime = 0;
             while (i < WTimes.Count && done == true)
             {
-                if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && CheckSelected(WTimes[i].EndPoint.ToString(), a, CurrentList))
+                if (possible(WTimes[i].EndPoint) && begincheck(WTimes[i].StartPoint, previous) && CheckSelected(WTimes[i].EndPoint, a, CurrentList))
                 {
                     listForGenAl.Add(new genal());
-                    listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
-                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
-                    previous = WTimes[i].EndPoint.ToString();
+                    listForGenAl[a].Endpoint = WTimes[i].EndPoint;
+                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint);
+                    previous = WTimes[i].EndPoint;
                     a++;
                     if (a == selected + 1)
                     {
@@ -263,10 +271,12 @@ namespace Disneyland
                         listForGenAl[a].Endpoint = "P1RA11";
                         listForGenAl[a].TotalTime = routecheck(previous, "P1RA11");
                     }
-                    i = 0;
+                    i = -1;
                 }
                 i++;
+                
             }
+
         }
 
         /// <summary>
@@ -290,27 +300,17 @@ namespace Disneyland
         //Checks if there are attractions yet in the route
         public bool begincheck(string y, string z)
         {
-            if (z != "")
-            {
                 if (y == z)
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
+            return false;
         }
 
         //checks what attractions are selected 
         public bool CheckSelected(string selected, int a, List<string> CurrentList)
         {
-            if (selected == CurrentList[a - 1])
+            if (selected == CurrentList[a-1])
             {
                 return true;
             }
@@ -385,8 +385,8 @@ namespace Disneyland
             higherbound = fitness.Max();
 
             //prints every fitnessScore
-            Console.WriteLine(higherbound);
-            Console.WriteLine("\n");
+            //Console.WriteLine(higherbound);
+            //Console.WriteLine("\n");
 
             ///<summary>
             ///Sets the best fitnessscore of the population and  to a list with attractionIDs 
