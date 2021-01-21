@@ -141,9 +141,9 @@ namespace Disneyland
         public void SelectItems(int selected)
         {
             string p = "P1RA11"; //attractionID of the port
-            string previous = p;
-            int a = 1;
-            int i = 0;
+            string previous = p; //previous is the previous item (attraction)  of the cache list 
+            int a = 1; //since the port is on index 0 of the cache list
+            int i = 0; 
 
             bool done = true;
             cache.Add(new sqldata());
@@ -165,7 +165,7 @@ namespace Disneyland
                         cache[a].Endpoint = p;
                         cache[a].TotalTime = routecheck(previous, p);
                     }
-                    i = -1;
+                    i = -1; //to also let the loop work for the first item in WTimes list
                 }
                 i++;
             }
@@ -192,21 +192,11 @@ namespace Disneyland
         //Checks if there are attractions yet in the route
         public bool begincheck(string y, string z)
         {
-            if (z != "")
-            {
-                if (y == z)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
+            if (y == z)
             {
                 return true;
             }
+            return false;
         }
 
         //checks what attractions are selected 
@@ -264,18 +254,16 @@ namespace Disneyland
         //Creates a population
         public void CreatePointArray(int z)
         {
-
-            string[] index = new string[z];
             for (int t = 0; t < z; t++)
             {
-                index[t] = cache[t].Endpoint;
+                chromosome[t] = cache[t].Endpoint;
             }
-            population[s] = index;
+            population[s] = chromosome;
             s++;
         }
 
         //Calculates the fitnessscore for each chromosome (route) in the population
-        public void FitnessFunction()
+        public void FitnessFunction(int selected)
         {
             for (int t = 0; t < fitness.Length; t++)
             {
@@ -284,41 +272,38 @@ namespace Disneyland
             }
 
 
-            higherbound = fitness.Max();
+            HighestFitness = fitness.Max(); //the highestFitness of the current generation
 
             //prints every fitnessScore
-            Console.WriteLine(higherbound);
+            Console.WriteLine(HighestFitness);
             Console.WriteLine("\n");
 
             ///<summary>
-            ///Sets the best fitnessscore of the population and  to a list with attractionIDs 
+            ///Sets the best fitnessscore of all generations and convert it to a list with attractionIDs 
+            ///Only do the conversion if all generations are produced
             ///</summary>
-            while (higherbound > bestFitness)
+            while (HighestFitness > bestFitness)
             {
-                bestFitness = higherbound;
+                bestFitness = HighestFitness;
                 CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
-                betterChromo = true;
-            }
-
-            if (higherbound <= bestFitness)
-            {
+            }   
                 GenerationCount++;
-            }
 
-            if (betterChromo == true)
+            if (GenerationCount == 30 || selected <=4) 
             {
-                CurrentChromosome = (string[])population.GetValue(CurrentBest); //array of population  
-                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list
-                betterChromo = false;
+                CurrentChromosome = population[CurrentBest]; //array of population  
+                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list         
             }
-
         }
 
         //Selects a dynamic top percentile of the population 
         public void Selection(int selected)
         {
+            float higherbound = HighestFitness;
             float lowerbound = higherbound - (higherbound / selected);  //dependds on how many parents is needed 
             fitness.OrderBy(x => x); //sort it from low to high
+
+            //Selection of the fitnessscores of the parents between the upperbound and lowerbound
             fitnessParents = Array.FindAll(fitness, x =>
                                       x >= lowerbound && x <= higherbound);
 
@@ -337,7 +322,7 @@ namespace Disneyland
 
             for (int t = 0; t < indexPopulation.Length; t++)
             {
-                parents[t] = (string[])population.GetValue(indexPopulation[t]);
+                parents[t] = population[indexPopulation[t]];
             }
         }
 
@@ -346,8 +331,9 @@ namespace Disneyland
         /// </summary>
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 30;   //low processing time
-            if (selected > 4)
+            int j = 30;   // for low processing time, 30 generations are produced
+
+            if (selected > 4) //lesser than 4 attractions no new generations are needed, since best route can be directly determined
             {
                 while (GenerationCount < j)
                 {
@@ -445,10 +431,10 @@ namespace Disneyland
         }
 
         //Creation of a new generation
-        public void NextGeneration(int k, int selected)
+        public void NextGeneration(int PopulationSize, int selected)
         {
-            CreatePopulation(k, selected);
-            FitnessFunction();
+            CreatePopulation(PopulationSize, selected);
+            FitnessFunction(selected);
             Selection(selected);
         }
 

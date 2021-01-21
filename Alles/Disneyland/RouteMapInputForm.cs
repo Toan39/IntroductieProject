@@ -54,7 +54,7 @@ namespace Disneyland
                 //RouteMapOutputForm is going to be partially executed
                 //So that you have a time-value to create an error message
                 RouteMapOutputForm FirstGen = new RouteMapOutputForm(selecteditems, checktime); //Only grabs the higherbound of the first generation, because of the bool on termination+selection
-                float maxfitness = FirstGen.higherbound;
+                float maxfitness = FirstGen.HighestFitness;
                 float maxtime = FirstGen.UpperBoundTime;
                 float TotaltimeOfRoute = normalizefitnessscore(maxfitness, maxtime);
                 FirstGen.Close();

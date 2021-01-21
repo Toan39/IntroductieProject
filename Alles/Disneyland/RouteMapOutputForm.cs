@@ -33,17 +33,16 @@ namespace Disneyland
         //declarations of arrays
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
-        string[] CurrentChromosome, parent1, parent2, child;
+        string[] CurrentChromosome, parent1, parent2, child, chromosome;
         string[][] population, parents;
 
         //declarations of variables
-        bool betterChromo;
         int CurrentBest, index;
         int s=0; //index of the population array  
         int GenerationCount = 0; // The current generation. The int GenerationCount is not the amount of generations
         public int UpperBoundTime = 480; // this is the amount of minutes that is assumed for how long  Disneyland is open 
         float bestFitness, sumTime;
-        public float higherbound = 0;
+        public float HighestFitness = 0;
         
         //gmap declarations.
         GMapMarker[] mark = new GMapMarker[30];
@@ -62,14 +61,15 @@ namespace Disneyland
             population = new string[popsize(selected)][];
             parent2 = new string[selected + 2]; //the +2 is because the whole chromosome has ports
             parent1 = new string[selected + 2];
- 
+            chromosome = new string[selected + 2]; // a chromosome is a complete attractionroute
+
             ///<summary>
             ///Genetic Algorithm (finds a approximately best route) (the code is in GeneticAlgorithm.cs)
             ///</summary>
             MakeWalktimelist();
             DownScaleList(selecteditems);
             CreatePopulation(popsize(selected), selected);
-            FitnessFunction();
+            FitnessFunction(selected);
             if(checktime == false)
             {
                 Selection(selected);
