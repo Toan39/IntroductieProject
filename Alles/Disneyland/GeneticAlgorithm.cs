@@ -330,10 +330,11 @@ namespace Disneyland
 
         /// <summary>
         /// Terminates the genetic algorithm after 30 generations are made
+        /// Having not a lot of generations makes the processing time low
         /// </summary>
         public void Termination(int PopulationSize, int selected)
         {
-            int j = 30;   // for low processing time, 30 generations are produced
+            int j = 30;  
 
             if (selected > 4) //lesser than 4 attractions no new generations are needed, since best route can be directly determined
             {
