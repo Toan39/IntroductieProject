@@ -121,7 +121,7 @@ namespace Disneyland
                     if (sumTime < UpperBoundTime)
                     {
                         fitnesstime[z] = sumTime;
-                        CreatePointArray(cache.Count);
+                        CreateChromosome(cache.Count); 
                         z++;
                     }
                 }
@@ -251,14 +251,15 @@ namespace Disneyland
             return false;
         }
 
-        //Creates a population
-        public void CreatePointArray(int z)
+        //Creates a chromosome (attractionroute) and add it to the population
+        public void CreateChromosome(int z)
         {
+            string[] chromosome = new string[z];
             for (int t = 0; t < z; t++)
             {
                 chromosome[t] = cache[t].Endpoint;
             }
-            population[s] = chromosome;
+            population[s] = chromosome; //adding chromosomes to the population
             s++;
         }
 
@@ -279,21 +280,22 @@ namespace Disneyland
             Console.WriteLine("\n");
 
             ///<summary>
-            ///Sets the best fitnessscore of all generations and convert it to a list with attractionIDs 
-            ///Only do the conversion if all generations are produced
+            ///Sets the best fitnessscore and convert it to a list with attractionIDs 
             ///</summary>
             while (HighestFitness > bestFitness)
             {
                 bestFitness = HighestFitness;
                 CurrentBest = Array.IndexOf(fitness, bestFitness); //This is the index of the best chromosome
+                betterChromo = true;
             }   
-                GenerationCount++;
 
-            if (GenerationCount == 30 || selected <=4) 
+            if (betterChromo == true) 
             {
                 CurrentChromosome = population[CurrentBest]; //array of population  
                 BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list         
             }
+
+            GenerationCount++; 
         }
 
         //Selects a dynamic top percentile of the population 

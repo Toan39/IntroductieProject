@@ -33,8 +33,9 @@ namespace Disneyland
         //declarations of arrays
         int[] indexPopulation;
         float[] fitnesstime, fitness, fitnessParents;
-        string[] CurrentChromosome, parent1, parent2, child, chromosome;
+        string[] CurrentChromosome, parent1, parent2, child;
         string[][] population, parents;
+        bool betterChromo;
 
         //declarations of variables
         int CurrentBest, index;
@@ -61,7 +62,6 @@ namespace Disneyland
             population = new string[popsize(selected)][];
             parent2 = new string[selected + 2]; //the +2 is because the whole chromosome has ports
             parent1 = new string[selected + 2];
-            chromosome = new string[selected + 2]; // a chromosome is a complete attractionroute
 
             ///<summary>
             ///Genetic Algorithm (finds a approximately best route) (the code is in GeneticAlgorithm.cs)
