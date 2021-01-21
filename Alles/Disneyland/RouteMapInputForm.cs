@@ -56,11 +56,11 @@ namespace Disneyland
                 RouteMapOutputForm FirstGen = new RouteMapOutputForm(selecteditems, checktime); //Only grabs the higherbound of the first generation, because of the bool on termination+selection
                 float maxfitness = FirstGen.higherbound;
                 float maxtime = FirstGen.UpperBoundTime;
-                float originaltime = normalizefitnessscore(maxfitness, maxtime);
+                float TotaltimeOfRoute = normalizefitnessscore(maxfitness, maxtime);
                 FirstGen.Close();
 
                 //When the upperbound is not exceeded the RouteMapOutputForm is executed
-                if (originaltime < 480)
+                if (TotaltimeOfRoute < 480)
                 {
                     checktime = false;
                     RouteMapOutputForm routemap = new RouteMapOutputForm(selecteditems, checktime);
@@ -151,11 +151,11 @@ namespace Disneyland
         private float normalizefitnessscore(float maxfitness, float maxtime)
         {
             float x = (100 - maxfitness) / 100;
-            float originaltime = x * maxtime;
-            originaltime = originaltime + 5; //adds 5 minutes to the higherbound in order to prevent an infinite route.
+            float TotaltimeOfRoute = x * maxtime;
+            TotaltimeOfRoute = TotaltimeOfRoute + 5; //adds 5 minutes to the higherbound in order to prevent an infinite route.
             lunch = lunch * 20;
-            originaltime = originaltime + lunch + spare;
-            return originaltime;
+            TotaltimeOfRoute = TotaltimeOfRoute + lunch + spare;
+            return TotaltimeOfRoute;
         }
     }
 }
