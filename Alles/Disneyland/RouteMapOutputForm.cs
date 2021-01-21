@@ -69,7 +69,7 @@ namespace Disneyland
             MakeWalktimelist();
             DownScaleList(selecteditems);
             CreatePopulation(popsize(selected), selected);
-            FitnessFunction(selected);
+            FitnessFunction();
             if(checktime == false)
             {
                 Selection(selected);

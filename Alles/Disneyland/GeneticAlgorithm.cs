@@ -264,7 +264,7 @@ namespace Disneyland
         }
 
         //Calculates the fitnessscore for each chromosome (route) in the population
-        public void FitnessFunction(int selected)
+        public void FitnessFunction()
         {
             for (int t = 0; t < fitness.Length; t++)
             {
@@ -436,7 +436,7 @@ namespace Disneyland
         public void NextGeneration(int PopulationSize, int selected)
         {
             CreatePopulation(PopulationSize, selected);
-            FitnessFunction(selected);
+            FitnessFunction();
             Selection(selected);
         }
 
