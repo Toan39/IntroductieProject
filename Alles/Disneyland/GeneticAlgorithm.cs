@@ -121,14 +121,14 @@ namespace Disneyland
                     if (sumTime < UpperBoundTime)
                     {
                         fitnesstime[z] = sumTime;
-                        CreatePointArray(listForGenAl.Count);
+                        CreatePointArray(cache.Count);
                         z++;
                     }
                 }
 
                 //resets these parameters. So that the loop can be re-used
                 sumTime = 0;
-                listForGenAl.Clear();
+                cache.Clear();
             }
         }
 
@@ -146,24 +146,24 @@ namespace Disneyland
             int i = 0;
 
             bool done = true;
-            listForGenAl.Add(new GenAl());
-            listForGenAl[0].Endpoint = p;
-            listForGenAl[0].TotalTime = 0;
+            cache.Add(new sqldata());
+            cache[0].Endpoint = p;
+            cache[0].TotalTime = 0;
             while (i < WTimes.Count && done == true)
             {
                 if (possible(WTimes[i].EndPoint.ToString()) && begincheck(WTimes[i].StartPoint.ToString(), previous) && CheckSelected(WTimes[i].EndPoint.ToString(), a))
                 {
-                    listForGenAl.Add(new GenAl());
-                    listForGenAl[a].Endpoint = WTimes[i].EndPoint.ToString();
-                    listForGenAl[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
+                    cache.Add(new sqldata());
+                    cache[a].Endpoint = WTimes[i].EndPoint.ToString();
+                    cache[a].TotalTime = routecheck(previous, WTimes[i].EndPoint.ToString());
                     previous = WTimes[i].EndPoint.ToString();
                     a++;
                     if (a == selected + 1)
                     {
                         done = false;
-                        listForGenAl.Add(new GenAl());
-                        listForGenAl[a].Endpoint = p;
-                        listForGenAl[a].TotalTime = routecheck(previous, p);
+                        cache.Add(new sqldata());
+                        cache[a].Endpoint = p;
+                        cache[a].TotalTime = routecheck(previous, p);
                     }
                     i = 0;
                 }
@@ -179,9 +179,9 @@ namespace Disneyland
         //Checks if an attraction is not yet been added to the route
         public bool possible(string x)
         {
-            foreach (GenAl GenAl in listForGenAl)
+            foreach (sqldata sqldata in cache)
             {
-                if (x == GenAl.Endpoint)
+                if (x == sqldata.Endpoint)
                 {
                     return false;
                 }
@@ -238,7 +238,7 @@ namespace Disneyland
         //Calculates the total time of a route
         public void FunctionSumTime()
         {
-            foreach (GenAl attraction in listForGenAl)
+            foreach (sqldata attraction in cache)
             {
                 sumTime = sumTime + attraction.TotalTime;
             }
@@ -268,7 +268,7 @@ namespace Disneyland
             string[] index = new string[z];
             for (int t = 0; t < z; t++)
             {
-                index[t] = listForGenAl[t].Endpoint;
+                index[t] = cache[t].Endpoint;
             }
             population[s] = index;
             s++;
@@ -368,6 +368,7 @@ namespace Disneyland
         /// </summary>
         public void CreateChild(int selected)
         {
+            //get 2 random parents of the population
             int r = rnd.Next(indexPopulation.Length);
             parent1 = parents[r];
             r = rnd.Next(indexPopulation.Length);

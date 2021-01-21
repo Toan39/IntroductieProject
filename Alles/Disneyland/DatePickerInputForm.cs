@@ -79,9 +79,12 @@ namespace Disneyland
                 this.Hide();
                 DatePickerOutputForm date = new DatePickerOutputForm(week, price, crowd);
                 date.ResultLabel.Text = date.ReturnBestDate();
+
+                //Keeps the size of the previous form
                 if (this.WindowState == FormWindowState.Maximized)
                     date.WindowState = FormWindowState.Maximized;
                 date.MinimumSize = new Size(616, 405);
+
                 date.Size = this.Size;
                 date.ShowDialog();
                 this.Close();
@@ -92,10 +95,14 @@ namespace Disneyland
         //Returns user to home form
         private void HomeButton_Click(object sender, EventArgs e)
         {
+           
             MainMenu main = new MainMenu();
+
+            //Keeps the size of the previous form
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             main.Size = this.Size;
+
             this.Hide();
             main.ShowDialog();
             this.Close();

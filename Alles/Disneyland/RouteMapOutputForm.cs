@@ -24,7 +24,7 @@ namespace Disneyland
         Random rnd = new Random();
 
         //declarations of lists
-        List<GenAl> listForGenAl = new List<GenAl>();
+        List<sqldata> cache = new List<sqldata>(); //temporary list that is used to store a chromosome/route for the Genetic Algorithm
         List<walktime> WTimes = new List<walktime>();
         List<string> BestChromosome = new List<string>();
         List<string> AttID = new List<string>();
@@ -123,6 +123,7 @@ namespace Disneyland
             markers.Markers.Clear();
             gmap.Overlays.Clear();
             
+            //sets the default view for the map
             gmap.MapProvider = GMapProviders.GoogleMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gmap.Position = new GMap.NET.PointLatLng(48.872621961563205, 2.7761909189966993);
@@ -131,7 +132,8 @@ namespace Disneyland
             gmap.Zoom = 15;
             gmap.ShowCenter = false;
             gmap.DragButton = MouseButtons.Left;
-              
+            
+            //adding markers and labels that are needed to visualize the "best" chromosome/route
             for (int t = 0; t < list.attLoc.Count; t++)
             {
                 PointLatLng p = new PointLatLng(list.attLoc[t].Lat, list.attLoc[t].Lon);

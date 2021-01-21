@@ -15,22 +15,25 @@ namespace Disneyland
 {
     public partial class RouteMapInputForm : Form
     {
+        //declarations of variables
         int lunch = 0;
         int spare = 0;
-        bool checktime = true;
+        bool checktime = true; //used to execute RouteMapOutputForm partially
         public RouteMapInputForm()
          {
             CultureInfo.CurrentCulture = new CultureInfo("en-US", false);
             InitializeComponent();
         }
 
-        //When user clicks on Go-button the RouteMap.cs is executed
+        /// <summary>
+        /// Error messages for when an impossible inputs are inserted.
+        /// If the totaltime including the lunch breaks and spare time exceeds the upperboundtime, an error message will occur.
+        /// When user clicks on Go-button the RouteMap.cs is executed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void GoButton_Click(object sender, EventArgs e)
         {
-            /// <summary>
-            /// error messages for when an impossible inputs are inserted.
-            /// if the totaltime including the lunch breaks and spare time exceeds the upperboundtime, an error message will occur.
-            /// </summary>
             if (PriorityRidesListBox.Items.Count > 18)
                 { MessageBox.Show("Select max 18 attractions "); } 
             else if (PriorityRidesListBox.Items.Count == 0)
@@ -39,34 +42,43 @@ namespace Disneyland
             }
             else
             {
+                //A wait form for when the user has to wait on the final result ("best" route)
                 Form Wait = new Form();
                 Wait.Text = "Wait a bit";
                 Wait.Size = new Size(350, 0);
                 Wait.StartPosition = FormStartPosition.CenterScreen;
                 Wait.Show();
-                
 
                 var selecteditems = PriorityRidesListBox.Items.Cast<String>().ToList();
-               
-                RouteMapOutputForm map1 = new RouteMapOutputForm(selecteditems, checktime); //only grabs the higherbound of the first generation.
-                float maxfitness = map1.higherbound;
-                float maxtime = map1.UpperBoundTime;
+
+                //RouteMapOutputForm is going to be partially executed
+                //So that you have a time-value to create an error message
+                RouteMapOutputForm FirstGen = new RouteMapOutputForm(selecteditems, checktime); //Only grabs the higherbound of the first generation, because of the bool on termination+selection
+                float maxfitness = FirstGen.higherbound;
+                float maxtime = FirstGen.UpperBoundTime;
                 float originaltime = normalizefitnessscore(maxfitness, maxtime);
-                map1.MinimumSize = new Size(800, 584);
-                map1.Size = this.Size;
-                if (this.WindowState == FormWindowState.Maximized)
-                    map1.WindowState = FormWindowState.Maximized;
-                if(originaltime < 480)
+                FirstGen.Close();
+
+                //When the upperbound is not exceeded the RouteMapOutputForm is executed
+                if (originaltime < 480)
                 {
                     checktime = false;
-                    RouteMapOutputForm map2 = new RouteMapOutputForm(selecteditems, checktime);
-                    map2.Size = this.Size;
+                    RouteMapOutputForm routemap = new RouteMapOutputForm(selecteditems, checktime);
+
+                    //Keeps the size of the previous form
+                    routemap.MinimumSize = new Size(800, 584);
+                    routemap.Size = this.Size;
+                    if (this.WindowState == FormWindowState.Maximized)
+                        routemap.WindowState = FormWindowState.Maximized;
+
                     this.Hide();
                     this.Close();
                     Wait.Hide();
                     Wait.Close();
-                    map2.ShowDialog();
+                    routemap.ShowDialog();
                 }
+
+                //When the upperbound is  excedeed error messages are going to show up that advice te user to change his input
                 else
                 {
                     Wait.Hide();
@@ -108,9 +120,12 @@ namespace Disneyland
         private void HomeButton_Click(object sender, EventArgs e)
         {
             MainMenu main = new MainMenu();
+
+            //Keeps the size of the previous form
             if (this.WindowState == FormWindowState.Maximized)
                 main.WindowState = FormWindowState.Maximized;
             main.Size = this.Size;
+
             this.Hide();
             main.ShowDialog();
             this.Close();

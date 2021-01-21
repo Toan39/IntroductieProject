@@ -49,7 +49,7 @@
             this.DatePickerButton.TabIndex = 0;
             this.DatePickerButton.Text = "Pick My Date";
             this.DatePickerButton.UseVisualStyleBackColor = false;
-            this.DatePickerButton.Click += new System.EventHandler(this.button1_Click);
+            this.DatePickerButton.Click += new System.EventHandler(this.DatePickerButton_Click);
             // 
             // RouteButton
             // 
@@ -63,7 +63,7 @@
             this.RouteButton.TabIndex = 1;
             this.RouteButton.Text = "Show my route";
             this.RouteButton.UseVisualStyleBackColor = false;
-            this.RouteButton.Click += new System.EventHandler(this.button2_Click);
+            this.RouteButton.Click += new System.EventHandler(this.RouteButton_Click);
             // 
             // MainTextLabel1
             // 

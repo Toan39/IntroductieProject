@@ -40,6 +40,7 @@ namespace Disneyland
 			con = new SqlConnection(path);
 		}
 
+		//Reads the sql-data from the database
 		public void ReadSqlData()
 		{
 			MakeConnection();
@@ -113,9 +114,12 @@ namespace Disneyland
         private void HomeButton_Click(object sender, EventArgs e)
         {
 			MainMenu main = new MainMenu();
+
+			//Keeps the size of the previous form
 			if (this.WindowState == FormWindowState.Maximized)
 				main.WindowState = FormWindowState.Maximized;
 			main.Size = this.Size;
+
 			this.Hide();
 			main.ShowDialog();
 			this.Close();

@@ -21,27 +21,37 @@ namespace Disneyland
             this.MinimumSize = new Size(616, 405);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DatePickerButton_Click(object sender, EventArgs e)
         {
-            DatePickerInputForm disney = new DatePickerInputForm();
-            if(this.WindowState == FormWindowState.Maximized)
-               disney.WindowState = FormWindowState.Maximized;
-            disney.MinimumSize = new Size(616, 405);
-            disney.Size = this.Size;
+            DatePickerInputForm UserInputsDatePicker = new DatePickerInputForm();
+
+            //Keeps the form maximized when changing to another form 
+            if (this.WindowState == FormWindowState.Maximized)
+                UserInputsDatePicker.WindowState = FormWindowState.Maximized;
+
+            //prevents that the form can not be made smaller than the default size
+            UserInputsDatePicker.MinimumSize = new Size(616, 405);
+
+            UserInputsDatePicker.Size = this.Size;
             this.Hide();
-            disney.ShowDialog();
+            UserInputsDatePicker.ShowDialog();
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void RouteButton_Click(object sender, EventArgs e)
         {
-            RouteMapInputForm disney2 = new RouteMapInputForm();
+            RouteMapInputForm UserInputsRouteMap = new RouteMapInputForm();
+
+            //Keeps the form maximized when changing to another form 
             if (this.WindowState == FormWindowState.Maximized)
-                disney2.WindowState = FormWindowState.Maximized;
-            disney2.MinimumSize = new Size(616, 405);
-            disney2.Size = this.Size;
+                UserInputsRouteMap.WindowState = FormWindowState.Maximized;
+
+            //Prevents that the form can not be made smaller than the default size
+            UserInputsRouteMap.MinimumSize = new Size(616, 405);
+            UserInputsRouteMap.Size = this.Size;
+
             this.Hide();
-            disney2.ShowDialog();
+            UserInputsRouteMap.ShowDialog();
             this.Close();
 
         }
