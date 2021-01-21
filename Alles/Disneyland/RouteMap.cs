@@ -55,12 +55,6 @@ namespace Disneyland
             parent2 = new string[selected + 2]; //the +2 is because the whole chromosome has ports
             parent1 = new string[selected + 2];
 
-            foreach(string s in selecteditems)
-            {
-                Console.WriteLine(s);
-            }
-            Console.WriteLine("\n");
-
             InitializeComponent();
             ///<summary>
             ///Genetic Algorithm (finds a approximately best route )
@@ -70,10 +64,10 @@ namespace Disneyland
             DownScaleList(selecteditems, AttID, "ID");
             CreatePopulation(popsize(selected), selected, "Initial", AttID);
 
-            //FitnessFunction();
-            //Selection(selected);
+            FitnessFunction();
+            Selection(selected);
 
-            //Termination(popsize(selected), selected);
+            Termination(popsize(selected), selected);
             Console.WriteLine("end");
         }
 
@@ -193,7 +187,6 @@ namespace Disneyland
         {
             for (int z = 0; z < PopulationSize;)
             {
-                Console.WriteLine("\n");
                 if (CurrentPopulation == "Initial")
                 {
                     shuffler.Shuffle(CurrentList); //executes the shuffler
@@ -226,16 +219,16 @@ namespace Disneyland
 
             //print the arrays in the jagged array with the index number in console
 
-            for (int i = 0; i < population.Length; i++)
-            {
-                Console.Write("Element({0}): ", i);
+            //for (int i = 0; i < population.Length; i++)
+            //{
+            //    Console.Write("Element({0}): ", i);
 
-                for (int j = 0; j < population[i].Length; j++)
-                {
-                    Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
-                }
-                Console.WriteLine("\n");
-            }
+            //    for (int j = 0; j < population[i].Length; j++)
+            //    {
+            //        Console.Write("{0}{1}", population[i][j], j == (population[i].Length - 1) ? "" : " ");
+            //    }
+            //    Console.WriteLine("\n");
+            //}
         }
 
 
@@ -385,8 +378,8 @@ namespace Disneyland
             higherbound = fitness.Max();
 
             //prints every fitnessScore
-            //Console.WriteLine(higherbound);
-            //Console.WriteLine("\n");
+            Console.WriteLine(higherbound);
+            Console.WriteLine("\n");
 
             ///<summary>
             ///Sets the best fitnessscore of the population and  to a list with attractionIDs 
