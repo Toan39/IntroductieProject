@@ -272,12 +272,7 @@ namespace Disneyland
                 fitness[t] = 100 - (p * 100); //The lower the time of a whole route ,the closer the fitness is to 100
             }
 
-
             HighestFitness = fitness.Max(); //the highestFitness of the current generation
-
-            //prints every fitnessScore
-            Console.WriteLine(HighestFitness);
-            Console.WriteLine("\n");
 
             ///<summary>
             ///Sets the best fitnessscore and convert it to a list with attractionIDs 
@@ -292,7 +287,8 @@ namespace Disneyland
             if (betterChromo == true) 
             {
                 CurrentChromosome = population[CurrentBest]; //array of population  
-                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list         
+                BestChromosome = CurrentChromosome.ToList(); //Best chromosome as a list   
+                betterChromo = false;
             }
 
             GenerationCount++; 

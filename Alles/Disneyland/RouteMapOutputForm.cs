@@ -74,8 +74,6 @@ namespace Disneyland
             {
                 Selection(selected);
                 Termination(popsize(selected), selected);
-                Console.WriteLine("end");
-                Console.WriteLine("\n");
             }
         }
 
